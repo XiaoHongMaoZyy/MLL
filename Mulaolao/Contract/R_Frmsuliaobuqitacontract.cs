@@ -40,7 +40,7 @@ namespace Mulaolao.Contract
         yesOrNoPlanActual pc = new yesOrNoPlanActual( ); //Dictionary<string ,string> dicStr = new Dictionary<string ,string>( );
         string copy = "", file = "", numQu = "", stateOfOdd = "", conOne = "";
         List<SplitContainer> spList = new List<SplitContainer>( );List<TabPage> pageList = new List<TabPage>( );
-        
+         
         private void R_Frmsuliaobuqitacontract_Load ( object sender ,EventArgs e )
         {
             Power( this );
@@ -3001,6 +3001,7 @@ namespace Mulaolao.Contract
             gridControl1 . DataSource = de;
             gridView1 . BestFitColumns ( );
             every ( );
+            previousOfPrice ( );
             //}
         }
         //实际收货时间

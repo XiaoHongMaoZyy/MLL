@@ -24,13 +24,13 @@ namespace Mulaolao . Wages
 
             GridViewMoHuSelect . SetFilter ( bandedGridView1 );
             GrivColumnStyle . setColumnStyle ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { this . bandedGridView1 } );
+            GrivColumnStyle . setColumnStyleFormat ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { this . bandedGridView1 } );
             MulaolaoBll . UserInfoMation . tableName = this . Name;
 
-
-            toolSave . Enabled = true;
+            toolSave . Enabled = false;
             toolExport . Enabled = true;
         }
-
+        
         protected override void select ( )
         {
             strWhere = "1=1";
@@ -47,17 +47,17 @@ namespace Mulaolao . Wages
 
         protected override void save ( )
         {
-            bandedGridView1 . CloseEditor ( );
-            bandedGridView1 . UpdateCurrentRow ( );
+            //bandedGridView1 . CloseEditor ( );
+            //bandedGridView1 . UpdateCurrentRow ( );
 
-            result = _bll . Edit ( tableView );
-            if ( result )
-            {
-                MessageBox . Show ( "成功保存" );
-                select ( );
-            }
-            else
-                MessageBox . Show ( "保存失败" );
+            //result = _bll . Edit ( tableView );
+            //if ( result )
+            //{
+            //    MessageBox . Show ( "成功保存" );
+            //    select ( );
+            //}
+            //else
+            //    MessageBox . Show ( "保存失败" );
 
             base . save ( );
         }
@@ -73,7 +73,7 @@ namespace Mulaolao . Wages
         {
             strWhere = "1=1";
             if ( !string . IsNullOrEmpty ( secPro . Text ) )
-                strWhere = strWhere + " AND A.AM002='" + secPro . EditValue . ToString ( ) + "'";
+                strWhere = strWhere + " AND PQF01='" + secPro . EditValue . ToString ( ) + "'";
             if ( !string . IsNullOrEmpty ( date . Text ) )
                 strWhere = strWhere + " AND PQF31='" + date . Text + "'";
 

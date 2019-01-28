@@ -68,6 +68,7 @@
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.txtQUP003 = new DevExpress.XtraEditors.TextEdit();
             this.txtQUP002 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtQUOA012 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -78,25 +79,31 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.QUR003 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR002 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR004 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR005 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR006 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR007 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR008 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR009 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR010 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR016 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR011 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR012 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR013 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR014 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.QUR015 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA011 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA013 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA012 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA001 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA014 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA005 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA999 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA998 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA997 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA996 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA995 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA994 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.U0 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA009 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA003 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.U2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.U1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUOA002 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.idx = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.QUO993 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.U3 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.TabPageOne.SuspendLayout();
@@ -135,6 +142,7 @@
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQUP003.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQUP002.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQUOA012.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
@@ -145,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -561,6 +570,7 @@
             this.layoutControl2.Controls.Add(this.btnRefresh);
             this.layoutControl2.Controls.Add(this.txtQUP003);
             this.layoutControl2.Controls.Add(this.txtQUP002);
+            this.layoutControl2.Controls.Add(this.txtQUOA012);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
             this.layoutControl2.Name = "layoutControl2";
@@ -666,6 +676,25 @@
             this.txtQUP002.TabIndex = 8;
             this.txtQUP002.TextChanged += new System.EventHandler(this.txtQUP002_TextChanged);
             // 
+            // txtQUOA012
+            // 
+            this.txtQUOA012.Location = new System.Drawing.Point(766, 12);
+            this.txtQUOA012.Name = "txtQUOA012";
+            this.txtQUOA012.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F);
+            this.txtQUOA012.Properties.Appearance.Options.UseFont = true;
+            this.txtQUOA012.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtQUOA012.Properties.Items.AddRange(new object[] {
+            "",
+            "材料部分",
+            "包装材料",
+            "承揽工资",
+            "前后段工资",
+            "代理费"});
+            this.txtQUOA012.Size = new System.Drawing.Size(130, 22);
+            this.txtQUOA012.StyleController = this.layoutControl2;
+            this.txtQUOA012.TabIndex = 10;
+            // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -680,6 +709,7 @@
             this.emptySpaceItem6,
             this.layoutControlItem15,
             this.layoutControlItem16,
+            this.layoutControlItem18,
             this.emptySpaceItem7});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
@@ -768,12 +798,25 @@
             this.layoutControlItem16.Text = "合同代号";
             this.layoutControlItem16.TextSize = new System.Drawing.Size(64, 16);
             // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F);
+            this.layoutControlItem18.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem18.Control = this.txtQUOA012;
+            this.layoutControlItem18.Location = new System.Drawing.Point(717, 0);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(171, 28);
+            this.layoutControlItem18.Text = "类别";
+            this.layoutControlItem18.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(32, 16);
+            this.layoutControlItem18.TextToControlDistance = 5;
+            // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(717, 0);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(888, 0);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(498, 28);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(327, 28);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // gridControl1
@@ -789,185 +832,287 @@
             // 
             // gridView1
             // 
+            this.gridView1.ColumnPanelRowHeight = 35;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.QUR003,
-            this.QUR002,
-            this.QUR004,
-            this.QUR005,
-            this.QUR006,
-            this.QUR007,
-            this.QUR008,
-            this.QUR009,
-            this.QUR010,
-            this.QUR016,
-            this.QUR011,
-            this.QUR012,
-            this.QUR013,
-            this.QUR014,
-            this.QUR015,
-            this.idx});
+            this.QUOA011,
+            this.QUOA013,
+            this.QUOA012,
+            this.QUOA001,
+            this.QUOA014,
+            this.QUOA005,
+            this.QUOA999,
+            this.QUOA998,
+            this.QUOA997,
+            this.QUOA996,
+            this.QUOA995,
+            this.QUOA994,
+            this.U0,
+            this.QUOA009,
+            this.QUOA003,
+            this.U2,
+            this.U1,
+            this.QUOA002,
+            this.idx,
+            this.QUO993,
+            this.U3});
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupCount = 2;
+            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", this.U2, "{0:0.###}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "QUO993", this.QUO993, "{0:0.##}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "U3", this.U3, "")});
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.AllowCellMerge = true;
+            this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.QUR003, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.QUOA012, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.QUOA011, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
+            this.gridView1.CustomDrawRowFooterCell += new DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventHandler(this.gridView1_CustomDrawRowFooterCell);
             // 
-            // QUR003
+            // QUOA011
             // 
-            this.QUR003.Caption = "合同代号";
-            this.QUR003.FieldName = "QUR003";
-            this.QUR003.Name = "QUR003";
-            this.QUR003.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
-            this.QUR003.Visible = true;
-            this.QUR003.VisibleIndex = 0;
-            this.QUR003.Width = 66;
+            this.QUOA011.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA011.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA011.Caption = "合同代号";
+            this.QUOA011.FieldName = "QUOA011";
+            this.QUOA011.Name = "QUOA011";
+            this.QUOA011.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
+            this.QUOA011.Visible = true;
+            this.QUOA011.VisibleIndex = 0;
+            this.QUOA011.Width = 76;
             // 
-            // QUR002
+            // QUOA013
             // 
-            this.QUR002.Caption = "材种";
-            this.QUR002.FieldName = "QUR002";
-            this.QUR002.Name = "QUR002";
-            this.QUR002.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
-            this.QUR002.Visible = true;
-            this.QUR002.VisibleIndex = 1;
-            this.QUR002.Width = 66;
+            this.QUOA013.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA013.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA013.Caption = "材种";
+            this.QUOA013.FieldName = "QUOA013";
+            this.QUOA013.Name = "QUOA013";
+            this.QUOA013.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
+            this.QUOA013.Visible = true;
+            this.QUOA013.VisibleIndex = 0;
+            this.QUOA013.Width = 68;
             // 
-            // QUR004
+            // QUOA012
             // 
-            this.QUR004.Caption = "零件名称";
-            this.QUR004.FieldName = "QUR004";
-            this.QUR004.Name = "QUR004";
-            this.QUR004.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR004.Visible = true;
-            this.QUR004.VisibleIndex = 2;
-            this.QUR004.Width = 66;
+            this.QUOA012.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA012.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA012.Caption = "类别";
+            this.QUOA012.FieldName = "QUOA012";
+            this.QUOA012.Name = "QUOA012";
+            this.QUOA012.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
+            this.QUOA012.Visible = true;
+            this.QUOA012.VisibleIndex = 0;
+            this.QUOA012.Width = 68;
             // 
-            // QUR005
+            // QUOA001
             // 
-            this.QUR005.Caption = "工艺";
-            this.QUR005.FieldName = "QUR005";
-            this.QUR005.Name = "QUR005";
-            this.QUR005.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR005.Visible = true;
-            this.QUR005.VisibleIndex = 3;
-            this.QUR005.Width = 66;
+            this.QUOA001.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA001.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA001.Caption = "零件名称";
+            this.QUOA001.FieldName = "QUOA001";
+            this.QUOA001.Name = "QUOA001";
+            this.QUOA001.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA001.Visible = true;
+            this.QUOA001.VisibleIndex = 1;
+            this.QUOA001.Width = 54;
             // 
-            // QUR006
+            // QUOA014
             // 
-            this.QUR006.Caption = "每套零件数量";
-            this.QUR006.FieldName = "QUR006";
-            this.QUR006.Name = "QUR006";
-            this.QUR006.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR006.Visible = true;
-            this.QUR006.VisibleIndex = 4;
-            this.QUR006.Width = 84;
+            this.QUOA014.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA014.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA014.Caption = "产品数量";
+            this.QUOA014.FieldName = "QUOA014";
+            this.QUOA014.Name = "QUOA014";
+            this.QUOA014.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA014.Visible = true;
+            this.QUOA014.VisibleIndex = 2;
+            this.QUOA014.Width = 53;
             // 
-            // QUR007
+            // QUOA005
             // 
-            this.QUR007.Caption = "长";
-            this.QUR007.FieldName = "QUR007";
-            this.QUR007.Name = "QUR007";
-            this.QUR007.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR007.Visible = true;
-            this.QUR007.VisibleIndex = 5;
-            this.QUR007.Width = 64;
+            this.QUOA005.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA005.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA005.Caption = "套零件数";
+            this.QUOA005.DisplayFormat.FormatString = "0.######";
+            this.QUOA005.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.QUOA005.FieldName = "QUOA005";
+            this.QUOA005.Name = "QUOA005";
+            this.QUOA005.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA005.Visible = true;
+            this.QUOA005.VisibleIndex = 3;
+            this.QUOA005.Width = 62;
             // 
-            // QUR008
+            // QUOA999
             // 
-            this.QUR008.Caption = "宽";
-            this.QUR008.FieldName = "QUR008";
-            this.QUR008.Name = "QUR008";
-            this.QUR008.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR008.Visible = true;
-            this.QUR008.VisibleIndex = 6;
-            this.QUR008.Width = 64;
+            this.QUOA999.Caption = "工艺";
+            this.QUOA999.FieldName = "QUOA999";
+            this.QUOA999.Name = "QUOA999";
+            this.QUOA999.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA999.Visible = true;
+            this.QUOA999.VisibleIndex = 4;
+            this.QUOA999.Width = 43;
             // 
-            // QUR009
+            // QUOA998
             // 
-            this.QUR009.Caption = "高";
-            this.QUR009.FieldName = "QUR009";
-            this.QUR009.Name = "QUR009";
-            this.QUR009.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR009.Visible = true;
-            this.QUR009.VisibleIndex = 7;
-            this.QUR009.Width = 64;
+            this.QUOA998.Caption = "长";
+            this.QUOA998.DisplayFormat.FormatString = "0.######";
+            this.QUOA998.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.QUOA998.FieldName = "QUOA998";
+            this.QUOA998.Name = "QUOA998";
+            this.QUOA998.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA998.Visible = true;
+            this.QUOA998.VisibleIndex = 5;
+            this.QUOA998.Width = 48;
             // 
-            // QUR010
+            // QUOA997
             // 
-            this.QUR010.Caption = "数量";
-            this.QUR010.FieldName = "QUR010";
-            this.QUR010.Name = "QUR010";
-            this.QUR010.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR010.Visible = true;
-            this.QUR010.VisibleIndex = 8;
-            this.QUR010.Width = 42;
+            this.QUOA997.Caption = "宽";
+            this.QUOA997.DisplayFormat.FormatString = "0.######";
+            this.QUOA997.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.QUOA997.FieldName = "QUOA997";
+            this.QUOA997.Name = "QUOA997";
+            this.QUOA997.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA997.Visible = true;
+            this.QUOA997.VisibleIndex = 6;
+            this.QUOA997.Width = 48;
             // 
-            // QUR016
+            // QUOA996
             // 
-            this.QUR016.Caption = "净材积(cm³)";
-            this.QUR016.DisplayFormat.FormatString = "0.######";
-            this.QUR016.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.QUR016.FieldName = "QUR016";
-            this.QUR016.Name = "QUR016";
-            this.QUR016.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR016.ToolTip = "[长] * [宽] * [高]";
-            this.QUR016.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            this.QUR016.Visible = true;
-            this.QUR016.VisibleIndex = 9;
-            this.QUR016.Width = 79;
+            this.QUOA996.Caption = "高";
+            this.QUOA996.DisplayFormat.FormatString = "0.######";
+            this.QUOA996.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.QUOA996.FieldName = "QUOA996";
+            this.QUOA996.Name = "QUOA996";
+            this.QUOA996.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA996.Visible = true;
+            this.QUOA996.VisibleIndex = 7;
+            this.QUOA996.Width = 48;
             // 
-            // QUR011
+            // QUOA995
             // 
-            this.QUR011.Caption = "倍比";
-            this.QUR011.FieldName = "QUR011";
-            this.QUR011.Name = "QUR011";
-            this.QUR011.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR011.Visible = true;
-            this.QUR011.VisibleIndex = 10;
-            this.QUR011.Width = 64;
+            this.QUOA995.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA995.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA995.Caption = "套材料数量";
+            this.QUOA995.DisplayFormat.FormatString = "0.######";
+            this.QUOA995.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.QUOA995.FieldName = "QUOA995";
+            this.QUOA995.Name = "QUOA995";
+            this.QUOA995.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA995.Visible = true;
+            this.QUOA995.VisibleIndex = 9;
+            this.QUOA995.Width = 58;
             // 
-            // QUR012
+            // QUOA994
             // 
-            this.QUR012.Caption = "单价(元/m³)";
-            this.QUR012.FieldName = "QUR012";
-            this.QUR012.Name = "QUR012";
-            this.QUR012.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR012.Visible = true;
-            this.QUR012.VisibleIndex = 13;
-            this.QUR012.Width = 79;
+            this.QUOA994.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA994.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA994.Caption = "套净材积(m³)";
+            this.QUOA994.DisplayFormat.FormatString = "0.######";
+            this.QUOA994.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.QUOA994.FieldName = "QUOA994";
+            this.QUOA994.Name = "QUOA994";
+            this.QUOA994.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA994.ToolTip = "[长] * [宽] * [高]";
+            this.QUOA994.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.QUOA994.Visible = true;
+            this.QUOA994.VisibleIndex = 10;
+            this.QUOA994.Width = 56;
             // 
-            // QUR013
+            // U0
             // 
-            this.QUR013.Caption = "每个零件价";
-            this.QUR013.FieldName = "QUR013";
-            this.QUR013.Name = "QUR013";
-            this.QUR013.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR013.Visible = true;
-            this.QUR013.VisibleIndex = 11;
-            this.QUR013.Width = 76;
+            this.U0.AppearanceHeader.Options.UseTextOptions = true;
+            this.U0.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.U0.Caption = "净毛倍比";
+            this.U0.DisplayFormat.FormatString = "0.###";
+            this.U0.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U0.FieldName = "U0";
+            this.U0.Name = "U0";
+            this.U0.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.U0.ToolTip = "[套材料数量] /[套净材积(m³)]";
+            this.U0.UnboundExpression = "Iif([QUOA994] = 0, 0, [QUOA995] / [QUOA994])";
+            this.U0.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U0.Visible = true;
+            this.U0.VisibleIndex = 11;
+            this.U0.Width = 56;
             // 
-            // QUR014
+            // QUOA009
             // 
-            this.QUR014.Caption = "每套单价";
-            this.QUR014.FieldName = "QUR014";
-            this.QUR014.Name = "QUR014";
-            this.QUR014.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR014.Visible = true;
-            this.QUR014.VisibleIndex = 12;
-            this.QUR014.Width = 61;
+            this.QUOA009.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA009.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA009.Caption = "计价单位";
+            this.QUOA009.FieldName = "QUOA009";
+            this.QUOA009.Name = "QUOA009";
+            this.QUOA009.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA009.Visible = true;
+            this.QUOA009.VisibleIndex = 12;
+            this.QUOA009.Width = 48;
             // 
-            // QUR015
+            // QUOA003
             // 
-            this.QUR015.Caption = "规格";
-            this.QUR015.FieldName = "QUR015";
-            this.QUR015.Name = "QUR015";
-            this.QUR015.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.QUR015.Visible = true;
-            this.QUR015.VisibleIndex = 14;
-            this.QUR015.Width = 54;
+            this.QUOA003.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA003.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA003.Caption = "单价/个/M3/张";
+            this.QUOA003.DisplayFormat.FormatString = "0.######";
+            this.QUOA003.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.QUOA003.FieldName = "QUOA003";
+            this.QUOA003.Name = "QUOA003";
+            this.QUOA003.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA003.Visible = true;
+            this.QUOA003.VisibleIndex = 13;
+            this.QUOA003.Width = 68;
+            // 
+            // U2
+            // 
+            this.U2.AppearanceHeader.Options.UseTextOptions = true;
+            this.U2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.U2.Caption = "每套单价";
+            this.U2.DisplayFormat.FormatString = "0.###";
+            this.U2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U2.FieldName = "U2";
+            this.U2.Name = "U2";
+            this.U2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.U2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:0.###}")});
+            this.U2.ToolTip = "[金额] / [产品数量]";
+            this.U2.UnboundExpression = "[QUO993] / [QUOA014]";
+            this.U2.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U2.Visible = true;
+            this.U2.VisibleIndex = 15;
+            this.U2.Width = 64;
+            // 
+            // U1
+            // 
+            this.U1.AppearanceHeader.Options.UseTextOptions = true;
+            this.U1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.U1.Caption = "净材积价/M3";
+            this.U1.DisplayFormat.FormatString = "0.###";
+            this.U1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U1.FieldName = "U1";
+            this.U1.Name = "U1";
+            this.U1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.U1.ToolTip = "[净毛倍比] * [单价/个/M3/张]";
+            this.U1.UnboundExpression = "[U0] * [QUOA003]";
+            this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U1.Visible = true;
+            this.U1.VisibleIndex = 14;
+            this.U1.Width = 72;
+            // 
+            // QUOA002
+            // 
+            this.QUOA002.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUOA002.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUOA002.Caption = "规格";
+            this.QUOA002.FieldName = "QUOA002";
+            this.QUOA002.Name = "QUOA002";
+            this.QUOA002.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUOA002.Visible = true;
+            this.QUOA002.VisibleIndex = 8;
+            this.QUOA002.Width = 47;
             // 
             // idx
             // 
@@ -975,6 +1120,32 @@
             this.idx.FieldName = "idx";
             this.idx.Name = "idx";
             this.idx.Width = 83;
+            // 
+            // QUO993
+            // 
+            this.QUO993.AppearanceHeader.Options.UseTextOptions = true;
+            this.QUO993.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.QUO993.Caption = "金额";
+            this.QUO993.DisplayFormat.FormatString = "0.##";
+            this.QUO993.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.QUO993.FieldName = "QUO993";
+            this.QUO993.Name = "QUO993";
+            this.QUO993.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.QUO993.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "QUO993", "{0:0.##}")});
+            this.QUO993.Visible = true;
+            this.QUO993.VisibleIndex = 16;
+            this.QUO993.Width = 113;
+            // 
+            // U3
+            // 
+            this.U3.Caption = "占产值%";
+            this.U3.FieldName = "U3";
+            this.U3.Name = "U3";
+            this.U3.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.U3.Visible = true;
+            this.U3.VisibleIndex = 17;
+            this.U3.Width = 67;
             // 
             // FormQuotation
             // 
@@ -1023,6 +1194,7 @@
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtQUP003.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQUP002.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQUOA012.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
@@ -1033,6 +1205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -1092,25 +1265,32 @@
         private DevExpress . XtraEditors . TextEdit txtQUP003;
         private DevExpress . XtraLayout . LayoutControlItem layoutControlItem16;
         private DevExpress . XtraEditors . ComboBoxEdit txtQUP002;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR003;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR002;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR004;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR005;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR006;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR007;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR008;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR009;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR010;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR016;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR011;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR012;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR013;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR014;
-        private DevExpress . XtraGrid . Columns . GridColumn QUR015;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA011;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA013;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA012;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA001;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA005;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA998;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA997;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA996;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA014;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA994;
+        private DevExpress . XtraGrid . Columns . GridColumn U0;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA003;
+        private DevExpress . XtraGrid . Columns . GridColumn U2;
+        private DevExpress . XtraGrid . Columns . GridColumn U1;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA002;
         private DevExpress . XtraGrid . Columns . GridColumn idx;
         private DevExpress . XtraLayout . LayoutControlItem layoutControlItem17;
         private DevExpress . XtraEditors . GridLookUpEdit txtQUO010;
         private DevExpress . XtraGrid . Views . Grid . GridView ViewFor;
         private DevExpress . XtraGrid . Columns . GridColumn DBA002;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA995;
+        private DevExpress . XtraGrid . Columns . GridColumn QUO993;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA009;
+        private DevExpress . XtraGrid . Columns . GridColumn U3;
+        private DevExpress . XtraGrid . Columns . GridColumn QUOA999;
+        private DevExpress . XtraEditors . ComboBoxEdit txtQUOA012;
+        private DevExpress . XtraLayout . LayoutControlItem layoutControlItem18;
     }
 }

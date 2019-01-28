@@ -19,12 +19,13 @@ namespace MulaolaoLibrary
         private string _qur008;
         private string _qur009;
         private decimal? _qur010;
-        private decimal? _qur011;
+        private string _qur011;
         private decimal? _qur012;
-        private decimal? _qur013;
+        private string _qur013;
         private decimal? _qur014;
         private string _qur015;
         private decimal? _qur016;
+        private decimal? _qur017;
 
         /// <summary>
         /// 
@@ -111,7 +112,7 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 每套零件数量
+        /// 套零件数
         /// </summary>
         public decimal? QUR006
         {
@@ -167,7 +168,7 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 数量
+        /// 产品数量
         /// </summary>
         public decimal? QUR010
         {
@@ -181,9 +182,9 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 倍比
+        /// 单位   
         /// </summary>
-        public decimal? QUR011
+        public string QUR011
         {
             set
             {
@@ -195,7 +196,7 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 单价（元/M3）
+        /// 单价/个/M3/张
         /// </summary>
         public decimal? QUR012
         {
@@ -209,9 +210,9 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 每个零件价
+        /// 类别
         /// </summary>
-        public decimal? QUR013
+        public string QUR013
         {
             set
             {
@@ -223,7 +224,7 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 每套单价
+        /// 金额
         /// </summary>
         public decimal? QUR014
         {
@@ -251,7 +252,7 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 立方cm³
+        /// 套净材积M3
         /// </summary>
         public decimal? QUR016
         {
@@ -264,7 +265,20 @@ namespace MulaolaoLibrary
                 return _qur016;
             }
         }
-
+        /// <summary>
+        /// 套材料数量
+        /// </summary>
+        public decimal? QUR017
+        {
+            set
+            {
+                _qur017 = value;
+            }
+            get
+            {
+                return _qur017;
+            }
+        }
         private decimal? _u0;
         /// <summary>
         /// 

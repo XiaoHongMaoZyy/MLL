@@ -29,7 +29,7 @@ namespace Mulaolao.Contract
         string sign = "", weihu = "", strWhere = "1=1", copy = "", file = "", stateOfOdd = "";
         bool result = false;
         DataTable tableQuery, tableTwo;
-
+        
         private void R_FrmDuanLiaoContract_Load ( object sender ,EventArgs e )
         {
             Power( this );

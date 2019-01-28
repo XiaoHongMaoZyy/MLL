@@ -70,10 +70,9 @@
             this.U4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CP14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.idx = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CP64 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.button6 = new System.Windows.Forms.Button();
-            this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
             this.comboBox15 = new System.Windows.Forms.ComboBox();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
             this.button12 = new System.Windows.Forms.Button();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -165,18 +164,23 @@
             this.tabPageOne = new System.Windows.Forms.TabPage();
             this.tabPageTwo = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.txtPart = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtCP64 = new System.Windows.Forms.TextBox();
+            this.txtCP13 = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.tabPageTre = new System.Windows.Forms.TabPage();
             this.label48 = new System.Windows.Forms.Label();
             this.tabPageFor = new System.Windows.Forms.TabPage();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.txtCP64 = new System.Windows.Forms.ComboBox();
-            this.CP64 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -189,6 +193,8 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPart.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.View)).BeginInit();
             this.tabPageTre.SuspendLayout();
             this.tabPageFor.SuspendLayout();
             this.SuspendLayout();
@@ -540,6 +546,8 @@
             this.CP13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.CP13.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.CP13.Caption = "每套部件/个/斤数";
+            this.CP13.DisplayFormat.FormatString = "0.######";
+            this.CP13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.CP13.FieldName = "CP13";
             this.CP13.Name = "CP13";
             this.CP13.Visible = true;
@@ -558,6 +566,8 @@
             this.U0.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U0.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U0.Caption = "加工部件总、分量";
+            this.U0.DisplayFormat.FormatString = "0.######";
+            this.U0.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U0.FieldName = "U0";
             this.U0.Name = "U0";
             this.U0.ToolTip = "[产品总套数] * [每套部件/个/斤数]";
@@ -597,7 +607,7 @@
             this.CP10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.CP10.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.CP10.Caption = "内价不含税";
-            this.CP10.DisplayFormat.FormatString = "N4";
+            this.CP10.DisplayFormat.FormatString = "0.######";
             this.CP10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.CP10.FieldName = "CP10";
             this.CP10.Name = "CP10";
@@ -617,7 +627,7 @@
             this.CP11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.CP11.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.CP11.Caption = "外价含税";
-            this.CP11.DisplayFormat.FormatString = "N4";
+            this.CP11.DisplayFormat.FormatString = "0.######";
             this.CP11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.CP11.FieldName = "CP11";
             this.CP11.Name = "CP11";
@@ -638,6 +648,8 @@
             this.U3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U3.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U3.Caption = "合每套单价";
+            this.U3.DisplayFormat.FormatString = "0.######";
+            this.U3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U3.FieldName = "U3";
             this.U3.Name = "U3";
             this.U3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -658,7 +670,7 @@
             this.CP12.AppearanceHeader.Options.UseTextOptions = true;
             this.CP12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.CP12.Caption = "预付款";
-            this.CP12.DisplayFormat.FormatString = "N";
+            this.CP12.DisplayFormat.FormatString = "0.######";
             this.CP12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.CP12.FieldName = "CP12";
             this.CP12.Name = "CP12";
@@ -679,12 +691,12 @@
             this.U4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U4.Caption = "结算款";
-            this.U4.DisplayFormat.FormatString = "N2";
+            this.U4.DisplayFormat.FormatString = "0.##";
             this.U4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U4.FieldName = "U4";
             this.U4.Name = "U4";
             this.U4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U4", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U4", "{0:0.##}")});
             this.U4.ToolTip = "[加工部件总、分量] * [内价不含税]([外价含税]) - [预付款]";
             this.U4.Visible = true;
             this.U4.VisibleIndex = 12;
@@ -714,6 +726,18 @@
             this.idx.FieldName = "idx";
             this.idx.Name = "idx";
             // 
+            // CP64
+            // 
+            this.CP64.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.CP64.AppearanceCell.Options.UseFont = true;
+            this.CP64.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.CP64.AppearanceHeader.Options.UseFont = true;
+            this.CP64.Caption = "工段";
+            this.CP64.FieldName = "CP64";
+            this.CP64.Name = "CP64";
+            this.CP64.Visible = true;
+            this.CP64.VisibleIndex = 2;
+            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(1028, 64);
@@ -724,21 +748,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
-            // lookUpEdit3
-            // 
-            this.lookUpEdit3.Location = new System.Drawing.Point(107, 3);
-            this.lookUpEdit3.Name = "lookUpEdit3";
-            this.lookUpEdit3.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lookUpEdit3.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit3.Properties.NullText = "";
-            this.lookUpEdit3.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.lookUpEdit3.Properties.ShowHeader = false;
-            this.lookUpEdit3.Size = new System.Drawing.Size(168, 22);
-            this.lookUpEdit3.TabIndex = 135;
-            this.lookUpEdit3.EditValueChanged += new System.EventHandler(this.lookUpEdit3_EditValueChanged);
-            // 
             // comboBox15
             // 
             this.comboBox15.FormattingEnabled = true;
@@ -746,14 +755,6 @@
             this.comboBox15.Name = "comboBox15";
             this.comboBox15.Size = new System.Drawing.Size(142, 24);
             this.comboBox15.TabIndex = 86;
-            // 
-            // comboBox14
-            // 
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Location = new System.Drawing.Point(735, 3);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(142, 24);
-            this.comboBox14.TabIndex = 85;
             // 
             // button12
             // 
@@ -1685,15 +1686,15 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.txtPart);
             this.splitContainer2.Panel1.Controls.Add(this.txtCP64);
+            this.splitContainer2.Panel1.Controls.Add(this.txtCP13);
             this.splitContainer2.Panel1.Controls.Add(this.label49);
             this.splitContainer2.Panel1.Controls.Add(this.textBox14);
             this.splitContainer2.Panel1.Controls.Add(this.button6);
-            this.splitContainer2.Panel1.Controls.Add(this.lookUpEdit3);
             this.splitContainer2.Panel1.Controls.Add(this.comboBox3);
             this.splitContainer2.Panel1.Controls.Add(this.comboBox15);
             this.splitContainer2.Panel1.Controls.Add(this.comboBox1);
-            this.splitContainer2.Panel1.Controls.Add(this.comboBox14);
             this.splitContainer2.Panel1.Controls.Add(this.button1);
             this.splitContainer2.Panel1.Controls.Add(this.button2);
             this.splitContainer2.Panel1.Controls.Add(this.button12);
@@ -1717,6 +1718,94 @@
             this.splitContainer2.Size = new System.Drawing.Size(1345, 584);
             this.splitContainer2.SplitterDistance = 102;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // txtPart
+            // 
+            this.txtPart.EditValue = "";
+            this.txtPart.Location = new System.Drawing.Point(107, 7);
+            this.txtPart.Name = "txtPart";
+            this.txtPart.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPart.Properties.Appearance.Options.UseFont = true;
+            this.txtPart.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.txtPart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPart.Properties.ImmediatePopup = true;
+            this.txtPart.Properties.NullText = "";
+            this.txtPart.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            this.txtPart.Properties.View = this.View;
+            this.txtPart.Size = new System.Drawing.Size(168, 22);
+            this.txtPart.TabIndex = 142;
+            this.txtPart.EditValueChanged += new System.EventHandler(this.txtPart_EditValueChanged);
+            // 
+            // View
+            // 
+            this.View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn4,
+            this.gridColumn5});
+            this.View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.View.Name = "View";
+            this.View.OptionsBehavior.Editable = false;
+            this.View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "零件名称";
+            this.gridColumn1.FieldName = "CP06";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "规格";
+            this.gridColumn2.FieldName = "CP07";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "每套部件";
+            this.gridColumn4.FieldName = "CP13";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 2;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "工段";
+            this.gridColumn5.FieldName = "CP64";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 3;
+            // 
+            // txtCP64
+            // 
+            this.txtCP64.Location = new System.Drawing.Point(430, 66);
+            this.txtCP64.Name = "txtCP64";
+            this.txtCP64.ReadOnly = true;
+            this.txtCP64.Size = new System.Drawing.Size(135, 26);
+            this.txtCP64.TabIndex = 141;
+            // 
+            // txtCP13
+            // 
+            this.txtCP13.Location = new System.Drawing.Point(735, 3);
+            this.txtCP13.Name = "txtCP13";
+            this.txtCP13.ReadOnly = true;
+            this.txtCP13.Size = new System.Drawing.Size(142, 26);
+            this.txtCP13.TabIndex = 140;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(383, 69);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(42, 16);
+            this.label49.TabIndex = 138;
+            this.label49.Text = "工段";
             // 
             // textBox14
             // 
@@ -1785,37 +1874,6 @@
             this.textBox3.Size = new System.Drawing.Size(1351, 590);
             this.textBox3.TabIndex = 1;
             // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(383, 69);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(42, 16);
-            this.label49.TabIndex = 138;
-            this.label49.Text = "工段";
-            // 
-            // txtCP64
-            // 
-            this.txtCP64.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtCP64.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtCP64.FormattingEnabled = true;
-            this.txtCP64.Location = new System.Drawing.Point(431, 66);
-            this.txtCP64.Name = "txtCP64";
-            this.txtCP64.Size = new System.Drawing.Size(136, 24);
-            this.txtCP64.TabIndex = 139;
-            // 
-            // CP64
-            // 
-            this.CP64.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.CP64.AppearanceCell.Options.UseFont = true;
-            this.CP64.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.CP64.AppearanceHeader.Options.UseFont = true;
-            this.CP64.Caption = "工段";
-            this.CP64.FieldName = "CP64";
-            this.CP64.Name = "CP64";
-            this.CP64.Visible = true;
-            this.CP64.VisibleIndex = 2;
-            // 
             // R_Frmchanpinzhibiao
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1832,7 +1890,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -1848,6 +1905,8 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtPart.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.View)).EndInit();
             this.tabPageTre.ResumeLayout(false);
             this.tabPageTre.PerformLayout();
             this.tabPageFor.ResumeLayout(false);
@@ -1970,7 +2029,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.ComboBox comboBox14;
         private System.Windows.Forms.ComboBox comboBox15;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
@@ -1980,7 +2038,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn U4;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.CheckBox checkBox18;
         private System.Windows.Forms.TextBox textBox4;
@@ -2000,7 +2057,14 @@
         private System.Windows.Forms.TextBox textBox3;
         private System . Windows . Forms . TextBox textBox14;
         private System . Windows . Forms . Label label49;
-        private System . Windows . Forms . ComboBox txtCP64;
         private DevExpress . XtraGrid . Columns . GridColumn CP64;
+        private System . Windows . Forms . TextBox txtCP13;
+        private System . Windows . Forms . TextBox txtCP64;
+        private DevExpress . XtraEditors . GridLookUpEdit txtPart;
+        private DevExpress . XtraGrid . Views . Grid . GridView View;
+        private DevExpress . XtraGrid . Columns . GridColumn gridColumn1;
+        private DevExpress . XtraGrid . Columns . GridColumn gridColumn2;
+        private DevExpress . XtraGrid . Columns . GridColumn gridColumn4;
+        private DevExpress . XtraGrid . Columns . GridColumn gridColumn5;
     }
 }

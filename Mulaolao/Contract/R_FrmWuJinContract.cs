@@ -2914,6 +2914,7 @@ namespace Mulaolao.Contract
             gridControl1.DataSource = dl;
 
             every ( );
+            previousOfPrice ( );
         }
         //实际收货日期
         yanpinSelect ys = new yanpinSelect( );

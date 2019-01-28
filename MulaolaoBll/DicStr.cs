@@ -9,9 +9,9 @@ namespace MulaolaoBll
     {
         /// <summary>
         /// 胶合板
-        /// </summary>
+        /// </summary> 
         public static string plyWood="胶合板";
-
+        
         /// <summary>
         /// 密度板
         /// </summary>
@@ -202,7 +202,7 @@ namespace MulaolaoBll
         /// 双瓦外箱
         /// </summary>
         public static string swwx="双瓦外箱";
-
+        
         /// <summary>
         /// 小箱式
         /// </summary>
@@ -372,6 +372,110 @@ namespace MulaolaoBll
         /// </summary>
         public static string qtfy="其他费用";
 
+        /// <summary>
+        /// 木材质
+        /// </summary>
+        public static string mcz="木材质";
+
+        /// <summary>
+        /// 水帘机喷涂
+        /// </summary>
+        public static string sljpq="水帘机喷涂";
+
+        /// <summary>
+        /// 静电喷涂
+        /// </summary>
+        public static string jdpt="静电喷涂";
+
+        /// <summary>
+        /// 浸漆
+        /// </summary>
+        public static string jq="浸漆";
+
+        /// <summary>
+        /// 封边
+        /// </summary>
+        public static string fb="封边";
+
+        /// <summary>
+        /// 涂布
+        /// </summary>
+        public static string tb="涂布";
+
+        /// <summary>
+        /// 241 胶合板  已付
+        /// </summary>
+        public static string jhb241="AM299+AM303+AM305+AM317+AM308+AM323+AM316+AM327";
+
+        /// <summary>
+        /// 241 密度板  已付
+        /// </summary>
+        public static string mdb241="AM302+AM309+AM312+AM325+AM319+AM322+AM329+AM297";
+
+        /// <summary>
+        /// 241 木材  已付
+        /// </summary>
+        public static string mc241="AM331+AM291+AM334+AM289+AM337+AM341+AM340+AM348+AM344+AM354+AM347+AM360+AM350+AM366+AM353+AM372+AM356+AM335+AM359+AM378+AM362+AM387+AM365+AM393+AM368+AM295+AM371+AM293+AM374+AM269+AM377+AM268+AM380+AM266+AM386+AM383+AM389+AM264+AM392+AM262+AM154+AM156+AM158";
+
+        /// <summary>
+        /// 241 车木件 已付
+        /// </summary>
+        public static string cmj241="AM271+AM275+AM274+AM282+AM278+AM284+AM281+AM286";
+
+        /// <summary>
+        /// 241 铁件 已付
+        /// </summary>
+        public static string tj241="AM210+AM214+AM226+AM228";
+
+        /// <summary>
+        /// 241 塑料件 已付
+        /// </summary>
+        public static string slj241="AM213+AM220+AM230+AM232";
+
+        /// <summary>
+        /// 241  其它材料  已付
+        /// </summary>
+        public static string qtcl241="AM216+AM222+AM234+AM236";
+
+        /// <summary>
+        /// 241  包装辅料  已付
+        /// </summary>
+        public static string bzfl241="AM219+AM224+AM238+AM256+AM137+AM141";
+
+        /// <summary>
+        /// 241 中包  已付
+        /// </summary>
+        public static string zb241="AM143+AM135";
+
+        /// <summary>
+        ///  241 内盒  已付
+        /// </summary>
+        public static string nh241="AM146+AM134";
+
+        /// <summary>
+        /// 241  外箱  已付
+        /// </summary>
+        public static string wx241="AM140+AM147";
+
+        /// <summary>
+        /// 241 彩盒  已付
+        /// </summary>
+        public static string ch241="AM149+AM131";
+
+        /// <summary>
+        /// 241 成品委外 已付
+        /// </summary>
+        public static string cpww241="AM109+AM112+AM113+AM116";
+
+        /// <summary>
+        /// 241 滚漆油漆（厂内滚漆油漆、厂外滚漆油漆+厂外滚漆工资）  已付
+        /// </summary>
+        public static string gqyq241="AM240+AM244+AM243+AM251";
+
+        /// <summary>
+        /// 241 喷漆油漆 已付
+        /// </summary>
+        public static string pqyq241="AM176+AM179+AM180+AM187+AM183+AM193+AM186+AM199+AM189+AM201+AM192+AM204+AM195+AM206+AM198+AM208";
 
     }
 }

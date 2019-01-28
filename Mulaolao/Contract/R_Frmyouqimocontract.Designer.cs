@@ -77,10 +77,12 @@
             this.U4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.U10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.U9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.U1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.U2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.U1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.YQ14 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.YQ16 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.U13 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.U14 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.U8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.U7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.U5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -376,11 +378,14 @@
             this.gridBand23 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand22 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand26 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand35 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand14 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand45 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand46 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand47 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand19 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand21 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand20 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -726,6 +731,7 @@
             this.gridBand25,
             this.gridBand26,
             this.gridBand35,
+            this.gridBand45,
             this.gridBand19,
             this.gridBand15,
             this.gridBand12,
@@ -777,7 +783,9 @@
             this.YQ134,
             this.YQ135,
             this.U11,
-            this.U12});
+            this.U12,
+            this.U13,
+            this.U14});
             this.bandedGridView1.GridControl = this.gridControl1;
             this.bandedGridView1.Name = "bandedGridView1";
             this.bandedGridView1.OptionsBehavior.Editable = false;
@@ -787,6 +795,7 @@
             this.bandedGridView1.OptionsView.ShowGroupPanel = false;
             this.bandedGridView1.RowHeight = 30;
             this.bandedGridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.bandedGridView1_RowClick);
+            this.bandedGridView1.ColumnFilterChanged += new System.EventHandler(this.bandedGridView1_ColumnFilterChanged);
             // 
             // YQ10
             // 
@@ -1110,28 +1119,7 @@
     "13]*0.01";
             this.U9.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U9.Visible = true;
-            this.U9.Width = 71;
-            // 
-            // U1
-            // 
-            this.U1.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.U1.AppearanceCell.Options.UseFont = true;
-            this.U1.AppearanceCell.Options.UseTextOptions = true;
-            this.U1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.U1.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.U1.AppearanceHeader.Options.UseFont = true;
-            this.U1.AppearanceHeader.Options.UseTextOptions = true;
-            this.U1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.U1.Caption = "平方米面积";
-            this.U1.FieldName = "U1";
-            this.U1.Name = "U1";
-            this.U1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:N0}")});
-            this.U1.ToolTip = "[产品数量]*  [每套部件数量] *  [每板摆放个数]  * [每片.每面喷.涂遍数]* [每片喷面数] * 0.0001";
-            this.U1.UnboundExpression = "[YQ108]*  [YQ112] *  [YQ114] * [YQ115] * [YQ116]* [YQ113] * 0.0001";
-            this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
-            this.U1.Visible = true;
-            this.U1.Width = 72;
+            this.U9.Width = 69;
             // 
             // U2
             // 
@@ -1152,7 +1140,28 @@
             this.U2.UnboundExpression = "[YQ108] * [YQ112]* [YQ116]* [YQ113]/ [YQ114] / [YQ115]";
             this.U2.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.U2.Visible = true;
-            this.U2.Width = 71;
+            this.U2.Width = 74;
+            // 
+            // U1
+            // 
+            this.U1.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.U1.AppearanceCell.Options.UseFont = true;
+            this.U1.AppearanceCell.Options.UseTextOptions = true;
+            this.U1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.U1.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.U1.AppearanceHeader.Options.UseFont = true;
+            this.U1.AppearanceHeader.Options.UseTextOptions = true;
+            this.U1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.U1.Caption = "平方米面积";
+            this.U1.FieldName = "U1";
+            this.U1.Name = "U1";
+            this.U1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:N0}")});
+            this.U1.ToolTip = "[产品数量]*  [每套部件数量] *  [每板摆放个数]  * [每片.每面喷.涂遍数]* [每片喷面数] * 0.0001";
+            this.U1.UnboundExpression = "[YQ108]*  [YQ112] *  [YQ114] * [YQ115] * [YQ116]* [YQ113] * 0.0001";
+            this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.U1.Visible = true;
+            this.U1.Width = 58;
             // 
             // YQ14
             // 
@@ -1194,6 +1203,36 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "YQ16", "", 2)});
             this.YQ16.Visible = true;
             this.YQ16.Width = 69;
+            // 
+            // U13
+            // 
+            this.U13.Caption = "实元/板价";
+            this.U13.DisplayFormat.FormatString = "0.##";
+            this.U13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U13.FieldName = "U13";
+            this.U13.Name = "U13";
+            this.U13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
+            this.U13.ToolTip = "[定板数价结算款] / [部件单面.遍总板数]";
+            this.U13.UnboundExpression = "Iif([U2] = 0, 0, [U10] / [U2])";
+            this.U13.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U13.Visible = true;
+            this.U13.Width = 59;
+            // 
+            // U14
+            // 
+            this.U14.Caption = "实元/平米价";
+            this.U14.DisplayFormat.FormatString = "0.##";
+            this.U14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U14.FieldName = "U14";
+            this.U14.Name = "U14";
+            this.U14.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
+            this.U14.ToolTip = "[定平米价结算款] / [平方米面积]";
+            this.U14.UnboundExpression = "Iif([U1] = 0, 0, [U9] / [U1])";
+            this.U14.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U14.Visible = true;
+            this.U14.Width = 62;
             // 
             // U8
             // 
@@ -4341,7 +4380,7 @@
             this.gridBand22});
             this.gridBand25.Name = "gridBand25";
             this.gridBand25.VisibleIndex = 12;
-            this.gridBand25.Width = 146;
+            this.gridBand25.Width = 144;
             // 
             // gridBand23
             // 
@@ -4369,7 +4408,7 @@
             this.gridBand22.Name = "gridBand22";
             this.gridBand22.ToolTip = "[定每平米漆价] * [平方米面积] * [每板摆用率%]";
             this.gridBand22.VisibleIndex = 1;
-            this.gridBand22.Width = 71;
+            this.gridBand22.Width = 69;
             // 
             // gridBand26
             // 
@@ -4379,24 +4418,11 @@
             this.gridBand26.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridBand26.Caption = "板数-面积";
             this.gridBand26.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand6,
-            this.gridBand13});
+            this.gridBand13,
+            this.gridBand6});
             this.gridBand26.Name = "gridBand26";
             this.gridBand26.VisibleIndex = 13;
-            this.gridBand26.Width = 143;
-            // 
-            // gridBand6
-            // 
-            this.gridBand6.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.gridBand6.AppearanceHeader.Options.UseFont = true;
-            this.gridBand6.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridBand6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridBand6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridBand6.Caption = "部件面积";
-            this.gridBand6.Columns.Add(this.U1);
-            this.gridBand6.Name = "gridBand6";
-            this.gridBand6.VisibleIndex = 0;
-            this.gridBand6.Width = 72;
+            this.gridBand26.Width = 132;
             // 
             // gridBand13
             // 
@@ -4409,8 +4435,22 @@
             this.gridBand13.Caption = "部件板数";
             this.gridBand13.Columns.Add(this.U2);
             this.gridBand13.Name = "gridBand13";
-            this.gridBand13.VisibleIndex = 1;
-            this.gridBand13.Width = 71;
+            this.gridBand13.VisibleIndex = 0;
+            this.gridBand13.Width = 74;
+            // 
+            // gridBand6
+            // 
+            this.gridBand6.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.gridBand6.AppearanceHeader.Options.UseFont = true;
+            this.gridBand6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridBand6.Caption = "部件面积";
+            this.gridBand6.Columns.Add(this.U1);
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.ToolTip = "[产品数量] * [每套部件数量] * [长向摆放个数] * [宽向摆放个数] * [每片.每面喷.涂遍数] * [每片喷面数] * 0.0001";
+            this.gridBand6.VisibleIndex = 1;
+            this.gridBand6.Width = 58;
             // 
             // gridBand35
             // 
@@ -4419,7 +4459,7 @@
             this.gridBand35.AppearanceHeader.Options.UseTextOptions = true;
             this.gridBand35.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridBand35.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridBand35.Caption = "漆成本价元";
+            this.gridBand35.Caption = "519漆成本价元";
             this.gridBand35.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand14,
             this.gridBand10});
@@ -4434,7 +4474,7 @@
             this.gridBand14.AppearanceHeader.Options.UseTextOptions = true;
             this.gridBand14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridBand14.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridBand14.Caption = "元/板价";
+            this.gridBand14.Caption = "519元/板价";
             this.gridBand14.Columns.Add(this.YQ14);
             this.gridBand14.Name = "gridBand14";
             this.gridBand14.VisibleIndex = 0;
@@ -4447,11 +4487,51 @@
             this.gridBand10.AppearanceHeader.Options.UseTextOptions = true;
             this.gridBand10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridBand10.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridBand10.Caption = "元/平米价";
+            this.gridBand10.Caption = "519元/平米价";
             this.gridBand10.Columns.Add(this.YQ16);
             this.gridBand10.Name = "gridBand10";
             this.gridBand10.VisibleIndex = 1;
             this.gridBand10.Width = 69;
+            // 
+            // gridBand45
+            // 
+            this.gridBand45.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.gridBand45.AppearanceHeader.Options.UseFont = true;
+            this.gridBand45.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand45.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridBand45.Caption = "实漆成本价元";
+            this.gridBand45.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand46,
+            this.gridBand47});
+            this.gridBand45.Name = "gridBand45";
+            this.gridBand45.VisibleIndex = 15;
+            this.gridBand45.Width = 121;
+            // 
+            // gridBand46
+            // 
+            this.gridBand46.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.gridBand46.AppearanceHeader.Options.UseFont = true;
+            this.gridBand46.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand46.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridBand46.Caption = "实元/板价";
+            this.gridBand46.Columns.Add(this.U13);
+            this.gridBand46.Name = "gridBand46";
+            this.gridBand46.ToolTip = "[定板数价结算款] / [部件单面.遍总板数]";
+            this.gridBand46.VisibleIndex = 0;
+            this.gridBand46.Width = 59;
+            // 
+            // gridBand47
+            // 
+            this.gridBand47.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.gridBand47.AppearanceHeader.Options.UseFont = true;
+            this.gridBand47.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand47.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridBand47.Caption = "实元/平米价";
+            this.gridBand47.Columns.Add(this.U14);
+            this.gridBand47.Name = "gridBand47";
+            this.gridBand47.ToolTip = "[定平米价结算款] / [平方米面积]";
+            this.gridBand47.VisibleIndex = 1;
+            this.gridBand47.Width = 62;
             // 
             // gridBand19
             // 
@@ -4464,7 +4544,7 @@
             this.gridBand21,
             this.gridBand20});
             this.gridBand19.Name = "gridBand19";
-            this.gridBand19.VisibleIndex = 15;
+            this.gridBand19.VisibleIndex = 16;
             this.gridBand19.Width = 153;
             // 
             // gridBand21
@@ -4505,7 +4585,7 @@
             this.gridBand16,
             this.gridBand17});
             this.gridBand15.Name = "gridBand15";
-            this.gridBand15.VisibleIndex = 16;
+            this.gridBand15.VisibleIndex = 17;
             this.gridBand15.Width = 190;
             // 
             // gridBand16
@@ -4547,7 +4627,7 @@
             this.gridBand8,
             this.gridBand27});
             this.gridBand12.Name = "gridBand12";
-            this.gridBand12.VisibleIndex = 17;
+            this.gridBand12.VisibleIndex = 18;
             this.gridBand12.Width = 157;
             // 
             // gridBand8
@@ -4586,7 +4666,7 @@
             this.gridBand11.Caption = "油漆现价/kg";
             this.gridBand11.Columns.Add(this.YQ15);
             this.gridBand11.Name = "gridBand11";
-            this.gridBand11.VisibleIndex = 18;
+            this.gridBand11.VisibleIndex = 19;
             this.gridBand11.Width = 63;
             // 
             // gridBand32
@@ -4599,7 +4679,7 @@
             this.gridBand32.Caption = "使用库存(外购)";
             this.gridBand32.Columns.Add(this.YQ101);
             this.gridBand32.Name = "gridBand32";
-            this.gridBand32.VisibleIndex = 19;
+            this.gridBand32.VisibleIndex = 20;
             // 
             // gridBand7
             // 
@@ -4612,7 +4692,7 @@
             this.gridBand7.Caption = "大小板";
             this.gridBand7.Columns.Add(this.YQ117);
             this.gridBand7.Name = "gridBand7";
-            this.gridBand7.VisibleIndex = 20;
+            this.gridBand7.VisibleIndex = 21;
             this.gridBand7.Width = 71;
             // 
             // gridBand37
@@ -4625,7 +4705,7 @@
             this.gridBand37.Caption = "大小单";
             this.gridBand37.Columns.Add(this.YQ129);
             this.gridBand37.Name = "gridBand37";
-            this.gridBand37.VisibleIndex = 21;
+            this.gridBand37.VisibleIndex = 22;
             this.gridBand37.Width = 75;
             // 
             // gridBand36
@@ -4638,7 +4718,7 @@
             this.gridBand36.Caption = "基材";
             this.gridBand36.Columns.Add(this.YQ131);
             this.gridBand36.Name = "gridBand36";
-            this.gridBand36.VisibleIndex = 22;
+            this.gridBand36.VisibleIndex = 23;
             this.gridBand36.Width = 75;
             // 
             // gridBand34
@@ -4651,7 +4731,7 @@
             this.gridBand34.Caption = "是否超补";
             this.gridBand34.Columns.Add(this.YQ123);
             this.gridBand34.Name = "gridBand34";
-            this.gridBand34.VisibleIndex = 23;
+            this.gridBand34.VisibleIndex = 24;
             this.gridBand34.Width = 75;
             // 
             // gridBand18
@@ -4664,7 +4744,7 @@
             this.gridBand18.Caption = "供方批号";
             this.gridBand18.Columns.Add(this.YQ120);
             this.gridBand18.Name = "gridBand18";
-            this.gridBand18.VisibleIndex = 24;
+            this.gridBand18.VisibleIndex = 25;
             this.gridBand18.Width = 75;
             // 
             // gridBand33
@@ -4677,7 +4757,7 @@
             this.gridBand33.Caption = "生产批号";
             this.gridBand33.Columns.Add(this.YQ121);
             this.gridBand33.Name = "gridBand33";
-            this.gridBand33.VisibleIndex = 25;
+            this.gridBand33.VisibleIndex = 26;
             this.gridBand33.Width = 75;
             // 
             // R_Frmyouqimocontract
@@ -5066,6 +5146,8 @@
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn YQ135;
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn U11;
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn U12;
+        private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn U13;
+        private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn U14;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand1;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand2;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand24;
@@ -5088,11 +5170,14 @@
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand23;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand22;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand26;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand6;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand13;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand6;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand35;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand14;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand10;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand45;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand46;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand47;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand19;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand21;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand20;

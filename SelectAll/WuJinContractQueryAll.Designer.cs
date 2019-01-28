@@ -57,6 +57,7 @@
             this.U2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PQU15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PQU05 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PQU116 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
@@ -79,7 +80,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.PQU116 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -505,12 +505,12 @@
             this.U1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U1.Caption = "结算款";
-            this.U1.DisplayFormat.FormatString = "N2";
+            this.U1.DisplayFormat.FormatString = "0.##";
             this.U1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U1.FieldName = "U1";
             this.U1.Name = "U1";
             this.U1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:0.##}")});
             this.U1.ToolTip = "[现价] * ([每套部件用量] * [产品数量]+[采购余量])";
             this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U1.Visible = true;
@@ -583,14 +583,14 @@
             // U2
             // 
             this.U2.Caption = "每套成本";
-            this.U2.DisplayFormat.FormatString = "N2";
+            this.U2.DisplayFormat.FormatString = "0.###";
             this.U2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U2.FieldName = "U2";
             this.U2.Name = "U2";
             this.U2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:N2}")});
-            this.U2.ToolTip = "[每套部件用量] * [现价]";
-            this.U2.UnboundExpression = "[PQU13] * [PQU16]";
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:0.###}")});
+            this.U2.ToolTip = "[结算款] / [产品数量]";
+            this.U2.UnboundExpression = "[U1] / [PQU101]";
             this.U2.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U2.Visible = true;
             this.U2.VisibleIndex = 14;
@@ -614,6 +614,14 @@
             this.PQU05.Visible = true;
             this.PQU05.VisibleIndex = 17;
             this.PQU05.Width = 67;
+            // 
+            // PQU116
+            // 
+            this.PQU116.Caption = "是否结账";
+            this.PQU116.FieldName = "PQU116";
+            this.PQU116.Name = "PQU116";
+            this.PQU116.Visible = true;
+            this.PQU116.VisibleIndex = 22;
             // 
             // button2
             // 
@@ -814,14 +822,6 @@
             this.button6.TabIndex = 4;
             this.button6.Text = "取消";
             this.button6.UseVisualStyleBackColor = true;
-            // 
-            // PQU116
-            // 
-            this.PQU116.Caption = "是否结账";
-            this.PQU116.FieldName = "PQU116";
-            this.PQU116.Name = "PQU116";
-            this.PQU116.Visible = true;
-            this.PQU116.VisibleIndex = 22;
             // 
             // WuJinContractQueryAll
             // 

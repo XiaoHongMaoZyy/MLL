@@ -28,381 +28,333 @@
         /// </summary>
         private void InitializeComponent ( )
         {
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtPQU12 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtPQU13 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtPQU16 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtPQU18 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.txtPQU10 = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.PQU10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PQU13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PQU12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PQU16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU12.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU13.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU16.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU18.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU10.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.View)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.tQUOF011 = new DevExpress.XtraEditors.TextEdit();
+            this.tQUOF012 = new DevExpress.XtraEditors.TextEdit();
+            this.tQUOF010 = new DevExpress.XtraEditors.TextEdit();
+            this.tQUOF007 = new DevExpress.XtraEditors.TextEdit();
+            this.tQUOF013 = new DevExpress.XtraEditors.TextEdit();
+            this.tQUOF014 = new DevExpress.XtraEditors.TextEdit();
+            this.tQUOF015 = new DevExpress.XtraEditors.TextEdit();
+            this.tQUOF008 = new DevExpress.XtraEditors.TextEdit();
+            this.tQUOF009 = new DevExpress.XtraEditors.TextEdit();
+            this.btnSure = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.tQUOF006 = new DevExpress.XtraEditors.ButtonEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF011.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF012.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF010.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF007.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF013.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF014.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF015.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF008.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF009.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF006.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // labelControl1
             // 
-            this.layoutControl1.Controls.Add(this.txtPQU12);
-            this.layoutControl1.Controls.Add(this.txtPQU13);
-            this.layoutControl1.Controls.Add(this.txtPQU16);
-            this.layoutControl1.Controls.Add(this.txtPQU18);
-            this.layoutControl1.Controls.Add(this.simpleButton1);
-            this.layoutControl1.Controls.Add(this.simpleButton2);
-            this.layoutControl1.Controls.Add(this.txtPQU10);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(672, 110);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(12, 43);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(64, 16);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "每套数量";
             // 
-            // layoutControlGroup1
+            // labelControl2
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.layoutControlItem6,
-            this.layoutControlItem7,
-            this.emptySpaceItem1,
-            this.emptySpaceItem2,
-            this.emptySpaceItem3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(672, 110);
-            this.layoutControlGroup1.TextVisible = false;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(12, 15);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(64, 16);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "零件名称";
             // 
-            // layoutControlItem1
+            // labelControl3
             // 
-            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem1.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.layoutControlItem1.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.layoutControlItem1.Control = this.txtPQU10;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(326, 26);
-            this.layoutControlItem1.Text = "部件名称";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(96, 16);
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(12, 71);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(64, 16);
+            this.labelControl3.TabIndex = 1;
+            this.labelControl3.Text = "采购余量";
             // 
-            // txtPQU12
+            // labelControl4
             // 
-            this.txtPQU12.Location = new System.Drawing.Point(438, 12);
-            this.txtPQU12.Name = "txtPQU12";
-            this.txtPQU12.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPQU12.Properties.Appearance.Options.UseFont = true;
-            this.txtPQU12.Size = new System.Drawing.Size(222, 22);
-            this.txtPQU12.StyleController = this.layoutControl1;
-            this.txtPQU12.TabIndex = 5;
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(12, 99);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(64, 16);
+            this.labelControl4.TabIndex = 2;
+            this.labelControl4.Text = "计价单位";
             // 
-            // layoutControlItem2
+            // labelControl5
             // 
-            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem2.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.layoutControlItem2.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.layoutControlItem2.Control = this.txtPQU12;
-            this.layoutControlItem2.Location = new System.Drawing.Point(326, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(326, 26);
-            this.layoutControlItem2.Text = "规格尺寸";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(96, 16);
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(254, 15);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(32, 16);
+            this.labelControl5.TabIndex = 3;
+            this.labelControl5.Text = "规格";
             // 
-            // txtPQU13
+            // labelControl6
             // 
-            this.txtPQU13.Location = new System.Drawing.Point(112, 38);
-            this.txtPQU13.Name = "txtPQU13";
-            this.txtPQU13.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPQU13.Properties.Appearance.Options.UseFont = true;
-            this.txtPQU13.Size = new System.Drawing.Size(222, 22);
-            this.txtPQU13.StyleController = this.layoutControl1;
-            this.txtPQU13.TabIndex = 6;
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(254, 43);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(32, 16);
+            this.labelControl6.TabIndex = 4;
+            this.labelControl6.Text = "原价";
             // 
-            // layoutControlItem3
+            // labelControl7
             // 
-            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem3.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.layoutControlItem3.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.layoutControlItem3.Control = this.txtPQU13;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 26);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(326, 26);
-            this.layoutControlItem3.Text = "每套零件数量";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(96, 16);
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(254, 71);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(32, 16);
+            this.labelControl7.TabIndex = 5;
+            this.labelControl7.Text = "现价";
             // 
-            // txtPQU16
+            // labelControl8
             // 
-            this.txtPQU16.Location = new System.Drawing.Point(438, 38);
-            this.txtPQU16.Name = "txtPQU16";
-            this.txtPQU16.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPQU16.Properties.Appearance.Options.UseFont = true;
-            this.txtPQU16.Size = new System.Drawing.Size(222, 22);
-            this.txtPQU16.StyleController = this.layoutControl1;
-            this.txtPQU16.TabIndex = 7;
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(536, 43);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(64, 16);
+            this.labelControl8.TabIndex = 6;
+            this.labelControl8.Text = "五金材质";
             // 
-            // layoutControlItem4
+            // labelControl9
             // 
-            this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem4.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.layoutControlItem4.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.layoutControlItem4.Control = this.txtPQU16;
-            this.layoutControlItem4.Location = new System.Drawing.Point(326, 26);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(326, 26);
-            this.layoutControlItem4.Text = "现价";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(96, 16);
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(238, 99);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(48, 16);
+            this.labelControl9.TabIndex = 6;
+            this.labelControl9.Text = "预付款";
             // 
-            // txtPQU18
+            // labelControl10
             // 
-            this.txtPQU18.Location = new System.Drawing.Point(112, 64);
-            this.txtPQU18.Name = "txtPQU18";
-            this.txtPQU18.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPQU18.Properties.Appearance.Options.UseFont = true;
-            this.txtPQU18.Size = new System.Drawing.Size(222, 22);
-            this.txtPQU18.StyleController = this.layoutControl1;
-            this.txtPQU18.TabIndex = 8;
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(448, 15);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(152, 16);
+            this.labelControl10.TabIndex = 7;
+            this.labelControl10.Text = "色号.按色号与色板间";
             // 
-            // layoutControlItem5
+            // tQUOF011
             // 
-            this.layoutControlItem5.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem5.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem5.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.layoutControlItem5.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.layoutControlItem5.Control = this.txtPQU18;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 52);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(326, 38);
-            this.layoutControlItem5.Text = "数量";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(96, 16);
+            this.tQUOF011.Location = new System.Drawing.Point(82, 40);
+            this.tQUOF011.Name = "tQUOF011";
+            this.tQUOF011.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF011.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF011.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF011.TabIndex = 9;
             // 
-            // simpleButton1
+            // tQUOF012
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(419, 64);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(54, 23);
-            this.simpleButton1.StyleController = this.layoutControl1;
-            this.simpleButton1.TabIndex = 9;
-            this.simpleButton1.Text = "确定";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.tQUOF012.Location = new System.Drawing.Point(82, 68);
+            this.tQUOF012.Name = "tQUOF012";
+            this.tQUOF012.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF012.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF012.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF012.TabIndex = 10;
             // 
-            // layoutControlItem6
+            // tQUOF010
             // 
-            this.layoutControlItem6.Control = this.simpleButton1;
-            this.layoutControlItem6.Location = new System.Drawing.Point(407, 52);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(58, 38);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
+            this.tQUOF010.Location = new System.Drawing.Point(82, 96);
+            this.tQUOF010.Name = "tQUOF010";
+            this.tQUOF010.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF010.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF010.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF010.TabIndex = 11;
             // 
-            // simpleButton2
+            // tQUOF007
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Location = new System.Drawing.Point(520, 64);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(58, 23);
-            this.simpleButton2.StyleController = this.layoutControl1;
-            this.simpleButton2.TabIndex = 10;
-            this.simpleButton2.Text = "取消";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.tQUOF007.Location = new System.Drawing.Point(292, 12);
+            this.tQUOF007.Name = "tQUOF007";
+            this.tQUOF007.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF007.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF007.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF007.TabIndex = 12;
             // 
-            // layoutControlItem7
+            // tQUOF013
             // 
-            this.layoutControlItem7.Control = this.simpleButton2;
-            this.layoutControlItem7.Location = new System.Drawing.Point(508, 52);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(62, 38);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
+            this.tQUOF013.Location = new System.Drawing.Point(292, 40);
+            this.tQUOF013.Name = "tQUOF013";
+            this.tQUOF013.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF013.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF013.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF013.TabIndex = 13;
             // 
-            // emptySpaceItem1
+            // tQUOF014
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(326, 52);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(81, 38);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.tQUOF014.Location = new System.Drawing.Point(292, 68);
+            this.tQUOF014.Name = "tQUOF014";
+            this.tQUOF014.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF014.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF014.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF014.TabIndex = 14;
             // 
-            // emptySpaceItem2
+            // tQUOF015
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(570, 52);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(82, 38);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.tQUOF015.Location = new System.Drawing.Point(292, 96);
+            this.tQUOF015.Name = "tQUOF015";
+            this.tQUOF015.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF015.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF015.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF015.TabIndex = 15;
             // 
-            // emptySpaceItem3
+            // tQUOF008
             // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(465, 52);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(43, 38);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.tQUOF008.Location = new System.Drawing.Point(606, 12);
+            this.tQUOF008.Name = "tQUOF008";
+            this.tQUOF008.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF008.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF008.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF008.TabIndex = 16;
             // 
-            // txtPQU10
+            // tQUOF009
             // 
-            this.txtPQU10.Location = new System.Drawing.Point(112, 12);
-            this.txtPQU10.Name = "txtPQU10";
-            this.txtPQU10.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPQU10.Properties.Appearance.Options.UseFont = true;
-            this.txtPQU10.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            this.txtPQU10.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtPQU10.Properties.ImmediatePopup = true;
-            this.txtPQU10.Properties.NullText = "";
-            this.txtPQU10.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtPQU10.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtPQU10.Properties.View = this.View;
-            this.txtPQU10.Size = new System.Drawing.Size(222, 22);
-            this.txtPQU10.StyleController = this.layoutControl1;
-            this.txtPQU10.TabIndex = 4;
-            this.txtPQU10.EditValueChanged += new System.EventHandler(this.txtPQU10_EditValueChanged);
+            this.tQUOF009.Location = new System.Drawing.Point(606, 40);
+            this.tQUOF009.Name = "tQUOF009";
+            this.tQUOF009.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF009.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF009.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF009.TabIndex = 17;
             // 
-            // View
+            // btnSure
             // 
-            this.View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.PQU10,
-            this.PQU13,
-            this.PQU12,
-            this.PQU16});
-            this.View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.View.Name = "View";
-            this.View.OptionsBehavior.Editable = false;
-            this.View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.View.OptionsView.ShowGroupPanel = false;
+            this.btnSure.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSure.Appearance.Options.UseFont = true;
+            this.btnSure.Location = new System.Drawing.Point(579, 82);
+            this.btnSure.Name = "btnSure";
+            this.btnSure.Size = new System.Drawing.Size(75, 23);
+            this.btnSure.TabIndex = 18;
+            this.btnSure.Text = "确定";
+            this.btnSure.Click += new System.EventHandler(this.btnSure_Click);
             // 
-            // PQU10
+            // btnCancel
             // 
-            this.PQU10.Caption = "部件名称";
-            this.PQU10.FieldName = "PQU10";
-            this.PQU10.Name = "PQU10";
-            this.PQU10.Visible = true;
-            this.PQU10.VisibleIndex = 0;
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.Location = new System.Drawing.Point(681, 82);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 19;
+            this.btnCancel.Text = "取消";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // PQU13
+            // dxErrorProvider1
             // 
-            this.PQU13.Caption = "每套零件数量";
-            this.PQU13.FieldName = "PQU13";
-            this.PQU13.Name = "PQU13";
-            this.PQU13.Visible = true;
-            this.PQU13.VisibleIndex = 2;
+            this.dxErrorProvider1.ContainerControl = this;
             // 
-            // PQU12
+            // tQUOF006
             // 
-            this.PQU12.Caption = "尺寸规格";
-            this.PQU12.FieldName = "PQU12";
-            this.PQU12.Name = "PQU12";
-            this.PQU12.Visible = true;
-            this.PQU12.VisibleIndex = 1;
-            // 
-            // PQU16
-            // 
-            this.PQU16.Caption = "现价";
-            this.PQU16.FieldName = "PQU16";
-            this.PQU16.Name = "PQU16";
-            this.PQU16.Visible = true;
-            this.PQU16.VisibleIndex = 3;
+            this.tQUOF006.Location = new System.Drawing.Point(82, 12);
+            this.tQUOF006.Name = "tQUOF006";
+            this.tQUOF006.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tQUOF006.Properties.Appearance.Options.UseFont = true;
+            this.tQUOF006.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tQUOF006.Size = new System.Drawing.Size(150, 22);
+            this.tQUOF006.TabIndex = 8;
+            this.tQUOF006.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tQUOF006_ButtonClick);
             // 
             // r343
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 110);
-            this.Controls.Add(this.layoutControl1);
+            this.ClientSize = new System.Drawing.Size(774, 128);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSure);
+            this.Controls.Add(this.tQUOF009);
+            this.Controls.Add(this.tQUOF008);
+            this.Controls.Add(this.tQUOF015);
+            this.Controls.Add(this.tQUOF014);
+            this.Controls.Add(this.tQUOF013);
+            this.Controls.Add(this.tQUOF007);
+            this.Controls.Add(this.tQUOF010);
+            this.Controls.Add(this.tQUOF012);
+            this.Controls.Add(this.tQUOF011);
+            this.Controls.Add(this.labelControl10);
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.labelControl8);
+            this.Controls.Add(this.labelControl7);
+            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.labelControl5);
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.tQUOF006);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "r343";
             this.Text = "R_343报价";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU12.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU13.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU16.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU18.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPQU10.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF011.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF012.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF010.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF007.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF013.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF014.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF015.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF008.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF009.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tQUOF006.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress . XtraLayout . LayoutControl layoutControl1;
-        private DevExpress . XtraLayout . LayoutControlGroup layoutControlGroup1;
-        private DevExpress . XtraLayout . LayoutControlItem layoutControlItem1;
-        private DevExpress . XtraEditors . TextEdit txtPQU12;
-        private DevExpress . XtraLayout . LayoutControlItem layoutControlItem2;
-        private DevExpress . XtraEditors . TextEdit txtPQU13;
-        private DevExpress . XtraLayout . LayoutControlItem layoutControlItem3;
-        private DevExpress . XtraEditors . TextEdit txtPQU16;
-        private DevExpress . XtraLayout . LayoutControlItem layoutControlItem4;
-        private DevExpress . XtraEditors . TextEdit txtPQU18;
-        private DevExpress . XtraLayout . LayoutControlItem layoutControlItem5;
-        private DevExpress . XtraEditors . SimpleButton simpleButton1;
-        private DevExpress . XtraEditors . SimpleButton simpleButton2;
-        private DevExpress . XtraLayout . LayoutControlItem layoutControlItem6;
-        private DevExpress . XtraLayout . LayoutControlItem layoutControlItem7;
-        private DevExpress . XtraLayout . EmptySpaceItem emptySpaceItem1;
-        private DevExpress . XtraLayout . EmptySpaceItem emptySpaceItem2;
-        private DevExpress . XtraLayout . EmptySpaceItem emptySpaceItem3;
-        private DevExpress . XtraEditors . GridLookUpEdit txtPQU10;
-        private DevExpress . XtraGrid . Views . Grid . GridView View;
-        private DevExpress . XtraGrid . Columns . GridColumn PQU10;
-        private DevExpress . XtraGrid . Columns . GridColumn PQU13;
-        private DevExpress . XtraGrid . Columns . GridColumn PQU12;
-        private DevExpress . XtraGrid . Columns . GridColumn PQU16;
+        private DevExpress . XtraEditors . LabelControl labelControl1;
+        private DevExpress . XtraEditors . LabelControl labelControl2;
+        private DevExpress . XtraEditors . LabelControl labelControl3;
+        private DevExpress . XtraEditors . LabelControl labelControl4;
+        private DevExpress . XtraEditors . LabelControl labelControl5;
+        private DevExpress . XtraEditors . LabelControl labelControl6;
+        private DevExpress . XtraEditors . LabelControl labelControl7;
+        private DevExpress . XtraEditors . LabelControl labelControl8;
+        private DevExpress . XtraEditors . LabelControl labelControl9;
+        private DevExpress . XtraEditors . LabelControl labelControl10;
+        private DevExpress . XtraEditors . TextEdit tQUOF011;
+        private DevExpress . XtraEditors . TextEdit tQUOF012;
+        private DevExpress . XtraEditors . TextEdit tQUOF010;
+        private DevExpress . XtraEditors . TextEdit tQUOF007;
+        private DevExpress . XtraEditors . TextEdit tQUOF013;
+        private DevExpress . XtraEditors . TextEdit tQUOF014;
+        private DevExpress . XtraEditors . TextEdit tQUOF015;
+        private DevExpress . XtraEditors . TextEdit tQUOF008;
+        private DevExpress . XtraEditors . TextEdit tQUOF009;
+        private DevExpress . XtraEditors . SimpleButton btnSure;
+        private DevExpress . XtraEditors . SimpleButton btnCancel;
+        private DevExpress . XtraEditors . DXErrorProvider . DXErrorProvider dxErrorProvider1;
+        private DevExpress . XtraEditors . ButtonEdit tQUOF006;
     }
 }

@@ -930,12 +930,13 @@ namespace Mulaolao . Contract
         }
         void every ( )
         {
-            desx = SqlHelper . ExecuteDataTable ( "SELECT DISTINCT GS07 AH10,GS08 AH11,GS09 AH21,GS10 AH13 FROM R_PQP A,R_REVIEWS B,R_MLLCXMC C WHERE A.GS34=B.RES06 AND B.RES01=C.CX01 AND RES05='执行' AND CX02='产品每套成本改善控制表(R_509)' AND GS07!='' AND GS01=@GS01 " ,new SqlParameter ( "@GS01" ,model . AH01 ) );
+            desx = bll . getTableFor509 ( model . AH01 );
 
-            dl = SqlHelper.ExecuteDataTable( "SELECT '' AH10,'' AH11,AH12,AH13,AH14,AH15,AH16,AH17,AH18,AH19,AH20,AH21 FROM R_PQAH WHERE AH01=@AH01" ,new SqlParameter( "@AH01" ,model.AH01 ) );
+            dl = bll . getTableFor196 ( model . AH01 );
+
             if ( desx != null )
                 dl.Merge( desx );
-            dls = dl . DefaultView . ToTable ( true ,"AH10" ,"AH11" );
+            dls = dl . DefaultView . ToTable ( true ,"AH10" ,"AH11","AH13","AH119" );
             txtPart . Properties . DataSource = dls;
             txtPart . Properties . DisplayMember = "AH10";
             txtPart . Properties . ValueMember = "AH10";
@@ -943,8 +944,6 @@ namespace Mulaolao . Contract
             //textBox14.DisplayMember = "AH11";
             comboBox14.DataSource = dl.DefaultView.ToTable( true ,"AH12" );
             comboBox14.DisplayMember = "AH12";
-            comboBox2.DataSource = dl.DefaultView.ToTable( true ,"AH13" );
-            comboBox2.DisplayMember = "AH13";
             comboBox3.DataSource = dl.DefaultView.ToTable( true ,"AH14" );
             comboBox3.DisplayMember = "AH14";
             comboBox7.DataSource = dl.DefaultView.ToTable( true ,"AH16" );
@@ -961,9 +960,9 @@ namespace Mulaolao . Contract
         void getWorkProce ( )
         {
             //获取合同编号是195的工序名称
-            DataTable tableWorkProce = bll . getTableWorkProce ( model . AH01 );
-            txtAH119 . DataSource = tableWorkProce;
-            txtAH119 . DisplayMember = "GS35";
+            //DataTable tableWorkProce = bll . getTableWorkProce ( model . AH01 );
+            //txtAH119 . DataSource = tableWorkProce;
+            //txtAH119 . DisplayMember = "GS35";
         }
         //物料名称
         private void comboBox21_SelectedIndexChanged ( object sender ,EventArgs e )
@@ -972,7 +971,7 @@ namespace Mulaolao . Contract
             {
                 textBox14.Text = dl.Select( "AH10='" + txtPart.Text + "'" )[0]["AH11"].ToString( );
                 comboBox6.Text = dl.Select( "AH10='" + txtPart.Text + "'" )[0]["AH21"].ToString( );
-                comboBox2.Text = dl.Select( "AH10='" + txtPart.Text + "'" )[0]["AH13"].ToString( );
+                txtAH13.Text = dl.Select( "AH10='" + txtPart.Text + "'" )[0]["AH13"].ToString( );
                 comboBox14.Text = dl.Select( "AH10='" + txtPart.Text + "'" )[0]["AH12"].ToString( );
                 comboBox3.Text = dl.Select( "AH10='" + txtPart.Text + "'" )[0]["AH14"].ToString( );
                 textBox2.Text = dl.Select( "AH10='" + txtPart.Text + "'" )[0]["AH15"].ToString( );
@@ -1008,23 +1007,6 @@ namespace Mulaolao . Contract
             //    textBox5.Text = "";
             //else
             //    textBox5.Text = dli.Rows[0]["DBA028"].ToString( );
-        }
-        //每套部件数量
-        private void comboBox2_KeyPress ( object sender ,KeyPressEventArgs e )
-        {
-            DateDayRegise.fractionCb( e ,comboBox2 );
-        }
-        private void comboBox2_TextChanged ( object sender ,EventArgs e )
-        {
-            DateDayRegise.textChangeCb( comboBox2 );
-        }
-        private void comboBox2_LostFocus ( object sender ,EventArgs e )
-        {
-            if ( comboBox2.Text != "" && !DateDayRegise.sixFour( comboBox2 ) )
-            {
-                this.comboBox2.Text = "";
-                MessageBox.Show( "只允许输入整数部分最多两位,小数部分最多四位,如99.9999,请重新输入" );
-            }
         }
         //丝.热.移印/色价数
         private void comboBox3_KeyPress ( object sender ,KeyPressEventArgs e )
@@ -1189,7 +1171,7 @@ namespace Mulaolao . Contract
             txtPart.Text = model.AH10.ToString( );
             textBox14.Text = model.AH11;
             comboBox14.Text = model.AH12;
-            comboBox2.Text = model.AH13.ToString( );
+            txtAH13.Text = model.AH13.ToString( );
             comboBox3.Text = model.AH14.ToString( );
             textBox2.Text = model.AH15.ToString( );
             comboBox7.Text = model.AH16.ToString( );
@@ -1294,9 +1276,13 @@ namespace Mulaolao . Contract
                 previousOfPrice ( );
 
             if ( row != null )
+            {
                 textBox14 . Text = row [ "AH11" ] . ToString ( );
+                txtAH13 . Text = row [ "AH13" ] . ToString ( );
+                txtAH119 . Text = row [ "AH119" ] . ToString ( );
+            }
             else
-                textBox14 . Text = string . Empty;
+                textBox14 . Text = txtAH13 . Text = txtAH119 . Text = string . Empty;
         }
         #endregion
 
@@ -1307,7 +1293,7 @@ namespace Mulaolao . Contract
             model . AH10 = txtPart . Text;
             model . AH11 = textBox14 . Text;
             model . AH12 = comboBox14 . Text;
-            model . AH13 = string . IsNullOrEmpty ( comboBox2 . Text ) == true ? 0 : Convert . ToDecimal ( comboBox2 . Text );
+            model . AH13 = string . IsNullOrEmpty ( txtAH13 . Text ) == true ? 0 : Convert . ToDecimal ( txtAH13 . Text );
             model . AH14 = string . IsNullOrEmpty ( comboBox3 . Text ) == true ? 0 : Convert . ToInt32 ( comboBox3 . Text );
             model . AH15 = string . IsNullOrEmpty ( textBox2 . Text ) == true ? 0 : Convert . ToDecimal ( textBox2 . Text );
             model . AH16 = string . IsNullOrEmpty ( comboBox7 . Text ) == true ? 0 : Convert . ToDecimal ( comboBox7 . Text );
@@ -1602,7 +1588,7 @@ namespace Mulaolao . Contract
         {
             if ( gridView1 . DataRowCount > 0 )
             {
-                U0 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Math . Round ( Convert . ToDecimal ( U2 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( gridView1 . GetDataRow ( 0 ) [ "AH101" ] . ToString ( ) ) ,4 ) . ToString ( ) );
+                U0 . SummaryItem . SetSummary ( SummaryItemType . Custom ,( Convert . ToDecimal ( U2 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( gridView1 . GetDataRow ( 0 ) [ "AH101" ] . ToString ( ) ) ) . ToString ( "0.###" ) );
             }
         }
         //date

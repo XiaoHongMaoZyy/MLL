@@ -39,6 +39,7 @@ namespace Mulaolao
                         Application . Run ( new Form1 ( ) );
                 }
             }
+
         }
 
     }

@@ -14,114 +14,118 @@ namespace Mulaolao . QuoForms
     public partial class r343 :DevExpress . XtraEditors . XtraForm
     {
         MulaolaoBll.Bll.QuoBll _bll=null;
-        MulaolaoLibrary.WuJinContractLibrary model;
+        MulaolaoLibrary.QUOFEntity model;
+        string num=string.Empty;
+        decimal outResult=0M;
 
-        public r343 ( MulaolaoLibrary . WuJinContractLibrary model )
+        public r343 ( MulaolaoLibrary . QUOFEntity model ,string num)
         {
             InitializeComponent ( );
 
             _bll = new MulaolaoBll . Bll . QuoBll ( );
 
-            GridViewMoHuSelect . SetFilter ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View } );
-            GrivColumnStyle . setColumnStyle ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View } );
-
             this . model = model;
+            this . num = num;
 
             setValue ( );
-            getInfo ( );
         }
 
         void setValue ( )
         {
-            txtPQU10 . Text = model . PQU10;
-            txtPQU12 . Text = model . PQU12;
-            txtPQU13 . Text = Convert . ToDecimal ( model . PQU13 ) . ToString ( "0.######" );
-            txtPQU16 . Text = Convert . ToDecimal ( model . PQU16 ) . ToString ( "0.######" );
-            txtPQU18 . Text = model . PQU18 . ToString ( );
+            if ( model == null )
+                return;
+            if ( model . idx < 1 )
+                return;
+            model = _bll . getModel343 ( model . idx );
+            if ( model == null )
+                return;
+            tQUOF006 . Text = model . QUOF006;
+            tQUOF007 . Text = model . QUOF007;
+            tQUOF008 . Text = model . QUOF008;
+            tQUOF009 . Text = model . QUOF009;
+            tQUOF010 . Text = model . QUOF010;
+            tQUOF011 . Text = Convert . ToDecimal ( model . QUOF011 ) . ToString ( "0.######" );
+            tQUOF012 . Text = Convert . ToDecimal ( model . QUOF012 ) . ToString ( "0.######" );
+            tQUOF013 . Text = Convert . ToDecimal ( model . QUOF013 ) . ToString ( "0.######" );
+            tQUOF014 . Text = Convert . ToDecimal ( model . QUOF014 ) . ToString ( "0.######" );
+            tQUOF015 . Text = Convert . ToDecimal ( model . QUOF015 ) . ToString ( "0.######" );
         }
 
-        void getInfo ( )
-        {
-            DataTable tableOne = _bll . getTableFor343Info ( Convert . ToDateTime ( model . PQU04 ) );
-            txtPQU10 . Properties . DataSource = tableOne;
-            txtPQU10 . Properties . DisplayMember = "PQU10";
-            txtPQU10 . Properties . ValueMember = "PQU10";
-        }
-
-        private void simpleButton2_Click ( object sender ,EventArgs e )
+        private void btnCancel_Click ( object sender ,EventArgs e )
         {
             this . DialogResult = DialogResult . Cancel;
         }
 
-        private void simpleButton1_Click ( object sender ,EventArgs e )
+        private void btnSure_Click ( object sender ,EventArgs e )
         {
-            if ( string . IsNullOrEmpty ( txtPQU10 . Text ) )
+            dxErrorProvider1 . ClearErrors ( );
+            if ( string . IsNullOrEmpty ( tQUOF006 . Text ) )
             {
-                XtraMessageBox . Show ( "请选择部件名称" );
+                dxErrorProvider1 . SetError ( tQUOF006 ,"不可为空" );
                 return;
             }
-            model . PQU10 = txtPQU10 . Text;
-            if ( string . IsNullOrEmpty ( txtPQU12 . Text ) )
-            {
-                XtraMessageBox . Show ( "请录入规格尺寸" );
-                return;
-            }
-            model . PQU12 = txtPQU12 . Text;
-            if ( string . IsNullOrEmpty ( txtPQU13 . Text ) )
-            {
-                XtraMessageBox . Show ( "每套部件用量不可为空" );
-                return;
-            }
-            decimal outResult = 0M;
-            if ( decimal . TryParse ( txtPQU13 . Text ,out outResult ) == false )
-            {
-                XtraMessageBox . Show ( "每套部件用量为数字" );
-                return;
-            }
-            model . PQU13 = outResult;
-            if ( string . IsNullOrEmpty ( txtPQU16 . Text ) )
-            {
-                XtraMessageBox . Show ( "现价不可为空" );
-                return;
-            }
-             outResult = 0M;
-            if ( decimal . TryParse ( txtPQU16 . Text ,out outResult ) == false )
-            {
-                XtraMessageBox . Show ( "现价为数字" );
-                return;
-            }
-            model . PQU16 = outResult;
-            if ( string . IsNullOrEmpty ( txtPQU18 . Text ) )
-            {
-                XtraMessageBox . Show ( "数量不可为空" );
-                return;
-            }
+            model . QUOF006 = tQUOF006 . Text;
+            model . QUOF007 = tQUOF007 . Text;
+            model . QUOF008 = tQUOF008 . Text;
+            model . QUOF009 = tQUOF009 . Text;
+            model . QUOF010 = tQUOF010 . Text;
             outResult = 0M;
-            if ( decimal . TryParse ( txtPQU18 . Text ,out outResult ) == false )
+            if ( !string . IsNullOrEmpty ( tQUOF011 . Text ) && decimal . TryParse ( tQUOF011 . Text ,out outResult ) == false )
             {
-                XtraMessageBox . Show ( "数量为数字" );
+                dxErrorProvider1 . SetError ( tQUOF011 ,"必须为数字" );
                 return;
             }
-            model . PQU18 = outResult;
-            this . DialogResult = DialogResult . OK;
-        }
-
-        public MulaolaoLibrary . WuJinContractLibrary getModel
-        {
-            get
+            model . QUOF011 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOF012 . Text ) && decimal . TryParse ( tQUOF012 . Text ,out outResult ) == false )
             {
-                return model;
+                dxErrorProvider1 . SetError ( tQUOF012 ,"必须为数字" );
+                return;
             }
+            model . QUOF012 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOF013 . Text ) && decimal . TryParse ( tQUOF013 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOF013 ,"必须为数字" );
+                return;
+            }
+            model . QUOF013 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOF014 . Text ) && decimal . TryParse ( tQUOF014 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOF014 ,"必须为数字" );
+                return;
+            }
+            model . QUOF014 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOF015 . Text ) && decimal . TryParse ( tQUOF015 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOF015 ,"必须为数字" );
+                return;
+            }
+            model . QUOF015 = outResult;
+
+            int id = _bll . Save343 ( model );
+            if ( id > 0 )
+                this . DialogResult = DialogResult . OK;
+            else
+                XtraMessageBox . Show ( "保存失败" );
         }
 
-        private void txtPQU10_EditValueChanged ( object sender ,EventArgs e )
+        private void tQUOF006_ButtonClick ( object sender ,DevExpress . XtraEditors . Controls . ButtonPressedEventArgs e )
         {
-            DataRow row = View . GetFocusedDataRow ( );
-            if ( row == null )
+            DataTable table = _bll . getTableFor509To343 ( num );
+            if ( table == null || table . Rows . Count < 1 )
                 return;
-            txtPQU12 . Text = row [ "PQU12" ] . ToString ( );
-            txtPQU13 . Text = row [ "PQU13" ] . ToString ( );
-            txtPQU16 . Text = row [ "PQU16" ] . ToString ( );
+            Form343Query form = new Form343Query ( table );
+            if ( form . ShowDialog ( ) == DialogResult . OK )
+            {
+                DataRow row = form . getRow;
+                tQUOF006 . Text = row [ "GS07" ] . ToString ( );
+                tQUOF007 . Text = row [ "GS08" ] . ToString ( );
+                tQUOF011 . Text = row [ "GS10" ] . ToString ( );
+                tQUOF010 . Text = row [ "GS09" ] . ToString ( );
+            }
         }
 
     }

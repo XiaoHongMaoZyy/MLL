@@ -1333,7 +1333,7 @@
             this.U15.FieldName = "U15";
             this.U15.Name = "U15";
             this.U15.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U15", "{0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U15", "{0:0.###}")});
             this.U15.ToolTip = "[按毛板、立方计算结算款] / [产品数量]";
             this.U15.UnboundExpression = "[PQV66] * [PQV81] * [PQV67] * [PQV11] * [PQV13]   /  [PQV80]";
             this.U15.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -1372,7 +1372,7 @@
             this.U16.FieldName = "U16";
             this.U16.Name = "U16";
             this.U16.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U16", "{0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U16", "{0:0.###}")});
             this.U16.ToolTip = "[按切削计算结算款] / [产品数量]";
             this.U16.UnboundExpression = "[PQV12]  *[PQV68] * [PQV69] * [PQV70]* 0.000001* [PQV11]";
             this.U16.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -1400,7 +1400,7 @@
             this.PQV97.FieldName = "PQV97";
             this.PQV97.Name = "PQV97";
             this.PQV97.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PQV97", "{0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PQV97", "{0:0.###}")});
             this.PQV97.Visible = true;
             this.PQV97.Width = 87;
             // 
@@ -1882,7 +1882,7 @@
             this.U3.FieldName = "U3";
             this.U3.Name = "U3";
             this.U3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U3", "{0:N4}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U3", "{0:0.####}")});
             this.U3.ToolTip = "[长] * [木材宽] * [高(厚)]";
             this.U3.UnboundExpression = "[PQV66] *  [PQV81]* [PQV67]";
             this.U3.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -1919,7 +1919,7 @@
             this.U14.FieldName = "U14";
             this.U14.Name = "U14";
             this.U14.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U14", "{0:N4}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U14", "{0:0.####}")});
             this.U14.ToolTip = "[长] * [宽] * [高(厚)]";
             this.U14.UnboundExpression = "[PQV68] * [PQV69] * [PQV70]";
             this.U14.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -1956,7 +1956,7 @@
             this.U4.FieldName = "U4";
             this.U4.Name = "U4";
             this.U4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U4", "{0:N4}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U4", "{0:0.####}")});
             this.U4.ToolTip = "[长] * [宽] * [高(厚)]";
             this.U4.UnboundExpression = "[PQV71] * [PQV72] * [PQV73]";
             this.U4.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -2070,7 +2070,7 @@
             this.U5.FieldName = "U5";
             this.U5.Name = "U5";
             this.U5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U5", "{0:N4}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U5", "{0:0.####}")});
             this.U5.ToolTip = "[长] * [木材宽] * [高(厚)] * [购规格料条数]";
             this.U5.UnboundExpression = "[PQV66] * [PQV81]* [PQV67] * [PQV13]";
             this.U5.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -2106,7 +2106,7 @@
             this.U6.FieldName = "U6";
             this.U6.Name = "U6";
             this.U6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U6", "{0:N4}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U6", "{0:0.####}")});
             this.U6.ToolTip = "[产品数量] * [每套部件数量] * [部件半成品体积m³] * 0.000001";
             this.U6.UnboundExpression = "[PQV80] * [PQV12]  *[PQV68] * [PQV69] * [PQV70]* 0.000001";
             this.U6.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -2142,7 +2142,7 @@
             this.U7.FieldName = "U7";
             this.U7.Name = "U7";
             this.U7.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U7", "{0:N4}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U7", "{0:0.####}")});
             this.U7.ToolTip = "[每个部件净体积cm³] * [净.毛立方倍率] * [产品数量] * [每套部件数量] * 0.000001";
             this.U7.UnboundExpression = "[PQV71] * [PQV72] * [PQV73] * [PQV84]* [PQV80]* [PQV12] * 0.000001";
             this.U7.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -2194,7 +2194,7 @@
             this.U8.FieldName = "U8";
             this.U8.Name = "U8";
             this.U8.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U8", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U8", "{0:0.##}")});
             this.U8.ToolTip = "[每立方米现价] * [按毛板料算购量立方]";
             this.U8.UnboundExpression = "[PQV11] * [PQV66] * [PQV81]* [PQV67] * [PQV13]";
             this.U8.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -2230,7 +2230,7 @@
             this.U9.FieldName = "U9";
             this.U9.Name = "U9";
             this.U9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U9", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U9", "{0:0.##}")});
             this.U9.ToolTip = "[切削算购量m³] * [每立方米现价]";
             this.U9.UnboundExpression = "[PQV80] * [PQV12]  *[PQV68] * [PQV69] * [PQV70]* 0.000001* [PQV11]";
             this.U9.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -2266,7 +2266,7 @@
             this.U10.FieldName = "U10";
             this.U10.Name = "U10";
             this.U10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U10", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U10", "{0:0.##}")});
             this.U10.ToolTip = "[倍率算购量] * [每立方米现价]";
             this.U10.UnboundExpression = "[PQV71] * [PQV72] * [PQV73] * [PQV84]* [PQV80]* [PQV12] * 0.000001 * [PQV11]";
             this.U10.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;

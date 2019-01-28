@@ -167,6 +167,7 @@
     <Compile Include="Bll\ZuZhangBomBll.cs" />
     <Compile Include="Bll\ZuZhangGongZiKaoHdBll.cs" />
     <Compile Include="Bll\ZuZhangGongZiKaoHeBll.cs" />
+    <Compile Include="CalcuResult.cs" />
     <Compile Include="ContractAddPrintTime.cs" />
     <Compile Include="Dao\AnnualPayrollSummaryDao.cs" />
     <Compile Include="Dao\BatchNumManagementDao.cs" />
@@ -222,7 +223,19 @@
     <Compile Include="Dao\QualityFinalInspsctionDao.cs" />
     <Compile Include="Dao\QualityReportDao.cs" />
     <Compile Include="Dao\QualityTestingDao.cs" />
+    <Compile Include="Dao\QUOADao.cs" />
+    <Compile Include="Dao\QUOBDao.cs" />
+    <Compile Include="Dao\QUOCEDao.cs" />
     <Compile Include="Dao\QuoDao.cs" />
+    <Compile Include="Dao\QUODDao.cs" />
+    <Compile Include="Dao\QUOEDao.cs" />
+    <Compile Include="Dao\QUOFDao.cs" />
+    <Compile Include="Dao\QUOGDao.cs" />
+    <Compile Include="Dao\QUOHDao.cs" />
+    <Compile Include="Dao\QUOIDao.cs" />
+    <Compile Include="Dao\QUOJDao.cs" />
+    <Compile Include="Dao\QUOKDao.cs" />
+    <Compile Include="Dao\QUOLDao.cs" />
     <Compile Include="Dao\ReadyOfNumDao.cs" />
     <Compile Include="Dao\RemindDao.cs" />
     <Compile Include="Dao\SafetyManegerAndControlDao.cs" />

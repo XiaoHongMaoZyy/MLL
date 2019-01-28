@@ -62,6 +62,7 @@
             this.PQV05 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PQV97 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.U1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PQV99 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -84,7 +85,6 @@
             this.lookUpEdit8 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit9 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit10 = new DevExpress.XtraEditors.LookUpEdit();
-            this.PQV99 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -520,12 +520,12 @@
             this.U0.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U0.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U0.Caption = "结算款";
-            this.U0.DisplayFormat.FormatString = "N2";
+            this.U0.DisplayFormat.FormatString = "0.##";
             this.U0.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U0.FieldName = "U0";
             this.U0.Name = "U0";
             this.U0.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U0", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U0", "{0:0.##}")});
             this.U0.ToolTip = "[产品数量] * [每套部件数量] * [每立方米现价] * [购规格料条数] * [半成品长] * [半成品宽] * [半成品高] * 0.000001";
             this.U0.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U0.Visible = true;
@@ -673,7 +673,7 @@
             this.PQV97.FieldName = "PQV97";
             this.PQV97.Name = "PQV97";
             this.PQV97.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PQV97", "{0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PQV97", "{0:0.###}")});
             this.PQV97.Visible = true;
             this.PQV97.VisibleIndex = 16;
             this.PQV97.Width = 85;
@@ -684,12 +684,25 @@
             this.U1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U1.Caption = "每套成本(切削算)";
+            this.U1.DisplayFormat.FormatString = "0.###";
+            this.U1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U1.FieldName = "U1";
             this.U1.Name = "U1";
             this.U1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:0.###}")});
+            this.U1.ToolTip = "[结算款] / [产品数量]";
+            this.U1.UnboundExpression = "[U0] / [PQV80]";
+            this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U1.Visible = true;
             this.U1.VisibleIndex = 17;
+            // 
+            // PQV99
+            // 
+            this.PQV99.Caption = "是否结账";
+            this.PQV99.FieldName = "PQV99";
+            this.PQV99.Name = "PQV99";
+            this.PQV99.Visible = true;
+            this.PQV99.VisibleIndex = 24;
             // 
             // label1
             // 
@@ -940,14 +953,6 @@
             this.lookUpEdit10.Properties.ShowHeader = false;
             this.lookUpEdit10.Size = new System.Drawing.Size(73, 22);
             this.lookUpEdit10.TabIndex = 31;
-            // 
-            // PQV99
-            // 
-            this.PQV99.Caption = "是否结账";
-            this.PQV99.FieldName = "PQV99";
-            this.PQV99.Name = "PQV99";
-            this.PQV99.Visible = true;
-            this.PQV99.VisibleIndex = 24;
             // 
             // MucaiContractQueryAll
             // 

@@ -2871,6 +2871,7 @@ namespace Mulaolao.Contract
             assginContrac( );
 
             every ( );
+            previousOfPrice ( );
         }
         //实际收货日期
         yanpinSelect ys = new yanpinSelect( );

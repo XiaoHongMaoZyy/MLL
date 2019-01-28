@@ -37,7 +37,7 @@ namespace SelectAll
         {
             pageToDataTable( );
         }
-
+        
         //Bind data source
         void assignMent ( )
         {
@@ -143,9 +143,12 @@ namespace SelectAll
             if ( signYou . Equals ( "1" ) )
                 return;
             int bp = 0, tp = 0;
-            decimal dOne = 0, dTwo = 0;
+            decimal dOne = 0, dTwo = 0, numForPro = 0;
+            string num = string . Empty;
             for ( int i = 0 ; i < gridView1 . RowCount ; i++ )
-            {               
+            {
+                num = gridView1 . GetDataRow ( i ) [ "YQ03" ] . ToString ( );
+
                 if ( !string . IsNullOrEmpty ( gridView1 . GetDataRow ( i ) [ "YQ134" ] . ToString ( ) ) && Convert . ToDecimal ( gridView1 . GetDataRow ( i ) [ "YQ134" ] . ToString ( ) ) > 0 )
                 {
                     bp++;
@@ -156,13 +159,24 @@ namespace SelectAll
                     tp++;
                     dTwo += Convert . ToDecimal ( gridView1 . GetDataRow ( i ) [ "YQ135" ] . ToString ( ) );
                 }
+                if ( i == 0 )
+                    numForPro = Convert . ToInt32 ( gridView1 . GetDataRow ( i ) [ "YQ108" ] . ToString ( ) );
+                else if ( !num . Equals ( gridView1 . GetDataRow ( i - 1 ) [ "YQ03" ] . ToString ( ) ) )
+                    numForPro += Convert . ToInt32 ( gridView1 . GetDataRow ( i ) [ "YQ108" ] . ToString ( ) );
             }
 
             YQ14 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( U2 . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( U10 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( U2 . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
             YQ16 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( U1 . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( U9 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( U1 . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
 
             U11 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( U3 . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( U2 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( U3 . SummaryItem . SummaryValue ) / 2 * Convert . ToDecimal ( 0.85 ) ,2 ) . ToString ( ) );
+
             U12 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( U4 . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( U1 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( U4 . SummaryItem . SummaryValue ) / 2 ,2 ) . ToString ( ) );
+
+            U14 . SummaryItem . SetSummary ( SummaryItemType . Custom ,numForPro == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( U9 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( numForPro ) ,2 ) . ToString ( ) );
+            U15 . SummaryItem . SetSummary ( SummaryItemType . Custom ,numForPro == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( U10 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( numForPro ) ,2 ) . ToString ( ) );
+
+            U16 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( U2 . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( U10 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( U2 . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
+            U17 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( U1 . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( U9 . SummaryItem . SummaryValue ) / Convert . ToDecimal ( U1 . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
 
             YQ134 . SummaryItem . SetSummary ( SummaryItemType . Custom ,bp == 0 ? 0 . ToString ( ) : Math . Round ( dOne / bp ,2 ) . ToString ( ) );
             YQ135 . SummaryItem . SetSummary ( SummaryItemType . Custom ,tp == 0 ? 0 . ToString ( ) : Math . Round ( dTwo / tp ,2 ) . ToString ( ) );

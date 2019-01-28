@@ -37,7 +37,7 @@ namespace Mulaolao.Procedure
         MulaolaoLibrary.YouQiLibrary model = new MulaolaoLibrary.YouQiLibrary( );
         Youqicaigou yq = new Youqicaigou( );
         R_FrmTPADGA tpadga = new R_FrmTPADGA( );
-        R_FrmPQJ pqj = new R_FrmPQJ( );
+        
         string saves = "", copy = "", strWhere = "1=1", weihu = "", numQu = "", stateOfOdd = "", file = "";
         DataTable tab, dtOrd, dpOrd, name;
         DataTable dr = new DataTable( );
@@ -519,53 +519,45 @@ namespace Mulaolao.Procedure
                 //PY36!= '' AND 
                 djh = SqlHelper.ExecuteDataTable( "SELECT PY25,PY36,PY24,PY11,PY12,PY14,PY18,PY15,PY02 FROM R_PQY WHERE PY31=@PY31 AND PY01='' ORDER BY idx ASC" ,new SqlParameter( "@PY31" ,comboBox4.Text ) );
             }
-            if ( djh.Rows.Count < 1 )
-                MessageBox.Show( "[喷油漆承揽生产加工合同(R_495)]没有已经执行的信息,请录入或送审操作" );
-            else
+
+            R_FrmPQJ form = new R_FrmPQJ ( djh );
+            if ( form . ShowDialog ( ) == DialogResult . OK )
             {
-                pqj.gridControl1.DataSource = djh;
-                pqj.pj = "1";
-                pqj.Text = "R_339 信息查询";
-                pqj.PassDataBetweenForm += new R_FrmPQJ.PassDataBetweenFormHandler( pqj_PassDataBetweenForm );
-                pqj.StartPosition = FormStartPosition.CenterScreen;
-                pqj.ShowDialog( );
+                DataRow row = form . getRow;
+                if ( string . IsNullOrEmpty ( row["PY11"].ToString() ) )
+                    model . YQ112 = 0;
+                else
+                    model . YQ112 = Convert . ToInt32 ( row [ "PY11" ] . ToString ( ) );
+                textBox11 . Text = row [ "PY11" ] . ToString ( );
+                if ( string . IsNullOrEmpty ( row [ "PY12" ] . ToString ( ) ) )
+                    model . YQ113 = 0;
+                else
+                    model . YQ113 = Convert . ToInt32 ( row [ "PY12" ] . ToString ( ) );
+                textBox20 . Text = row [ "PY12" ] . ToString ( );
+                if ( string . IsNullOrEmpty ( row [ "PY14" ] . ToString ( ) ) )
+                    model . YQ114 = 0;
+                else
+                    model . YQ114 = Convert . ToInt32 ( row [ "PY14" ] . ToString ( ) );
+                textBox21 . Text = row [ "PY14" ] . ToString ( );
+                if ( string . IsNullOrEmpty ( row [ "PY15" ] . ToString ( ) ) )
+                    model . YQ116 = 0;
+                else
+                    model . YQ116 = Convert . ToInt32 ( row [ "PY15" ] . ToString ( ) );
+                textBox25 . Text = row [ "PY15" ] . ToString ( );
+                if ( string . IsNullOrEmpty ( row [ "PY18" ] . ToString ( ) ) )
+                    model . YQ115 = 0M;
+                else
+                    model . YQ115 = Convert . ToDecimal ( row [ "PY18" ] . ToString ( ) );
+                textBox22 . Text = row [ "PY18" ] . ToString ( );
+                model . YQ117 = row [ "PY02" ] . ToString ( );
+                textBox23 . Text = row [ "PY02" ] . ToString ( );
+                model . YQ11 = row [ "PY36" ] . ToString ( );
+                textBox32 . Text = row [ "PY36" ] . ToString ( );
+                model . YQ10 = row [ "PY25" ] . ToString ( );
+                textBox28 . Text = row [ "PY25" ] . ToString ( );
+                model . YQ119 = row [ "PY24" ] . ToString ( );
+                textBox54 . Text = row [ "PY24" ] . ToString ( );
             }
-        }
-        private void pqj_PassDataBetweenForm ( object sender ,PassDataWinFormEventArgs e )
-        {
-            if ( string.IsNullOrEmpty( e.ConOne ) )
-                model.YQ112 = 0;
-            else
-                model.YQ112 = Convert.ToInt32( e.ConOne );
-            textBox11.Text = e.ConOne;
-            if ( string.IsNullOrEmpty( e.ConTwo ) )
-                model.YQ113 = 0;
-            else
-                model.YQ113 = Convert.ToInt32( e.ConTwo );
-            textBox20.Text = e.ConTwo;
-            if ( string.IsNullOrEmpty( e.ConTre ) )
-                model.YQ114 = 0;
-            else
-                model.YQ114 = Convert.ToInt32( e.ConTre );
-            textBox21.Text = e.ConTre;
-            if ( string.IsNullOrEmpty( e.ConFor ) )
-                model.YQ116 = 0;
-            else
-                model.YQ116 = Convert.ToInt32( e.ConFor );
-            textBox25.Text = e.ConFor;
-            if ( string.IsNullOrEmpty( e.ConFiv ) )
-                model.YQ115 = 0M;
-            else
-                model.YQ115 = Convert.ToDecimal( e.ConFiv );
-            textBox22.Text = e.ConFiv;
-            model.YQ117 = e.ConSix;
-            textBox23.Text = e.ConSix;
-            model.YQ11 = e.ConSev;
-            model.YQ10 = e.ConEgi;
-            textBox32.Text = e.ConSev;
-            textBox28.Text = e.ConEgi;
-            model.YQ119 = e.ConNin;
-            textBox54.Text = e.ConNin;
         }
         //查询
         SelectAll.YouQicontractAll query = new SelectAll.YouQicontractAll( );
@@ -618,7 +610,7 @@ namespace Mulaolao.Procedure
                 MessageBox . Show ( "请选择加工工艺" );
             else
             {
-                if ( textBox54 . Text . Equals ( "水帘机喷涂" ) )
+                if ( textBox54 . Text . Equals ( DicStr.sljpq ) )
                 {
                     se = new R_FrmR_519select ( "" ,"2" ,"1" );
                     r519ben = "1";
@@ -626,7 +618,7 @@ namespace Mulaolao.Procedure
                     se . StartPosition = FormStartPosition . CenterScreen;
                     se . ShowDialog ( );
                 }
-                else if ( textBox54 . Text . Equals ( "静电喷涂" ) )
+                else if ( textBox54 . Text . Equals ( DicStr.jdpt ) )
                 {
                     se = new R_FrmR_519select ( "" ,"2" ,"2" );
                     r519ben = "2";
@@ -634,7 +626,7 @@ namespace Mulaolao.Procedure
                     se . StartPosition = FormStartPosition . CenterScreen;
                     se . ShowDialog ( );
                 }
-                else if ( textBox54 . Text . Equals ( "浸漆" ) )
+                else if ( textBox54 . Text . Equals (DicStr.jq ) )
                 {
                     se = new R_FrmR_519select ( "" ,"2" ,"3" );
                     r519ben = "3";
@@ -642,7 +634,7 @@ namespace Mulaolao.Procedure
                     se . StartPosition = FormStartPosition . CenterScreen;
                     se . ShowDialog ( );
                 }
-                else if ( textBox54 . Text . Equals ( "封边" ) )
+                else if ( textBox54 . Text . Equals ( DicStr.fb ) )
                 {
                     se = new R_FrmR_519select ( "" ,"2" ,"4" );
                     r519ben = "4";
@@ -650,7 +642,7 @@ namespace Mulaolao.Procedure
                     se . StartPosition = FormStartPosition . CenterScreen;
                     se . ShowDialog ( );
                 }
-                else if ( textBox54 . Text . Equals ( "涂布" ) )
+                else if ( textBox54 . Text . Equals ( DicStr.tb ) )
                 {
                     se = new R_FrmR_519select ( "" ,"2" ,"5" );
                     r519ben = "5";
@@ -1219,6 +1211,10 @@ namespace Mulaolao.Procedure
             {
                 cancel( );
             }
+        }
+        private void bandedGridView1_ColumnFilterChanged ( object sender ,EventArgs e )
+        {
+            assignMent ( );
         }
         #endregion
 
@@ -2094,7 +2090,7 @@ namespace Mulaolao.Procedure
             }
         }
         #endregion
-        
+         
         #region Table
         //Build
         void adds ( )
@@ -3179,6 +3175,8 @@ namespace Mulaolao.Procedure
                 YQ108 . SummaryItem . SetSummary ( SummaryItemType . Custom ,bandedGridView1 . GetDataRow ( 0 ) [ "YQ108" ] . ToString ( ) );
                 YQ14 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( bandedGridView1 . Columns [ "U2" ] . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( bandedGridView1 . Columns [ "U10" ] . SummaryItem . SummaryValue ) / Convert . ToDecimal ( bandedGridView1 . Columns [ "U2" ] . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
                 YQ16 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( bandedGridView1 . Columns [ "U1" ] . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( bandedGridView1 . Columns [ "U9" ] . SummaryItem . SummaryValue ) / Convert . ToDecimal ( bandedGridView1 . Columns [ "U1" ] . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
+                U13 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( bandedGridView1 . Columns [ "U2" ] . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( bandedGridView1 . Columns [ "U10" ] . SummaryItem . SummaryValue ) / Convert . ToDecimal ( bandedGridView1 . Columns [ "U2" ] . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
+                U14 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( bandedGridView1 . Columns [ "U1" ] . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( bandedGridView1 . Columns [ "U9" ] . SummaryItem . SummaryValue ) / Convert . ToDecimal ( bandedGridView1 . Columns [ "U1" ] . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
                 U7 . SummaryItem . SetSummary ( SummaryItemType . Custom ,string . IsNullOrEmpty ( bandedGridView1 . GetDataRow ( 0 ) [ "YQ108" ] . ToString ( ) ) == true ? 0 . ToString ( ) : Math . Round ( ( Convert . ToDecimal ( bandedGridView1 . Columns [ "U9" ] . SummaryItem . SummaryValue ) + Convert . ToDecimal ( bandedGridView1 . Columns [ "U10" ] . SummaryItem . SummaryValue ) ) / Convert . ToDecimal ( bandedGridView1 . GetDataRow ( 0 ) [ "YQ108" ] . ToString ( ) ) ,2 ) . ToString ( ) );
                 U8 . SummaryItem . SetSummary ( SummaryItemType . Custom ,string . IsNullOrEmpty ( bandedGridView1 . GetDataRow ( 0 ) [ "YQ108" ] . ToString ( ) ) == true ? 0 . ToString ( ) : Math . Round ( ( Convert . ToDecimal ( bandedGridView1 . Columns [ "U9" ] . SummaryItem . SummaryValue ) + Convert . ToDecimal ( bandedGridView1 . Columns [ "U10" ] . SummaryItem . SummaryValue ) ) / Convert . ToDecimal ( bandedGridView1 . GetDataRow ( 0 ) [ "YQ108" ] . ToString ( ) ) ,2 ) . ToString ( ) );
                 U5 . SummaryItem . SetSummary ( SummaryItemType . Custom ,Convert . ToDecimal ( bandedGridView1 . Columns [ "U2" ] . SummaryItem . SummaryValue ) == 0 ? 0 . ToString ( ) : Math . Round ( Convert . ToDecimal ( bandedGridView1 . Columns [ "U3" ] . SummaryItem . SummaryValue ) / Convert . ToDecimal ( bandedGridView1 . Columns [ "U2" ] . SummaryItem . SummaryValue ) ,3 ) . ToString ( ) );

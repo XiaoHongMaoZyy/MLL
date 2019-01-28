@@ -2179,14 +2179,14 @@
             this.U1.AppearanceHeader.Options.UseTextOptions = true;
             this.U1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U1.Caption = "每套成本";
-            this.U1.DisplayFormat.FormatString = "N2";
+            this.U1.DisplayFormat.FormatString = "0.###";
             this.U1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U1.FieldName = "U1";
             this.U1.Name = "U1";
             this.U1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:N2}")});
-            this.U1.ToolTip = "[每个单价] * [每套用量]";
-            this.U1.UnboundExpression = "[AF023] * [AF019]";
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:0.###}")});
+            this.U1.ToolTip = "[结算款] / [产品数量]";
+            this.U1.UnboundExpression = "[U5] / [AF006]";
             this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U1.Visible = true;
             this.U1.Width = 74;
@@ -2211,7 +2211,7 @@
             this.AF088.FieldName = "AF088";
             this.AF088.Name = "AF088";
             this.AF088.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AF088", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AF088", "{0:0.##}")});
             this.AF088.Visible = true;
             this.AF088.Width = 62;
             // 
@@ -2242,7 +2242,7 @@
             this.U0.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U0.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U0.Caption = "每个车木件净体积cm3";
-            this.U0.DisplayFormat.FormatString = "N1";
+            this.U0.DisplayFormat.FormatString = "0.#";
             this.U0.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U0.FieldName = "U0";
             this.U0.Name = "U0";
@@ -2276,12 +2276,12 @@
             this.U6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U6.Caption = "总立方m³";
-            this.U6.DisplayFormat.FormatString = "N4";
+            this.U6.DisplayFormat.FormatString = "0.####";
             this.U6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U6.FieldName = "U6";
             this.U6.Name = "U6";
             this.U6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U6", "{0:N4}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U6", "{0:0.####}")});
             this.U6.ToolTip = "[每个车木件净体积cm3] * [产品数量] * [每套用量] * 0.000001";
             this.U6.UnboundExpression = "[U0] * [AF006] * [AF019]* 0.000001";
             this.U6.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -2328,7 +2328,7 @@
             this.AF020.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.AF020.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.AF020.Caption = "长";
-            this.AF020.DisplayFormat.FormatString = "N2";
+            this.AF020.DisplayFormat.FormatString = "0.##";
             this.AF020.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.AF020.FieldName = "AF020";
             this.AF020.Name = "AF020";
@@ -2360,7 +2360,7 @@
             this.AF021.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.AF021.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.AF021.Caption = "宽";
-            this.AF021.DisplayFormat.FormatString = "N2";
+            this.AF021.DisplayFormat.FormatString = "0.##";
             this.AF021.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.AF021.FieldName = "AF021";
             this.AF021.Name = "AF021";
@@ -2392,7 +2392,7 @@
             this.AF022.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.AF022.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.AF022.Caption = "高(厚)";
-            this.AF022.DisplayFormat.FormatString = "N2";
+            this.AF022.DisplayFormat.FormatString = "0.##";
             this.AF022.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.AF022.FieldName = "AF022";
             this.AF022.Name = "AF022";
@@ -2579,12 +2579,12 @@
             this.U5.AppearanceHeader.Options.UseTextOptions = true;
             this.U5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U5.Caption = "结算款";
-            this.U5.DisplayFormat.FormatString = "N2";
+            this.U5.DisplayFormat.FormatString = "0.##";
             this.U5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U5.FieldName = "U5";
             this.U5.Name = "U5";
             this.U5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U5", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U5", "{0:0.##}")});
             this.U5.ToolTip = " [每个单价]* [采购总、分量/个]";
             this.U5.UnboundExpression = " [AF023]*[AF006] * [AF019]";
             this.U5.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;

@@ -431,6 +431,7 @@ namespace Mulaolao.Procedure
         private void textBox59_TextChanged ( object sender ,EventArgs e )
         {
             DateDayRegise . textChangeTb ( textBox59 );
+            textBox62 . Text = MulaolaoBll . CalcuResult . calcuPriceFor338 ( textBox60 . Text ,textBox61 . Text ,textBox59 . Text );
             calcuPrice ( );
         }
         private void textBox60_TextChanged ( object sender ,EventArgs e )
@@ -439,20 +440,16 @@ namespace Mulaolao.Procedure
         }
         private void textBox61_TextChanged ( object sender ,EventArgs e )
         {
-            calcuPrice ( );
+            textBox62 . Text = MulaolaoBll . CalcuResult . calcuPriceFor338 ( textBox60 . Text ,textBox61 . Text ,textBox59 . Text );
+            
         }
         void calcuPrice ( )
         {
             if ( string . IsNullOrEmpty ( textBox60 . Text ) )
                 return;
-            if ( string . IsNullOrEmpty ( textBox61 . Text ) )
-                return;
             decimal ld = Convert . ToDecimal ( textBox60 . Tag );
-            decimal lz = Convert . ToDecimal ( textBox61 . Text );
             decimal yd = string . IsNullOrEmpty ( textBox59 . Text ) == true ? 0 : Convert . ToDecimal ( textBox59 . Text );
             textBox60 . Text = ( ld + yd ) . ToString ( "0.##" );
-            ld = Convert . ToDecimal ( textBox60 . Text );
-            textBox62 . Text = Convert . ToDecimal ( ld * lz ) . ToString ( "0.##" );
         }
         private void textBox59_KeyPress ( object sender ,KeyPressEventArgs e )
         {
@@ -2087,9 +2084,9 @@ namespace Mulaolao.Procedure
                 DataRow row = form . getRow;
                 string spe = string . Empty;
                 textBox59 . Text = string . Empty;
-                if ( "胶合板" . Equals ( info ) )
+                if (DicStr.plyWood . Equals ( info ) )
                 {
-                    lookUpEdit3 . Text = "胶合板";
+                    lookUpEdit3 . Text = DicStr . plyWood;
                     textBox19 . Tag = row [ "QJB013" ];
                     numFor= model . JM03 = string . IsNullOrEmpty ( row [ "QJB013" ] . ToString ( ) ) ? string . Empty : row [ "QJB013" ] . ToString ( );
                     textBox19 . Text = row [ "QJB014" ] . ToString ( );
@@ -2115,9 +2112,9 @@ namespace Mulaolao.Procedure
                     textBox60_TextChanged ( null ,null );
                     textBox61_TextChanged ( null ,null );
                 }
-                else if ( "密度板" . Equals ( info ) )
+                else if ( DicStr . densityBoard . Equals ( info ) )
                 {
-                    lookUpEdit3 . Text = "密度板";
+                    lookUpEdit3 . Text = DicStr . densityBoard;
                     textBox19 . Tag = row [ "QMD012" ];
                     numFor = model . JM03 = string . IsNullOrEmpty ( row [ "QMD012" ] . ToString ( ) ) ? string . Empty : row [ "QMD012" ] . ToString ( );
                     textBox19 . Text = row [ "QMD013" ] . ToString ( );

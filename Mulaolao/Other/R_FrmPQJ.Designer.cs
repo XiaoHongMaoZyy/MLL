@@ -32,13 +32,13 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.PY25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PY36 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PY24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PY02 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PY14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PY18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PY11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PY15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PY12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PY24 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +105,24 @@
             this.PY36.Name = "PY36";
             this.PY36.Visible = true;
             this.PY36.VisibleIndex = 1;
+            // 
+            // PY24
+            // 
+            this.PY24.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PY24.AppearanceCell.Options.UseFont = true;
+            this.PY24.AppearanceCell.Options.UseTextOptions = true;
+            this.PY24.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.PY24.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.PY24.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PY24.AppearanceHeader.Options.UseFont = true;
+            this.PY24.AppearanceHeader.Options.UseTextOptions = true;
+            this.PY24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.PY24.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.PY24.Caption = "工艺";
+            this.PY24.FieldName = "PY24";
+            this.PY24.Name = "PY24";
+            this.PY24.Visible = true;
+            this.PY24.VisibleIndex = 2;
             // 
             // PY02
             // 
@@ -202,24 +220,6 @@
             this.PY12.Visible = true;
             this.PY12.VisibleIndex = 8;
             // 
-            // PY24
-            // 
-            this.PY24.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PY24.AppearanceCell.Options.UseFont = true;
-            this.PY24.AppearanceCell.Options.UseTextOptions = true;
-            this.PY24.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.PY24.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.PY24.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PY24.AppearanceHeader.Options.UseFont = true;
-            this.PY24.AppearanceHeader.Options.UseTextOptions = true;
-            this.PY24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.PY24.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.PY24.Caption = "工艺";
-            this.PY24.FieldName = "PY24";
-            this.PY24.Name = "PY24";
-            this.PY24.Visible = true;
-            this.PY24.VisibleIndex = 2;
-            // 
             // R_FrmPQJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -227,8 +227,7 @@
             this.ClientSize = new System.Drawing.Size(1283, 261);
             this.Controls.Add(this.gridControl1);
             this.Name = "R_FrmPQJ";
-            this.Text = "零件查询";
-            this.Load += new System.EventHandler(this.R_FrmPQJ_Load);
+            this.Text = "R_339 信息查询";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);

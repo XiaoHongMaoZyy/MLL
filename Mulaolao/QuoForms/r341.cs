@@ -14,153 +14,228 @@ namespace Mulaolao . QuoForms
     public partial class r341 :DevExpress . XtraEditors . XtraForm
     {
         MulaolaoBll.Bll.QuoBll _bll=null;
-        MulaolaoLibrary.MuCaiContractLibrary model=null;
+        MulaolaoLibrary.QUODEntity model=null;
+        string num=string.Empty;
+        decimal outResult=0M;
 
-        public r341 ( MulaolaoLibrary . MuCaiContractLibrary model )
+        public r341 ( MulaolaoLibrary . QUODEntity model ,string num )
         {
             InitializeComponent ( );
 
             _bll = new MulaolaoBll . Bll . QuoBll ( );
 
-            GridViewMoHuSelect . SetFilter ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View } );
-            GrivColumnStyle . setColumnStyle ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View } );
-
             this . model = model;
-            setValue ( );
-            getInfo ( );
+            this . num = num;
 
+            setValue ( );
         }
 
         void setValue ( )
         {
-            txtPQV10 . Text = model . PQV10;
-            txtPQV11 . Text = model . PQV11 . ToString ( "0.######" );
-            txtPQV12 . Text = model . PQV12 . ToString ( "0.######" );
-            txtPQV64 . Text = model . PQV64 . ToString ( "0.######" );
-            txtPQV71 . Text = model . PQV71 . ToString ( "0.######" );
-            txtPQV72 . Text = model . PQV72 . ToString ( "0.######" );
-            txtPQV73 . Text = model . PQV73 . ToString ( "0.######" );
+            if ( model == null )
+                return;
+            if ( model . idx < 1 )
+                return;
+            model = _bll . getModel341 ( model . idx );
+            if ( model == null )
+                return;
+            tQUOD005 . Text = model . QUOD005;
+            tQUOD006 . Text = model . QUOD006;
+            tQUOD007 . Text =Convert.ToDecimal( model . QUOD007 ). ToString ( "0.######" );
+            tQUOD008 . Text = Convert . ToDecimal ( model . QUOD008 ) . ToString ( "0.######" );
+            tQUOD009 . Text = Convert . ToDecimal ( model . QUOD009 ) . ToString ( "0.######" );
+            tQUOD010 . Text = Convert . ToDecimal ( model . QUOD010 ) . ToString ( "0.######" );
+            tQUOD011 . Text = Convert . ToDecimal ( model . QUOD011 ) . ToString ( "0.######" );
+            tQUOD012 . Text = Convert . ToDecimal ( model . QUOD012 ) . ToString ( "0.######" );
+            tQUOD013 . Text = Convert . ToDecimal ( model . QUOD013 ) . ToString ( "0.######" );
+            tQUOD014 . Text = Convert . ToDecimal ( model . QUOD014 ) . ToString ( "0.######" );
+            tQUOD015 . Text = Convert . ToDecimal ( model . QUOD015 ) . ToString ( "0.######" );
+            tQUOD016 . Text = Convert . ToDecimal ( model . QUOD016 ) . ToString ( "0.######" );
+            tQUOD017 . Text = Convert . ToDecimal ( model . QUOD017 ) . ToString ( "0.######" );
+            tQUOD018 . Text = Convert . ToDecimal ( model . QUOD018 ) . ToString ( "0.######" );
+            tQUOD019 . Text = Convert . ToDecimal ( model . QUOD019 ) . ToString ( "0.######" );
         }
 
-        void getInfo ( )
-        {
-            DataTable tableOne = _bll . getTableFor341Info ( model . PQV04 );
-            txtPQV10 . Properties . DataSource = tableOne;
-            txtPQV10 . Properties . DisplayMember = "PQV10";
-            txtPQV10 . Properties . ValueMember = "PQV10";
-        }
-
-        private void simpleButton2_Click ( object sender ,EventArgs e )
+        private void btnCancel_Click ( object sender ,EventArgs e )
         {
             this . DialogResult = DialogResult . Cancel;
         }
 
-        private void simpleButton1_Click ( object sender ,EventArgs e )
+        private void btnSave_Click ( object sender ,EventArgs e )
         {
-            if ( string . IsNullOrEmpty ( txtPQV10 . Text ) )
-            {
-                XtraMessageBox . Show ( "请选择物料或部件名称" );
+            if ( getValue ( ) == false )
                 return;
-            }
-            model . PQV10 = txtPQV10 . Text;
-            if ( string . IsNullOrEmpty ( txtPQV11 . Text ) )
-            {
-                XtraMessageBox . Show ( "每立方米现价不可为空" );
-                return;
-            }
-            decimal outResult = 0M;
-            if ( !string . IsNullOrEmpty ( txtPQV11 . Text ) && decimal . TryParse ( txtPQV11 . Text ,out outResult )==false )
-            {
-                XtraMessageBox . Show ( "每立方米现价为数字" );
-                return;
-            }
-            model . PQV11 = outResult;
-            if ( string . IsNullOrEmpty ( txtPQV12 . Text ) )
-            {
-                XtraMessageBox . Show ( "每立方米现价不可为空" );
-                return;
-            }
-            int outResultInt = 0;
-            if ( !string . IsNullOrEmpty ( txtPQV12 . Text ) && int . TryParse ( txtPQV12 . Text ,out outResultInt ) == false )
-            {
-                XtraMessageBox . Show ( "每套部件数量为整数" );
-                return;
-            }
-            model . PQV12 = outResultInt;
-            if ( string . IsNullOrEmpty ( txtPQV71 . Text ) )
-            {
-                XtraMessageBox . Show ( "长不可为空" );
-                return;
-            }
-             outResult = 0M;
-            if ( !string . IsNullOrEmpty ( txtPQV71 . Text ) && decimal . TryParse ( txtPQV71 . Text ,out outResult ) == false )
-            {
-                XtraMessageBox . Show ( "长为数字" );
-                return;
-            }
-            model . PQV71 = outResult;
-            if ( string . IsNullOrEmpty ( txtPQV72 . Text ) )
-            {
-                XtraMessageBox . Show ( "宽不可为空" );
-                return;
-            }
-            outResult = 0M;
-            if ( !string . IsNullOrEmpty ( txtPQV72 . Text ) && decimal . TryParse ( txtPQV72 . Text ,out outResult ) == false )
-            {
-                XtraMessageBox . Show ( "宽为数字" );
-                return;
-            }
-            model . PQV72 = outResult;
-            if ( string . IsNullOrEmpty ( txtPQV73 . Text ) )
-            {
-                XtraMessageBox . Show ( "高不可为空" );
-                return;
-            }
-            outResult = 0M;
-            if ( !string . IsNullOrEmpty ( txtPQV73 . Text ) && decimal . TryParse ( txtPQV73 . Text ,out outResult ) == false )
-            {
-                XtraMessageBox . Show ( "高为数字" );
-                return;
-            }
-            model . PQV73 = outResult;
-            if ( string . IsNullOrEmpty ( txtPQV64 . Text ) )
-            {
-                XtraMessageBox . Show ( "数量不可为空" );
-                return;
-            }
-            outResultInt = 0;
-            if ( !string . IsNullOrEmpty ( txtPQV64 . Text ) && int . TryParse ( txtPQV64 . Text ,out outResultInt ) == false )
-            {
-                XtraMessageBox . Show ( "数量为整数" );
-                return;
-            }
-            if ( outResultInt <= 0 )
-            {
-                XtraMessageBox . Show ( "请填写数量" );
-                return;
-            }
-            model . PQV64 = outResultInt;
-            this . DialogResult = DialogResult . OK;
+
+            int id = _bll . Save341 ( model );
+            if ( id > 0 )
+                this . DialogResult = DialogResult . OK;
+            else
+                XtraMessageBox . Show ( "保存失败" );
         }
 
-        public MulaolaoLibrary . MuCaiContractLibrary getModel
+        private void CalcOne_Click ( object sender ,EventArgs e )
         {
-            get
+            if ( getValue ( ) == false )
+                return;
+            if ( model . QUOD010 == 0 || model . QUOD012 == 0 )
+                textEdit10 . Text = 0 . ToString ( );
+            else
+                textEdit10 . Text = Convert . ToDecimal ( model . QUOD020 * model . QUOD008 * model . QUOD013 * model . QUOD014 * model . QUOD015 * Convert . ToDecimal ( 0.000001 ) / model . QUOD010 / model . QUOD012 ) . ToString ( "0.###" );
+        }
+
+        private void CalcTwo_Click ( object sender ,EventArgs e )
+        {
+            if ( getValue ( ) == false )
+                return;
+            if ( model . QUOD016 == 0 || model . QUOD017 == 0 || model . QUOD018 == 0 )
+                textEdit11 . Text = 0 . ToString ( );
+            else
+                textEdit11 . Text = Convert . ToDecimal ( model . QUOD013 * model . QUOD014 * model . QUOD015 / model . QUOD016 / model . QUOD017 / model . QUOD018 ) . ToString ( "0.###" );
+        }
+
+        bool getValue ( )
+        {
+            dxErrorProvider1 . ClearErrors ( );
+            if ( string . IsNullOrEmpty ( tQUOD005 . Text ) )
             {
-                return model;
+                dxErrorProvider1 . SetError ( tQUOD005 ,"不可为空" );
+                return false;
+            }
+            model . QUOD005 = tQUOD005 . Text;
+            model . QUOD006 = tQUOD006 . Text;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD007 . Text ) && decimal . TryParse ( tQUOD007 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD007 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD007 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD008 . Text ) && decimal . TryParse ( tQUOD008 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD008 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD008 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD009 . Text ) && decimal . TryParse ( tQUOD009 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD009 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD009 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD010 . Text ) && decimal . TryParse ( tQUOD010 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD010 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD010 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD011 . Text ) && decimal . TryParse ( tQUOD011 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD011 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD011 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD012 . Text ) && decimal . TryParse ( tQUOD012 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD012 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD012 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD013 . Text ) && decimal . TryParse ( tQUOD013 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD013 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD013 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD014 . Text ) && decimal . TryParse ( tQUOD014 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD014 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD014 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD015 . Text ) && decimal . TryParse ( tQUOD015 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD015 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD015 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD016 . Text ) && decimal . TryParse ( tQUOD016 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD016 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD016 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD017 . Text ) && decimal . TryParse ( tQUOD017 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD017 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD017 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD018 . Text ) && decimal . TryParse ( tQUOD018 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD018 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD018 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOD019 . Text ) && decimal . TryParse ( tQUOD019 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOD019 ,"必须是数字" );
+                return false;
+            }
+            model . QUOD019 = outResult;
+
+            return true;
+        }
+
+        private void tQUOD005_ButtonClick ( object sender ,DevExpress . XtraEditors . Controls . ButtonPressedEventArgs e )
+        {
+            DataTable table = _bll . getTableFor509To341 ( num );
+            if ( table == null || table . Rows . Count < 1 )
+                return;
+            Form341Query form = new Form341Query ( table );
+            if ( form . ShowDialog ( ) == DialogResult . OK )
+            {
+                DataRow row = form . getRow;
+                tQUOD005 . Text = row [ "GS02" ] . ToString ( );
+                tQUOD006 . Text = row [ "GS07" ] . ToString ( );
+                tQUOD008 . Text = row [ "GS10" ] . ToString ( );
+                string spe = row [ "GS08" ] . ToString ( );
+                if ( string . IsNullOrEmpty ( spe ) )
+                    return;
+                if ( !spe . Contains ( "*" ) )
+                    return;
+                string [ ] speS = spe . Split ( '*' );
+                if ( speS . Length < 1 )
+                    return;
+                if ( string . IsNullOrEmpty ( speS [ 0 ] ) )
+                    return;
+                if ( decimal . TryParse ( speS [ 0 ] ,out outResult ) == false )
+                    return;
+                tQUOD016 . Text = ( Convert . ToDecimal ( speS [ 0 ] ) / 10 ) . ToString ( "0.###" );
+                if ( string . IsNullOrEmpty ( speS [ 1 ] ) )
+                    return;
+                if ( decimal . TryParse ( speS [ 1 ] ,out outResult ) == false )
+                    return;
+                tQUOD017 . Text = ( Convert . ToDecimal ( speS [ 1 ] ) / 10 ) . ToString ( "0.###" );
+                if ( string . IsNullOrEmpty ( speS [ 2 ] ) )
+                    return;
+                if ( decimal . TryParse ( speS [ 2 ] ,out outResult ) == false )
+                    return;
+                tQUOD018 . Text = ( Convert . ToDecimal ( speS [ 2 ] ) / 10 ) . ToString ( "0.###" );
             }
         }
 
-        private void txtPQV10_EditValueChanged ( object sender ,EventArgs e )
-        {
-            DataRow row = View . GetFocusedDataRow ( );
-            if ( row == null )
-                return;
-            txtPQV11 . Text = row [ "PQV11" ] . ToString ( );
-            txtPQV12 . Text = row [ "PQV12" ] . ToString ( );
-            txtPQV71 . Text = row [ "PQV71" ] . ToString ( );
-            txtPQV72 . Text = row [ "PQV72" ] . ToString ( );
-            txtPQV73 . Text = row [ "PQV73" ] . ToString ( );
-        }
+
     }
 }

@@ -15,23 +15,27 @@ namespace Mulaolao . Base
         MulaolaoLibrary.QupEntity _qup=null;
         MulaolaoBll.Bll.QuoBll _bll=null;
 
-        MulaolaoLibrary .ChanPinZhiBiaoLibrary r195Model=null;
-        MulaolaoLibrary.SiReYiYinContractLibrary r196model = null;
-        MulaolaoLibrary .JiaoMiDuContractLibrary r338model=null;
-        MulaolaoLibrary.MuCaiContractLibrary r341model=null;
-        MulaolaoLibrary . CheMuJianContractLibrary r342model=null;
-        MulaolaoLibrary.WuJinContractLibrary r343model=null;
-        MulaolaoLibrary .SuLiaoBuQiContractLibrary r347model=null;
-        MulaolaoLibrary.WaiXianContractLibrary r349model=null;
-        MulaolaoLibrary.YouQiLibrary r339model=null;
-        MulaolaoLibrary.GunQiContractLibrary r344model=null;
+        Form form=null;
+
+        MulaolaoLibrary.QUOAEntity model195=null;
+        MulaolaoLibrary.QUOBEntity model196=null;
+        MulaolaoLibrary.QUOCEntity model338=null;
+        MulaolaoLibrary.QUODEntity model341=null;
+        MulaolaoLibrary.QUOEEntity model342=null;
+        MulaolaoLibrary.QUOFEntity model343=null;
+        MulaolaoLibrary.QUOGEntity model347=null;
+        MulaolaoLibrary.QUOHEntity model349=null;
+        MulaolaoLibrary.QUOIEntity model339=null;
+        MulaolaoLibrary.QUOJEntity model344=null;
+        MulaolaoLibrary.QUOKEntity model505=null;
+        MulaolaoLibrary.QUOLEntity model495=null;
 
         DataTable tableView;
-        DataRow selectRow;int selectIdx;
-        List<string> idxList=new List<string>();
+        DataRow selectRow; 
         string state="",strWhere="",conState=string.Empty;
 
         bool result=false;
+        int id=0,selectIdx;
 
         DateTime dt;
 
@@ -60,15 +64,13 @@ namespace Mulaolao . Base
                     return;
                 strWhere = "1=1";
                 strWhere = strWhere + " AND QUO001='" + _quo . QUO001 + "'";
-               
+
                 _quo = _bll . getModel ( strWhere );
                 if ( _quo == null )
                     return;
                 setValue ( );
-                strWhere = "1=1";
-                strWhere += " AND QUR001='" + _quo . QUO001 + "'";
-                tableView = _bll . getTableView ( strWhere );
-                gridControl1 . DataSource = tableView;
+
+                queryTable ( );
 
                 toolAdd . Enabled = toolSelect . Enabled = toolDelete . Enabled = toolUpdate . Enabled = toolPrint . Enabled = toolExport . Enabled = toolLibrary . Enabled = toolStorage . Enabled = toolMaintain . Enabled = toolcopy . Enabled = toolReview . Enabled = true;
                 toolSave . Enabled = toolCancel . Enabled = false;
@@ -129,11 +131,10 @@ namespace Mulaolao . Base
             gridView1 . CloseEditor ( );
             gridView1 . UpdateCurrentRow ( );
 
-            result = _bll . Save ( _quo ,tableView ,state ,idxList );
+            result = _bll . Save ( _quo ,state );
             if ( result )
             {
                 XtraMessageBox . Show ( "成功保存" );
-                idxList . Clear ( );
                 controlUnEnable ( );
                 toolSelect . Enabled = toolAdd . Enabled = toolDelete . Enabled = toolUpdate . Enabled = toolReview . Enabled = toolPrint . Enabled = toolExport . Enabled = toolMaintain . Enabled = toolcopy . Enabled = toolLibrary . Enabled = toolStorage . Enabled = true;
                 toolSave . Enabled = toolCancel . Enabled = false;
@@ -207,6 +208,9 @@ namespace Mulaolao . Base
                 case "包装材料":
                 txtQUP003 . Text = DicStr . r349;
                 break;
+                case "夹料工资":
+                txtQUP003 . Text = DicStr . r505;
+                break;
             }
         }
         private void gridView1_RowClick ( object sender ,DevExpress . XtraGrid . Views . Grid . RowClickEventArgs e )
@@ -215,22 +219,20 @@ namespace Mulaolao . Base
             selectRow = gridView1 . GetFocusedDataRow ( );
             if ( selectRow == null )
                 return;
-            _qup . QUR002 = selectRow [ "QUR002" ] . ToString ( );
-            _qup . QUR003 = selectRow [ "QUR003" ] . ToString ( );
-            _qup . QUR004 = selectRow [ "QUR004" ] . ToString ( );
-            _qup . QUR005 = selectRow [ "QUR005" ] . ToString ( );
-            _qup . QUR006 = string . IsNullOrEmpty ( selectRow [ "QUR006" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( selectRow [ "QUR006" ] );
-            _qup . QUR007 = selectRow [ "QUR007" ] . ToString ( );
-            _qup . QUR008 = selectRow [ "QUR008" ] . ToString ( );
-            _qup . QUR009 = selectRow [ "QUR009" ] . ToString ( );
-            _qup . QUR010 = string . IsNullOrEmpty ( selectRow [ "QUR010" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( selectRow [ "QUR010" ] );
-            _qup . QUR011 = string . IsNullOrEmpty ( selectRow [ "QUR011" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( selectRow [ "QUR011" ] );
-            _qup . QUR012 = string . IsNullOrEmpty ( selectRow [ "QUR012" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( selectRow [ "QUR012" ] );
-            _qup . QUR013 = string . IsNullOrEmpty ( selectRow [ "QUR013" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( selectRow [ "QUR013" ] );
-            _qup . QUR014 = string . IsNullOrEmpty ( selectRow [ "QUR014" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( selectRow [ "QUR014" ] );
-            _qup . QUR015 = selectRow [ "QUR015" ] . ToString ( );
-            txtQUP002 . Text = _qup . QUR002;
+            txtQUP002 . Text = selectRow [ "QUOA013" ] . ToString ( );
+            txtQUOA012 . Text = selectRow [ "QUOA012" ] . ToString ( );
+            _qup . QUR003 = txtQUP003 . Text;
+            id = string . IsNullOrEmpty ( selectRow [ "idx" ] . ToString ( ) ) == true ? 0 : Convert . ToInt32 ( selectRow [ "idx" ] );
             setValueToModel ( );
+        }
+        private void gridView1_CustomDrawRowFooterCell ( object sender ,DevExpress . XtraGrid . Views . Grid . FooterCellCustomDrawEventArgs e )
+        {
+            decimal c1 = 0M, c2 = QUO993 . SummaryItem . SummaryValue == null ? 0 : Convert . ToDecimal ( QUO993 . SummaryItem . SummaryValue );
+            if ( e . Column == this . U3 )
+            {
+                c1 = this . gridView1 . GetRowFooterCellText ( e . RowHandle ,this . QUO993 ) == string . Empty ? 0 : Convert . ToDecimal ( this . gridView1 . GetRowFooterCellText ( e . RowHandle ,this . QUO993 ) );
+                e . Info . DisplayText = ( c1 / c2 * 100 ) . ToString ( "0.##" ) + "%";
+            }
         }
         #endregion
 
@@ -239,101 +241,63 @@ namespace Mulaolao . Base
         {
             if ( DicStr . r195 . Equals ( _qup . QUR003 ) )
             {
-                r195Model = new MulaolaoLibrary . ChanPinZhiBiaoLibrary ( );
-                r195Model . CP06 = _qup . QUR004;
-                r195Model . CP07 = _qup . QUR015;
-                r195Model . CP09 = _qup . QUR005;
-                r195Model . CP10 = Convert . ToDecimal ( _qup . QUR013 );
-                r195Model . CP13 = Convert . ToDecimal ( _qup . QUR006 );
+                model195 = new MulaolaoLibrary . QUOAEntity ( );
+                model195 . idx = id;
             }
             else if ( DicStr . r196 . Equals ( _qup . QUR003 ) )
             {
-                r196model = new MulaolaoLibrary . SiReYiYinContractLibrary ( );
-                r196model . AH10 = _qup . QUR004;
-                r196model . AH18 = _qup . QUR005;
-                r196model . AH13 = Convert . ToDecimal ( _qup . QUR006 );
-                r196model . AH16 = Convert . ToDecimal ( _qup . QUR013 );
-                r196model . AH11 = _qup . QUR015;
+                model196 = new MulaolaoLibrary . QUOBEntity ( );
+                model196 . idx = id;
             }
             else if ( DicStr . r338 . Equals ( _qup . QUR003 ) )
             {
-                r338model = new MulaolaoLibrary . JiaoMiDuContractLibrary ( );
-                r338model . JM09 = _qup . QUR004;
-                r338model . JM10 = Convert . ToDecimal ( _qup . QUR006 );
-                r338model . JM94 = Convert . ToDecimal ( _qup . QUR007 );
-                r338model . JM95 = Convert . ToDecimal ( _qup . QUR008 );
-                r338model . JM96 = Convert . ToDecimal ( _qup . QUR009 );
-                r338model . JM15 = Convert . ToDecimal ( _qup . QUR010 );
-                r338model . JM120 = _qup . QUR012;
-                r338model . JM11 = Convert . ToDecimal ( _qup . QUR013 );
+                model338 = new MulaolaoLibrary . QUOCEntity ( );
+                model338 . idx = id;
             }
             else if ( DicStr . r341 . Equals ( _qup . QUR003 ) )
             {
-                r341model = new MulaolaoLibrary . MuCaiContractLibrary ( );
-                r341model . PQV10 = _qup . QUR004;
-                r341model . PQV12 = Convert . ToInt32 ( _qup . QUR006 );
-                r341model . PQV71 = Convert . ToDecimal ( _qup . QUR007 );
-                r341model . PQV72 = Convert . ToDecimal ( _qup . QUR008 );
-                r341model . PQV73 = Convert . ToDecimal ( _qup . QUR009 );
-                r341model . PQV64 = Convert . ToDecimal ( _qup . QUR010 );
-                r341model . PQV11 = Convert . ToDecimal ( _qup . QUR012 );
+                model341 = new MulaolaoLibrary . QUODEntity ( );
+                model341 . idx = id;
             }
             else if ( DicStr . r342 . Equals ( _qup . QUR003 ) )
             {
-                r342model = new MulaolaoLibrary . CheMuJianContractLibrary ( );
-                r342model . AF015 = _qup . QUR004;
-                r342model . AF019 = Convert . ToInt32 ( _qup . QUR006 );
-                r342model . AF020 = Convert . ToDecimal ( _qup . QUR007 );
-                r342model . AF021 = Convert . ToDecimal ( _qup . QUR008 );
-                r342model . AF022 = Convert . ToDecimal ( _qup . QUR009 );
-                r342model . AF018 = Convert . ToInt64 ( _qup . QUR010 );
-                r342model . AF023 = Convert . ToDecimal ( _qup . QUR013 );
-                r342model . AF087 = Convert . ToDecimal ( _qup . QUR012 );
-                r342model . AF088 = Convert . ToDecimal ( _qup . QUR014 );
+                model342 = new MulaolaoLibrary . QUOEEntity ( );
+                model342 . idx = id;
             }
             else if ( DicStr . r343 . Equals ( _qup . QUR003 ) )
             {
-                r343model = new MulaolaoLibrary . WuJinContractLibrary ( );
-                r343model . PQU10 = _qup . QUR004;
-                r343model . PQU12 = _qup . QUR015;
-                r343model . PQU13 = _qup . QUR006;
-                r343model . PQU16 = _qup . QUR013;
-                r343model . PQU18 = _qup . QUR010;
+                model343 = new MulaolaoLibrary . QUOFEntity ( );
+                model343 . idx = id;
             }
             else if ( DicStr . r347 . Equals ( _qup . QUR003 ) )
             {
-                r347model = new MulaolaoLibrary . SuLiaoBuQiContractLibrary ( );
-                r347model . PJ09 = _qup . QUR004;
-                r347model . PJ89 = _qup . QUR015;
-                r347model . PJ11 = _qup . QUR006;
-                r347model . PJ12 = _qup . QUR013;
-                r347model . PJ97 = _qup . QUR010;
+                model347 = new MulaolaoLibrary . QUOGEntity ( );
+                model347 . idx = id;
             }
             else if ( DicStr . r349 . Equals ( _qup . QUR003 ) )
             {
-                r349model = new MulaolaoLibrary . WaiXianContractLibrary ( );
-                r349model . WX10 = _qup . QUR004;
-                r349model . WX11 = _qup . QUR015;
-                r349model . WX13 = _qup . QUR013;
-                r349model . WX14 = _qup . QUR006;
-                r349model . WX16 = Convert . ToInt64 ( _qup . QUR010 );
+                model349 = new MulaolaoLibrary . QUOHEntity ( );
+                model349 . idx = id;
             }
             else if ( DicStr . r339 . Equals ( _qup . QUR003 ) )
             {
-                r339model = new MulaolaoLibrary . YouQiLibrary ( );
-                r339model . YQ10 = _qup . QUR004;
-                r339model . YQ112 = Convert . ToInt32 ( _qup . QUR006 );
-                r339model . YQ119 = _qup . QUR005;
-                r339model . YQ19 = Convert . ToDecimal ( _qup . QUR010 );
+                model339 = new MulaolaoLibrary . QUOIEntity ( );
+                model339 . idx = id;
             }
             else if ( DicStr . r344 . Equals ( _qup . QUR003 ) )
             {
-                r344model = new MulaolaoLibrary . GunQiContractLibrary ( );
-                r344model . MZ016 = _qup . QUR004;
-                r344model . MZ018 = _qup . QUR015;
-                r344model . MZ021 = Convert . ToInt32 ( _qup . QUR010 );
-                r344model . MZ025 = Convert . ToDecimal ( _qup . QUR013 );
-                r344model . MZ105 = Convert . ToDecimal ( _qup . QUR016 );
+                model344 = new MulaolaoLibrary . QUOJEntity ( );
+                model344 . idx = id;
+            }
+            else if ( DicStr . r505 . Equals ( _qup . QUR003 ) )
+            {
+                model505 = new MulaolaoLibrary . QUOKEntity ( );
+                model505 . idx = id;
+            }
+            else if ( DicStr . r495 . Equals ( _qup . QUR003 ) )
+            {
+                model495 = new MulaolaoLibrary . QUOLEntity ( );
+                model495 . idx = id;
             }
         }
         #endregion
@@ -342,7 +306,7 @@ namespace Mulaolao . Base
         void InitData ( )
         {
             DataTable tableFor = _bll . getTableFor ( );
-            txtQUO010.Properties. DataSource = tableFor;
+            txtQUO010 . Properties . DataSource = tableFor;
             txtQUO010 . Properties . DisplayMember = "DBA002";
             txtQUO010 . Properties . ValueMember = "DBA002";
         }
@@ -480,7 +444,7 @@ namespace Mulaolao . Base
                 return false;
             }
             int num = 0;
-            if ( !string . IsNullOrEmpty ( txtQUO007 . Text ) && int . TryParse ( txtQUO007 . Text ,out num )==false )
+            if ( !string . IsNullOrEmpty ( txtQUO007 . Text ) && int . TryParse ( txtQUO007 . Text ,out num ) == false )
             {
                 XtraMessageBox . Show ( "数量请输入整数" );
                 return false;
@@ -517,23 +481,31 @@ namespace Mulaolao . Base
         #endregion
 
         #region Click
+        //新增
         private void btnAdd_Click ( object sender ,System . EventArgs e )
         {
             conState = "add";
-            getValueQUR ( );
-            if ( string . IsNullOrEmpty ( _qup . QUR002 ) )
+            if ( string . IsNullOrEmpty ( txtQUP002 . Text ) )
             {
                 XtraMessageBox . Show ( "请选择合同代号和材种" );
                 return;
             }
+            if ( string . IsNullOrEmpty ( txtQUOA012 . Text ) )
+            {
+                XtraMessageBox . Show ( "请选择类别" );
+                return;
+            }
+            _qup . QUR003 = txtQUP003 . Text;
             selectRow = tableView . NewRow ( );
             choiseCon ( );
         }
+        //编辑
         private void btnEdit_Click ( object sender ,System . EventArgs e )
         {
             conState = "edit";
             choiseCon ( );
         }
+        //删除
         private void btnDelete_Click ( object sender ,System . EventArgs e )
         {
             if ( selectRow == null )
@@ -541,23 +513,25 @@ namespace Mulaolao . Base
             if ( XtraMessageBox . Show ( "确认删除选中内容?" ,"提示" ,MessageBoxButtons . OKCancel ) == DialogResult . OK )
             {
                 _qup . idx = string . IsNullOrEmpty ( selectRow [ "idx" ] . ToString ( ) ) == true ? 0 : Convert . ToInt32 ( selectRow [ "idx" ] . ToString ( ) );
-                if ( _qup . idx > 0 && !idxList . Contains ( _qup . idx . ToString ( ) ) )
-                    idxList . Add ( _qup . idx . ToString ( ) );
 
-                tableView . Rows . Remove ( selectRow );
-                gridControl1 . RefreshDataSource ( );
+                if ( deleteCon ( ) )
+                {
+                    tableView . Rows . Remove ( selectRow );
+                    gridControl1 . RefreshDataSource ( );
+                }
             }
         }
+        //刷新表内容
         private void btnRefresh_Click ( object sender ,System . EventArgs e )
         {
-            gridControl1 . RefreshDataSource ( );
+            queryTable ( );
         }
-        //预览
+        //预览图片
         private void btnPre_Click ( object sender ,EventArgs e )
         {
             _quo . QUO009 = ReadOrWriteImageOfPicutre . ReadPicture ( pic );
         }
-        //删除
+        //删除图片
         private void btnRemove_Click ( object sender ,EventArgs e )
         {
             pic . Image = null;
@@ -566,315 +540,293 @@ namespace Mulaolao . Base
         #endregion
 
         #region Read
-        void getValueQUR ( )
-        {
-            _qup . QUR002 = txtQUP002 . Text;
-            _qup . QUR003 = txtQUP003 . Text;
-            _qup . QUR004 = string . Empty;
-            _qup . QUR005 = string . Empty;
-            _qup . QUR006 = 0M;
-            _qup . QUR007 = string . Empty;
-            _qup . QUR008 = string . Empty;
-            _qup . QUR009 = string . Empty;
-            _qup . QUR010 = 0M;
-            _qup . QUR011 = 0M;
-            _qup . QUR012 = 0M;
-            _qup . QUR013 = 0M;
-            _qup . QUR014 = 0M;
-            _qup . QUR015 = string . Empty;
-            _qup . QUR016 = 0;
-        }
         void choiseCon ( )
         {
             if ( DicStr . r195 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r195Model = new MulaolaoLibrary . ChanPinZhiBiaoLibrary ( );
-                read195 (  );
+                    model195 = new MulaolaoLibrary . QUOAEntity ( );
+                read195 ( );
             }
             else if ( DicStr . r196 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r196model = new MulaolaoLibrary . SiReYiYinContractLibrary ( );
-                read196 (  );
+                    model196 = new MulaolaoLibrary . QUOBEntity ( );
+                read196 ( );
             }
             else if ( DicStr . r338 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r338model = new MulaolaoLibrary . JiaoMiDuContractLibrary ( );
-                read338 (  );
+                    model338 = new MulaolaoLibrary . QUOCEntity ( );
+                read338 ( );
             }
             else if ( DicStr . r341 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r341model = new MulaolaoLibrary . MuCaiContractLibrary ( );
-                read341 (  );
+                    model341 = new MulaolaoLibrary . QUODEntity ( );
+                read341 ( );
             }
             else if ( DicStr . r342 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r342model = new MulaolaoLibrary . CheMuJianContractLibrary ( );
-                read342 (  );
+                    model342 = new MulaolaoLibrary . QUOEEntity ( );
+                read342 ( );
             }
             else if ( DicStr . r343 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r343model = new MulaolaoLibrary . WuJinContractLibrary ( );
-                read343 (  );
+                    model343 = new MulaolaoLibrary . QUOFEntity ( );
+                read343 ( );
             }
             else if ( DicStr . r347 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r347model = new MulaolaoLibrary . SuLiaoBuQiContractLibrary ( );
-                read347 (  );
+                    model347 = new MulaolaoLibrary . QUOGEntity ( );
+                read347 ( );
             }
             else if ( DicStr . r349 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r349model = new MulaolaoLibrary . WaiXianContractLibrary ( );
-                read349 (  );
+                    model349 = new MulaolaoLibrary . QUOHEntity ( );
+                read349 ( );
             }
             else if ( DicStr . r339 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r339model = new MulaolaoLibrary . YouQiLibrary ( );
-                read339 (  );
+                    model339 = new MulaolaoLibrary . QUOIEntity ( );
+                read339 ( );
             }
             else if ( DicStr . r344 . Equals ( _qup . QUR003 ) )
             {
                 if ( "add" . Equals ( conState ) )
-                    r344model = new MulaolaoLibrary . GunQiContractLibrary ( );
-                read344 (  );
+                    model344 = new MulaolaoLibrary . QUOJEntity ( );
+                read344 ( );
+            }
+            else if ( DicStr . r505 . Equals ( _qup . QUR003 ) )
+            {
+                if ( "add" . Equals ( conState ) )
+                    model505 = new MulaolaoLibrary . QUOKEntity ( );
+                read505 ( );
+            }
+            else if ( DicStr . r495 . Equals ( _qup . QUR003 ) )
+            {
+                if ( "add" . Equals ( conState ) )
+                    model495 = new MulaolaoLibrary . QUOLEntity ( );
+                read495 ( );
             }
             gridControl1 . RefreshDataSource ( );
         }
-        void read195 (   )
+        void read195 ( )
         {
-            r195Model . CP14 = dt;
-            r195 form = new r195 ( r195Model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r195Model = form . getModel;
-                if ( r195Model == null )
-                    return;
-                _qup . QUR004 = r195Model . CP06;
-                _qup . QUR005 = r195Model . CP09;
-                _qup . QUR006 = r195Model . CP13;
-                _qup . QUR013 = r195Model . CP10;
-                _qup . QUR015 = r195Model . CP07;
-                _qup . QUR016 = 0;
-                editRow (  );
-            }
-        }
-        void read196 (   )
-        {
-            r196model . AH04 = dt;
-            r196 form = new r196 ( r196model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r196model = form . getModel;
-                if ( r196model == null )
-                    return;
-                _qup . QUR004 = r196model . AH10;
-                _qup . QUR005 = r196model . AH18;
-                _qup . QUR006 = r196model . AH13;
-                _qup . QUR013 = r196model . AH16;
-                _qup . QUR015 = r196model . AH11;
-                _qup . QUR016 = 0;
-                editRow (  );
-            }
-        }
-        void read338 (   )
-        {
-            r338model . JM05 = dt;
-            r338 form = new r338 ( r338model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r338model = form . getModel;
-                if ( r338model == null )
-                    return;
-                _qup . QUR004 = r338model . JM09;
-                _qup . QUR006 = r338model . JM10;
-                _qup . QUR007 = r338model . JM94 . ToString ( );
-                _qup . QUR008 = r338model . JM95 . ToString ( );
-                _qup . QUR009 = r338model . JM96 . ToString ( );
-                _qup . QUR010 = r338model . JM15;
-                _qup . QUR012 = r338model . JM120;
-                _qup . QUR013 = r338model . JM11;
-                _qup . QUR015 = r338model . JM94 + "*" + r338model . JM95 + "*" + r338model . JM96;
-                _qup . QUR016 = Convert . ToDecimal ( r338model . JM94 ) * Convert . ToDecimal ( r338model . JM95 ) * Convert . ToDecimal ( r338model . JM96 );
-                editRow (  );
-            }
-        }
-        void read341 (   )
-        {
-            r341model . PQV04 = dt;
-            r341 form = new r341 ( r341model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r341model = form . getModel;
-                if ( r341model == null )
-                    return;
-                _qup . QUR004 = r341model . PQV10;
-                _qup . QUR006 = r341model . PQV12;
-                _qup . QUR007 = r341model . PQV71 . ToString ( );
-                _qup . QUR008 = r341model . PQV72 . ToString ( );
-                _qup . QUR009 = r341model . PQV73 . ToString ( );
-                _qup . QUR010 = r341model . PQV64;
-                _qup . QUR012 = r341model . PQV11;
-                _qup . QUR015 = r341model . PQV71 + "*" + r341model . PQV72 + "*" + r341model . PQV73;
-                _qup . QUR016 = Convert . ToDecimal ( r341model . PQV71 ) * Convert . ToDecimal ( r341model . PQV72 ) * Convert . ToDecimal ( r341model . PQV73 );
-                editRow (  );
-            }
-        }
-        void read342 (   )
-        {
-            r342model . AF009 = dt;
-            r342 form = new r342 ( r342model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r342model = form . getModel;
-                if ( r342model == null )
-                    return;
+            model195 . QUOA010 = _quo . QUO001;
+            model195 . QUOA011 = txtQUP003 . Text;
+            model195 . QUOA012 = txtQUOA012 . Text;
+            model195 . QUOA013 = txtQUP002 . Text;
+            model195 . QUOA014 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
 
-                _qup . QUR004 = r342model . AF015;
-                _qup . QUR006 = r342model . AF019;
-                _qup . QUR007 = r342model . AF020 . ToString ( );
-                _qup . QUR008 = r342model . AF021 . ToString ( );
-                _qup . QUR009 = r342model . AF022 . ToString ( );
-                _qup . QUR010 = r342model . AF018;
-                _qup . QUR012 = r342model . AF087;
-                _qup . QUR013 = r342model . AF023;
-                _qup . QUR014 = r342model . AF088;
-                _qup . QUR015 = r342model . AF020 + "*" + r342model . AF021 + "*" + r342model . AF022;
-                _qup . QUR016 = Convert . ToDecimal ( r342model . AF020 ) * Convert . ToDecimal ( r342model . AF021 ) * Convert . ToDecimal ( r342model . AF022 );
-                editRow (  );
-            }
+            form = new r195 ( model195 ,txtQUO006 . Text );
+            formResult ( );
         }
-        void read343 (   )
+        void read196 ( )
         {
-            r343model . PQU04 = dt;
-            r343 form = new r343 ( r343model );
+            model196 . QUOB001 = _quo . QUO001;
+            model196 . QUOB002 = txtQUP003 . Text;
+            model196 . QUOB003 = txtQUP002 . Text;
+            model196 . QUOB004 = txtQUOA012 . Text;
+            model196 . QUOB017 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r196 ( model196 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read338 ( )
+        {
+            model338 . QUOC001 = _quo . QUO001;
+            model338 . QUOC002 = txtQUOA012 . Text;
+            model338 . QUOC003 = txtQUP003 . Text;
+            model338 . QUOC004 = txtQUP002 . Text;
+            model338 . QUOC005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r338 ( model338 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read341 ( )
+        {
+            model341 . QUOD001 = _quo . QUO001;
+            model341 . QUOD002 = txtQUOA012 . Text;
+            model341 . QUOD003 = txtQUP003 . Text;
+            model341 . QUOD004 = txtQUP002 . Text;
+            model341 . QUOD020 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r341 ( model341 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read342 ( )
+        {
+            model342 . QUOE001 = _quo . QUO001;
+            model342 . QUOE002 = txtQUOA012 . Text;
+            model342 . QUOE003 = txtQUP003 . Text;
+            model342 . QUOE004 = txtQUP002 . Text;
+            model342 . QUOE005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r342 ( model342 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read343 ( )
+        {
+            model343 . QUOF001 = _quo . QUO001;
+            model343 . QUOF002 = txtQUOA012 . Text;
+            model343 . QUOF003 = txtQUP003 . Text;
+            model343 . QUOF004 = txtQUP002 . Text;
+            model343 . QUOF005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r343 ( model343 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read347 ( )
+        {
+            model347 . QUOG001 = _quo . QUO001;
+            model347 . QUOG002 = txtQUOA012 . Text;
+            model347 . QUOG003 = txtQUP003 . Text;
+            model347 . QUOG004 = txtQUP002 . Text;
+            model347 . QUOG005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r347 ( model347 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read349 ( )
+        {
+            model349 . QUOH001 = _quo . QUO001;
+            model349 . QUOH002 = txtQUOA012 . Text;
+            model349 . QUOH003 = txtQUP003 . Text;
+            model349 . QUOH004 = txtQUP002 . Text;
+            model349 . QUOH005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r349 ( model349 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read339 ( )
+        {
+            model339 . QUOI001 = _quo . QUO001;
+            model339 . QUOI002 = txtQUOA012 . Text;
+            model339 . QUOI003 = txtQUP003 . Text;
+            model339 . QUOI004 = txtQUP002 . Text;
+            model339 . QUOI005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r339 ( model339 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read344 ( )
+        {
+            model344 . QUOJ001 = _quo . QUO001;
+            model344 . QUOJ002 = txtQUOA012 . Text;
+            model344 . QUOJ003 = txtQUP003 . Text;
+            model344 . QUOJ004 = txtQUP002 . Text;
+            model344 . QUOJ005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r344 ( model344 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read505 ( )
+        {
+            model505 . QUOK001 = _quo . QUO001;
+            model505 . QUOK002 = txtQUOA012 . Text;
+            model505 . QUOK003 = txtQUP003 . Text;
+            model505 . QUOK004 = txtQUP002 . Text;
+            model505 . QUOK005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r505 ( model505 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void read495 ( )
+        {
+            model495 . QUOL001 = _quo . QUO001;
+            model495 . QUOL002 = txtQUOA012 . Text;
+            model495 . QUOL003 = txtQUP003 . Text;
+            model495 . QUOL004 = txtQUP002 . Text;
+            model495 . QUOL005 = string . IsNullOrEmpty ( txtQUO007 . Text ) == true ? 0 : Convert . ToInt32 ( txtQUO007 . Text );
+            form = new r495 ( model495 ,txtQUO006 . Text );
+            formResult ( );
+        }
+        void formResult ( )
+        {
             if ( form . ShowDialog ( ) == DialogResult . OK )
             {
-                r343model = form . getModel;
-                if ( r343model == null )
-                    return;
+                XtraMessageBox . Show ( "保存成功" );
+                queryTable ( );
+            }
+        }
+        void queryTable ( )
+        {
+            tableView = _bll . getTableView ( _quo . QUO001 );
+            gridControl1 . DataSource = tableView;
+        }
+        bool deleteCon ( )
+        {
+            if ( DicStr . r195 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete195 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r196 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete196 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r338 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete338 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r341 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete341 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r342 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete342 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r343 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete343 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r347 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete347 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r349 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete349 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r339 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete339 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r344 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete344 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r505 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete505 ( _qup . idx );
+                titelResult ( );
+            }
+            else if ( DicStr . r495 . Equals ( _qup . QUR003 ) )
+            {
+                result = _bll . Delete495 ( _qup . idx );
+                titelResult ( );
+            }
 
-                _qup . QUR004 = r343model . PQU10;
-                _qup . QUR015 = r343model . PQU12;
-                _qup . QUR006 = r343model . PQU13;
-                _qup . QUR013 = r343model . PQU16;
-                _qup . QUR010 = r343model . PQU18;
-                _qup . QUR016 = 0;
-                editRow (  );
-            }
+            return result;
         }
-        void read347 (   )
+        void titelResult ( )
         {
-            r347model . PJ05 = dt;
-            r347 form = new r347 ( r347model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r347model = form . getModel;
-                if ( r347model == null )
-                    return;
-
-                _qup . QUR004 = r347model . PJ09;
-                _qup . QUR015 = r347model . PJ89;
-                _qup . QUR006 = r347model . PJ11;
-                _qup . QUR013 = r347model . PJ12;
-                _qup . QUR010 = r347model . PJ97;
-                editRow (  );
-            }
-        }
-        void read349 (   )
-        {
-            r349model . WX04 = dt;
-            r349 form = new r349 ( r349model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r349model = form . getModel;
-                if ( r349model == null )
-                    return;
-
-                _qup . QUR004 = r349model . WX10;
-                _qup . QUR015 = r349model . WX11;
-                _qup . QUR013 = r349model . WX13;
-                _qup . QUR006 = r349model . WX14;
-                _qup . QUR010 = r349model . WX16;
-                editRow (  );
-            }
-        }
-        void read339 (   )
-        {
-            r339model . YQ05 = dt;
-            r339 form = new r339 ( r339model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r339model = form . getModel;
-                if ( r339model == null )
-                    return;
-
-                _qup . QUR004 = r339model . YQ10;
-                _qup . QUR006 = r339model . YQ112;
-                _qup . QUR005 = r339model . YQ119;
-                _qup . QUR010 = r339model . YQ19;
-                editRow ( );
-            }
-        }
-        void read344 (   )
-        {
-            r344model . MZ007 = dt;
-            r344 form = new r344 ( r344model );
-            if ( form . ShowDialog ( ) == DialogResult . OK )
-            {
-                r344model = form . getModel;
-                if ( r344model == null )
-                    return;
-
-                _qup . QUR004 = r344model . MZ016;
-                _qup . QUR015 = r344model . MZ018;
-                _qup . QUR010 = r344model . MZ021;
-                _qup . QUR013 = r344model . MZ025;
-                _qup . QUR016 = r344model . MZ105;
-                editRow (  );
-            }
-        }
-        void editRow (   )
-        {
-            if ( "add" . Equals ( conState ) )
-            {
-                addRow (  );
-                tableView . Rows . Add ( selectRow );
-            }
-            else if ( "edit" . Equals ( conState ) )
-            {
-                selectRow . BeginEdit ( );
-                addRow (  );
-                selectRow . EndEdit ( );
-            }
-        }
-        void addRow ( )
-        {
-            selectRow [ "QUR001" ] = _quo . QUO001;
-            selectRow [ "QUR002" ] = _qup . QUR002;
-            selectRow [ "QUR003" ] = _qup . QUR003;
-            selectRow [ "QUR004" ] = _qup . QUR004;
-            selectRow [ "QUR005" ] = _qup . QUR005;
-            selectRow [ "QUR006" ] = _qup . QUR006;
-            selectRow [ "QUR007" ] = _qup . QUR007;
-            selectRow [ "QUR008" ] = _qup . QUR008;
-            selectRow [ "QUR009" ] = _qup . QUR009;
-            selectRow [ "QUR010" ] = _qup . QUR010;
-            selectRow [ "QUR011" ] = _qup . QUR011;
-            selectRow [ "QUR012" ] = _qup . QUR012;
-            selectRow [ "QUR013" ] = _qup . QUR013;
-            selectRow [ "QUR014" ] = _qup . QUR014;
-            selectRow [ "QUR015" ] = _qup . QUR015;
-            selectRow [ "QUR016" ] = _qup . QUR016;
+            if ( result )
+                XtraMessageBox . Show ( "成功删除" );
+            else
+                XtraMessageBox . Show ( "删除失败" );
         }
         #endregion
 
     }
 }
+
+
+
+

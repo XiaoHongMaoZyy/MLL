@@ -103,6 +103,7 @@ namespace Mulaolao.Raw_material_cost
             comboBox11 . Items . Add ( DicStr . giftBox );
             comboBox11 . Items . Add ( DicStr . inject );
             comboBox11 . Items . Add ( DicStr . oilRoller );
+            comboBox11 . Items . Add ( DicStr . gq );
             comboBox11 . Items . Add ( DicStr . production );
             comboBox11 . Items . Add ( DicStr . other );
 
@@ -288,7 +289,7 @@ namespace Mulaolao.Raw_material_cost
                 ddl = SqlHelper.ExecuteDataTable( "SELECT idx,GS02,GS49,GS51,GS04,GS05,GS07,GS08,GS09,GS10,GS11,GS13,GS14,GS15,GS16,GS17,GS18,GS19,GS20,(SELECT DGA003 FROM TPADGA WHERE GS20 = DGA001 ) DGA003 ,(SELECT DGA011 FROM TPADGA WHERE GS20 = DGA001 ) DGA011,D.U7,GS70,GS71,GS78 FROM R_PQP A, (SELECT GS02 U0 ,SUM( GS10 * GS11 ) U7 FROM R_PQP GROUP BY GS02 ) D WHERE A.GS02 = D.U0 AND GS34 = @GS34 AND GS02!='' AND GS02 IS NOT NULL ORDER BY GS70,GS71,GS02,GS07 " ,new SqlParameter( "@GS34" ,_model . GS34 ) );//ASC,REVERSE(GS07) ASC
                 gridControl1 .DataSource = ddl;
 
-                ddk = SqlHelper.ExecuteDataTable( "SELECT idx,GS35,GS36,GS37,GS38,GS39,GS40,GS41,GS42,GS43,GS44,GS45,GS72,GS74,GS75,GS76 FROM R_PQP WHERE GS35 IS NOT NULL AND GS35!='' AND GS34=@GS34 ORDER BY REVERSE(GS35) ASC" ,new SqlParameter( "@GS34" ,_model . GS34 ) );
+                ddk = SqlHelper.ExecuteDataTable( "SELECT idx,GS35,GS36,GS37,GS38,GS39,GS40,GS41,GS42,GS43,GS44,GS45,GS72,GS74,GS75,GS76,GS79 FROM R_PQP WHERE GS35 IS NOT NULL AND GS35!='' AND GS34=@GS34 ORDER BY REVERSE(GS35) ASC" ,new SqlParameter( "@GS34" ,_model . GS34 ) );
                 gridControl2.DataSource = ddk;
 
                 ddp = SqlHelper.ExecuteDataTable( "SELECT idx,GS52,GS49,GS61,GS53,GS54,GS56,GS57,GS58,GS59,GS60,GS69,GS62,GS63,GS64,GS65,GS66,GS67,GS68,GS77,(SELECT DGA003 FROM TPADGA WHERE GS68 = DGA001 ) DGA003 ,(SELECT DGA011 FROM TPADGA WHERE GS68 = DGA001 ) DGA011,D.U11 FROM R_PQP A, (SELECT GS52 U0 ,SUM( GS59 * GS60 ) U11 FROM R_PQP GROUP BY GS52 ) D WHERE A.GS52 = D.U0 AND GS34 = @GS34 AND GS52!='' AND GS52 IS NOT NULL ORDER BY GS52 ASC,REVERSE(GS56) ASC" ,new SqlParameter( "@GS34" ,_model . GS34 ) );
@@ -1143,6 +1144,15 @@ namespace Mulaolao.Raw_material_cost
                 comboBox5 . Items . Add ( DicStr . r339 );
                 comboBox5 . Text = DicStr . r339;
                 break;
+                case "滚漆":
+
+                comboBox3 . Items . Add ( DicStr . mcz );
+                comboBox3 . Items . Add ( DicStr . densityBoard );
+                comboBox3 . Items . Add ( DicStr . plyWood );
+                comboBox3 . Text = DicStr . mcz;
+                comboBox5 . Items . Add ( DicStr . r344 );
+                comboBox5 . Text = DicStr . r344;
+                break;
                 case "生产":
            
                 comboBox3 . Items . Add ( DicStr . production );
@@ -1919,56 +1929,63 @@ namespace Mulaolao.Raw_material_cost
         #region 工段
         //DataTable dda;
         //新建
-        private void builds ( )
-        {
-            _model.GS35 = comboBox12.Text;
-            if ( comboBox24.Text == "" )
-                _model . GS36 = 0M;
-            else
-                _model . GS36 = Convert.ToDecimal( comboBox24.Text );
-            if ( comboBox23.Text == "" )
-                _model . GS37 = 0M;
-            else
-                _model . GS37 = Convert.ToDecimal( comboBox23.Text );
-            _model . GS38 = comboBox20.Text;
-            if ( comboBox17.Text == "" )
-                _model . GS39 = 0;
-            else
-                _model . GS39 = Convert.ToInt32( comboBox17.Text );
-            _model . GS40 = textBox20.Text;
-            _model . GS41 = textBox19.Text;
-            _model . GS42 = lookUpEdit4.Text;
-            _model . GS43 = lookUpEdit5.Text;
-            _model . GS44 = lookUpEdit6.Text;
-            _model . GS45 = datatimepickeroverride1.Value;
-            _model . GS72 = comboBox13 . Text;
-            _model . GS74 = comboBox21 . Text;
-            _model . GS75 = txtGS75 . Text;
-            _model . GS76 = txtGS76 . Text;
-        }
-        private void button16_Click ( object sender ,EventArgs e )
+        private bool builds ( )
         {
             if ( string . IsNullOrEmpty ( comboBox21 . Text ) )
             {
                 MessageBox . Show ( "请选择合同代号" );
-                return;
+                return false;
             }
             if ( string . IsNullOrEmpty ( comboBox13 . Text ) )
             {
                 MessageBox . Show ( "请选择类别" );
-                return;
+                return false;
             }
             if ( string . IsNullOrEmpty ( comboBox12 . Text ) )
             {
                 MessageBox . Show ( "请选择工段" );
-                return;
+                return false;
             }
-            //if ( string . IsNullOrEmpty ( txtGS75 . Text ) )
-            //{
-            //    MessageBox . Show ( "请填写零件名称" );
-            //    return;
-            //}
-            builds ( );
+            _model . GS35 = comboBox12 . Text;
+            if ( string . IsNullOrEmpty ( comboBox24 . Text ) )
+                _model . GS36 = 0M;
+            else
+                _model . GS36 = Convert . ToDecimal ( comboBox24 . Text );
+            if ( string . IsNullOrEmpty ( comboBox23 . Text ) )
+                _model . GS37 = 0M;
+            else
+                _model . GS37 = Convert . ToDecimal ( comboBox23 . Text );
+            _model . GS38 = comboBox20 . Text;
+            if ( string . IsNullOrEmpty ( comboBox17 . Text ) )
+                _model . GS39 = 0;
+            else
+                _model . GS39 = Convert . ToInt32 ( comboBox17 . Text );
+            _model . GS40 = textBox20 . Text;
+            _model . GS41 = textBox19 . Text;
+            _model . GS42 = lookUpEdit4 . Text;
+            _model . GS43 = lookUpEdit5 . Text;
+            _model . GS44 = lookUpEdit6 . Text;
+            _model . GS45 = datatimepickeroverride1 . Value;
+            _model . GS72 = comboBox13 . Text;
+            _model . GS74 = comboBox21 . Text;
+            _model . GS75 = txtGS75 . Text;
+            _model . GS76 = txtGS76 . Text;
+
+            decimal outResult = 0M;
+            if ( !string . IsNullOrEmpty ( txtGS79 . Text ) && decimal . TryParse ( txtGS79 . Text ,out outResult ) == false )
+            {
+                MessageBox . Show ( "每套个数为数字" );
+                return false;
+            }
+
+            _model . GS79 = outResult;
+
+            return true;
+        }
+        private void button16_Click ( object sender ,EventArgs e )
+        {
+            if ( builds ( ) == false )
+                return;
 
             result = bll . ExistsOne ( _model );
             if ( result == false )
@@ -1987,7 +2004,7 @@ namespace Mulaolao.Raw_material_cost
 
                     if ( sads == "1" )
                     {
-                        ddk = SqlHelper . ExecuteDataTable ( "SELECT idx,GS35,GS36,GS37,GS38,GS39,GS40,GS41,GS42,GS43,GS44,GS45,GS72,GS74,GS75,GS76 FROM R_PQP WHERE GS36 IS NOT NULL AND GS34=@GS34 AND GS35!='' AND GS35 IS NOT NULL" ,new SqlParameter ( "@GS34" ,_model . GS34 ) );
+                        ddk = SqlHelper . ExecuteDataTable ( "SELECT idx,GS35,GS36,GS37,GS38,GS39,GS40,GS41,GS42,GS43,GS44,GS45,GS72,GS74,GS75,GS76,GS79 FROM R_PQP WHERE GS36 IS NOT NULL AND GS34=@GS34 AND GS35!='' AND GS35 IS NOT NULL" ,new SqlParameter ( "@GS34" ,_model . GS34 ) );
                         gridControl2 . DataSource = ddk;
                     }
                     else if ( sads == "2" )
@@ -2009,6 +2026,7 @@ namespace Mulaolao.Raw_material_cost
                         row [ "GS74" ] = _model . GS74;
                         row [ "GS75" ] = _model . GS75;
                         row [ "GS76" ] = _model . GS76;
+                        row [ "GS79" ] = _model . GS79;
                         ddk . Rows . Add ( row );
                     }
                     workshopSection ( );
@@ -2040,32 +2058,14 @@ namespace Mulaolao.Raw_material_cost
             row [ "GS74" ] = _model . GS74;
             row [ "GS75" ] = _model . GS75;
             row [ "GS76" ] = _model . GS76;
+            row [ "GS79" ] = _model . GS79;
             row . EndEdit ( );
             workshopSection ( );
         }
         private void button15_Click ( object sender ,EventArgs e )
         {
-            if ( string . IsNullOrEmpty ( comboBox21 . Text ) )
-            {
-                MessageBox . Show ( "请选择合同代号" );
+            if ( builds ( ) == false )
                 return;
-            }
-            if ( string . IsNullOrEmpty ( comboBox13 . Text ) )
-            {
-                MessageBox . Show ( "请选择类别" );
-                return;
-            }
-            if ( string . IsNullOrEmpty ( comboBox12 . Text ) )
-            {
-                MessageBox . Show ( "请选择工段" );
-                return;
-            }
-            //if ( string . IsNullOrEmpty ( txtGS75 . Text ) )
-            //{
-            //    MessageBox . Show ( "请填写零件名称" );
-            //    return;
-            //}
-            builds ( );
 
             if ( gs035 .Equals( _model . GS35) && gs075 . Equals ( _model . GS75 ) && gs076 . Equals ( _model . GS76 )  )
             {
@@ -2075,7 +2075,6 @@ namespace Mulaolao.Raw_material_cost
                 else
                 {
                     MessageBox . Show ( "编辑数据成功" );
-
                     upd ( );
                 }
             }
@@ -2128,7 +2127,7 @@ namespace Mulaolao.Raw_material_cost
         //刷新
         private void button12_Click ( object sender ,EventArgs e )
         {
-            ddk = SqlHelper . ExecuteDataTable ( "SELECT idx,GS35,GS36,GS37,GS38,GS39,GS40,GS41,GS42,GS43,GS44,GS45,GS72,GS74,GS75,GS76 FROM R_PQP WHERE GS36 IS NOT NULL AND GS34=@GS34 AND GS35!='' AND GS35 IS NOT NULL" ,new SqlParameter ( "@GS34" ,_model . GS34 ) );
+            ddk = SqlHelper . ExecuteDataTable ( "SELECT idx,GS35,GS36,GS37,GS38,GS39,GS40,GS41,GS42,GS43,GS44,GS45,GS72,GS74,GS75,GS76,GS79 FROM R_PQP WHERE GS36 IS NOT NULL AND GS34=@GS34 AND GS35!='' AND GS35 IS NOT NULL" ,new SqlParameter ( "@GS34" ,_model . GS34 ) );
             gridControl2 . DataSource = ddk;
         }
         #endregion

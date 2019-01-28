@@ -61,6 +61,7 @@
             this.AF087 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.U4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.AF084 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.AF090 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -83,7 +84,6 @@
             this.lookUpEdit8 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit9 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit10 = new DevExpress.XtraEditors.LookUpEdit();
-            this.AF090 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -143,11 +143,11 @@
             // 
             this.splitContainer2.Panel1.Controls.Add(this.gridControl1);
             this.splitContainer2.Size = new System.Drawing.Size(1223, 403);
-            this.splitContainer2.SplitterDistance = 365;
+            this.splitContainer2.SplitterDistance = 362;
             // 
             // userControl11
             // 
-            this.userControl11.Size = new System.Drawing.Size(813, 34);
+            this.userControl11.Size = new System.Drawing.Size(813, 37);
             // 
             // gridControl1
             // 
@@ -157,7 +157,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1223, 365);
+            this.gridControl1.Size = new System.Drawing.Size(1223, 362);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -514,12 +514,12 @@
             this.U0.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U0.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U0.Caption = "结算款";
-            this.U0.DisplayFormat.FormatString = "N2";
+            this.U0.DisplayFormat.FormatString = "0.##";
             this.U0.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U0.FieldName = "U0";
             this.U0.Name = "U0";
             this.U0.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U0", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U0", "{0:0.##}")});
             this.U0.ToolTip = "[每个单价] * [产品数量] * [每套用量]";
             this.U0.UnboundExpression = "[AF023] * [AF006] * [AF019]";
             this.U0.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -634,10 +634,15 @@
             // U1
             // 
             this.U1.Caption = "每套成本现价";
+            this.U1.DisplayFormat.FormatString = "0.###";
+            this.U1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U1.FieldName = "U1";
             this.U1.Name = "U1";
             this.U1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:0.###}")});
+            this.U1.ToolTip = "[结算款] / [产品数量]";
+            this.U1.UnboundExpression = "[U0] / [AF006]";
+            this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U1.Visible = true;
             this.U1.VisibleIndex = 17;
             // 
@@ -649,7 +654,7 @@
             this.AF088.FieldName = "AF088";
             this.AF088.Name = "AF088";
             this.AF088.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AF088", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AF088", "{0:0.##}")});
             this.AF088.Visible = true;
             this.AF088.VisibleIndex = 18;
             // 
@@ -679,7 +684,7 @@
             this.U4.AppearanceHeader.Options.UseTextOptions = true;
             this.U4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U4.Caption = "每立方米现价";
-            this.U4.DisplayFormat.FormatString = "N2";
+            this.U4.DisplayFormat.FormatString = "0.##";
             this.U4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U4.FieldName = "U4";
             this.U4.Name = "U4";
@@ -697,6 +702,14 @@
             this.AF084.Name = "AF084";
             this.AF084.Visible = true;
             this.AF084.VisibleIndex = 8;
+            // 
+            // AF090
+            // 
+            this.AF090.Caption = "是否结账";
+            this.AF090.FieldName = "AF090";
+            this.AF090.Name = "AF090";
+            this.AF090.Visible = true;
+            this.AF090.VisibleIndex = 27;
             // 
             // button2
             // 
@@ -947,14 +960,6 @@
             this.lookUpEdit10.Properties.ShowHeader = false;
             this.lookUpEdit10.Size = new System.Drawing.Size(99, 22);
             this.lookUpEdit10.TabIndex = 53;
-            // 
-            // AF090
-            // 
-            this.AF090.Caption = "是否结账";
-            this.AF090.FieldName = "AF090";
-            this.AF090.Name = "AF090";
-            this.AF090.Visible = true;
-            this.AF090.VisibleIndex = 27;
             // 
             // CheMuJiancontractQueryAll
             // 

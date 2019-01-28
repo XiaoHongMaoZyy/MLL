@@ -1,33 +1,169 @@
 ﻿using System;
-using System . Collections . Generic;
-using System . ComponentModel;
 using System . Data;
-using System . Drawing;
-using System . Text;
-using System . Linq;
 using System . Windows . Forms;
 using DevExpress . XtraEditors;
-using Mulaolao . Class;
+using Mulaolao . Other;
+using MulaolaoBll;
 
 namespace Mulaolao . QuoForms
 {
     public partial class r338 :DevExpress . XtraEditors . XtraForm
     {
         MulaolaoBll.Bll.QuoBll _bll=null;
-        MulaolaoLibrary.JiaoMiDuContractLibrary model=null;
+        MulaolaoLibrary.QUOCEntity model=null;
+        string num=string.Empty;
+        decimal outResult=0M;
 
-        public r338 ( MulaolaoLibrary . JiaoMiDuContractLibrary model )
+        public r338 ( MulaolaoLibrary . QUOCEntity model ,string num)
         {
             InitializeComponent ( );
 
             _bll = new MulaolaoBll . Bll . QuoBll ( );
 
-            GridViewMoHuSelect . SetFilter ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View } );
-            GrivColumnStyle . setColumnStyle ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View } );
-
             this . model = model;
+            this . num = num;
             setValue ( );
-            getInfo ( );
+        }
+
+        void setValue ( )
+        {
+            if ( model == null )
+                return;
+            if ( model . idx < 1 )
+                return;
+            model = _bll . getModel338 ( model . idx );
+            if ( model == null )
+                return;
+            tQUOC006 . Text = model . QUOC006;
+            tQUOC007 . Text = Convert . ToDecimal ( model . QUOC007 ) . ToString ( "0.######" );
+            tQUOC008 . Text = Convert . ToDecimal ( model . QUOC008 ) . ToString ( "0.######" );
+            tQUOC009 . Text = Convert . ToDecimal ( model . QUOC009 ) . ToString ( "0.######" );
+            tQUOC010 . Text = Convert . ToDecimal ( model . QUOC010 ) . ToString ( "0.######" );
+            tQUOC011 . Text = Convert . ToDecimal ( model . QUOC011 ) . ToString ( "0.######" );
+            tQUOC012 . Text = Convert . ToDecimal ( model . QUOC012 ) . ToString ( "0.######" );
+            tQUOC012 . Tag = Convert . ToDecimal ( model . QUOC012 ) . ToString ( "0.######" );
+            tQUOC013 . Text = Convert . ToDecimal ( model . QUOC013 ) . ToString ( "0.######" );
+            tQUOC014 . Text = Convert . ToDecimal ( model . QUOC014 ) . ToString ( "0.######" );
+            tQUOC015 . Text = model . QUOC015;
+            tQUOC016 . Text = Convert . ToDecimal ( model . QUOC016 ) . ToString ( "0.######" );
+            tQUOC017 . Text = Convert . ToDecimal ( model . QUOC017 ) . ToString ( "0.######" );
+            tQUOC018 . Text = Convert . ToDecimal ( model . QUOC018 ) . ToString ( "0.######" );
+            tQUOC019 . Text = Convert . ToDecimal ( model . QUOC019 ) . ToString ( "0.######" );
+            tQUOC020 . Text = model . QUOC020;
+        }
+
+        private void btnSure_Click ( object sender ,EventArgs e )
+        {
+            dxErrorProvider1 . ClearErrors ( );
+            if ( string . IsNullOrEmpty ( tQUOC006 . Text ) )
+            {
+                dxErrorProvider1 . SetError ( tQUOC006 ,"不可为空" );
+                return;
+            }
+            model . QUOC006 = tQUOC006 . Text;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC007 . Text ) && decimal . TryParse ( tQUOC007 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC007 ,"必须是数字" );
+                return;
+            }
+            model . QUOC007 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC008 . Text ) && decimal . TryParse ( tQUOC008 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC008 ,"必须是数字" );
+                return;
+            }
+            model . QUOC008 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC009 . Text ) && decimal . TryParse ( tQUOC009 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC009 ,"必须是数字" );
+                return;
+            }
+            model . QUOC009 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC010 . Text ) && decimal . TryParse ( tQUOC010 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC010 ,"必须是数字" );
+                return;
+            }
+            model . QUOC010 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC011 . Text ) && decimal . TryParse ( tQUOC011 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC011 ,"必须是数字" );
+                return;
+            }
+            model . QUOC011 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC012 . Text ) && decimal . TryParse ( tQUOC012 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC012 ,"必须是数字" );
+                return;
+            }
+            model . QUOC012 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC013 . Text ) && decimal . TryParse ( tQUOC013 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC013 ,"必须是数字" );
+                return;
+            }
+            model . QUOC013 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC014 . Text ) && decimal . TryParse ( tQUOC014 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC014 ,"必须是数字" );
+                return;
+            }
+            model . QUOC014 = outResult;
+            model . QUOC015 = tQUOC015 . Text;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC016 . Text ) && decimal . TryParse ( tQUOC016 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC016 ,"必须是数字" );
+                return;
+            }
+            model . QUOC016 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC017 . Text ) && decimal . TryParse ( tQUOC017 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC017 ,"必须是数字" );
+                return;
+            }
+            model . QUOC017 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC018 . Text ) && decimal . TryParse ( tQUOC018 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC018 ,"必须是数字" );
+                return;
+            }
+            model . QUOC018 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOC019 . Text ) && decimal . TryParse ( tQUOC019 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC019 ,"必须是数字" );
+                return;
+            }
+            model . QUOC019 = outResult;
+
+            int id = _bll . Save338 ( model );
+            if ( id > 0 )
+                this . DialogResult = DialogResult . OK;
+            else
+                XtraMessageBox . Show ( "保存失败" );
         }
 
         private void btnCancel_Click ( object sender ,EventArgs e )
@@ -35,136 +171,136 @@ namespace Mulaolao . QuoForms
             this . DialogResult = DialogResult . Cancel;
         }
 
-        private void btnOk_Click ( object sender ,EventArgs e )
+        private void tQUOC012_TextChanged ( object sender ,EventArgs e )
         {
-            if ( string . IsNullOrEmpty ( txtJM09 . Text ) )
+            if ( !string . IsNullOrEmpty ( tQUOC012 . Text ) && decimal . TryParse ( tQUOC012 . Text ,out
+                    outResult ) == false )
             {
-                XtraMessageBox . Show ( "请选择零件名称" );
+                dxErrorProvider1 . SetError ( tQUOC012 ,"必须是数字" );
                 return;
             }
-            model . JM09 = txtJM09 . Text;
-            if ( string . IsNullOrEmpty ( txtJM10 . Text ) )
+            if ( !string . IsNullOrEmpty ( tQUOC016 . Text ) && decimal . TryParse ( tQUOC016 . Text ,out
+               outResult ) == false )
             {
-                XtraMessageBox . Show ( "每张零件个数不可为空" );
+                dxErrorProvider1 . SetError ( tQUOC016 ,"必须是数字" );
                 return;
             }
-            decimal resultOut = 0M;
-            if ( !string . IsNullOrEmpty ( txtJM10 . Text ) && decimal . TryParse ( txtJM10 . Text ,out resultOut ) == false )
+            if ( !string . IsNullOrEmpty ( tQUOC019 . Text ) && decimal . TryParse ( tQUOC019 . Text ,out
+               outResult ) == false )
             {
-                XtraMessageBox . Show ( "每张零件个数是数字" );
+                dxErrorProvider1 . SetError ( tQUOC019 ,"必须是数字" );
                 return;
             }
-            model . JM10 = resultOut;
-            if ( string . IsNullOrEmpty ( txtJM11 . Text ) )
-            {
-                XtraMessageBox . Show ( "每张单价不可为空" );
-                return;
-            }
-            resultOut = 0M;
-            if ( !string . IsNullOrEmpty ( txtJM11 . Text ) && decimal . TryParse ( txtJM11 . Text ,out resultOut ) == false )
-            {
-                XtraMessageBox . Show ( "每张单价是数字" );
-                return;
-            }
-            model . JM11 = resultOut;
-            if ( string . IsNullOrEmpty ( txtJM15 . Text ) )
-            {
-                XtraMessageBox . Show ( "数量不可为空" );
-                return;
-            }
-            resultOut = 0M;
-            if ( !string . IsNullOrEmpty ( txtJM15 . Text ) && decimal . TryParse ( txtJM15 . Text ,out resultOut ) == false )
-            {
-                XtraMessageBox . Show ( "数量是数字" );
-                return;
-            }
-            model . JM15 = resultOut;
-            if ( string . IsNullOrEmpty ( txtJM94 . Text ) )
-            {
-                XtraMessageBox . Show ( "长不可为空" );
-                return;
-            }
-            resultOut = 0M;
-            if ( !string . IsNullOrEmpty ( txtJM94 . Text ) && decimal . TryParse ( txtJM94 . Text ,out resultOut ) == false )
-            {
-                XtraMessageBox . Show ( "长是数字" );
-                return;
-            }
-            model . JM94 = resultOut;
-            if ( string . IsNullOrEmpty ( txtJM95 . Text ) )
-            {
-                XtraMessageBox . Show ( "宽不可为空" );
-                return;
-            }
-            resultOut = 0M;
-            if ( !string . IsNullOrEmpty ( txtJM95 . Text ) && decimal . TryParse ( txtJM95 . Text ,out resultOut ) == false )
-            {
-                XtraMessageBox . Show ( "宽是数字" );
-                return;
-            }
-            model . JM95 = resultOut;
-            if ( string . IsNullOrEmpty ( txtJM96 . Text ) )
-            {
-                XtraMessageBox . Show ( "高不可为空" );
-                return;
-            }
-            resultOut = 0M;
-            if ( !string . IsNullOrEmpty ( txtJM96 . Text ) && decimal . TryParse ( txtJM96 . Text ,out resultOut ) == false )
-            {
-                XtraMessageBox . Show ( "高是数字" );
-                return;
-            }
-            model . JM96 = resultOut;
-            resultOut = 0M;
-            if ( !string . IsNullOrEmpty ( txtJM120 . Text ) && decimal . TryParse ( txtJM120 . Text ,out resultOut ) == false )
-            {
-                XtraMessageBox . Show ( "m³/单价是数字" );
-                return;
-            }
-            model . JM120 = resultOut;
-
-            this . DialogResult = DialogResult . OK;
+            textEdit7 . Text = MulaolaoBll . CalcuResult . calcuPriceFor338 ( tQUOC012 . Text ,tQUOC016 . Text ,tQUOC019 . Text );
         }
 
-        public MulaolaoLibrary . JiaoMiDuContractLibrary getModel
+        private void tQUOC016_TextChanged ( object sender ,EventArgs e )
         {
-            get
+            if ( !string . IsNullOrEmpty ( tQUOC012 . Text ) && decimal . TryParse ( tQUOC012 . Text ,out
+                    outResult ) == false )
             {
-                return model;
-            }
-        }
-
-        void setValue ( )
-        {
-            txtJM09 . Text = model . JM09;
-            txtJM10 . Text = model . JM10 . ToString ( "0.######" );
-            txtJM11 . Text = model . JM11 . ToString ( "0.######" );
-            txtJM15 . Text = model . JM15 . ToString ( "0.######" );
-            txtJM94 . Text = model . JM94 . ToString ( );
-            txtJM95 . Text = model . JM95 . ToString ( );
-            txtJM96 . Text = model . JM96 . ToString ( );
-            txtJM120 . Text = Convert . ToDecimal ( model . JM120 ) . ToString ( "0.######" );
-        }
-
-        void getInfo ( )
-        {
-            DataTable tableOne = _bll . getTableFor338Info ( model . JM05 );
-            txtJM09 . Properties . DataSource = tableOne;
-            txtJM09 . Properties . DisplayMember = "JM09";
-            txtJM09 . Properties . ValueMember = "JM09";
-        }
-
-        private void txtJM09_EditValueChanged ( object sender ,EventArgs e )
-        {
-            DataRow row = View . GetFocusedDataRow ( );
-            if ( row == null )
+                dxErrorProvider1 . SetError ( tQUOC012 ,"必须是数字" );
                 return;
-            txtJM10 . Text = row [ "JM10" ] . ToString ( );
-            txtJM11 . Text = row [ "JM11" ] . ToString ( );
-            txtJM94 . Text = row [ "JM94" ] . ToString ( );
-            txtJM95 . Text = row [ "JM95" ] . ToString ( );
-            txtJM96 . Text = row [ "JM96" ] . ToString ( );
-            txtJM120 . Text = row [ "JM120" ] . ToString ( );
+            }
+            if ( !string . IsNullOrEmpty ( tQUOC016 . Text ) && decimal . TryParse ( tQUOC016 . Text ,out
+               outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC016 ,"必须是数字" );
+                return;
+            }
+            if ( !string . IsNullOrEmpty ( tQUOC019 . Text ) && decimal . TryParse ( tQUOC019 . Text ,out
+               outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC019 ,"必须是数字" );
+                return;
+            }
+            textEdit7 . Text = MulaolaoBll . CalcuResult . calcuPriceFor338 ( tQUOC012 . Text ,tQUOC016 . Text ,tQUOC019 . Text );
+        }
+
+        private void tQUOC019_TextChanged ( object sender ,EventArgs e )
+        {
+            if ( !string . IsNullOrEmpty ( tQUOC012 . Text ) && decimal . TryParse ( tQUOC012 . Text ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC012 ,"必须是数字" );
+                return;
+            }
+            if ( !string . IsNullOrEmpty ( tQUOC016 . Text ) && decimal . TryParse ( tQUOC016 . Text ,out
+               outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC016 ,"必须是数字" );
+                return;
+            }
+            if ( !string . IsNullOrEmpty ( tQUOC019 . Text ) && decimal . TryParse ( tQUOC019 . Text ,out
+               outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC019 ,"必须是数字" );
+                return;
+            }
+            textEdit7 . Text = MulaolaoBll . CalcuResult . calcuPriceFor338 ( tQUOC012 . Text ,tQUOC016 . Text ,tQUOC019 . Text );
+            calcu ( );
+        }
+
+        void calcu ( )
+        {
+            outResult = 0M;
+            if ( tQUOC012 . Tag != null && !string . IsNullOrEmpty ( tQUOC012 . Tag.ToString() ) && decimal . TryParse ( tQUOC012 . Tag.ToString() ,out
+                 outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC012 ,"必须是数字" );
+                return;
+            }
+            model . QUOC012 = outResult;
+            outResult = 0M;
+            if (  !string . IsNullOrEmpty ( tQUOC019 . Text ) && decimal . TryParse ( tQUOC019 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOC019 ,"必须是数字" );
+                return;
+            }
+            model . QUOC019 = outResult;
+            tQUOC012 . Text = ( model . QUOC019 + model . QUOC012 ) . ToString ( );
+        }
+
+        private void tQUOC006_ButtonClick ( object sender ,DevExpress . XtraEditors . Controls . ButtonPressedEventArgs e )
+        {
+            FormJiaoMiDu form = new FormJiaoMiDu ( );
+            if ( form . ShowDialog ( ) == DialogResult . OK )
+            {
+                string info = form . getStr;
+                DataRow row = form . getRow;
+                string spe = string . Empty;
+                tQUOC019 . Text = string . Empty;
+                if ( DicStr . plyWood . Equals ( info ) )
+                {
+                    tQUOC006 . Text = DicStr . plyWood;
+                    spe = row [ "QJB003" ] . ToString ( );
+                    if ( spe != string . Empty )
+                    {
+                        tQUOC007 . Text = spe . Split ( '*' ) [ 0 ] . ToString ( );
+                        tQUOC008 . Text = spe . Split ( '*' ) [ 1 ] . ToString ( );
+                        tQUOC009 . Text = spe . Split ( '*' ) [ 2 ] . ToString ( );
+                    }
+                    tQUOC020 . Text = row [ "QJB002" ] . ToString ( );
+                    tQUOC015 . Text = row [ "QJB011" ] . ToString ( );
+                    tQUOC012 . Tag = tQUOC012 . Text = string . IsNullOrEmpty ( row [ "QJB007" ] . ToString ( ) ) == true ? 0 . ToString ( ) : ( string . IsNullOrEmpty ( row [ "QJB008" ] . ToString ( ) ) == true ? 0 . ToString ( ) : ( Convert . ToDecimal ( row [ "QJB007" ] ) / Convert . ToDecimal ( row [ "QJB008" ] ) ) . ToString ( "0.##" ) );
+                    tQUOC016 . Text = row [ "QJB008" ] . ToString ( );
+                }
+                else if ( DicStr . densityBoard . Equals ( info ) )
+                {
+                    tQUOC006 . Text = DicStr . densityBoard;
+                    spe = row [ "QMD003" ] . ToString ( );
+                    if ( spe != string . Empty )
+                    {
+                        tQUOC007 . Text = spe . Split ( '*' ) [ 0 ] . ToString ( );
+                        tQUOC008 . Text = spe . Split ( '*' ) [ 1 ] . ToString ( );
+                        tQUOC009 . Text = spe . Split ( '*' ) [ 2 ] . ToString ( );
+                    }
+                    tQUOC020 . Text = row [ "QMD002" ] . ToString ( );
+                    tQUOC015 . Text = row [ "QMD009" ] . ToString ( );
+                    tQUOC012 . Tag = tQUOC012 . Text = string . IsNullOrEmpty ( row [ "QMD006" ] . ToString ( ) ) == true ? 0 . ToString ( ) : ( string . IsNullOrEmpty ( row [ "QMD007" ] . ToString ( ) ) == true ? 0 . ToString ( ) : ( Convert . ToDecimal ( row [ "QMD006" ] ) / Convert . ToDecimal ( row [ "QMD007" ] ) ) . ToString ( "0.##" ) );
+                    tQUOC016 . Text = row [ "QMD007" ] . ToString ( );
+                }
+            }
         }
 
     }

@@ -8,7 +8,8 @@ namespace Mulaolao . Base
     {
         MulaolaoLibrary.UserInfoEntity _model=null;
         MulaolaoBll.Bll.UserInfoBll _bll=null;
-        DataTable tableView;DataRow row;
+        DataTable tableView;
+        DataRow row;
         bool result=false;
         string state=string.Empty;
 

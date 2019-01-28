@@ -98,8 +98,8 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtWX03 = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtWX10 = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -456,12 +456,12 @@
             this.WX13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.WX13.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.WX13.Caption = "箱双㎡卡单㎡现价";
-            this.WX13.DisplayFormat.FormatString = "N3";
+            this.WX13.DisplayFormat.FormatString = "0.###";
             this.WX13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.WX13.FieldName = "WX13";
             this.WX13.Name = "WX13";
             this.WX13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "WX13", "{0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "WX13", "{0:0.###}")});
             this.WX13.Visible = true;
             this.WX13.VisibleIndex = 14;
             this.WX13.Width = 87;
@@ -520,12 +520,12 @@
             this.U2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U2.Caption = "结算款";
-            this.U2.DisplayFormat.FormatString = "N2";
+            this.U2.DisplayFormat.FormatString = "0.##";
             this.U2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U2.FieldName = "U2";
             this.U2.Name = "U2";
             this.U2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:0.##}")});
             this.U2.ToolTip = "[每个箱.片价格] * [采购物品数量]";
             this.U2.UnboundExpression = "[U1] * [WX15]";
             this.U2.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -546,6 +546,8 @@
             this.WX16.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.WX16.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.WX16.Caption = "库存数量";
+            this.WX16.DisplayFormat.FormatString = "0.###";
+            this.WX16.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.WX16.FieldName = "WX16";
             this.WX16.Name = "WX16";
             this.WX16.Visible = true;
@@ -565,6 +567,8 @@
             this.WX87.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.WX87.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.WX87.Caption = "外购数量";
+            this.WX87.DisplayFormat.FormatString = "0.###";
+            this.WX87.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.WX87.FieldName = "WX87";
             this.WX87.Name = "WX87";
             this.WX87.Visible = true;
@@ -885,10 +889,12 @@
             this.WX12.AppearanceHeader.Options.UseTextOptions = true;
             this.WX12.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.WX12.Caption = "箱双㎡卡单㎡原价";
+            this.WX12.DisplayFormat.FormatString = "0.###";
+            this.WX12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.WX12.FieldName = "WX12";
             this.WX12.Name = "WX12";
             this.WX12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "WX12", "{0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "WX12", "{0:0.###}")});
             this.WX12.Visible = true;
             this.WX12.VisibleIndex = 15;
             // 
@@ -897,12 +903,12 @@
             this.U8.AppearanceHeader.Options.UseTextOptions = true;
             this.U8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U8.Caption = "每套成本";
-            this.U8.DisplayFormat.FormatString = "N2";
+            this.U8.DisplayFormat.FormatString = "0.###";
             this.U8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U8.FieldName = "U8";
             this.U8.Name = "U8";
             this.U8.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U8", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U8", "{0:0.###}")});
             this.U8.ToolTip = "[结算款] / [产品数量]";
             this.U8.UnboundExpression = "[U2]/[WX86]";
             this.U8.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -1243,6 +1249,14 @@
             this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView6.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "编号";
+            this.gridColumn7.FieldName = "WX03";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 1;
+            // 
             // gridColumn6
             // 
             this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1254,14 +1268,6 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 0;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "编号";
-            this.gridColumn7.FieldName = "WX03";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 1;
             // 
             // txtWX10
             // 

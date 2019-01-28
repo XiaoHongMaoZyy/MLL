@@ -1,58 +1,51 @@
 ﻿using System;
-using System . Collections . Generic;
-using System . ComponentModel;
 using System . Data;
-using System . Drawing;
-using System . Text;
-using System . Linq;
 using System . Windows . Forms;
 using DevExpress . XtraEditors;
-using Mulaolao . Class;
 
 namespace Mulaolao . QuoForms
 {
     public partial class r196 :DevExpress . XtraEditors . XtraForm
     {
         MulaolaoBll.Bll.QuoBll _bll=null;
-        MulaolaoLibrary.SiReYiYinContractLibrary model = null;
+        MulaolaoLibrary.QUOBEntity model = null;
+        string num=string.Empty;
+        decimal outResult=0M;
 
-        public r196 ( MulaolaoLibrary . SiReYiYinContractLibrary model )
+        public r196 ( MulaolaoLibrary . QUOBEntity model,string num )
         {
             InitializeComponent ( );
 
             _bll = new MulaolaoBll . Bll . QuoBll ( );
 
-            GridViewMoHuSelect . SetFilter ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View ,View1 } );
-            GrivColumnStyle . setColumnStyle ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View ,View1 } );
-
             this . model = model;
+            this . num = num;
 
-            getInfo ( );
             setValue ( );
-        }
-
-        void getInfo ( )
-        {
-            DataTable tableOne = _bll . getTableFor196Info ( model . AH04 );
-            txtAH10 . Properties . DataSource = tableOne;
-            txtAH10 . Properties . DisplayMember = "AH10";
-            txtAH10 . Properties . ValueMember = "AH10";
-
-            DataTable tableTwo = _bll . getTableFor509GX ( );
-            txtAH18 . Properties . DataSource = tableTwo;
-            txtAH18 . Properties . DisplayMember = "GS35";
-            txtAH18 . Properties . ValueMember = "GS35";
         }
 
         void setValue ( )
         {
             if ( model == null )
                 return;
-            txtAH10 . Text = model . AH10;
-            txtAH11 . Text = model . AH11;
-            txtAH18 . Text = model . AH18;
-            txtAH13 . Text = model . AH13 . ToString ( );
-            txtAH16 . Text = model . AH16 . ToString ( );
+            if ( model . idx < 1 )
+                return;
+            model = _bll . getModel196 ( model . idx );
+            if ( model == null )
+                return;
+
+            tQUOB005 . Text = model . QUOB005;
+            tQUOB006 . Text = model . QUOB006;
+            tQUOB007 . Text = model . QUOB007;
+            tQUOB008 . Text = Convert . ToDecimal ( model . QUOB008 ) . ToString ( "0.######" );
+            tQUOB009 . Text = Convert . ToDecimal ( model . QUOB009 ). ToString ( "0.######" );
+            tQUOB010 . Text = Convert . ToDecimal ( model . QUOB010 ). ToString ( "0.######" );
+            tQUOB011 . Text = Convert . ToDecimal ( model . QUOB011 ). ToString ( "0.######" );
+            tQUOB012 . Text = model . QUOB012;
+            tQUOB013 . Text = model . QUOB013;
+            tQUOB014 . Text = model . QUOB014;
+            tQUOB015 . Text = Convert . ToDecimal ( model . QUOB015) . ToString ( "0.######" );
+            tQUOB016 . Text = model . QUOB016;
         }
 
         private void btnCancel_Click ( object sender ,EventArgs e )
@@ -62,64 +55,77 @@ namespace Mulaolao . QuoForms
 
         private void btnSure_Click ( object sender ,EventArgs e )
         {
-            if ( string . IsNullOrEmpty ( txtAH10 . Text ) )
+            dxErrorProvider1 . ClearErrors ( );
+            if ( string . IsNullOrEmpty ( tQUOB005 . Text ) )
             {
-                MessageBox . Show ( "零件名称不可为空" );
+                dxErrorProvider1 . SetError ( tQUOB005 ,"不可为空" );
                 return;
             }
-            if ( string . IsNullOrEmpty ( txtAH16 . Text ) )
-            {
-                MessageBox . Show ( "单价不可为空" );
-                return;
-            }
-            decimal outResult = 0M;
-            if ( !string . IsNullOrEmpty ( txtAH16 . Text ) && decimal . TryParse ( txtAH16 . Text ,out outResult ) == false )
-            {
-                MessageBox . Show ( "单价应为数字" );
-                return;
-            }
-            model . AH16 = outResult;
-            if ( string . IsNullOrEmpty ( txtAH13 . Text ) )
-            {
-                MessageBox . Show ( "每套数量不可为空" );
-                return;
-            }
+            model . QUOB005 = tQUOB005 . Text;
             outResult = 0M;
-            if ( !string . IsNullOrEmpty ( txtAH13 . Text ) && decimal . TryParse ( txtAH13 . Text ,out outResult ) == false )
+            if ( !string . IsNullOrEmpty ( tQUOB008 . Text ) && decimal . TryParse ( tQUOB008 . Text ,out outResult ) == false )
             {
-                MessageBox . Show ( "每套数量应为数字" );
+                dxErrorProvider1 . SetError ( tQUOB008 ,"必须是数字" );
                 return;
             }
-            model . AH13 = outResult;
-            if ( string . IsNullOrEmpty ( txtAH18 . Text ) )
+            model . QUOB008 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOB009 . Text ) && decimal . TryParse ( tQUOB009 . Text ,out outResult ) == false )
             {
-                MessageBox . Show ( "工序不可为空" );
+                dxErrorProvider1 . SetError ( tQUOB009 ,"必须是数字" );
                 return;
             }
-            model . AH10 = txtAH10 . Text;
-            model . AH11 = txtAH11 . Text;
-            model . AH18 = txtAH18 . Text;
+            model . QUOB009 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOB010 . Text ) && decimal . TryParse ( tQUOB010 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOB010 ,"必须是数字" );
+                return;
+            }
+            model . QUOB010 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOB011 . Text ) && decimal . TryParse ( tQUOB011 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOB011 ,"必须是数字" );
+                return;
+            }
+            model . QUOB011 = outResult;
+            outResult = 0M;
+            if ( !string . IsNullOrEmpty ( tQUOB015 . Text ) && decimal . TryParse ( tQUOB015 . Text ,out outResult ) == false )
+            {
+                dxErrorProvider1 . SetError ( tQUOB015 ,"必须是数字" );
+                return;
+            }
+            model . QUOB015 = outResult;
+            model . QUOB006 = tQUOB006 . Text;
+            model . QUOB007 = tQUOB007 . Text;
+            model . QUOB012 = tQUOB012 . Text;
+            model . QUOB013 = tQUOB013 . Text;
+            model . QUOB014 = tQUOB014 . Text;
+            model . QUOB016 = tQUOB006 . Text;
 
-            this . DialogResult = DialogResult . OK;
+            int id = _bll . Save196 ( model );
+            if ( id > 0 )
+                this . DialogResult = DialogResult . OK;
+            else
+                XtraMessageBox . Show ( "保存失败" );
         }
 
-        public MulaolaoLibrary . SiReYiYinContractLibrary getModel
+        private void tQUOB005_ButtonClick ( object sender ,DevExpress . XtraEditors . Controls . ButtonPressedEventArgs e )
         {
-            get
-            {
-                return model;
-            }
-        }
-
-        private void txtAH10_EditValueChanged ( object sender ,EventArgs e )
-        {
-            DataRow row = View . GetFocusedDataRow ( );
-            if ( row == null )
+            DataTable table = _bll . getTableFor509To196 ( num );
+            if ( table == null || table . Rows . Count < 1 )
                 return;
-            txtAH11 . Text = row [ "AH11" ] . ToString ( );
-            txtAH18 . Text = row [ "AH18" ] . ToString ( );
-            txtAH13 . Text = row [ "AH13" ] . ToString ( );
-            txtAH16 . Text = row [ "AH16" ] . ToString ( );
+            Form196Qquery form = new Form196Qquery ( table );
+            if ( form . DialogResult == DialogResult . OK )
+            {
+                DataRow row = form . getRow;
+                tQUOB005 . Text = row [ "AH10" ] . ToString ( );
+                tQUOB006 . Text = row [ "AH11" ] . ToString ( );
+                tQUOB014 . Text = row [ "AH12" ] . ToString ( );
+                tQUOB008 . Text = row [ "AH13" ] . ToString ( );
+                tQUOB013 . Text = row [ "AH119" ] . ToString ( );
+            }
         }
 
     }

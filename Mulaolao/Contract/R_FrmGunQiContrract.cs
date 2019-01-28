@@ -1147,8 +1147,39 @@ namespace Mulaolao.Contract
         
         #region Table
         DataRow row;
-        void variable ( )
+        bool variable ( )
         {
+            if ( string . IsNullOrEmpty ( textBox1 . Text ) )
+            {
+                MessageBox . Show ( "流水号不可为空" );
+                return false ;
+            }
+            if ( string . IsNullOrEmpty ( textBox12 . Text ) )
+            {
+                MessageBox . Show ( "开合同人不可为空" );
+                return false;
+            }
+            if ( string . IsNullOrEmpty ( txtPart . Text ) )
+            {
+                MessageBox . Show ( "部件不可为空" );
+                return false;
+            }
+            if ( string . IsNullOrEmpty ( textBox56 . Text ) )
+            {
+                MessageBox . Show ( "零件名称不可为空" );
+                return false;
+            }
+            if ( string . IsNullOrEmpty ( comboBox2 . Text ) )
+            {
+                MessageBox . Show ( "请选择厂内或厂外" );
+                return false;
+            }
+            if ( string . IsNullOrEmpty ( comboBox7 . Text ) )
+            {
+                MessageBox . Show ( "产品色号不可为空" );
+                return false;
+            }
+
             model . MZ002 = textBox1 . Text;
             model . MZ031 = textBox12 . Text;
             model . MZ006 = string . IsNullOrEmpty ( textBox10 . Text ) == true ? 0 : Convert . ToInt64 ( textBox10 . Text );
@@ -1176,6 +1207,8 @@ namespace Mulaolao.Contract
             model . MZ124 = comboBox7 . Text;
             model . MZ126 = string . IsNullOrEmpty ( textBox55 . Text ) == true ? 0 : Convert . ToDecimal ( textBox55 . Text );
             model . MZ130 = txtPart . Text;
+
+            return true;
         }
         void addOfCom ( )
         {
@@ -1246,38 +1279,8 @@ namespace Mulaolao.Contract
         //Build
         private void button8_Click ( object sender ,EventArgs e )
         {
-            if ( string . IsNullOrEmpty ( textBox1 . Text ) )
-            {
-                MessageBox . Show ( "流水号不可为空" );
+            if ( variable ( ) == false )
                 return;
-            }
-            if ( string . IsNullOrEmpty ( textBox12 . Text ) )
-            {
-                MessageBox . Show ( "开合同人不可为空" );
-                return;
-            }
-            if ( string . IsNullOrEmpty ( txtPart . Text ) )
-            {
-                MessageBox . Show ( "部件不可为空" );
-                return;
-            }
-            if ( string . IsNullOrEmpty ( textBox56 . Text ) )
-            {
-                MessageBox . Show ( "零件名称不可为空" );
-                return;
-            }
-            if ( string . IsNullOrEmpty ( comboBox2 . Text ) )
-            {
-                MessageBox . Show ( "请选择厂内或厂外" );
-                return;
-            }
-            if ( string . IsNullOrEmpty ( comboBox7 . Text ) )
-            {
-                MessageBox . Show ( "产品色号不可为空" );
-                return;
-            }
-
-            variable ( );
             serialNum ( );
             result = bll . Exists ( model );
             if ( result == true )
@@ -1326,76 +1329,9 @@ namespace Mulaolao.Contract
         //Edit
         private void button9_Click ( object sender ,EventArgs e )
         {
-            if ( string . IsNullOrEmpty ( textBox1 . Text ) )
-            {
-                MessageBox . Show ( "流水号不可为空" );
+            if ( variable ( ) == false )
                 return;
-            }
-            if ( string . IsNullOrEmpty ( textBox12 . Text ) )
-            {
-                MessageBox . Show ( "开合同人不可为空" );
-                return;
-            }
-            if ( string . IsNullOrEmpty ( txtPart . Text ) )
-            {
-                MessageBox . Show ( "部件不可为空" );
-                return;
-            }
-            if ( string . IsNullOrEmpty ( textBox56 . Text ) )
-            {
-                MessageBox . Show ( "零件名称不可为空" );
-                return;
-            }
-            if ( string . IsNullOrEmpty ( comboBox7 . Text ) )
-            {
-                MessageBox . Show ( "产品色号不可为空" );
-                return;
-            }
-            //if ( comboBox2.Text == "厂内" )
-            //{
-            //    if ( radioButton10.Checked == false && radioButton11.Checked == false )
-            //    {
-            //        MessageBox.Show( "请选择使用库存或外购" );
-            //        return;
-            //    }
-            //    //if ( radioButton10.Checked )
-            //    //{
-            //    //    if ( string.IsNullOrEmpty( comboBox4.Text ) )
-            //    //    {
-            //    //        MessageBox.Show( "色号不可为空" );
-            //    //        return;
-            //    //    }
-            //    //}
-            //    if ( radioButton11.Checked )
-            //    {
-            //        MessageBox.Show( "厂内必须用库存" );
-            //        return;
-            //    }
 
-            //    //色号  色名   品牌
-            //    DataTable dl = bll.GetDataTableStock( comboBox4.Text ,textBox19.Text ,textBox21.Text );
-            //    if ( dl != null && dl.Rows.Count > 0 )
-            //    {
-            //        //radioButton10.Checked = true;
-            //        textBox53.Text = dl.Rows[0]["AC10"].ToString( );
-            //    }
-            //    //else
-            //        //radioButton11.Checked = true;
-            //    if ( !string.IsNullOrEmpty( textBox53.Text )  && !string.IsNullOrEmpty( textBox52.Text ) && !string.IsNullOrEmpty( textBox8.Text ) )
-            //    {
-            //        if ( Convert.ToDecimal( textBox8.Text ) != Convert.ToDecimal( textBox52.Text ) )
-            //        {
-            //            if ( Convert.ToDecimal( textBox52.Text ) > Convert.ToDecimal( textBox53.Text ) )
-            //            {
-            //                MessageBox.Show( "外购数量大于库存数量" );
-            //                return;
-            //            }
-            //        }
-            //    }
-
-            //}
-
-            variable ( );
             if ( partName == textBox56 . Text && product == textBox57 . Text && wages == comboBox4 . Text && colorName == textBox19 . Text && brand == textBox21 . Text )
                 edit ( );
             else
@@ -1471,6 +1407,7 @@ namespace Mulaolao.Contract
             tableQuery = bll.GetDataTableQuery( strWhere );
             gridControl1.DataSource = tableQuery;
             assign( );
+            textBox1_TextChanged ( null ,null );
         }
         void assign ( )
         {

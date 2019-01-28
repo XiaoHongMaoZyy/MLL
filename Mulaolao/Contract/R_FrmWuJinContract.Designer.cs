@@ -1960,7 +1960,7 @@
             this.PQU13.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.PQU13.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.PQU13.Caption = "每套部件用量";
-            this.PQU13.DisplayFormat.FormatString = "N2";
+            this.PQU13.DisplayFormat.FormatString = "0.##";
             this.PQU13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.PQU13.FieldName = "PQU13";
             this.PQU13.Name = "PQU13";
@@ -2002,14 +2002,14 @@
             this.U0.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.U0.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U0.Caption = "每套部件成本";
-            this.U0.DisplayFormat.FormatString = "N1";
+            this.U0.DisplayFormat.FormatString = "0.###";
             this.U0.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U0.FieldName = "U0";
             this.U0.Name = "U0";
             this.U0.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U0", "{0:N1}")});
-            this.U0.ToolTip = "[现价] * [每套部件用量]";
-            this.U0.UnboundExpression = "[PQU16] * [PQU13]";
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U0", "{0:0.###}")});
+            this.U0.ToolTip = "[结算款] / [产品数量]";
+            this.U0.UnboundExpression = "[U2] / [PQU101]";
             this.U0.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U0.Visible = true;
             this.U0.VisibleIndex = 10;
@@ -2079,7 +2079,7 @@
             this.U1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.U1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U1.Caption = "采购总量";
-            this.U1.DisplayFormat.FormatString = "N2";
+            this.U1.DisplayFormat.FormatString = "0.##";
             this.U1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U1.FieldName = "U1";
             this.U1.Name = "U1";
@@ -2103,12 +2103,12 @@
             this.U2.AppearanceHeader.Options.UseTextOptions = true;
             this.U2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U2.Caption = "结算款";
-            this.U2.DisplayFormat.FormatString = "N2";
+            this.U2.DisplayFormat.FormatString = "0.##";
             this.U2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U2.FieldName = "U2";
             this.U2.Name = "U2";
             this.U2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:0.##}")});
             this.U2.ToolTip = "[现价] * [采购总量] - [预付款]";
             this.U2.UnboundExpression = "[PQU16] * ([PQU101] * [PQU13] + [PQU14])- [PQU17]";
             this.U2.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;

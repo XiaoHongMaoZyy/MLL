@@ -197,6 +197,60 @@
     <Compile Include="Other\FormJiaoMiDu.Designer.cs">
       <DependentUpon>FormJiaoMiDu.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuoForms\Form195Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form195Query.Designer.cs">
+      <DependentUpon>Form195Query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\Form196Qquery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form196Qquery.Designer.cs">
+      <DependentUpon>Form196Qquery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\Form341Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form341Query.Designer.cs">
+      <DependentUpon>Form341Query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\Form342Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form342Query.Designer.cs">
+      <DependentUpon>Form342Query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\Form343Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form343Query.Designer.cs">
+      <DependentUpon>Form343Query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\Form344Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form344Query.Designer.cs">
+      <DependentUpon>Form344Query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\Form347Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form347Query.Designer.cs">
+      <DependentUpon>Form347Query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\Form349Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form349Query.Designer.cs">
+      <DependentUpon>Form349Query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\Form505Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\Form505Query.Designer.cs">
+      <DependentUpon>Form505Query.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuoForms\r196.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +304,18 @@
     </Compile>
     <Compile Include="QuoForms\r349.Designer.cs">
       <DependentUpon>r349.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\r495.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\r495.Designer.cs">
+      <DependentUpon>r495.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuoForms\r505.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuoForms\r505.Designer.cs">
+      <DependentUpon>r505.cs</DependentUpon>
     </Compile>
     <Compile Include="ReadOrWriteImageOfPicutre.cs" />
     <Compile Include="Class\AppUpdate.cs" />
@@ -1235,6 +1301,33 @@
     <EmbeddedResource Include="Other\FormJiaoMiDu.resx">
       <DependentUpon>FormJiaoMiDu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form195Query.resx">
+      <DependentUpon>Form195Query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form196Qquery.resx">
+      <DependentUpon>Form196Qquery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form341Query.resx">
+      <DependentUpon>Form341Query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form342Query.resx">
+      <DependentUpon>Form342Query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form343Query.resx">
+      <DependentUpon>Form343Query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form344Query.resx">
+      <DependentUpon>Form344Query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form347Query.resx">
+      <DependentUpon>Form347Query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form349Query.resx">
+      <DependentUpon>Form349Query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\Form505Query.resx">
+      <DependentUpon>Form505Query.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuoForms\r195.resx">
       <DependentUpon>r195.cs</DependentUpon>
     </EmbeddedResource>
@@ -1502,6 +1595,12 @@
     <EmbeddedResource Include="QuoForms\r349.resx">
       <DependentUpon>r349.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\r495.resx">
+      <DependentUpon>r495.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuoForms\r505.resx">
+      <DependentUpon>r505.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Raw material cost\R_FrmBatchNumManagement.resx">
       <DependentUpon>R_FrmBatchNumManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -1700,6 +1799,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2.ico" />
+    <None Include="Resources\j1.jpg" />
+    <None Include="Resources\m1.jpg" />
+    <None Include="Resources\m2.jpg" />
+    <None Include="Resources\c1.jpg" />
+    <None Include="Resources\t1.jpg" />
+    <None Include="Resources\s2.jpg" />
+    <None Include="Resources\q1.jpg" />
+    <None Include="Resources\b4.jpg" />
+    <None Include="Resources\z1.jpg" />
+    <None Include="Resources\c2.jpg" />
+    <None Include="Resources\w1.jpg" />
+    <None Include="Resources\g1.jpg" />
+    <None Include="Resources\p1.jpg" />
+    <None Include="Resources\p11.jpg" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -132,6 +132,8 @@
             this.BatchAdd = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.txtGS79 = new System.Windows.Forms.TextBox();
+            this.label83 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
             this.txtGS76 = new System.Windows.Forms.ComboBox();
             this.label79 = new System.Windows.Forms.Label();
@@ -184,6 +186,7 @@
             this.GS74 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GS75 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GS76 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.GS79 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label81 = new System.Windows.Forms.Label();
@@ -599,7 +602,7 @@
             this.GS04.AppearanceHeader.Options.UseTextOptions = true;
             this.GS04.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.GS04.Caption = "零件原单价";
-            this.GS04.DisplayFormat.FormatString = "N4";
+            this.GS04.DisplayFormat.FormatString = "0.####";
             this.GS04.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GS04.FieldName = "GS04";
             this.GS04.Name = "GS04";
@@ -621,7 +624,7 @@
             this.GS05.AppearanceHeader.Options.UseTextOptions = true;
             this.GS05.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.GS05.Caption = "计划下降差价";
-            this.GS05.DisplayFormat.FormatString = "N2";
+            this.GS05.DisplayFormat.FormatString = "0.##";
             this.GS05.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GS05.FieldName = "GS05";
             this.GS05.Name = "GS05";
@@ -643,7 +646,7 @@
             this.U0.AppearanceHeader.Options.UseTextOptions = true;
             this.U0.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U0.Caption = "采购下降差价";
-            this.U0.DisplayFormat.FormatString = "N2";
+            this.U0.DisplayFormat.FormatString = "0.##";
             this.U0.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U0.FieldName = "U0";
             this.U0.Name = "U0";
@@ -668,7 +671,7 @@
             this.U7.AppearanceHeader.Options.UseTextOptions = true;
             this.U7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U7.Caption = "采购合计单价";
-            this.U7.DisplayFormat.FormatString = "N3";
+            this.U7.DisplayFormat.FormatString = "0.###";
             this.U7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U7.FieldName = "U7";
             this.U7.Name = "U7";
@@ -690,7 +693,7 @@
             this.U1.AppearanceHeader.Options.UseTextOptions = true;
             this.U1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U1.Caption = "计划下降单价";
-            this.U1.DisplayFormat.FormatString = "N2";
+            this.U1.DisplayFormat.FormatString = "0.##";
             this.U1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U1.FieldName = "U1";
             this.U1.Name = "U1";
@@ -853,7 +856,7 @@
             this.GS11.AppearanceHeader.Options.UseTextOptions = true;
             this.GS11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.GS11.Caption = "零件现单价";
-            this.GS11.DisplayFormat.FormatString = "N3";
+            this.GS11.DisplayFormat.FormatString = "0.###";
             this.GS11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GS11.FieldName = "GS11";
             this.GS11.Name = "GS11";
@@ -915,7 +918,7 @@
             this.U8.AppearanceHeader.Options.UseTextOptions = true;
             this.U8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U8.Caption = "每套单价";
-            this.U8.DisplayFormat.FormatString = "N2";
+            this.U8.DisplayFormat.FormatString = "0.##";
             this.U8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U8.FieldName = "U8";
             this.U8.Name = "U8";
@@ -956,7 +959,7 @@
             this.U6.AppearanceHeader.Options.UseTextOptions = true;
             this.U6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U6.Caption = "提成额";
-            this.U6.DisplayFormat.FormatString = "N1";
+            this.U6.DisplayFormat.FormatString = "0.#";
             this.U6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U6.FieldName = "U6";
             this.U6.Name = "U6";
@@ -1735,6 +1738,8 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.txtGS79);
+            this.splitContainer2.Panel1.Controls.Add(this.label83);
             this.splitContainer2.Panel1.Controls.Add(this.label80);
             this.splitContainer2.Panel1.Controls.Add(this.txtGS76);
             this.splitContainer2.Panel1.Controls.Add(this.label79);
@@ -1776,6 +1781,22 @@
             this.splitContainer2.Size = new System.Drawing.Size(1226, 302);
             this.splitContainer2.SplitterDistance = 148;
             this.splitContainer2.TabIndex = 4;
+            // 
+            // txtGS79
+            // 
+            this.txtGS79.Location = new System.Drawing.Point(484, 81);
+            this.txtGS79.Name = "txtGS79";
+            this.txtGS79.Size = new System.Drawing.Size(100, 23);
+            this.txtGS79.TabIndex = 105;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(411, 87);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(67, 14);
+            this.label83.TabIndex = 104;
+            this.label83.Text = "每套个数";
             // 
             // label80
             // 
@@ -1867,7 +1888,7 @@
             // 
             // lookUpEdit6
             // 
-            this.lookUpEdit6.Location = new System.Drawing.Point(843, 80);
+            this.lookUpEdit6.Location = new System.Drawing.Point(869, 81);
             this.lookUpEdit6.Name = "lookUpEdit6";
             this.lookUpEdit6.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpEdit6.Properties.Appearance.Options.UseFont = true;
@@ -1890,7 +1911,7 @@
             // 
             // lookUpEdit5
             // 
-            this.lookUpEdit5.Location = new System.Drawing.Point(843, 47);
+            this.lookUpEdit5.Location = new System.Drawing.Point(869, 48);
             this.lookUpEdit5.Name = "lookUpEdit5";
             this.lookUpEdit5.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpEdit5.Properties.Appearance.Options.UseFont = true;
@@ -1914,7 +1935,7 @@
             // 
             // lookUpEdit4
             // 
-            this.lookUpEdit4.Location = new System.Drawing.Point(843, 16);
+            this.lookUpEdit4.Location = new System.Drawing.Point(869, 17);
             this.lookUpEdit4.Name = "lookUpEdit4";
             this.lookUpEdit4.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpEdit4.Properties.Appearance.Options.UseFont = true;
@@ -1959,7 +1980,7 @@
             // datatimepickeroverride1
             // 
             this.datatimepickeroverride1.Enabled = false;
-            this.datatimepickeroverride1.Location = new System.Drawing.Point(1031, 16);
+            this.datatimepickeroverride1.Location = new System.Drawing.Point(1048, 17);
             this.datatimepickeroverride1.Name = "datatimepickeroverride1";
             this.datatimepickeroverride1.Size = new System.Drawing.Size(150, 23);
             this.datatimepickeroverride1.TabIndex = 75;
@@ -1967,7 +1988,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(949, 21);
+            this.label36.Location = new System.Drawing.Point(975, 22);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(67, 14);
             this.label36.TabIndex = 74;
@@ -1985,7 +2006,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(778, 85);
+            this.label37.Location = new System.Drawing.Point(815, 86);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(52, 14);
             this.label37.TabIndex = 72;
@@ -2005,7 +2026,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(778, 50);
+            this.label38.Location = new System.Drawing.Point(815, 51);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(52, 14);
             this.label38.TabIndex = 70;
@@ -2023,7 +2044,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(744, 20);
+            this.label39.Location = new System.Drawing.Point(781, 21);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(82, 14);
             this.label39.TabIndex = 68;
@@ -2050,7 +2071,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(590, 50);
+            this.label45.Location = new System.Drawing.Point(633, 50);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(37, 14);
             this.label45.TabIndex = 56;
@@ -2068,22 +2089,22 @@
             // comboBox20
             // 
             this.comboBox20.FormattingEnabled = true;
-            this.comboBox20.Location = new System.Drawing.Point(638, 47);
+            this.comboBox20.Location = new System.Drawing.Point(676, 47);
             this.comboBox20.Name = "comboBox20";
             this.comboBox20.Size = new System.Drawing.Size(100, 22);
             this.comboBox20.TabIndex = 57;
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(484, 82);
+            this.textBox20.Location = new System.Drawing.Point(676, 82);
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(254, 23);
+            this.textBox20.Size = new System.Drawing.Size(100, 23);
             this.textBox20.TabIndex = 65;
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(590, 20);
+            this.label42.Location = new System.Drawing.Point(633, 20);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(37, 14);
             this.label42.TabIndex = 62;
@@ -2092,7 +2113,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(411, 86);
+            this.label41.Location = new System.Drawing.Point(603, 86);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(67, 14);
             this.label41.TabIndex = 64;
@@ -2101,7 +2122,7 @@
             // comboBox17
             // 
             this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Location = new System.Drawing.Point(638, 17);
+            this.comboBox17.Location = new System.Drawing.Point(676, 17);
             this.comboBox17.Name = "comboBox17";
             this.comboBox17.Size = new System.Drawing.Size(100, 22);
             this.comboBox17.TabIndex = 63;
@@ -2137,7 +2158,8 @@
             this.GS72,
             this.GS74,
             this.GS75,
-            this.GS76});
+            this.GS76,
+            this.GS79});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
@@ -2177,7 +2199,7 @@
             this.GS36.AppearanceHeader.Options.UseTextOptions = true;
             this.GS36.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.GS36.Caption = "原单价";
-            this.GS36.DisplayFormat.FormatString = "N4";
+            this.GS36.DisplayFormat.FormatString = "0.####";
             this.GS36.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GS36.FieldName = "GS36";
             this.GS36.Name = "GS36";
@@ -2185,7 +2207,7 @@
             this.GS36.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "GS04", "{0}")});
             this.GS36.Visible = true;
-            this.GS36.VisibleIndex = 5;
+            this.GS36.VisibleIndex = 6;
             this.GS36.Width = 96;
             // 
             // GS37
@@ -2199,7 +2221,7 @@
             this.GS37.AppearanceHeader.Options.UseTextOptions = true;
             this.GS37.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.GS37.Caption = "计划下降差价";
-            this.GS37.DisplayFormat.FormatString = "N2";
+            this.GS37.DisplayFormat.FormatString = "0.##";
             this.GS37.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GS37.FieldName = "GS37";
             this.GS37.Name = "GS37";
@@ -2207,7 +2229,7 @@
             this.GS37.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "GS05", "{0}")});
             this.GS37.Visible = true;
-            this.GS37.VisibleIndex = 10;
+            this.GS37.VisibleIndex = 11;
             this.GS37.Width = 111;
             // 
             // U10
@@ -2221,6 +2243,7 @@
             this.U10.AppearanceHeader.Options.UseTextOptions = true;
             this.U10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U10.Caption = "计划下降单价";
+            this.U10.DisplayFormat.FormatString = "0.####";
             this.U10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U10.FieldName = "U10";
             this.U10.Name = "U10";
@@ -2231,7 +2254,7 @@
             this.U10.UnboundExpression = "[GS36] - [GS37]";
             this.U10.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U10.Visible = true;
-            this.U10.VisibleIndex = 11;
+            this.U10.VisibleIndex = 12;
             this.U10.Width = 111;
             // 
             // GS38
@@ -2249,7 +2272,7 @@
             this.GS38.Name = "GS38";
             this.GS38.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.GS38.Visible = true;
-            this.GS38.VisibleIndex = 6;
+            this.GS38.VisibleIndex = 7;
             this.GS38.Width = 53;
             // 
             // GS39
@@ -2267,7 +2290,7 @@
             this.GS39.Name = "GS39";
             this.GS39.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.GS39.Visible = true;
-            this.GS39.VisibleIndex = 12;
+            this.GS39.VisibleIndex = 13;
             this.GS39.Width = 62;
             // 
             // GS40
@@ -2285,7 +2308,7 @@
             this.GS40.Name = "GS40";
             this.GS40.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.GS40.Visible = true;
-            this.GS40.VisibleIndex = 13;
+            this.GS40.VisibleIndex = 14;
             this.GS40.Width = 80;
             // 
             // GS41
@@ -2303,7 +2326,7 @@
             this.GS41.Name = "GS41";
             this.GS41.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.GS41.Visible = true;
-            this.GS41.VisibleIndex = 14;
+            this.GS41.VisibleIndex = 15;
             this.GS41.Width = 87;
             // 
             // GS42
@@ -2321,7 +2344,7 @@
             this.GS42.Name = "GS42";
             this.GS42.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.GS42.Visible = true;
-            this.GS42.VisibleIndex = 7;
+            this.GS42.VisibleIndex = 8;
             this.GS42.Width = 96;
             // 
             // GS43
@@ -2339,7 +2362,7 @@
             this.GS43.Name = "GS43";
             this.GS43.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.GS43.Visible = true;
-            this.GS43.VisibleIndex = 8;
+            this.GS43.VisibleIndex = 9;
             this.GS43.Width = 64;
             // 
             // GS44
@@ -2357,7 +2380,7 @@
             this.GS44.Name = "GS44";
             this.GS44.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.GS44.Visible = true;
-            this.GS44.VisibleIndex = 9;
+            this.GS44.VisibleIndex = 10;
             this.GS44.Width = 68;
             // 
             // GS45
@@ -2377,7 +2400,7 @@
             this.GS45.Name = "GS45";
             this.GS45.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.GS45.Visible = true;
-            this.GS45.VisibleIndex = 15;
+            this.GS45.VisibleIndex = 16;
             this.GS45.Width = 110;
             // 
             // GS72
@@ -2430,6 +2453,21 @@
             this.GS76.Name = "GS76";
             this.GS76.Visible = true;
             this.GS76.VisibleIndex = 4;
+            // 
+            // GS79
+            // 
+            this.GS79.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.GS79.AppearanceCell.Options.UseFont = true;
+            this.GS79.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.GS79.AppearanceHeader.Options.UseFont = true;
+            this.GS79.Caption = "每套个数";
+            this.GS79.DisplayFormat.FormatString = "0.######";
+            this.GS79.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.GS79.FieldName = "GS79";
+            this.GS79.Name = "GS79";
+            this.GS79.Visible = true;
+            this.GS79.VisibleIndex = 5;
+            this.GS79.Width = 81;
             // 
             // tabPage3
             // 
@@ -3039,7 +3077,7 @@
             this.GS54.AppearanceHeader.Options.UseTextOptions = true;
             this.GS54.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.GS54.Caption = "计划下降差价";
-            this.GS54.DisplayFormat.FormatString = "N2";
+            this.GS54.DisplayFormat.FormatString = "0.##";
             this.GS54.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GS54.FieldName = "GS54";
             this.GS54.Name = "GS54";
@@ -3061,7 +3099,7 @@
             this.U9.AppearanceHeader.Options.UseTextOptions = true;
             this.U9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U9.Caption = "采购下降差价";
-            this.U9.DisplayFormat.FormatString = "N2";
+            this.U9.DisplayFormat.FormatString = "0.##";
             this.U9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U9.FieldName = "U9";
             this.U9.Name = "U9";
@@ -3086,6 +3124,7 @@
             this.U11.AppearanceHeader.Options.UseTextOptions = true;
             this.U11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U11.Caption = "采购合计单价";
+            this.U11.DisplayFormat.FormatString = "0.####";
             this.U11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U11.FieldName = "U11";
             this.U11.Name = "U11";
@@ -3107,7 +3146,7 @@
             this.U12.AppearanceHeader.Options.UseTextOptions = true;
             this.U12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U12.Caption = "计划下降单价";
-            this.U12.DisplayFormat.FormatString = "N2";
+            this.U12.DisplayFormat.FormatString = "0.##";
             this.U12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U12.FieldName = "U12";
             this.U12.Name = "U12";
@@ -3269,7 +3308,7 @@
             this.GS60.AppearanceHeader.Options.UseTextOptions = true;
             this.GS60.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.GS60.Caption = "零件现单价";
-            this.GS60.DisplayFormat.FormatString = "N3";
+            this.GS60.DisplayFormat.FormatString = "0.###";
             this.GS60.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GS60.FieldName = "GS60";
             this.GS60.Name = "GS60";
@@ -3364,7 +3403,7 @@
             this.U17.AppearanceHeader.Options.UseTextOptions = true;
             this.U17.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U17.Caption = "提成额";
-            this.U17.DisplayFormat.FormatString = "N1";
+            this.U17.DisplayFormat.FormatString = "0.#";
             this.U17.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U17.FieldName = "U17";
             this.U17.Name = "U17";
@@ -4308,5 +4347,8 @@
         private System . Windows . Forms . Label label82;
         private System . Windows . Forms . TextBox textBox23;
         private DevExpress . XtraGrid . Columns . GridColumn GS78;
+        private System . Windows . Forms . TextBox txtGS79;
+        private System . Windows . Forms . Label label83;
+        private DevExpress . XtraGrid . Columns . GridColumn GS79;
     }
 }

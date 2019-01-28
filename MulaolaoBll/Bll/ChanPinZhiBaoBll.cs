@@ -1110,5 +1110,31 @@ namespace MulaolaoBll.Bll
             return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
         }
 
+        /// <summary>
+        /// 获取509数据
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DataTable getTableFor509 ( string num )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . AppendFormat ( "SELECT DISTINCT GS75 CP06,GS76 CP07,GS38 CP08,CONVERT(FLOAT,GS79) CP13,GS35 CP64 FROM R_PQP A,R_REVIEWS B WHERE A.GS34=B.RES06 AND RES05='执行' AND GS74='R_195' AND GS75 IS NOT NULL AND GS75!='' AND GS01='{0}' " ,num );
+
+            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
+        }
+
+        /// <summary>
+        /// 获取本表数据
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DataTable getTableFor195 ( string num )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . AppendFormat ( "SELECT CP06,CP07,CP08,CONVERT(FLOAT,CP13) CP13,CP64,CP10,CP11,CP12,CP09 FROM R_PQQ WHERE CP01='{0}'" ,num );
+
+            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
+        }
+
     }
 }

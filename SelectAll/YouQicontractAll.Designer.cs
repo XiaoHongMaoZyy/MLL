@@ -70,6 +70,11 @@
             this.U4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.YQ15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.YQ04 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.YQ140 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.U14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.U15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.U16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.U17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -92,7 +97,6 @@
             this.lookUpEdit8 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit9 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit10 = new DevExpress.XtraEditors.LookUpEdit();
-            this.YQ140 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -214,7 +218,11 @@
             this.U4,
             this.YQ15,
             this.YQ04,
-            this.YQ140});
+            this.YQ140,
+            this.U14,
+            this.U15,
+            this.U16,
+            this.U17});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupRowHeight = 30;
             this.gridView1.Name = "gridView1";
@@ -488,10 +496,10 @@
             this.U1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:N0}")});
             this.U1.ToolTip = "[产品数量]*  [每套部件数量] *  [每板摆放个数]  * [每片.每面喷.涂遍数]* [每片喷面数] * 0.0001";
-            this.U1.UnboundExpression = "[YQ108]*  [YQ112] *  [U0]  * [YQ116]* [YQ113] * 0.0001";
+            this.U1.UnboundExpression = "Iif([YQ16] = 0, 0, [YQ108] * [YQ112] * [U0] * [YQ116] * [YQ113] * 0.0001)";
             this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U1.Visible = true;
-            this.U1.VisibleIndex = 23;
+            this.U1.VisibleIndex = 27;
             this.U1.Width = 62;
             // 
             // U2
@@ -513,10 +521,10 @@
             this.U2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:N0}")});
             this.U2.ToolTip = "[产品数量] * [每套部件数量] * [每片.每面喷.涂遍数] * [每片喷面数] / [每板摆放个数]";
-            this.U2.UnboundExpression = "[YQ108] * [YQ112]* [YQ116]* [YQ113]/ [U0]";
+            this.U2.UnboundExpression = "Iif([YQ14] = 0, 0, [YQ108] * [YQ112] * [YQ116] * [YQ113] / [U0])";
             this.U2.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U2.Visible = true;
-            this.U2.VisibleIndex = 24;
+            this.U2.VisibleIndex = 28;
             this.U2.Width = 89;
             // 
             // YQ13
@@ -556,7 +564,7 @@
             this.YQ14.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.YQ14.Visible = true;
-            this.YQ14.VisibleIndex = 21;
+            this.YQ14.VisibleIndex = 25;
             this.YQ14.Width = 86;
             // 
             // YQ16
@@ -578,7 +586,7 @@
             this.YQ16.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.YQ16.Visible = true;
-            this.YQ16.VisibleIndex = 22;
+            this.YQ16.VisibleIndex = 26;
             this.YQ16.Width = 66;
             // 
             // YQ101
@@ -741,7 +749,7 @@
             this.YQ123.FieldName = "YQ123";
             this.YQ123.Name = "YQ123";
             this.YQ123.Visible = true;
-            this.YQ123.VisibleIndex = 26;
+            this.YQ123.VisibleIndex = 30;
             this.YQ123.Width = 46;
             // 
             // RES05
@@ -760,7 +768,7 @@
             this.RES05.FieldName = "RES05";
             this.RES05.Name = "RES05";
             this.RES05.Visible = true;
-            this.RES05.VisibleIndex = 27;
+            this.RES05.VisibleIndex = 31;
             this.RES05.Width = 54;
             // 
             // idx
@@ -789,7 +797,7 @@
             this.YQ134.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.YQ134.Visible = true;
-            this.YQ134.VisibleIndex = 17;
+            this.YQ134.VisibleIndex = 21;
             // 
             // U11
             // 
@@ -811,7 +819,7 @@
             this.U11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.U11.Visible = true;
-            this.U11.VisibleIndex = 18;
+            this.U11.VisibleIndex = 22;
             this.U11.Width = 64;
             // 
             // YQ135
@@ -834,7 +842,7 @@
             this.YQ135.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.YQ135.Visible = true;
-            this.YQ135.VisibleIndex = 19;
+            this.YQ135.VisibleIndex = 23;
             // 
             // U12
             // 
@@ -856,7 +864,7 @@
             this.U12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
             this.U12.Visible = true;
-            this.U12.VisibleIndex = 20;
+            this.U12.VisibleIndex = 24;
             this.U12.Width = 59;
             // 
             // U3
@@ -897,7 +905,76 @@
             this.YQ04.FieldName = "YQ04";
             this.YQ04.Name = "YQ04";
             this.YQ04.Visible = true;
-            this.YQ04.VisibleIndex = 25;
+            this.YQ04.VisibleIndex = 29;
+            // 
+            // YQ140
+            // 
+            this.YQ140.Caption = "是否结账";
+            this.YQ140.FieldName = "YQ140";
+            this.YQ140.Name = "YQ140";
+            this.YQ140.Visible = true;
+            this.YQ140.VisibleIndex = 32;
+            // 
+            // U14
+            // 
+            this.U14.Caption = "套平米成本";
+            this.U14.DisplayFormat.FormatString = "0.##";
+            this.U14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U14.FieldName = "U14";
+            this.U14.Name = "U14";
+            this.U14.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
+            this.U14.ToolTip = "[定平米漆量结算款] / [产品数量]";
+            this.U14.UnboundExpression = "[U9] / [YQ108]";
+            this.U14.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U14.Visible = true;
+            this.U14.VisibleIndex = 17;
+            // 
+            // U15
+            // 
+            this.U15.Caption = "套板成本";
+            this.U15.DisplayFormat.FormatString = "0.##";
+            this.U15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U15.FieldName = "U15";
+            this.U15.Name = "U15";
+            this.U15.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
+            this.U15.ToolTip = "[定板漆量结算款] / [产品数量]";
+            this.U15.UnboundExpression = "[U10] / [YQ108]";
+            this.U15.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U15.Visible = true;
+            this.U15.VisibleIndex = 18;
+            // 
+            // U16
+            // 
+            this.U16.Caption = "定元/板价";
+            this.U16.DisplayFormat.FormatString = "0.##";
+            this.U16.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U16.FieldName = "U16";
+            this.U16.Name = "U16";
+            this.U16.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
+            this.U16.ToolTip = "[定板漆量结算款] / [部件单面.遍总板数]";
+            this.U16.UnboundExpression = "Iif([U2] = 0, 0, [U10] / [U2])";
+            this.U16.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U16.Visible = true;
+            this.U16.VisibleIndex = 19;
+            this.U16.Width = 69;
+            // 
+            // U17
+            // 
+            this.U17.Caption = "定元/平米价";
+            this.U17.DisplayFormat.FormatString = "0.##";
+            this.U17.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.U17.FieldName = "U17";
+            this.U17.Name = "U17";
+            this.U17.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom)});
+            this.U17.ToolTip = "[定平米漆量结算款] / [平方米面积]";
+            this.U17.UnboundExpression = "Iif([U1] = 0, 0, [U9] / [U1])";
+            this.U17.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.U17.Visible = true;
+            this.U17.VisibleIndex = 20;
             // 
             // label10
             // 
@@ -1149,14 +1226,6 @@
             this.lookUpEdit10.Size = new System.Drawing.Size(129, 22);
             this.lookUpEdit10.TabIndex = 97;
             // 
-            // YQ140
-            // 
-            this.YQ140.Caption = "是否结账";
-            this.YQ140.FieldName = "YQ140";
-            this.YQ140.Name = "YQ140";
-            this.YQ140.Visible = true;
-            this.YQ140.VisibleIndex = 28;
-            // 
             // YouQicontractAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1257,5 +1326,9 @@
         private DevExpress . XtraGrid . Columns . GridColumn YQ15;
         private DevExpress . XtraGrid . Columns . GridColumn YQ04;
         private DevExpress . XtraGrid . Columns . GridColumn YQ140;
+        private DevExpress . XtraGrid . Columns . GridColumn U14;
+        private DevExpress . XtraGrid . Columns . GridColumn U15;
+        private DevExpress . XtraGrid . Columns . GridColumn U16;
+        private DevExpress . XtraGrid . Columns . GridColumn U17;
     }
 }

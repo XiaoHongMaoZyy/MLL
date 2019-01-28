@@ -116,9 +116,9 @@ namespace Mulaolao . Contract
 
         #region 表格
         //出库
-        string AD1 = "", AD2 = "", AD3 = "", AD4 = "", AD6 = "", AD7 = "", AD8 = "", AD014 = "", AD015 = "",AD019="";
-        long AD5 = 0;decimal AD012 = 0;
-        decimal AD9 = 0M, AD011 = 0M;
+        string AD1 = ""/*, AD2 = "", AD3 = "", AD4 = "", AD6 = "", AD7 = "", AD8 = "", AD014 = "", AD015 = "",AD019=""*/;
+        //long AD5 = 0;decimal AD012 = 0;
+        //decimal AD9 = 0M, AD011 = 0M;
         DateTime AD013 = MulaolaoBll . Drity . GetDt ( ), AD016 = MulaolaoBll . Drity . GetDt ( );
         private void builds ( )
         {
@@ -150,10 +150,10 @@ namespace Mulaolao . Contract
             //AD016 = MulaolaoBll . Drity . GetDt ( );
         }
         //入库
-        string AC18 = "", AC01 = "", AC02 = "", AC04 = "", AC05 = "", AC06 = "", AC011 = "", AC015 = "", AC019 = "",AC024="";
-        long AC03 = 0;
-        decimal AC07 = 0M, AC09 = 0M, AC10 = 0M;
-        int AC020 = 0;
+        string AC18 = "", AC01 = "", AC02 = "", AC04 = "", AC05 = "", AC06 = "", AC011 = ""/*, AC015 = "", AC019 = "",AC024=""*/;
+        //long AC03 = 0;
+        //decimal AC07 = 0M, AC09 = 0M, AC10 = 0M;
+        //int AC020 = 0;
         DateTime AC012 = MulaolaoBll . Drity . GetDt ( ),AC021=MulaolaoBll . Drity . GetDt ( );
         private void build ( )
         {            

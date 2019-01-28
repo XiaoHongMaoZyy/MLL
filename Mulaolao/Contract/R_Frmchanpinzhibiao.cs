@@ -49,6 +49,9 @@ namespace Mulaolao.Raw_material_cost
             Ergodic . FormEvery ( this );
             gridControl1 . DataSource = null;
 
+            GridViewMoHuSelect . SetFilter ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View } );
+            GrivColumnStyle . setColumnStyle ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { View } );
+
             textBox3 . Enabled = false;
             label45 . Visible = false;
             label46 . Visible = false;
@@ -304,10 +307,10 @@ namespace Mulaolao.Raw_material_cost
         private void pqp_PassDataBetweenForm ( object sender ,PassDataWinFormEventArgs e )
         {
             model . CP06 = e . ConOne;
-            lookUpEdit3 . Text = e . ConOne;
+            txtPart . Text = e . ConOne;
             model . CP07 = e . ConTwo;
             textBox14 . Text = e . ConTwo;
-            comboBox14 . Text = e . ConTre;
+            txtCP13 . Text = e . ConTre;
             model . CP08 = e . ConFor;
         }
         private void button13_Click ( object sender ,EventArgs e )
@@ -859,63 +862,64 @@ namespace Mulaolao.Raw_material_cost
             model.CP01 = textBox1.Text;
            
             table( );
-            getWorkProce ( );
+            //getWorkProce ( );
         }
-        void table ()
+        void table ( )
         {
-            desx = SqlHelper . ExecuteDataTable ( "SELECT DISTINCT GS07 CP06,GS08 CP07,GS09 CP08,GS10 CP13 FROM R_PQP A,R_REVIEWS B,R_MLLCXMC C WHERE A.GS34=B.RES06 AND B.RES01=C.CX01 AND RES05='执行' AND CX02='产品每套成本改善控制表(R_509)' AND GS07!='' AND GS01=@GS01" ,new SqlParameter ( "@GS01" ,model . CP01 ) );
+            desx = dao . getTableFor509 ( model . CP01 );
+            dl = dao . getTableFor195 ( model . CP01 );
 
-            dl = SqlHelper . ExecuteDataTable ( "SELECT CP06,CP07,CP08,CP13,CP10,CP11,CP12,CP09 FROM R_PQQ WHERE CP01=@CP01" ,new SqlParameter ( "@CP01" ,model . CP01 ) );
             if ( desx != null )
                 dl . Merge ( desx );
             //内价不含税
-            comboBox1 .DataSource = dl.DefaultView.ToTable( true ,"CP10" );
-            comboBox1.DisplayMember = "CP10";
+            comboBox1 . DataSource = dl . DefaultView . ToTable ( true ,"CP10" );
+            comboBox1 . DisplayMember = "CP10";
             //外价含税
-            comboBox2.DataSource = dl.DefaultView.ToTable( true ,"CP11" );
-            comboBox2.DisplayMember = "CP11";
+            comboBox2 . DataSource = dl . DefaultView . ToTable ( true ,"CP11" );
+            comboBox2 . DisplayMember = "CP11";
             //预付款
-            comboBox6.DataSource = dl.DefaultView.ToTable( true ,"CP12" );
-            comboBox6.DisplayMember = "CP12";
+            comboBox6 . DataSource = dl . DefaultView . ToTable ( true ,"CP12" );
+            comboBox6 . DisplayMember = "CP12";
             //工序名称
-            comboBox3.DataSource = dl.DefaultView.ToTable( true ,"CP09" );
-            comboBox3.DisplayMember = "CP09";
-            lookUpEdit3.Properties.DataSource = dl.DefaultView.ToTable( true ,"CP06","CP07" );
-            lookUpEdit3 . Properties . DisplayMember = "CP06";
-            lookUpEdit3 . Properties . ValueMember = "CP06";
-            //textBox14 .DataSource = dl.DefaultView.ToTable( true ,"CP07" );
-            //textBox14.DisplayMember = "CP07";
-            comboBox15.DataSource = dl.DefaultView.ToTable( true ,"CP08" );
-            comboBox15.DisplayMember = "CP08";
-            comboBox14.DataSource = dl.DefaultView.ToTable( true ,"CP13" );
-            comboBox14.DisplayMember = "CP13";
+            comboBox3 . DataSource = dl . DefaultView . ToTable ( true ,"CP09" );
+            comboBox3 . DisplayMember = "CP09";
+
+            txtPart . Properties . DataSource = dl . DefaultView . ToTable ( true ,"CP06" ,"CP07" ,"CP13" ,"CP64" );
+            txtPart . Properties . DisplayMember = "CP06";
+            txtPart . Properties . ValueMember = "CP06";
+
+            comboBox15 . DataSource = dl . DefaultView . ToTable ( true ,"CP08" );
+            comboBox15 . DisplayMember = "CP08";
+
         }
         void getWorkProce ( )
         {
             //获取合同编号是195的工序名称
-            DataTable tableWorkProce = dao . getTableWorkProce ( model . CP01 );
-            txtCP64. DataSource = tableWorkProce;
-            txtCP64 . DisplayMember = "GS35";
+            //DataTable tableWorkProce = dao . getTableWorkProce ( model . CP01 );
+            //txtCP64. DataSource = tableWorkProce;
+            //txtCP64 . DisplayMember = "GS35";
         }
         private void comboBox7_SelectedValueChanged ( object sender ,EventArgs e )
         {
-            if ( !string.IsNullOrEmpty( lookUpEdit3.Text ) && dl.Select( "CP06='" + lookUpEdit3.Text + "'" ).Length > 0 )
+            if ( !string.IsNullOrEmpty( txtPart.Text ) && dl.Select( "CP06='" + txtPart.Text + "'" ).Length > 0 )
             {
-                textBox14.Text = dl.Select( "CP06='" + lookUpEdit3.Text + "'" )[0]["CP07"].ToString( );
-                comboBox15.Text = dl.Select( "CP06='" + lookUpEdit3.Text + "'" )[0]["CP08"].ToString( );
-                comboBox14.Text = dl.Select( "CP06='" + lookUpEdit3.Text + "'" )[0]["CP13"].ToString( );
-                comboBox1.Text = dl.Select( "CP06='" + lookUpEdit3.Text + "'" )[0]["CP10"].ToString( );
-                comboBox2.Text = dl.Select( "CP06='" + lookUpEdit3.Text + "'" )[0]["CP11"].ToString( );
-                comboBox6.Text = dl.Select( "CP06='" + lookUpEdit3.Text + "'" )[0]["CP12"].ToString( );
-                comboBox3.Text = dl.Select( "CP06='" + lookUpEdit3.Text + "'" )[0]["CP09"].ToString( );
+                textBox14.Text = dl.Select( "CP06='" + txtPart.Text + "'" )[0]["CP07"].ToString( );
+                comboBox15.Text = dl.Select( "CP06='" + txtPart.Text + "'" )[0]["CP08"].ToString( );
+                txtCP13.Text = dl.Select( "CP06='" + txtPart.Text + "'" )[0]["CP13"].ToString( );
+                comboBox1.Text = dl.Select( "CP06='" + txtPart.Text + "'" )[0]["CP10"].ToString( );
+                comboBox2.Text = dl.Select( "CP06='" + txtPart.Text + "'" )[0]["CP11"].ToString( );
+                comboBox6.Text = dl.Select( "CP06='" + txtPart.Text + "'" )[0]["CP12"].ToString( );
+                comboBox3.Text = dl.Select( "CP06='" + txtPart.Text + "'" )[0]["CP09"].ToString( );
             }
         }
-        private void lookUpEdit3_EditValueChanged ( object sender ,EventArgs e )
+        private void txtPart_EditValueChanged ( object sender ,EventArgs e )
         {
-            if ( lookUpEdit3 . EditValue == null )
-                textBox14 . Text = string . Empty;
-            else
-                textBox14 . Text = dl . Select ( "CP06='" + lookUpEdit3 . EditValue . ToString ( ) + "'" ) [ 0 ] [ "CP07" ] . ToString ( );
+            DataRow row = View . GetFocusedDataRow ( );
+            if ( row == null )
+                return;
+            textBox14 . Text = row [ "CP07" ] . ToString ( );
+            txtCP13 . Text = row [ "CP13" ] . ToString ( );
+            txtCP64 . Text = row [ "CP64" ] . ToString ( );
         }
         //Table
         string wp = "", ge = "", gx = "";
@@ -941,14 +945,14 @@ namespace Mulaolao.Raw_material_cost
             comboBox1 . Text = model . CP10 . ToString ( );
             comboBox2 . Text = model . CP11 . ToString ( );
             comboBox6 . Text = model . CP12 . ToString ( );
-            comboBox14 . Text = model . CP13 . ToString ( );
+            txtCP13 . Text = model . CP13 . ToString ( );
             //if ( model.CP14.ToString( ) != "0001/1/1 0:00:00" && model.CP14.ToString( ) != "0001-1-1 0:00:00" && model.CP14.ToString( ) != "0001.1.1 0:00:00" )
             if ( model . CP14 > DateTime . MinValue && model . CP14 < DateTime . MaxValue )
                 dateTimePicker1 . Value = model . CP14;
             //textBox13.Text = model.CP54.ToString( );
-            lookUpEdit3 . Text = model . CP06;
+            txtPart . Text = model . CP06;
             txtCP64 . Text = model . CP64;
-            wp = lookUpEdit3 . Text;
+            wp = txtPart . Text;
             ge = textBox14 . Text;
             gx = comboBox3 . Text;
         }
@@ -1114,14 +1118,14 @@ namespace Mulaolao.Raw_material_cost
         void variable ()
         {
             model.CP01 = textBox1.Text;
-            model.CP06 = lookUpEdit3.Text;
+            model.CP06 = txtPart.Text;
             model.CP07 = textBox14.Text;
             model.CP09 = comboBox3.Text;
             model.CP08 = comboBox15.Text;
             model.CP10 = string.IsNullOrEmpty( comboBox1.Text ) == true ? 0 : Convert.ToDecimal( comboBox1.Text );
             model.CP11 = string.IsNullOrEmpty( comboBox2.Text ) == true ? 0 : Convert.ToDecimal( comboBox2.Text );
             model.CP12 = string.IsNullOrEmpty( comboBox6.Text ) == true ? 0 : Convert.ToInt64( comboBox6.Text );
-            model.CP13 = string.IsNullOrEmpty( comboBox14.Text ) == true ? 0 : Convert.ToDecimal( comboBox14.Text );
+            model.CP13 = string.IsNullOrEmpty( txtCP13.Text ) == true ? 0 : Convert.ToDecimal( txtCP13.Text );
             model.CP14 = dateTimePicker1.Value;
             model.CP54 = string.IsNullOrEmpty( textBox13.Text ) == true ? 0 : Convert.ToInt64( textBox13.Text );
             if ( textBox4 . Tag != null )
@@ -1135,7 +1139,7 @@ namespace Mulaolao.Raw_material_cost
                 MessageBox . Show ( "流水号不可为空" );
                 return;
             }
-            if ( string . IsNullOrEmpty ( lookUpEdit3 . Text ) )
+            if ( string . IsNullOrEmpty ( txtPart . Text ) )
             {
                 MessageBox . Show ( "物品名称不可为空" );
                 return;
@@ -1260,7 +1264,7 @@ namespace Mulaolao.Raw_material_cost
                 MessageBox . Show ( "请选择流水号" );
                 return;
             }
-            if ( string . IsNullOrEmpty ( lookUpEdit3 . Text ) )
+            if ( string . IsNullOrEmpty ( txtPart . Text ) )
             {
                 MessageBox . Show ( "物品名称不可为空" );
                 return;
@@ -1406,6 +1410,7 @@ namespace Mulaolao.Raw_material_cost
             refre( );
             model . CP01 = textBox1 . Text;
             table ( );
+            getWorkProce ( );
         }
         void refre ( )
         {

@@ -12,7 +12,7 @@ namespace Mulaolao . Other
 
         DataRow rowSelect;
         string sign=string.Empty;
-
+        
         public FormJiaoMiDu ( )
         {
             InitializeComponent ( );
@@ -23,7 +23,7 @@ namespace Mulaolao . Other
 
             GrivColumnStyle . setColumnStyle ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { this . gridView8 ,this . gridView9 } );
         }
-
+        
         private void FormJiaoMiDu_Load ( object sender ,EventArgs e )
         {
             tableOne = bll . getTable ( );
@@ -34,20 +34,22 @@ namespace Mulaolao . Other
             gridControl9 . DataSource = tableTwo;
             gridView9 . BestFitColumns ( );
         }
+        
         private void gridView8_DoubleClick ( object sender ,EventArgs e )
         {
-            sign = "胶合板";
+            sign = MulaolaoBll . DicStr . plyWood;
             rowSelect = gridView8 . GetFocusedDataRow ( );
             if ( rowSelect != null )
                 this . DialogResult = DialogResult . OK;
         }
         private void gridView9_DoubleClick ( object sender ,EventArgs e )
         {
-            sign = "密度板";
+            sign = MulaolaoBll . DicStr . densityBoard;
             rowSelect = gridView9 . GetFocusedDataRow ( );
             if ( rowSelect != null )
                 this . DialogResult = DialogResult . OK;
         }
+
         public DataRow getRow
         {
             get

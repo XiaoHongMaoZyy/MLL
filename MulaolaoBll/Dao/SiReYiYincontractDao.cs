@@ -1525,5 +1525,30 @@ namespace MulaolaoBll.Dao
             return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
         }
 
+        /// <summary>
+        /// 读取509零件名称等数据
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DataTable getTableFor509 ( string num )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . AppendFormat ( "SELECT DISTINCT GS75 AH10,GS76 AH11,GS38 AH21,CONVERT(FLOAT,GS79) AH13,GS35 AH119 FROM R_PQP A,R_REVIEWS B WHERE A.GS34=B.RES06 AND RES05='执行' AND GS74='R_196' AND GS75 IS NOT NULL AND GS75!='' AND GS01='{0}'" ,num );
+
+            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
+        }
+        
+        /// <summary>
+        /// 获取196数据
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DataTable getTableFor196 ( string num )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . AppendFormat ( "SELECT AH10,AH11,AH12,CONVERT(FLOAT,AH13) AH13,AH119,AH14,AH15,AH16,AH17,AH18,AH19,AH20,AH21 FROM R_PQAH WHERE AH01='{0}'" ,num );
+
+            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
+        }
     }
 }

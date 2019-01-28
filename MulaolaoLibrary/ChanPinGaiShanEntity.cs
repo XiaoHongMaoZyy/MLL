@@ -92,7 +92,7 @@ namespace MulaolaoLibrary
         private string _gs76;
         private string _gs77;
         private decimal? _gs78;
-        private string _gs79;
+        private decimal? _gs79;
         private string _gs80;
         private string _gs81;
         private string _gs82;
@@ -1211,9 +1211,9 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 
+        /// 每套个数
         /// </summary>
-        public string GS79
+        public decimal? GS79
         {
             set
             {

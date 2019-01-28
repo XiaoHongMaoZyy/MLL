@@ -269,11 +269,11 @@ namespace SelectAll
                     {
                         decimal sum = 0;
                         list.Clear( );
-                        decimal p11 = 0, p66 = 0, p81 = 0, p67 = 0, p13 = 0;
+                        //decimal p11 = 0/*, p66 = 0*//*, p81 = 0*//*, p67 = 0*//*, p13 = 0*/;
                         //decimal x1 = 0;
                         for ( int i = 0 ; i < gridView1.RowCount ; i++ )
                         {
-                            p11 =  p66 =  p81 =  p67 = p13 = 0;
+                            //p11 = /* p66 = */ /*p81 =*/  /*p67 =*/ /*p13 =*/ 0;
                             //x1 = 0;
                             if ( gridView1.GetDataRow( i )["check"].ToString( ) == "True" )
                             {

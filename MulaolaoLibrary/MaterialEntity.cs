@@ -15,862 +15,771 @@ namespace MulaolaoLibrary
     
     public sealed class MaterialEntity
     {
-        
         private int _idx;
-        
         private string _eb001;
-        
         private string _eb002;
-        
         private string _eb003;
-        
-        private int _eb004;
-        
+        private int? _eb004;
         private DateTime? _eb005;
-        
-        private decimal _eb006;
-        
-        private decimal _eb007;
-        
-        private decimal _eb008;
-        
-        private decimal _eb009;
-        
-        private decimal _eb010;
-        
-        private decimal _eb011;
-        
-        private decimal _eb012;
-        
-        private decimal _eb013;
-        
-        private decimal _eb014;
-        
-        private decimal _eb015;
-        
-        private decimal _eb016;
-        
-        private decimal _eb017;
-        
-        private decimal _eb018;
-        
-        private decimal _eb019;
-        
-        private decimal _eb020;
-        
-        private decimal _eb021;
-        
-        private decimal _eb022;
-        
-        private decimal _eb023;
-        
-        private decimal _eb024;
-        
-        private decimal _eb025;
-        
-        private decimal _eb026;
-        
-        private decimal _eb027;
-        
-        private decimal _eb028;
-        
-        private string _eb029;
-        
-        private string _eb030;
-        
-        private decimal _eb031;
-        
-        private string _eb032;
-        
-        private string _eb033;
-        
-        private string _eb034;
-        
-        private string _eb035;
-        
-        private string _eb036;
-        
-        private string _eb037;
-        
-        private string _eb038;
-        
-        private string _eb039;
-        
-        private string _eb040;
-        
-        private string _eb041;
-        
-        private string _eb042;
-        
-        private string _eb043;
-        
-        private string _eb044;
-        
+        private decimal? _eb006;
+        private decimal? _eb007;
+        private decimal? _eb008;
+        private decimal? _eb009;
+        private decimal? _eb010;
+        private decimal? _eb011;
+        private decimal? _eb012;
+        private decimal? _eb013;
+        private decimal? _eb014;
+        private decimal? _eb015;
+        private decimal? _eb016;
+        private decimal? _eb017;
+        private decimal? _eb018;
+        private decimal? _eb019;
+        private decimal? _eb020;
+        private decimal? _eb021;
+        private decimal? _eb022;
+        private decimal? _eb023;
+        private decimal? _eb024;
+        private decimal? _eb025;
+        private decimal? _eb026;
+        private decimal? _eb027;
+        private decimal? _eb028;
+        private decimal? _eb029;
+        private decimal? _eb030;
+        private decimal? _eb031;
+        private decimal? _eb032;
+        private decimal? _eb033;
+        private decimal? _eb034;
+        private decimal? _eb035;
+        private decimal? _eb036;
+        private decimal? _eb037;
+        private decimal? _eb038;
+        private decimal? _eb039;
+        private decimal? _eb040;
+        private decimal? _eb041;
+        private decimal? _eb042;
+        private decimal? _eb043;
+        private decimal? _eb044;
         private string _eb045;
-        
         private string _eb046;
-        
         private string _eb047;
-        
         private string _eb048;
-        
         private string _eb049;
-        
         private string _eb050;
-        
-        // 
+        /// <summary>
+        /// 
+        /// </summary>
         public int idx
         {
-            get
-            {
-                return this._idx;
-            }
             set
             {
-                this._idx = value;
+                _idx = value;
+            }
+            get
+            {
+                return _idx;
             }
         }
-
         /// <summary>
         /// 产品名称
         /// </summary>
-
         public string EB001
         {
-            get
-            {
-                return this._eb001;
-            }
             set
             {
-                this._eb001 = value;
+                _eb001 = value;
+            }
+            get
+            {
+                return _eb001;
             }
         }
-
         /// <summary>
         /// 流水号
         /// </summary>
-
         public string EB002
         {
-            get
-            {
-                return this._eb002;
-            }
             set
             {
-                this._eb002 = value;
+                _eb002 = value;
+            }
+            get
+            {
+                return _eb002;
             }
         }
-
         /// <summary>
         /// 货号
         /// </summary>
-
         public string EB003
         {
-            get
-            {
-                return this._eb003;
-            }
             set
             {
-                this._eb003 = value;
+                _eb003 = value;
+            }
+            get
+            {
+                return _eb003;
             }
         }
-
         /// <summary>
         /// 产品数量
         /// </summary>
-
-        public int EB004
+        public int? EB004
         {
-            get
-            {
-                return this._eb004;
-            }
             set
             {
-                this._eb004 = value;
+                _eb004 = value;
+            }
+            get
+            {
+                return _eb004;
             }
         }
-
         /// <summary>
         /// 交货日期
         /// </summary>
-
         public DateTime? EB005
         {
-            get
-            {
-                return this._eb005;
-            }
             set
             {
-                this._eb005 = value;
+                _eb005 = value;
+            }
+            get
+            {
+                return _eb005;
             }
         }
-        
         /// <summary>
-        /// R-059原每套成本 木材
+        /// R-059每套成本(胶合板)
         /// </summary>
-
-        public decimal EB006
+        public decimal? EB006
         {
-            get
-            {
-                return this._eb006;
-            }
             set
             {
-                this._eb006 = value;
+                _eb006 = value;
+            }
+            get
+            {
+                return _eb006;
             }
         }
-
         /// <summary>
-        /// R-241原每套成本  木材
+        /// R-241原每套成本(胶合板)
         /// </summary>
-        public decimal EB007
+        public decimal? EB007
         {
-            get
-            {
-                return this._eb007;
-            }
             set
             {
-                this._eb007 = value;
+                _eb007 = value;
+            }
+            get
+            {
+                return _eb007;
             }
         }
-
         /// <summary>
-        /// R-241现每套成本  木材
+        /// R-241现每套成本(胶合板)
         /// </summary>
-
-        public decimal EB008
+        public decimal? EB008
         {
-            get
-            {
-                return this._eb008;
-            }
             set
             {
-                this._eb008 = value;
+                _eb008 = value;
+            }
+            get
+            {
+                return _eb008;
             }
         }
-
         /// <summary>
-        /// R-059原每套成本  胶板
+        /// R-059原每套成本(密度板)
         /// </summary>
-
-        public decimal EB009
+        public decimal? EB009
         {
-            get
-            {
-                return this._eb009;
-            }
             set
             {
-                this._eb009 = value;
+                _eb009 = value;
+            }
+            get
+            {
+                return _eb009;
             }
         }
-
         /// <summary>
-        /// R-241原每套成本  胶板
+        /// R-241原每套成本(密度板)
         /// </summary>
-
-        public decimal EB010
+        public decimal? EB010
         {
-            get
-            {
-                return this._eb010;
-            }
             set
             {
-                this._eb010 = value;
+                _eb010 = value;
+            }
+            get
+            {
+                return _eb010;
             }
         }
-
         /// <summary>
-        /// R-241现每套成本  胶板
+        /// R-241现每套成本(密度板)
         /// </summary>
-
-        public decimal EB011
+        public decimal? EB011
         {
-            get
-            {
-                return this._eb011;
-            }
             set
             {
-                this._eb011 = value;
+                _eb011 = value;
+            }
+            get
+            {
+                return _eb011;
             }
         }
-
         /// <summary>
-        /// R-059原每套成本  塑铁布
+        /// R-059原每套成本(木材)
         /// </summary>
-
-        public decimal EB012
+        public decimal? EB012
         {
-            get
-            {
-                return this._eb012;
-            }
             set
             {
-                this._eb012 = value;
+                _eb012 = value;
+            }
+            get
+            {
+                return _eb012;
             }
         }
-
         /// <summary>
-        /// R-241原每套成本  塑铁布
+        /// R-241原每套成本(木材)
         /// </summary>
-
-        public decimal EB013
+        public decimal? EB013
         {
-            get
-            {
-                return this._eb013;
-            }
             set
             {
-                this._eb013 = value;
+                _eb013 = value;
+            }
+            get
+            {
+                return _eb013;
             }
         }
-
         /// <summary>
-        /// R-241现每套成本  塑铁布
+        /// R-241现每套成本(木材)
         /// </summary>
-
-        public decimal EB014
+        public decimal? EB014
         {
-            get
-            {
-                return this._eb014;
-            }
             set
             {
-                this._eb014 = value;
+                _eb014 = value;
+            }
+            get
+            {
+                return _eb014;
             }
         }
-
         /// <summary>
-        /// R-059原每套成本  车木件
+        /// R-059原每套成本(车木件)
         /// </summary>
-
-        public decimal EB015
+        public decimal? EB015
         {
-            get
-            {
-                return this._eb015;
-            }
             set
             {
-                this._eb015 = value;
+                _eb015 = value;
+            }
+            get
+            {
+                return _eb015;
             }
         }
-
         /// <summary>
-        /// R-241原每套成本  车木件
+        /// R-241原每套成本(车木件)
         /// </summary>
-
-        public decimal EB016
+        public decimal? EB016
         {
-            get
-            {
-                return this._eb016;
-            }
             set
             {
-                this._eb016 = value;
+                _eb016 = value;
+            }
+            get
+            {
+                return _eb016;
             }
         }
-
         /// <summary>
-        /// R-241现每套成本  车木件
+        /// R-241现每套成本(车木件)
         /// </summary>
-
-        public decimal EB017
+        public decimal? EB017
         {
-            get
-            {
-                return this._eb017;
-            }
             set
             {
-                this._eb017 = value;
+                _eb017 = value;
+            }
+            get
+            {
+                return _eb017;
             }
         }
-
         /// <summary>
-        /// R-059原每套成本  委外
+        /// R-059原每套成本(铁件)
         /// </summary>
-
-        public decimal EB018
+        public decimal? EB018
         {
-            get
-            {
-                return this._eb018;
-            }
             set
             {
-                this._eb018 = value;
+                _eb018 = value;
+            }
+            get
+            {
+                return _eb018;
             }
         }
-
         /// <summary>
-        /// R-241原每套成本  委外
+        /// R-241原每套成本(铁件)
         /// </summary>
-
-        public decimal EB019
+        public decimal? EB019
         {
-            get
-            {
-                return this._eb019;
-            }
             set
             {
-                this._eb019 = value;
+                _eb019 = value;
+            }
+            get
+            {
+                return _eb019;
             }
         }
-
         /// <summary>
-        /// R-241现每套成本  委外
+        /// R-241现每套成本(铁件)
         /// </summary>
-
-        public decimal EB020
+        public decimal? EB020
         {
-            get
-            {
-                return this._eb020;
-            }
             set
             {
-                this._eb020 = value;
+                _eb020 = value;
+            }
+            get
+            {
+                return _eb020;
             }
         }
-
         /// <summary>
-        /// R-059原每套成本  纸箱
+        /// R-059原每套成本(塑料件)
         /// </summary>
-
-        public decimal EB021
+        public decimal? EB021
         {
-            get
-            {
-                return this._eb021;
-            }
             set
             {
-                this._eb021 = value;
+                _eb021 = value;
+            }
+            get
+            {
+                return _eb021;
             }
         }
-
         /// <summary>
-        /// R-241原每套成本  纸箱
+        /// R-241原每套成本(塑料件)
         /// </summary>
-
-        public decimal EB022
+        public decimal? EB022
         {
-            get
-            {
-                return this._eb022;
-            }
             set
             {
-                this._eb022 = value;
+                _eb022 = value;
+            }
+            get
+            {
+                return _eb022;
             }
         }
-
         /// <summary>
-        /// R-241现每套成本  纸箱
+        /// R-241现每套成本(塑料件)
         /// </summary>
-
-        public decimal EB023
+        public decimal? EB023
         {
-            get
-            {
-                return this._eb023;
-            }
             set
             {
-                this._eb023 = value;
+                _eb023 = value;
+            }
+            get
+            {
+                return _eb023;
             }
         }
-
         /// <summary>
-        /// 木材节省提成
+        /// R-509每套成本(其他材料)
         /// </summary>
-
-        public decimal EB024
+        public decimal? EB024
         {
-            get
-            {
-                return this._eb024;
-            }
             set
             {
-                this._eb024 = value;
+                _eb024 = value;
+            }
+            get
+            {
+                return _eb024;
             }
         }
-
         /// <summary>
-        /// 胶板节省提成
+        /// R-241原每套成本(其他材料)
         /// </summary>
-
-        public decimal EB025
+        public decimal? EB025
         {
-            get
-            {
-                return this._eb025;
-            }
             set
             {
-                this._eb025 = value;
+                _eb025 = value;
+            }
+            get
+            {
+                return _eb025;
             }
         }
-
         /// <summary>
-        /// 塑铁节省提成
+        /// R-241现每套成本(其他材料)
         /// </summary>
-
-        public decimal EB026
+        public decimal? EB026
         {
-            get
-            {
-                return this._eb026;
-            }
             set
             {
-                this._eb026 = value;
+                _eb026 = value;
+            }
+            get
+            {
+                return _eb026;
             }
         }
-
         /// <summary>
-        /// 车木节省提成
+        /// R-509每套成本(包装辅料)
         /// </summary>
-
-        public decimal EB027
+        public decimal? EB027
         {
-            get
-            {
-                return this._eb027;
-            }
             set
             {
-                this._eb027 = value;
+                _eb027 = value;
+            }
+            get
+            {
+                return _eb027;
             }
         }
-
         /// <summary>
-        /// 委外节省提成
+        /// R-241原每套成本(包装辅料)
         /// </summary>
-
-        public decimal EB028
+        public decimal? EB028
         {
-            get
-            {
-                return this._eb028;
-            }
             set
             {
-                this._eb028 = value;
+                _eb028 = value;
+            }
+            get
+            {
+                return _eb028;
             }
         }
-
         /// <summary>
-        /// 主管人
+        /// R-241现每套成本(包装辅料)
         /// </summary>
-
-        public string EB029
+        public decimal? EB029
         {
-            get
-            {
-                return this._eb029;
-            }
             set
             {
-                this._eb029 = value;
+                _eb029 = value;
+            }
+            get
+            {
+                return _eb029;
             }
         }
-
         /// <summary>
-        /// 备注
+        /// R-509每套成本(纸箱（中包、内盒、外箱）)
         /// </summary>
-
-        public string EB030
+        public decimal? EB030
         {
-            get
-            {
-                return this._eb030;
-            }
             set
             {
-                this._eb030 = value;
+                _eb030 = value;
+            }
+            get
+            {
+                return _eb030;
             }
         }
-
         /// <summary>
-        /// 纸箱节省提成
+        /// R-241原每套成本(纸箱（中包、内盒、外箱）)
         /// </summary>
-
-        public decimal EB031
+        public decimal? EB031
         {
-            get
-            {
-                return this._eb031;
-            }
             set
             {
-                this._eb031 = value;
+                _eb031 = value;
             }
-        }
-        
-        // 
-        public string EB032
-        {
             get
             {
-                return this._eb032;
-            }
-            set
-            {
-                this._eb032 = value;
+                return _eb031;
             }
         }
-        
-        // 
-        public string EB033
+        /// <summary>
+        /// R-241现每套成本(纸箱（中包、内盒、外箱）)
+        /// </summary>
+        public decimal? EB032
         {
+            set
+            {
+                _eb032 = value;
+            }
             get
             {
-                return this._eb033;
-            }
-            set
-            {
-                this._eb033 = value;
+                return _eb032;
             }
         }
-        
-        // 
-        public string EB034
+        /// <summary>
+        /// R-509每套成本(彩盒)
+        /// </summary>
+        public decimal? EB033
         {
+            set
+            {
+                _eb033 = value;
+            }
             get
             {
-                return this._eb034;
-            }
-            set
-            {
-                this._eb034 = value;
+                return _eb033;
             }
         }
-        
-        // 
-        public string EB035
+        /// <summary>
+        /// R-241原每套成本(彩盒)
+        /// </summary>
+        public decimal? EB034
         {
+            set
+            {
+                _eb034 = value;
+            }
             get
             {
-                return this._eb035;
-            }
-            set
-            {
-                this._eb035 = value;
+                return _eb034;
             }
         }
-        
-        // 
-        public string EB036
+        /// <summary>
+        /// R-241现每套成本(彩盒)
+        /// </summary>
+        public decimal? EB035
         {
+            set
+            {
+                _eb035 = value;
+            }
             get
             {
-                return this._eb036;
-            }
-            set
-            {
-                this._eb036 = value;
+                return _eb035;
             }
         }
-        
-        // 
-        public string EB037
+        /// <summary>
+        /// R-509每套成本(委外加工)
+        /// </summary>
+        public decimal? EB036
         {
+            set
+            {
+                _eb036 = value;
+            }
             get
             {
-                return this._eb037;
-            }
-            set
-            {
-                this._eb037 = value;
+                return _eb036;
             }
         }
-        
-        // 
-        public string EB038
+        /// <summary>
+        /// R-241原每套成本(委外加工)
+        /// </summary>
+        public decimal? EB037
         {
+            set
+            {
+                _eb037 = value;
+            }
             get
             {
-                return this._eb038;
-            }
-            set
-            {
-                this._eb038 = value;
+                return _eb037;
             }
         }
-        
-        // 
-        public string EB039
+        /// <summary>
+        /// R-241现每套成本(委外加工)
+        /// </summary>
+        public decimal? EB038
         {
+            set
+            {
+                _eb038 = value;
+            }
             get
             {
-                return this._eb039;
-            }
-            set
-            {
-                this._eb039 = value;
+                return _eb038;
             }
         }
-        
-        // 
-        public string EB040
+        /// <summary>
+        /// R-509每套成本滚漆油漆（厂内滚漆油漆、厂外滚漆油漆+厂外滚漆工资）
+        /// </summary>
+        public decimal? EB039
         {
+            set
+            {
+                _eb039 = value;
+            }
             get
             {
-                return this._eb040;
-            }
-            set
-            {
-                this._eb040 = value;
+                return _eb039;
             }
         }
-        
-        // 
-        public string EB041
+        /// <summary>
+        /// R-241原每套成本滚漆油漆（厂内滚漆油漆、厂外滚漆油漆+厂外滚漆工资）
+        /// </summary>
+        public decimal? EB040
         {
+            set
+            {
+                _eb040 = value;
+            }
             get
             {
-                return this._eb041;
-            }
-            set
-            {
-                this._eb041 = value;
+                return _eb040;
             }
         }
-        
-        // 
-        public string EB042
+        /// <summary>
+        /// R-241现每套成本滚漆油漆（厂内滚漆油漆、厂外滚漆油漆+厂外滚漆工资）
+        /// </summary>
+        public decimal? EB041
         {
+            set
+            {
+                _eb041 = value;
+            }
             get
             {
-                return this._eb042;
-            }
-            set
-            {
-                this._eb042 = value;
+                return _eb041;
             }
         }
-        
-        // 
-        public string EB043
+        /// <summary>
+        /// R-509每套成本喷漆油漆
+        /// </summary>
+        public decimal? EB042
         {
+            set
+            {
+                _eb042 = value;
+            }
             get
             {
-                return this._eb043;
-            }
-            set
-            {
-                this._eb043 = value;
+                return _eb042;
             }
         }
-        
-        // 
-        public string EB044
+        /// <summary>
+        /// R-241原每套成本喷漆油漆
+        /// </summary>
+        public decimal? EB043
         {
+            set
+            {
+                _eb043 = value;
+            }
             get
             {
-                return this._eb044;
-            }
-            set
-            {
-                this._eb044 = value;
+                return _eb043;
             }
         }
-        
-        // 
+        /// <summary>
+        /// R-241现每套成本喷漆油漆
+        /// </summary>
+        public decimal? EB044
+        {
+            set
+            {
+                _eb044 = value;
+            }
+            get
+            {
+                return _eb044;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
         public string EB045
         {
-            get
-            {
-                return this._eb045;
-            }
             set
             {
-                this._eb045 = value;
+                _eb045 = value;
+            }
+            get
+            {
+                return _eb045;
             }
         }
-        
-        // 
+        /// <summary>
+        /// 
+        /// </summary>
         public string EB046
         {
-            get
-            {
-                return this._eb046;
-            }
             set
             {
-                this._eb046 = value;
+                _eb046 = value;
+            }
+            get
+            {
+                return _eb046;
             }
         }
-        
-        // 
+        /// <summary>
+        /// 
+        /// </summary>
         public string EB047
         {
-            get
-            {
-                return this._eb047;
-            }
             set
             {
-                this._eb047 = value;
+                _eb047 = value;
+            }
+            get
+            {
+                return _eb047;
             }
         }
-        
-        // 
+        /// <summary>
+        /// 
+        /// </summary>
         public string EB048
         {
-            get
-            {
-                return this._eb048;
-            }
             set
             {
-                this._eb048 = value;
+                _eb048 = value;
+            }
+            get
+            {
+                return _eb048;
             }
         }
-        
-        // 
+        /// <summary>
+        /// 
+        /// </summary>
         public string EB049
         {
-            get
-            {
-                return this._eb049;
-            }
             set
             {
-                this._eb049 = value;
+                _eb049 = value;
+            }
+            get
+            {
+                return _eb049;
             }
         }
-        
-        // 
+        /// <summary>
+        /// 
+        /// </summary>
         public string EB050
         {
-            get
-            {
-                return this._eb050;
-            }
             set
             {
-                this._eb050 = value;
+                _eb050 = value;
+            }
+            get
+            {
+                return _eb050;
             }
         }
+
     }
 }

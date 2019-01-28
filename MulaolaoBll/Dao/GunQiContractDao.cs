@@ -1191,7 +1191,7 @@ namespace MulaolaoBll.Dao
             //    new SqlParameter("@GS01",SqlDbType.NVarChar,20)
             //};
             //parameter[0].Value = num;
-            strSql . AppendFormat ( "SELECT GS02,GS07,GS08,CONVERT(FLOAT,GS78) GS78 FROM R_PQP WHERE GS78>0 AND GS01='{0}'" ,num );
+            strSql . AppendFormat ( "SELECT GS02,GS07,GS08,CONVERT(FLOAT,GS78) GS78 FROM R_PQP WHERE GS70='{1}' AND GS01='{0}'" ,num ,DicStr . r344 );
             return SqlHelper.ExecuteDataTable( strSql.ToString( ) );
         }
 

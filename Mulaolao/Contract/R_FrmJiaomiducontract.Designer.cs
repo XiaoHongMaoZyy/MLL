@@ -3942,12 +3942,12 @@
             this.U12.AppearanceHeader.Options.UseTextOptions = true;
             this.U12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U12.Caption = "按方每套成本";
-            this.U12.DisplayFormat.FormatString = "0.##";
+            this.U12.DisplayFormat.FormatString = "0.###";
             this.U12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.U12.FieldName = "U12";
             this.U12.Name = "U12";
             this.U12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U12", "{0:0.##}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U12", "{0:0.###}")});
             this.U12.ToolTip = "[按立方结算款] / [产品数量]";
             this.U12.UnboundExpression = "[U11] / [JM103]";
             this.U12.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
@@ -3978,12 +3978,12 @@
             this.U13.AppearanceHeader.Options.UseTextOptions = true;
             this.U13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.U13.Caption = "按张每套成本";
-            this.U13.DisplayFormat.FormatString = "0.##";
+            this.U13.DisplayFormat.FormatString = "0.###";
             this.U13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.U13.FieldName = "U13";
             this.U13.Name = "U13";
             this.U13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U13", "{0:0.##}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U13", "{0:0.###}")});
             this.U13.ToolTip = "[按张结算款] /[产品数量]";
             this.U13.UnboundExpression = "[U10] / [JM103]";
             this.U13.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;

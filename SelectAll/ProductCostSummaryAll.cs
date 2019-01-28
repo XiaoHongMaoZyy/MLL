@@ -19,8 +19,8 @@ namespace SelectAll
         DataTable num, productName, no, contractNum, audit, productionWork, tableQuery;
         
         MulaolaoBll.Bll.ProductCostSummaryBll bll = new MulaolaoBll.Bll.ProductCostSummaryBll( );
-        public delegate void PassDataBetweenFormHandler ( object sender ,PassDataWinFormEventArgs e );
-        public event PassDataBetweenFormHandler PassDataBetweenForm;
+        //public delegate void PassDataBetweenFormHandler ( object sender ,PassDataWinFormEventArgs e );
+        //public event PassDataBetweenFormHandler PassDataBetweenForm;
 
         private void ProductCostSummaryAll_Load ( object sender ,EventArgs e )
         {

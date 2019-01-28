@@ -373,6 +373,25 @@ namespace MulaolaoBll.Bll
             return dao . getTableWorkProce ( num );
         }
 
+        /// <summary>
+        /// 读取509零件名称等数据
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DataTable getTableFor509 ( string num )
+        {
+            return dao . getTableFor509 ( num );
+        }
+
+        /// <summary>
+        /// 获取196数据
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DataTable getTableFor196 ( string num )
+        {
+            return dao . getTableFor196 ( num );
+        }
 
     }
 }

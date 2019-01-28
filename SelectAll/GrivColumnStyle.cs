@@ -24,5 +24,21 @@ namespace Mulaolao
                 }
             }
         }
+
+        public static void setColumnStyleFormat ( GridView [ ] grids )
+        {
+            foreach ( GridView gv in grids )
+            {
+                foreach ( DevExpress . XtraGrid . Columns . GridColumn co in gv . Columns )
+                {
+                    if ( co . FieldName != "EB005" && co . FieldName != "EC005" )
+                    {
+                        co . DisplayFormat . FormatType = DevExpress . Utils . FormatType . Custom;
+                        co . DisplayFormat . FormatString = "0.##";
+                    }
+                }
+            }
+        }
+
     }
 }

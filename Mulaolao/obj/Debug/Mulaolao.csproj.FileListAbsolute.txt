@@ -1710,3 +1710,14 @@ D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.r347.resources
 D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.r349.resources
 D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.r339.resources
 D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.r344.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form195Query.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form196Qquery.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form341Query.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form342Query.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form343Query.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form347Query.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form349Query.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form344Query.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form505Query.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.r505.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.r495.resources

@@ -405,5 +405,26 @@ namespace MulaolaoBll.Dao
             return bll . getTableWorkProce ( num );
         }
 
+        /// <summary>
+        /// 获取509数据
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DataTable getTableFor509 ( string num )
+        {
+            return bll . getTableFor509 ( num );
+        }
+
+
+        /// <summary>
+        /// 获取本表数据
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public DataTable getTableFor195 ( string num )
+        {
+            return bll . getTableFor195 ( num );
+        }
+
     }
 }

@@ -34,7 +34,7 @@ namespace MulaolaoBll . Dao
 
             return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
         }
-
+        
         /// <summary>
         /// 获取338数据列表
         /// </summary>
@@ -58,7 +58,7 @@ namespace MulaolaoBll . Dao
 
             return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
         }
-
+        
         /// <summary>
         /// 获取341数据列表
         /// </summary>
@@ -135,19 +135,7 @@ namespace MulaolaoBll . Dao
 
             return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
         }
-
-        /// <summary>
-        /// 获取509工段
-        /// </summary>
-        /// <returns></returns>
-        public DataTable getTableFor509GX ( )
-        {
-            StringBuilder strSql = new StringBuilder ( );
-            strSql . Append ( "SELECT DISTINCT GS35 FROM R_PQP WHERE GS35 IS NOT NULL AND GS35!=''" );
-
-            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
-        }
-
+        
         /// <summary>
         /// 获取单号
         /// </summary>
@@ -180,11 +168,35 @@ namespace MulaolaoBll . Dao
         /// </summary>
         /// <param name="strWhere"></param>
         /// <returns></returns>
-        public DataTable getTableView ( string strWhere )
+        public DataTable getTableView ( string code )
         {
             StringBuilder strSql = new StringBuilder ( );
-            strSql . Append ( "SELECT idx,QUR001,QUR002,QUR003,QUR004,QUR005,CONVERT(FLOAT,QUR006) QUR006,QUR007,QUR008,QUR009,CONVERT(FLOAT,QUR010) QUR010,CONVERT(FLOAT,QUR011) QUR011,CONVERT(FLOAT,QUR012) QUR012,CONVERT(FLOAT,QUR013) QUR013,CONVERT(FLOAT,QUR014) QUR014,QUR015,QUR016 FROM R_QUR " );
-            strSql . AppendFormat ( "WHERE {0}" ,strWhere );
+            //strSql . Append ( "SELECT idx,QUR001,QUR002,QUR003,QUR004,QUR005,CONVERT(FLOAT,QUR006) QUR006,QUR007,QUR008,QUR009,CONVERT(FLOAT,QUR010) QUR010,CONVERT(FLOAT,QUR011) QUR011,CONVERT(FLOAT,QUR012) QUR012,CONVERT(FLOAT,QUR013) QUR013,CONVERT(FLOAT,QUR014) QUR014,QUR015,QUR016 FROM R_QUR " );
+            //strSql . AppendFormat ( "WHERE {0}" ,strWhere );
+            
+            strSql . AppendFormat ( "SELECT idx,QUOA012,QUOA011,QUOA013,QUOA001,QUOA002,QUOA005,QUOA007 QUOA999,0.000000 QUOA998,0.000000 QUOA997,0.000000 QUOA996,0.000000 QUOA995,0.000000 QUOA994,QUOA009,QUOA003,QUOA014*QUOA005*QUOA003 QUO993,QUOA014 FROM R_QUOA WHERE QUOA010='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOB004,QUOB002,QUOB003,QUOB005,QUOB006,QUOB008,QUOB012,0.000000 QUOB998,0.000000 QUOB997,0.000000 QUOB996,0.000000 QUOB995,0.000000 QUOB994,QUOB014,QUOB010,QUOB008*QUOB011*QUOB017*QUOB010 QUO993,QUOB017 FROM R_QUOB WHERE QUOB001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOC002,QUOC003,QUOC004,QUOC006,CONVERT(NVARCHAR,CONVERT(FLOAT,QUOC007))+'*'+CONVERT(NVARCHAR,CONVERT(FLOAT,QUOC008))+'*'+CONVERT(NVARCHAR,CONVERT(FLOAT,QUOC009)) QUOC,QUOC010,'' QUOC999,QUOC007,QUOC008,QUOC009,QUOC010*QUOC007*QUOC008*QUOC009 QUOC1,0.000000 QUOC2,'张' QUOC3,(QUOC012+QUOC019)*QUOC016 QUOC4,CASE WHEN QUOC005=0 THEN 0 ELSE (QUOC005/QUOC010+QUOC018)*(QUOC012+QUOC019)*QUOC016 END QUO993,QUOC005 FROM R_QUOC WHERE QUOC001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOD002,QUOD003,QUOD004,QUOD006,CONVERT(NVARCHAR,CONVERT(FLOAT,QUOD010))+'*'+CONVERT(NVARCHAR,CONVERT(FLOAT,QUOD011))+'*'+CONVERT(NVARCHAR,CONVERT(FLOAT,QUOD012)) QUOD,QUOD008,'' QUOD1,QUOD010,QUOD011,QUOD012,QUOD008*QUOD010*QUOD011*QUOD012 QUOD2,QUOD016*QUOD017*QUOD018 QUOD3,'' QUOD4,QUOD007,QUOD020*QUOD007*QUOD010*QUOD011*QUOD012*QUOD009*0.000001 QUOD5,QUOD020 FROM R_QUOD WHERE QUOD001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOE002,QUOE003,QUOE004,QUOE007,CONVERT(NVARCHAR,CONVERT(FLOAT,QUOE012))+'*'+CONVERT(NVARCHAR,CONVERT(FLOAT,QUOE013))+'*'+CONVERT(NVARCHAR,CONVERT(FLOAT,QUOE014)) QUOE,QUOE009,'' QUOE1,QUOE012,QUOE013,QUOE014,QUOE009*QUOE012*QUOE013*QUOE014 QUOE2,0.000000 QUOE3,'' QUOE4,QUOE008,QUOE008*QUOE005*QUOE009 QUOE4,QUOE005 FROM R_QUOE WHERE QUOE001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOF002,QUOF003,QUOF004,QUOF006,QUOF007,QUOF011,'' QUOF,0.000000 QUOA998,0.000000 QUOA997,0.000000 QUOA996,0.000000 QUOF1,0.000000 QUOF2,QUOF010,QUOF014,QUOF014*(QUOF005*QUOF011+QUOF012)-QUOF015 QUOF3,QUOF005 FROM R_QUOF WHERE QUOF001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOG002,QUOG003,QUOG004,QUOG006,QUOG007,QUOG011,'',0.000000 QUOA998,0.000000 QUOA997,0.000000 QUOA996,0.000000 QUOA995,0.000000 QUOA994,QUOG008,QUOG013,QUOG013*(QUOG011*QUOG005+QUOG012)-QUOG015,QUOG005 FROM R_QUOG WHERE QUOG001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOH002,QUOH003,QUOH004,QUOH007,QUOH008,QUOH014,'',0.000000 QUOA998,0.000000 QUOA997,0.000000 QUOA996,0.000000 QUOA995,0.000000 QUOA994,QUOH009,QUOH013,CASE WHEN QUOH006='双瓦外箱' THEN CONVERT( DECIMAL( 11, 4 ), ((QUOH021 + QUOH023 + QUOH025) * (QUOH022 + QUOH024 + QUOH026)) * 0.0001 +CONVERT( DECIMAL( 11, 4 ), ((QUOH017 + QUOH018) * (QUOH019 + QUOH020)) * 0.0001 ))*QUOH013*QUOH015 WHEN QUOH006='小箱式' THEN CONVERT( DECIMAL( 11, 4 ), ((QUOH021 + QUOH023 + QUOH025) * (QUOH022 + QUOH024 + QUOH026)) * 0.0001 +CONVERT( DECIMAL( 11, 4 ), ((QUOH017 + QUOH018) * (QUOH019 + QUOH020)) * 0.0001 ))*QUOH013*QUOH015 WHEN QUOH006='牙膏式' THEN CONVERT( DECIMAL( 11, 4 ), ((QUOH021 + 2*QUOH023 + QUOH025) * (2*QUOH022 + 2*QUOH024 + QUOH026)) * 0.0001 +CONVERT( DECIMAL( 11, 4 ), ((QUOH017 + QUOH018) * (QUOH019 + QUOH020)) * 0.0001 ))*QUOH013*QUOH015 WHEN QUOH006='插口式' THEN CONVERT( DECIMAL( 11, 4 ), ((QUOH021 + 2*QUOH023 + QUOH025) * (2*QUOH022 + 2*QUOH024 + QUOH026)) * 0.0001 +CONVERT( DECIMAL( 11, 4 ), ((QUOH017 + QUOH018) * (QUOH019 + QUOH020)) * 0.0001 ))*QUOH013*QUOH015 WHEN QUOH006='天盖' THEN CONVERT( DECIMAL( 11, 4 ), ((QUOH021 + 2*QUOH023 + QUOH025) * (QUOH022 + 2*QUOH024 + QUOH026)) * 0.0001 +CONVERT( DECIMAL( 11, 4 ), ((QUOH017 + QUOH018) * (QUOH019 + QUOH020)) * 0.0001 ))*QUOH013*QUOH015 WHEN QUOH006='地盖' THEN CONVERT( DECIMAL( 11, 4 ), ((QUOH021 + 2*QUOH023 + QUOH025) * (QUOH022 + 2*QUOH024 + QUOH026)) * 0.0001+CONVERT( DECIMAL( 11, 4 ), ((QUOH017 + QUOH018) * (QUOH019 + QUOH020)) * 0.0001 ) )*QUOH013*QUOH015 WHEN QUOH006='折叠式' THEN CONVERT( DECIMAL( 11, 4 ), ((2*QUOH021 + 2*QUOH023 + QUOH025) * (1.5*QUOH022 + QUOH024 + QUOH026)) * 0.0001 +CONVERT( DECIMAL( 11, 4 ), ((QUOH017 + QUOH018) * (QUOH019 + QUOH020)) * 0.0001 ))*QUOH013*QUOH015  WHEN QUOH006 NOT IN ('双瓦外箱','小箱式','牙膏式','插口式','天盖','地盖','折叠式') THEN CONVERT( DECIMAL( 11, 4 ), ((QUOH017 + QUOH018) * (QUOH019 + QUOH020)) * 0.0001 )*QUOH013*QUOH015 END U5,QUOH005 FROM R_QUOH WHERE QUOH001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOI002,QUOI003,QUOI004,QUOI006,QUOI008,QUOI023,QUOI009,0.000000 QUOA998,0.000000 QUOA997,0.000000 QUOA996,0.000000 QUOA995,0.000000 QUOA994,'',QUOI015,CASE WHEN QUOI017*QUOI018=0 THEN 0 ELSE QUOI005*QUOI023*QUOI021*QUOI016*QUOI014*QUOI012*0.01/QUOI017/QUOI018 END QUOI,QUOI005 FROM R_QUOI WHERE QUOI001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOJ002,QUOJ003,QUOJ004,QUOJ007,QUOJ008,0,'',0.000000 QUOA998,0.000000 QUOA997,0.000000 QUOA996,0.000000 QUOA995,0.000000 QUOA994,'',QUOJ027,CASE WHEN QUOJ012='厂内' THEN QUOJ016*QUOJ005*QUOJ021+QUOJ016*QUOJ005*QUOJ019*QUOJ023+QUOJ022+QUOJ025 WHEN QUOJ012='厂外' THEN QUOJ016*QUOJ005*QUOJ020*QUOJ023+QUOJ026 END QUOJ,QUOJ005 FROM R_QUOJ WHERE QUOJ001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOK002,QUOK003,QUOK004,QUOK006,CONVERT(NVARCHAR,CONVERT(FLOAT,QUOK012))+'*'+CONVERT(NVARCHAR,CONVERT(FLOAT,QUOK013))+'*'+CONVERT(NVARCHAR,CONVERT(FLOAT,QUOK014)),QUOK017,'',CONVERT(FLOAT,QUOK012),CONVERT(FLOAT,QUOK013),CONVERT(FLOAT,QUOK014),QUOK017*CONVERT(FLOAT,QUOK012)*CONVERT(FLOAT,QUOK013)*CONVERT(FLOAT,QUOK014),0,'',QUOK008,CASE WHEN QUOK016=0 THEN 0 ELSE QUOK005*QUOK017/QUOK016*(QUOK012+QUOK013+QUOK014)*2*QUOK008 END,QUOK005 FROM R_QUOK WHERE QUOK001='{0}'" ,code );
+            strSql . Append ( " UNION ALL " );
+            strSql . AppendFormat ( "SELECT idx,QUOL002,QUOL003,QUOL004,QUOL006,'',QUOL012,QUOL011,0,0,0,0,0,'',QUOL018,(QUOL013*QUOL012*QUOL009*QUOL008*QUOL023/QUOL019/QUOL014/QUOL015+QUOL010*QUOL021*QUOL022*QUOL013*QUOL012/QUOL014/QUOL015/QUOL019/2)*(1+QUOL020/100)+QUOL018*QUOL014*QUOL018*QUOL012*QUOL013*QUOL009*QUOL008*0.0001,QUOL005 FROM R_QUOL WHERE QUOL001='{0}'" ,code );
 
             return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
         }
@@ -211,7 +223,7 @@ namespace MulaolaoBll . Dao
         /// <param name="state"></param>
         /// <param name="idxList"></param>
         /// <returns></returns>
-        public bool Save ( MulaolaoLibrary . QuoEntity _quo ,DataTable table ,string state ,List<string> idxList )
+        public bool Save ( MulaolaoLibrary . QuoEntity _quo ,string state )
         {
             Hashtable SQLString = new Hashtable ( );
             StringBuilder strSql = new StringBuilder ( );
@@ -223,40 +235,6 @@ namespace MulaolaoBll . Dao
             else
                 EditHeader ( SQLString ,strSql ,_quo );
             
-            MulaolaoLibrary . QupEntity _qup = new MulaolaoLibrary . QupEntity ( );
-            _qup . QUR001 = _quo . QUO001;
-            for ( int i = 0 ; i < table . Rows . Count ; i++ )
-            {
-                _qup . QUR002 = table . Rows [ i ] [ "QUR002" ] . ToString ( );
-                _qup . QUR003 = table . Rows [ i ] [ "QUR003" ] . ToString ( );
-                _qup . QUR004 = table . Rows [ i ] [ "QUR004" ] . ToString ( );
-                _qup . QUR005 = table . Rows [ i ] [ "QUR005" ] . ToString ( );
-                _qup . QUR006 = string . IsNullOrEmpty ( table . Rows [ i ] [ "QUR006" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( table . Rows [ i ] [ "QUR006" ] . ToString ( ) );
-                _qup . QUR007 = table . Rows [ i ] [ "QUR007" ] . ToString ( );
-                _qup . QUR008 = table . Rows [ i ] [ "QUR008" ] . ToString ( );
-                _qup . QUR009 = table . Rows [ i ] [ "QUR009" ] . ToString ( );
-                _qup . QUR010 = string . IsNullOrEmpty ( table . Rows [ i ] [ "QUR010" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( table . Rows [ i ] [ "QUR010" ] . ToString ( ) );
-                _qup . QUR011 = string . IsNullOrEmpty ( table . Rows [ i ] [ "QUR011" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( table . Rows [ i ] [ "QUR011" ] . ToString ( ) );
-                _qup . QUR012 = string . IsNullOrEmpty ( table . Rows [ i ] [ "QUR012" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( table . Rows [ i ] [ "QUR012" ] . ToString ( ) );
-                _qup . QUR013 = string . IsNullOrEmpty ( table . Rows [ i ] [ "QUR013" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( table . Rows [ i ] [ "QUR013" ] . ToString ( ) );
-                _qup . QUR014 = string . IsNullOrEmpty ( table . Rows [ i ] [ "QUR014" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( table . Rows [ i ] [ "QUR014" ] . ToString ( ) );
-                _qup . QUR016 = string . IsNullOrEmpty ( table . Rows [ i ] [ "QUR016" ] . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( table . Rows [ i ] [ "QUR016" ] . ToString ( ) );
-                _qup . idx = string . IsNullOrEmpty ( table . Rows [ i ] [ "idx" ] . ToString ( ) ) == true ? 0 : Convert . ToInt32 ( table . Rows [ i ] [ "idx" ] . ToString ( ) );
-                _qup . QUR015 = table . Rows [ i ] [ "QUR015" ] . ToString ( );
-                if ( _qup . idx < 1 )
-                    AddBody ( SQLString ,strSql ,_qup );
-                else
-                    EditBody ( SQLString ,strSql ,_qup );
-            }
-
-            if ( idxList . Count > 0 )
-            {
-                foreach ( string s in idxList )
-                {
-                    DeleteBody ( SQLString ,strSql ,s );
-                }
-            }
-
             return SqlHelper . ExecuteSqlTran ( SQLString );
         }
 

@@ -662,12 +662,13 @@
             this.U1.AppearanceHeader.Options.UseTextOptions = true;
             this.U1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U1.Caption = "按方每套成本";
-            this.U1.DisplayFormat.FormatString = "N2";
+            this.U1.DisplayFormat.FormatString = "0.###";
             this.U1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U1.FieldName = "U1";
             this.U1.Name = "U1";
             this.U1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U1", "{0:0.###}")});
+            this.U1.ToolTip = "[按立方结算款] / [产品数量]";
             this.U1.Visible = true;
             this.U1.VisibleIndex = 16;
             // 
@@ -676,12 +677,13 @@
             this.U2.AppearanceHeader.Options.UseTextOptions = true;
             this.U2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.U2.Caption = "按张每套成本";
-            this.U2.DisplayFormat.FormatString = "N2";
+            this.U2.DisplayFormat.FormatString = "0.###";
             this.U2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U2.FieldName = "U2";
             this.U2.Name = "U2";
             this.U2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:0.###}")});
+            this.U2.ToolTip = "[按张结算款] / [产品数量]";
             this.U2.Visible = true;
             this.U2.VisibleIndex = 17;
             // 
@@ -707,12 +709,12 @@
             // U3
             // 
             this.U3.Caption = "现价";
-            this.U3.DisplayFormat.FormatString = "N2";
+            this.U3.DisplayFormat.FormatString = "0.##";
             this.U3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.U3.FieldName = "U3";
             this.U3.Name = "U3";
             this.U3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U3", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U3", "{0:0.##}")});
             this.U3.Visible = true;
             this.U3.VisibleIndex = 19;
             this.U3.Width = 47;

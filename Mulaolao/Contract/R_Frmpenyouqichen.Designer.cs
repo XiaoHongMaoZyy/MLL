@@ -930,7 +930,7 @@
     "0 )";
             this.U24.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U24.Visible = true;
-            this.U24.Width = 73;
+            this.U24.Width = 70;
             // 
             // U26
             // 
@@ -2204,7 +2204,7 @@
             this.gridBand51});
             this.gridBand48.Name = "gridBand48";
             this.gridBand48.VisibleIndex = 8;
-            this.gridBand48.Width = 156;
+            this.gridBand48.Width = 153;
             // 
             // gridBand49
             // 
@@ -2219,7 +2219,6 @@
             this.gridBand49.Name = "gridBand49";
             this.gridBand49.ToolTip = "[本批零件结算摆.翻.收次数工资额] + [本批零件结喷板数工资额] + [管理工资提成额]";
             this.gridBand49.VisibleIndex = 0;
-            this.gridBand49.Width = 73;
             // 
             // gridBand51
             // 

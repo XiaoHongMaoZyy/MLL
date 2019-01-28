@@ -290,7 +290,7 @@ namespace Mulaolao.Contract
             {
                 se . chose = "1";
                 DataTable r519;
-                if ( comboBox17 . Text . Equals ( "水帘机喷涂" ) )
+                if ( comboBox17 . Text . Equals ( MulaolaoBll.DicStr.sljpq ) )
                 {
                     r519 = SqlHelper . ExecuteDataTable ( "SELECT * FROM R_PQA" );
                     if ( r519 . Rows . Count < 1 )
@@ -304,7 +304,7 @@ namespace Mulaolao.Contract
                         se . ShowDialog ( );
                     }
                 }
-                else if ( comboBox17 . Text . Equals ( "静电喷涂" ) )
+                else if ( comboBox17 . Text . Equals ( MulaolaoBll . DicStr . jdpt ) )
                 {
                     r519 = SqlHelper . ExecuteDataTable ( "SELECT * FROM R_PQD" );
                     if ( r519 . Rows . Count < 1 )
@@ -318,7 +318,7 @@ namespace Mulaolao.Contract
                         se . ShowDialog ( );
                     }
                 }
-                else if ( comboBox17 . Text . Equals ( "浸漆" ) )
+                else if ( comboBox17 . Text . Equals ( MulaolaoBll . DicStr . jq ) )
                 {
                     r519 = SqlHelper . ExecuteDataTable ( "SELECT * FROM R_PQE" );
                     if ( r519 . Rows . Count < 1 )
@@ -332,7 +332,7 @@ namespace Mulaolao.Contract
                         se . ShowDialog ( );
                     }
                 }
-                else if ( comboBox17 . Text . Equals ( "封边" ) )
+                else if ( comboBox17 . Text . Equals ( MulaolaoBll . DicStr . fb ) )
                 {
                     r519 = SqlHelper . ExecuteDataTable ( "SELECT * FROM R_PQB" );
                     if ( r519 . Rows . Count < 1 )
@@ -346,7 +346,7 @@ namespace Mulaolao.Contract
                         se . ShowDialog ( );
                     }
                 }
-                else if ( comboBox17 . Text . Equals ( "涂布" ) )
+                else if ( comboBox17 . Text . Equals ( MulaolaoBll . DicStr . tb ) )
                 {
                     r519 = SqlHelper . ExecuteDataTable ( "SELECT * FROM R_PQC" );
                     if ( r519 . Rows . Count < 1 )

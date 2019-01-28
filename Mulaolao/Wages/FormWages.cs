@@ -24,6 +24,7 @@ namespace Mulaolao . Wages
             toolExport . Enabled = true;
             GridViewMoHuSelect . SetFilter ( bandedGridView1 );
             GrivColumnStyle . setColumnStyle ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { this . bandedGridView1 } );
+            GrivColumnStyle . setColumnStyleFormat ( new DevExpress . XtraGrid . Views . Grid . GridView [ ] { this . bandedGridView1 } );
             MulaolaoBll . UserInfoMation . tableName = this . Name;
         }
         
@@ -31,7 +32,7 @@ namespace Mulaolao . Wages
         {
             strWhere = "1=1";
             if ( !string . IsNullOrEmpty ( secPro . Text ) )
-                strWhere = strWhere + " AND A.AM002='" + secPro . EditValue . ToString ( ) + "'";
+                strWhere = strWhere + " AND PQF01='" + secPro . EditValue . ToString ( ) + "'";
             else if ( !string . IsNullOrEmpty ( date . Text ) )
                 strWhere = strWhere + " AND PQF31='" + date . Text + "'";
 
