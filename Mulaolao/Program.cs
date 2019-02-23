@@ -12,6 +12,7 @@ namespace Mulaolao
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
+
         static void Main ( )
         {
             //Devexpress 13.1  汉化
@@ -23,22 +24,22 @@ namespace Mulaolao
             //打印报表界面汉化
             FastReport . Utils . Res . LoadLocale ( Application . StartupPath + "\\Chinese (Simplified).frl" );
 
-            AppUpdate au = new AppUpdate ( );
-            string msg = "";
-            bool result = au . CheckAppVersion ( ref msg );
-            if ( result == true )
-                System . Diagnostics . Process . Start ( Application . StartupPath + @"\AutoUpdate.exe" );
-            else
-            {
-                if ( Encrypt . GetDataTable ( ) . Equals ( "204" ,StringComparison . CurrentCultureIgnoreCase ) || Encrypt . GetDataTable ( ) . Equals ( "BE2" ,StringComparison . CurrentCultureIgnoreCase ) )
-                {
+            //AppUpdate au = new AppUpdate ( );
+            //string msg = "";
+            //bool result = au . CheckAppVersion ( ref msg );
+            //if ( result == true )
+            //    System . Diagnostics . Process . Start ( Application . StartupPath + @"\AutoUpdate.exe" );
+            //else
+            //{
+            //    if ( Encrypt . GetDataTable ( ) . Equals ( "204" ,StringComparison . CurrentCultureIgnoreCase ) || Encrypt . GetDataTable ( ) . Equals ( "BE2" ,StringComparison . CurrentCultureIgnoreCase ) )
+            //    {
                     Login lg = new Login ( );
                     lg . StartPosition = FormStartPosition . CenterScreen;
                     lg . ShowDialog ( );
                     if ( lg . DialogResult == DialogResult . OK )
                         Application . Run ( new Form1 ( ) );
-                }
-            }
+            //    }
+            //}
 
         }
 

@@ -302,6 +302,25 @@ namespace MulaolaoBll.Bll
             return dao . ExistsPQJBEdit ( model );
         }
 
+
+        /// <summary>
+        /// 获取胶合板供应商不匹配项
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getTableCheckJ ( )
+        {
+            return dao . getTableCheckJ ( );
+        }
+
+        /// <summary>
+        /// 获取密度板供应商不匹配项
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getTableCheckM ( )
+        {
+            return dao . getTableCheckM ( );
+        }
+
         /// <summary>
         /// 新增胶板
         /// </summary>

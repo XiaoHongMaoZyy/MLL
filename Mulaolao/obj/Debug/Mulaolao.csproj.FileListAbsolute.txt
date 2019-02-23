@@ -1721,3 +1721,4 @@ D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form344Query.re
 D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.Form505Query.resources
 D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.r505.resources
 D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.QuoForms.r495.resources
+D:\ProjectData\MLL\Mulaolao\Mulaolao\obj\Debug\Mulaolao.Contract.FormNumForThis.resources

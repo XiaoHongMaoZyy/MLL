@@ -1292,6 +1292,22 @@ namespace Mulaolao.Raw_material_cost
                 comboBox12 . Text = DicStr . jl;
             }
         }
+        //读取材料零件等数据
+        private void btnNum_Click ( object sender ,EventArgs e )
+        {
+            DataTable table = ddl . DefaultView . ToTable ( true ,"GS05" ,"GS07" ,"GS08" ,"GS09" ,"GS10" ,"GS11" );
+            FormNumForThis form = new FormNumForThis ( table );
+            if ( form . ShowDialog ( ) == DialogResult . OK )
+            {
+                DataRow row = form . getRow;
+                txtGS75 . Text = row [ "GS07" ] . ToString ( );
+                txtGS76 . Text = row [ "GS08" ] . ToString ( );
+                comboBox20 . Text = row [ "GS09" ] . ToString ( );
+                txtGS79 . Text = row [ "GS10" ] . ToString ( );
+                comboBox24 . Text = row [ "GS11" ] . ToString ( );
+                comboBox23 . Text = row [ "GS05" ] . ToString ( );
+            }
+        }
         #endregion
 
         #region 主体
@@ -2412,173 +2428,7 @@ namespace Mulaolao.Raw_material_cost
         //COPY
         private void button13_Click ( object sender ,EventArgs e )
         {
-            if ( _model.GS34 == "" )
-                MessageBox.Show( "请查询需要复制的内容" );
-            else
-            {
-                //int count = 0;
-                DataTable dw = SqlHelper.ExecuteDataTable( "SELECT * FROM R_PQP WHERE GS34=@GS34" ,new SqlParameter( "@GS34" ,_model . GS34 ) );
-                if ( dw.Rows.Count < 1 )
-                    MessageBox.Show( "不存在单号:" + _model . GS34 + "的记录" );
-                else
-                {
-                    _model . GS34 = oddNumbers.purchaseContract( "SELECT MAX(GS34) GS34 FROM R_PQP" ,"GS34" ,"R_509-" );
-                    for ( int i = 0 ; i < dw.Rows.Count ; i++ )
-                    {
-                        //GS01 = dw.Rows[i]["GS01"].ToString( );
-                        _model . GS46 = dw.Rows[i]["GS46"].ToString( );
-                        _model . GS47 = dw.Rows[i]["GS47"].ToString( );
-                        _model . GS48 = dw.Rows[i]["GS48"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS49"].ToString( ) ) )
-                            _model . GS49 = 0;
-                        else
-                            _model . GS49 = Convert.ToInt64( dw.Rows[i]["GS49"].ToString( ) );
-                        //GS50 = dw.Rows[i]["GS50"].ToString( );
-                        _model . GS03 = dw.Rows[i]["GS03"].ToString( );
-                        _model . GS02 = dw.Rows[i]["GS02"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS04"].ToString( ) ) )
-                            _model . GS04 = 0;
-                        else
-                            _model . GS04 = Convert.ToDecimal( dw.Rows[i]["GS04"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS05"].ToString( ) ) )
-                            _model . GS05 = 0;
-                        else
-                            _model . GS05 = Convert.ToDecimal( dw.Rows[i]["GS05"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS06"].ToString( ) ) )
-                            _model . GS06 = 0;
-                        else
-                            _model . GS06 = Convert.ToDecimal( dw.Rows[i]["GS06"].ToString( ) );
-                        _model . GS07 = dw.Rows[i]["GS07"].ToString( );
-                        _model . GS08 = dw.Rows[i]["GS08"].ToString( );
-                        _model . GS09 = dw.Rows[i]["GS09"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS10"].ToString( ) ) )
-                            _model . GS10 = 0;
-                        else
-                            _model . GS10 = Convert.ToDecimal( dw.Rows[i]["GS10"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS11"].ToString( ) ) )
-                            _model . GS11 = 0;
-                        else
-                            _model . GS11 = Convert.ToDecimal( dw.Rows[i]["GS11"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS13"].ToString( ) ) )
-                            _model . GS13 = 0;
-                        else
-                            _model . GS13 = Convert.ToInt32( dw.Rows[i]["GS13"].ToString( ) );
-                        _model . GS14 = dw.Rows[i]["GS14"].ToString( );
-                        _model . GS15 = dw.Rows[i]["GS15"].ToString( );
-                        _model . GS16 = dw.Rows[i]["GS16"].ToString( );
-                        _model . GS17 = dw.Rows[i]["GS17"].ToString( );
-                        _model . GS18 = dw.Rows[i]["GS18"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS19"].ToString( ) ) )
-                            _model . GS19 = MulaolaoBll . Drity . GetDt ( );
-                        else
-                            _model . GS19 = Convert.ToDateTime( dw.Rows[i]["GS19"].ToString( ) );
-                        _model . GS20 = dw.Rows[i]["GS20"].ToString( );
-                        _model . GS22 = dw.Rows[i]["GS22"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS23"].ToString( ) ) )
-                            _model . GS23 = MulaolaoBll . Drity . GetDt ( );
-                        else
-                            _model . GS23 = Convert.ToDateTime( dw.Rows[i]["GS23"].ToString( ) );
-                        _model . GS24 = dw.Rows[i]["GS24"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS25"].ToString( ) ) )
-                            _model . GS25 = MulaolaoBll . Drity . GetDt ( );
-                        else
-                            _model . GS25 = Convert.ToDateTime( dw.Rows[i]["GS25"].ToString( ) );
-                        _model . GS26 = dw.Rows[i]["GS26"].ToString( );
-                        //if ( string.IsNullOrEmpty( dw.Rows[i]["GS27"].ToString( ) ) )
-                        //    GS27 = MulaolaoBll . Drity . GetDt ( );
-                        //else
-                        //    GS27 = Convert.ToDateTime( dw.Rows[i]["GS27"].ToString( ) );
-                        _model . GS28 = dw.Rows[i]["GS28"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS29"].ToString( ) ) )
-                            _model . GS29 = MulaolaoBll . Drity . GetDt ( );
-                        else
-                            _model . GS29 = Convert.ToDateTime( dw.Rows[i]["GS29"].ToString( ) );
-                        //GS30 = dw.Rows[i]["GS30"].ToString( );
-                        //if ( string.IsNullOrEmpty( dw.Rows[i]["GS31"].ToString( ) ) )
-                        //    GS31 = 0;
-                        //else
-                        //    GS31 = Convert.ToInt32( dw.Rows[i]["GS31"].ToString( ) );
-                        _model . GS32 = dw.Rows[i]["GS32"].ToString( );
-                        _model . GS33 = dw.Rows[i]["GS33"].ToString( );
-                        _model . GS35 = dw.Rows[i]["GS35"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS36"].ToString( ) ) )
-                            _model . GS36 = 0M;
-                        else
-                            _model . GS36 = Convert.ToDecimal( dw.Rows[i]["GS36"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS37"].ToString( ) ) )
-                            _model . GS37 = 0M;
-                        else
-                            _model . GS37 = Convert.ToDecimal( dw.Rows[i]["GS37"].ToString( ) );
-                        //GS038 = dw.Rows[i]["GS38"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS39"].ToString( ) ) )
-                            _model . GS39 = 0;
-                        else
-                            _model . GS39 = Convert.ToInt32( dw.Rows[i]["GS39"].ToString( ) );
-                        _model . GS40 = dw.Rows[i]["GS40"].ToString( );
-                        _model . GS41 = dw.Rows[i]["GS41"].ToString( );
-                        _model . GS42 = dw.Rows[i]["GS42"].ToString( );
-                        _model . GS43 = dw.Rows[i]["GS43"].ToString( );
-                        _model . GS44 = dw.Rows[i]["GS44"].ToString( );
-                        //if ( string.IsNullOrEmpty( dw.Rows[i]["GS45"].ToString( ) ) )
-                        //    GS045 = MulaolaoBll . Drity . GetDt ( );
-                        //else
-                        //    GS045 = Convert.ToDateTime( dw.Rows[i]["GS45"].ToString( ) );
-                        _model . GS45 = System . DateTime . Now;
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS51"].ToString( ) ) )
-                            _model . GS51 = 0;
-                        else
-                            _model . GS51 = Convert.ToDecimal( dw.Rows[i]["GS51"].ToString( ) );
-                        _model . GS52 = dw.Rows[i]["GS52"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS53"].ToString( ) ) )
-                            _model . GS53 = 0M;
-                        else
-                            _model . GS53 = Convert.ToDecimal( dw.Rows[i]["GS53"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS54"].ToString( ) ) )
-                            _model . GS54 = 0M;
-                        else
-                            _model . GS54 = Convert.ToDecimal( dw.Rows[i]["GS54"].ToString( ) );
-                        _model . GS56 = dw.Rows[i]["GS56"].ToString( );
-                        _model . GS57 = dw.Rows[i]["GS57"].ToString( );
-                        _model . GS58 = dw.Rows[i]["GS58"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS59"].ToString( ) ) )
-                            _model . GS59 = 0;
-                        else
-                            _model . GS59 = Convert.ToInt32( dw.Rows[i]["GS59"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS60"].ToString( ) ) )
-                            _model . GS60 = 0M;
-                        else
-                            _model . GS60 = Convert.ToDecimal( dw.Rows[i]["GS60"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS61"].ToString( ) ) )
-                            _model . GS61 = 0M;
-                        else
-                            _model . GS61 = Convert.ToDecimal( dw.Rows[i]["GS61"].ToString( ) );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS69"].ToString( ) ) )
-                            _model . GS69 = 0;
-                        else
-                            _model . GS69 = Convert.ToInt32( dw.Rows[i]["GS69"].ToString( ) );
-                        _model . GS62 = dw.Rows[i]["GS62"].ToString( );
-                        _model . GS63 = dw.Rows[i]["GS63"].ToString( );
-                        _model . GS64 = dw.Rows[i]["GS64"].ToString( );
-                        _model . GS65 = dw.Rows[i]["GS65"].ToString( );
-                        _model . GS66 = dw.Rows[i]["GS66"].ToString( );
-                        if ( string.IsNullOrEmpty( dw.Rows[i]["GS67"].ToString( ) ) )
-                            _model . GS67 = MulaolaoBll . Drity . GetDt ( );
-                        else
-                            _model . GS67 = Convert.ToDateTime( dw.Rows[i]["GS67"].ToString( ) );
-                        _model . GS68 = dw.Rows[i]["GS68"].ToString( );
-                        _model . GS70 = dw . Rows [ i ] [ "GS70" ] . ToString ( );
-                        _model . GS71 = dw . Rows [ i ] [ "GS71" ] . ToString ( );
 
-                        //GS01,GS27,GS30,GS31,GS38,@GS01,@GS27,@GS30,@GS31,@GS38,GS50,@GS50,
-                        //count = SqlHelper.ExecuteNonQuery( "INSERT INTO R_PQP (GS34,GS46,GS47,GS48,GS49,GS02,GS03,GS04,GS05,GS06,GS07,GS08,GS09,GS10,GS11,GS13,GS14,GS15,GS16,GS17,GS18,GS19,GS20,GS22,GS23,GS24,GS25,GS26,GS28,GS29,GS32,GS33,GS35,GS36,GS37,GS39,GS40,GS41,GS42,GS43,GS44,GS45,GS51,GS52,GS53,GS54,GS56,GS57,GS58,GS59,GS60,GS61,GS62,GS63,GS64,GS65,GS66,GS67,GS68,GS69,GS70,GS71) VALUES (@GS34,@GS46,@GS47,@GS48,@GS49,@GS02,@GS03,@GS04,@GS05,@GS06,@GS07,@GS08,@GS09,@GS10,@GS11,@GS13,@GS14,@GS15,@GS16,@GS17,@GS18,@GS19,@GS20,@GS22,@GS23,@GS24,@GS25,@GS26,@GS28,@GS29,@GS32,@GS33,@GS35,@GS36,@GS37,@GS39,@GS40,@GS41,@GS42,@GS43,@GS44,@GS45,@GS51,@GS52,@GS53,@GS54,@GS56,@GS57,@GS58,@GS59,@GS60,@GS61,@GS62,@GS63,@GS64,@GS65,@GS66,@GS67,@GS68,@GS69,@GS70,@GS71)" ,new SqlParameter( "@GS34" ,GS34 ) /*,new SqlParameter( "@GS01" ,GS01 )*/ ,new SqlParameter( "@GS46" ,GS46 ) ,new SqlParameter( "@GS47" ,GS47 ) ,new SqlParameter( "@GS48" ,GS48 ) ,new SqlParameter( "@GS49" ,GS049 ) /*,new SqlParameter( "@GS50" ,GS50 )*/ ,new SqlParameter( "@GS02" ,GS2 ) ,new SqlParameter( "@GS03" ,GS03 ) ,new SqlParameter( "@GS04" ,GS4 ) ,new SqlParameter( "@GS05" ,GS5 ) ,new SqlParameter( "@GS06" ,GS6 ) ,new SqlParameter( "@GS07" ,GS7 ) ,new SqlParameter( "@GS08" ,GS8 ) ,new SqlParameter( "@GS09" ,GS9 ) ,new SqlParameter( "@GS10" ,GS010 ) ,new SqlParameter( "@GS11" ,GS011 ) ,new SqlParameter( "@GS13" ,GS013 ) ,new SqlParameter( "@GS14" ,GS014 ) ,new SqlParameter( "@GS15" ,GS015 ) ,new SqlParameter( "@GS16" ,GS016 ) ,new SqlParameter( "@GS17" ,GS017 ) ,new SqlParameter( "@GS18" ,GS018 ) ,new SqlParameter( "@GS19" ,GS019 ) ,new SqlParameter( "@GS20" ,GS020 ) ,new SqlParameter( "@GS22" ,GS22 ) ,new SqlParameter( "@GS23" ,GS23 ) ,new SqlParameter( "@GS24" ,GS24 ) ,new SqlParameter( "@GS25" ,GS25 ) ,new SqlParameter( "@GS26" ,GS26 ) /*,new SqlParameter( "@GS27" ,GS27 )*/ ,new SqlParameter( "@GS28" ,GS28 ) ,new SqlParameter( "@GS29" ,GS29 ) /*,new SqlParameter( "@GS30" ,GS30 ) *//*,new SqlParameter( "@GS31" ,GS31 ) */,new SqlParameter( "@GS32" ,GS32 ) ,new SqlParameter( "@GS33" ,GS33 ) ,new SqlParameter( "@GS35" ,GS035 ) ,new SqlParameter( "@GS36" ,GS036 ) ,new SqlParameter( "@GS37" ,GS037 ) /*,new SqlParameter( "@GS38" ,GS038 )*/ ,new SqlParameter( "@GS39" ,GS039 ) ,new SqlParameter( "@GS40" ,GS040 ) ,new SqlParameter( "@GS41" ,GS041 ) ,new SqlParameter( "@GS42" ,GS042 ) ,new SqlParameter( "@GS43" ,GS043 ) ,new SqlParameter( "@GS44" ,GS044 ) ,new SqlParameter( "@GS45" ,GS045 ) ,new SqlParameter( "@GS51" ,GS051 ) ,new SqlParameter( "@GS52" ,GS052 ) ,new SqlParameter( "@GS53" ,GS053 ) ,new SqlParameter( "@GS54" ,GS054 ) ,new SqlParameter( "@GS56" ,GS056 ) ,new SqlParameter( "@GS57" ,GS057 ) ,new SqlParameter( "@GS58" ,GS058 ) ,new SqlParameter( "@GS59" ,GS059 ) ,new SqlParameter( "@GS60" ,GS060 ) ,new SqlParameter( "@GS61" ,GS061 ) ,new SqlParameter( "@GS62" ,GS062 ) ,new SqlParameter( "@GS63" ,GS063 ) ,new SqlParameter( "@GS64" ,GS064 ) ,new SqlParameter( "@GS65" ,GS065 ) ,new SqlParameter( "@GS66" ,GS066 ) ,new SqlParameter( "@GS67" ,GS067 ) ,new SqlParameter( "@GS68" ,GS068 ) ,new SqlParameter( "@GS69" ,GS069 ) ,new SqlParameter ( "@GS70" ,GS070 ) ,new SqlParameter ( "@GS71" ,GS071 ) );
-                        result = bll . Copy ( _model );
-                    }
-                    if ( result==false )
-                        MessageBox.Show( "复制数据失败,请重新查找此数据,然后复制" );
-                    else
-                        MessageBox.Show( "成功复制数据,单号为:" + _model.GS34 + ",要操作此记录,请重新查询" );
-                }
-            }
         }
         #endregion
 

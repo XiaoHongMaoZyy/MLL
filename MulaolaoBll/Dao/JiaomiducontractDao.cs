@@ -343,8 +343,8 @@ namespace MulaolaoBll.Dao
         {
             // AND GS02 LIKE '%胶合板%' OR  GS02 LIKE '%密度板%'
             StringBuilder strSql = new StringBuilder( );
-            strSql.Append( "SELECT DISTINCT GS02 JM09 FROM R_PQP" );
-            strSql.Append( " WHERE GS48=@GS48 AND GS02 IS NOT NULL AND GS02!=''" );
+            strSql.Append( "SELECT DISTINCT GS71 JM09 FROM R_PQP" );
+            strSql.Append( " WHERE GS48=@GS48 AND GS71 IS NOT NULL AND GS71!=''" );
             SqlParameter[] parameter = {
                 new SqlParameter("@GS48",SqlDbType.NVarChar)
             };

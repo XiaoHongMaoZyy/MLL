@@ -127,7 +127,8 @@ namespace Mulaolao.Contract
             {
                 lookUpEdit1.Text = de.Rows[0]["DBA002"].ToString( );
                 textBox7.Text = de.Rows[0]["WX01"].ToString( );
-                textBox1.Text =WX03= de.Rows[0]["WX03"].ToString( );
+                textBox1 . Text = WX03 = de . Rows [ 0 ] [ "WX03" ] . ToString ( );
+                textBox1 . Tag = WX03;
                 comboBox7.Text = de.Rows[0]["WX83"].ToString( );
                 textBox10.Text = de.Rows[0]["WX84"].ToString( );
                 comboBox21.Text = de.Rows[0]["WX85"].ToString( );
@@ -373,6 +374,7 @@ namespace Mulaolao.Contract
         private void tpadga_PassDataBetweenForm ( object sender ,PassDataWinFormEventArgs e )
         {
             WX03 = e.ConOne;
+            textBox1 . Tag = e . ConOne;
             textBox1.Text = e.ConTwo;
             textBox5.Text = e.ConSix;
             textBox33.Text = e.ConTre;
@@ -972,7 +974,7 @@ namespace Mulaolao.Contract
             }
             WX80 = textBox28.Text;
             WX81 = "";
-
+            WX03 = textBox1 . Tag . ToString ( );
             if ( string . IsNullOrEmpty ( WX03 ) )
             {
                 MessageBox . Show ( "请选择供应商" );

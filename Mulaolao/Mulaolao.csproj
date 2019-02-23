@@ -161,6 +161,12 @@
     <Compile Include="Contract\FormInvenAdSheet.Designer.cs">
       <DependentUpon>FormInvenAdSheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contract\FormNumForThis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FormNumForThis.Designer.cs">
+      <DependentUpon>FormNumForThis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Environmental\FormSanitationBroad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1249,6 +1255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contract\FormInvenAdSheet.resx">
       <DependentUpon>FormInvenAdSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FormNumForThis.resx">
+      <DependentUpon>FormNumForThis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contract\FormWarehouseReceipt.resx">
       <DependentUpon>FormWarehouseReceipt.cs</DependentUpon>

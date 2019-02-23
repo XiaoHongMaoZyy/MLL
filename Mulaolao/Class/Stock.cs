@@ -2422,7 +2422,7 @@ namespace Mulaolao.Class
             bool result = false;
             string resultW;
             StringBuilder strSql = new StringBuilder ( );
-            strSql . AppendFormat ( "SELECT GS57 FROM R_PQP WHERE GS01='{0}' AND GS56='{1}' " ,model . WX01 ,model . WX10 );
+            strSql . AppendFormat ( "SELECT GS08 FROM R_PQP WHERE GS01='{0}' AND GS02='{1}' " ,model . WX01 ,model . WX10 );
 
             DataTable table = SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
             if ( table == null || table . Rows . Count < 1 )
@@ -2431,7 +2431,7 @@ namespace Mulaolao.Class
             {
                 foreach ( DataRow row in table . Rows )
                 {
-                    resultW = row [ "GS57" ] . ToString ( );
+                    resultW = row [ "GS08" ] . ToString ( );
                     if ( resultW . Equals ( model . WX11 ) )
                     {
                         result = true;

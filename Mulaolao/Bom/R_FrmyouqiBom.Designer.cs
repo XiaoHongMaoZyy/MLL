@@ -502,7 +502,6 @@
             this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem31 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem32 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem28 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -515,6 +514,7 @@
             this.layoutControlItem44 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem42 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem43 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem32 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridControl9 = new DevExpress.XtraGrid.GridControl();
             this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -676,7 +676,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
@@ -689,6 +688,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem44)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
             this.SuspendLayout();
@@ -6174,6 +6174,7 @@
             this.gridView8.OptionsView.ColumnAutoWidth = false;
             this.gridView8.OptionsView.ShowGroupPanel = false;
             this.gridView8.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView8_RowClick);
+            this.gridView8.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView8_RowStyle);
             // 
             // gridColumn8
             // 
@@ -6966,19 +6967,6 @@
             this.layoutControlItem31.TextSize = new System.Drawing.Size(48, 16);
             this.layoutControlItem31.TextToControlDistance = 5;
             // 
-            // layoutControlItem32
-            // 
-            this.layoutControlItem32.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F);
-            this.layoutControlItem32.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem32.Control = this.txtQMD009;
-            this.layoutControlItem32.Location = new System.Drawing.Point(213, 0);
-            this.layoutControlItem32.Name = "layoutControlItem32";
-            this.layoutControlItem32.Size = new System.Drawing.Size(299, 26);
-            this.layoutControlItem32.Text = "等级";
-            this.layoutControlItem32.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.layoutControlItem32.TextSize = new System.Drawing.Size(32, 16);
-            this.layoutControlItem32.TextToControlDistance = 5;
-            // 
             // layoutControlItem28
             // 
             this.layoutControlItem28.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -7128,6 +7116,19 @@
             this.layoutControlItem43.TextSize = new System.Drawing.Size(64, 16);
             this.layoutControlItem43.TextToControlDistance = 5;
             // 
+            // layoutControlItem32
+            // 
+            this.layoutControlItem32.AppearanceItemCaption.Font = new System.Drawing.Font("宋体", 12F);
+            this.layoutControlItem32.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem32.Control = this.txtQMD009;
+            this.layoutControlItem32.Location = new System.Drawing.Point(213, 0);
+            this.layoutControlItem32.Name = "layoutControlItem32";
+            this.layoutControlItem32.Size = new System.Drawing.Size(299, 26);
+            this.layoutControlItem32.Text = "等级";
+            this.layoutControlItem32.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem32.TextSize = new System.Drawing.Size(32, 16);
+            this.layoutControlItem32.TextToControlDistance = 5;
+            // 
             // gridControl9
             // 
             this.gridControl9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -7167,6 +7168,7 @@
             this.gridView9.OptionsView.ColumnAutoWidth = false;
             this.gridView9.OptionsView.ShowGroupPanel = false;
             this.gridView9.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView9_RowClick);
+            this.gridView9.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView9_RowStyle);
             // 
             // gridColumn1
             // 
@@ -7559,7 +7561,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
@@ -7572,6 +7573,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem44)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
             this.ResumeLayout(false);

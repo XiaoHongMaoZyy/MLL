@@ -788,6 +788,29 @@ namespace MulaolaoBll.Dao
             return SqlHelper . Exists ( strSql . ToString ( ) );
         }
 
+        /// <summary>
+        /// 获取胶合板供应商不匹配项
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getTableCheckJ ( )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . Append ( "SELECT idx FROM R_PQJB WHERE (SELECT COUNT(1) FROM TPADGA WHERE QJB013=DGA001 AND QJB014=DGA003 AND QJB015=DGA017 AND QJB016=DGA008 AND QJB017=DGA012 AND QJB018=DGA009 AND QJB019=DGA011)=0" );
+
+            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
+        }
+
+        /// <summary>
+        /// 获取密度板供应商不匹配项
+        /// </summary>
+        /// <returns></returns>
+        public DataTable getTableCheckM ( )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . Append ( "SELECT idx FROM R_PQMD WHERE (SELECT COUNT(1) FROM TPADGA WHERE QMD012=DGA001 AND QMD013=DGA003 AND QMD014=DGA017 AND QMD015=DGA008 AND QMD016=DGA012 AND QMD017=DGA009 AND QMD018=DGA011)=0" );
+
+            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
+        }
 
         /// <summary>
         /// 新增胶板

@@ -132,6 +132,7 @@
             this.BatchAdd = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btnNum = new System.Windows.Forms.Button();
             this.txtGS79 = new System.Windows.Forms.TextBox();
             this.label83 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
@@ -837,6 +838,8 @@
             this.GS10.AppearanceHeader.Options.UseTextOptions = true;
             this.GS10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.GS10.Caption = "每套零件数量";
+            this.GS10.DisplayFormat.FormatString = "0.######";
+            this.GS10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.GS10.FieldName = "GS10";
             this.GS10.Name = "GS10";
             this.GS10.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
@@ -1738,6 +1741,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.btnNum);
             this.splitContainer2.Panel1.Controls.Add(this.txtGS79);
             this.splitContainer2.Panel1.Controls.Add(this.label83);
             this.splitContainer2.Panel1.Controls.Add(this.label80);
@@ -1782,9 +1786,19 @@
             this.splitContainer2.SplitterDistance = 148;
             this.splitContainer2.TabIndex = 4;
             // 
+            // btnNum
+            // 
+            this.btnNum.BackColor = System.Drawing.Color.Green;
+            this.btnNum.Location = new System.Drawing.Point(368, 14);
+            this.btnNum.Name = "btnNum";
+            this.btnNum.Size = new System.Drawing.Size(30, 26);
+            this.btnNum.TabIndex = 106;
+            this.btnNum.UseVisualStyleBackColor = false;
+            this.btnNum.Click += new System.EventHandler(this.btnNum_Click);
+            // 
             // txtGS79
             // 
-            this.txtGS79.Location = new System.Drawing.Point(484, 81);
+            this.txtGS79.Location = new System.Drawing.Point(526, 81);
             this.txtGS79.Name = "txtGS79";
             this.txtGS79.Size = new System.Drawing.Size(100, 23);
             this.txtGS79.TabIndex = 105;
@@ -1792,7 +1806,7 @@
             // label83
             // 
             this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(411, 87);
+            this.label83.Location = new System.Drawing.Point(453, 87);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(67, 14);
             this.label83.TabIndex = 104;
@@ -1888,7 +1902,7 @@
             // 
             // lookUpEdit6
             // 
-            this.lookUpEdit6.Location = new System.Drawing.Point(869, 81);
+            this.lookUpEdit6.Location = new System.Drawing.Point(911, 81);
             this.lookUpEdit6.Name = "lookUpEdit6";
             this.lookUpEdit6.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpEdit6.Properties.Appearance.Options.UseFont = true;
@@ -1911,7 +1925,7 @@
             // 
             // lookUpEdit5
             // 
-            this.lookUpEdit5.Location = new System.Drawing.Point(869, 48);
+            this.lookUpEdit5.Location = new System.Drawing.Point(911, 48);
             this.lookUpEdit5.Name = "lookUpEdit5";
             this.lookUpEdit5.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpEdit5.Properties.Appearance.Options.UseFont = true;
@@ -1935,7 +1949,7 @@
             // 
             // lookUpEdit4
             // 
-            this.lookUpEdit4.Location = new System.Drawing.Point(869, 17);
+            this.lookUpEdit4.Location = new System.Drawing.Point(911, 17);
             this.lookUpEdit4.Name = "lookUpEdit4";
             this.lookUpEdit4.Properties.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpEdit4.Properties.Appearance.Options.UseFont = true;
@@ -1980,15 +1994,15 @@
             // datatimepickeroverride1
             // 
             this.datatimepickeroverride1.Enabled = false;
-            this.datatimepickeroverride1.Location = new System.Drawing.Point(1048, 17);
+            this.datatimepickeroverride1.Location = new System.Drawing.Point(1090, 17);
             this.datatimepickeroverride1.Name = "datatimepickeroverride1";
-            this.datatimepickeroverride1.Size = new System.Drawing.Size(150, 23);
+            this.datatimepickeroverride1.Size = new System.Drawing.Size(127, 23);
             this.datatimepickeroverride1.TabIndex = 75;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(975, 22);
+            this.label36.Location = new System.Drawing.Point(1017, 22);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(67, 14);
             this.label36.TabIndex = 74;
@@ -2006,7 +2020,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(815, 86);
+            this.label37.Location = new System.Drawing.Point(857, 86);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(52, 14);
             this.label37.TabIndex = 72;
@@ -2026,7 +2040,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(815, 51);
+            this.label38.Location = new System.Drawing.Point(857, 51);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(52, 14);
             this.label38.TabIndex = 70;
@@ -2035,7 +2049,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(381, 20);
+            this.label48.Location = new System.Drawing.Point(423, 20);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(97, 14);
             this.label48.TabIndex = 48;
@@ -2044,7 +2058,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(781, 21);
+            this.label39.Location = new System.Drawing.Point(823, 21);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(82, 14);
             this.label39.TabIndex = 68;
@@ -2053,7 +2067,7 @@
             // comboBox23
             // 
             this.comboBox23.FormattingEnabled = true;
-            this.comboBox23.Location = new System.Drawing.Point(484, 17);
+            this.comboBox23.Location = new System.Drawing.Point(526, 17);
             this.comboBox23.Name = "comboBox23";
             this.comboBox23.Size = new System.Drawing.Size(100, 22);
             this.comboBox23.TabIndex = 49;
@@ -2063,7 +2077,7 @@
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(484, 49);
+            this.textBox19.Location = new System.Drawing.Point(526, 49);
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(100, 23);
             this.textBox19.TabIndex = 67;
@@ -2071,7 +2085,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(633, 50);
+            this.label45.Location = new System.Drawing.Point(675, 50);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(37, 14);
             this.label45.TabIndex = 56;
@@ -2080,7 +2094,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(411, 55);
+            this.label40.Location = new System.Drawing.Point(453, 55);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(67, 14);
             this.label40.TabIndex = 66;
@@ -2089,14 +2103,14 @@
             // comboBox20
             // 
             this.comboBox20.FormattingEnabled = true;
-            this.comboBox20.Location = new System.Drawing.Point(676, 47);
+            this.comboBox20.Location = new System.Drawing.Point(718, 47);
             this.comboBox20.Name = "comboBox20";
             this.comboBox20.Size = new System.Drawing.Size(100, 22);
             this.comboBox20.TabIndex = 57;
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(676, 82);
+            this.textBox20.Location = new System.Drawing.Point(718, 82);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(100, 23);
             this.textBox20.TabIndex = 65;
@@ -2104,7 +2118,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(633, 20);
+            this.label42.Location = new System.Drawing.Point(675, 20);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(37, 14);
             this.label42.TabIndex = 62;
@@ -2113,7 +2127,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(603, 86);
+            this.label41.Location = new System.Drawing.Point(645, 86);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(67, 14);
             this.label41.TabIndex = 64;
@@ -2122,7 +2136,7 @@
             // comboBox17
             // 
             this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Location = new System.Drawing.Point(676, 17);
+            this.comboBox17.Location = new System.Drawing.Point(718, 17);
             this.comboBox17.Name = "comboBox17";
             this.comboBox17.Size = new System.Drawing.Size(100, 22);
             this.comboBox17.TabIndex = 63;
@@ -4350,5 +4364,6 @@
         private System . Windows . Forms . TextBox txtGS79;
         private System . Windows . Forms . Label label83;
         private DevExpress . XtraGrid . Columns . GridColumn GS79;
+        private System . Windows . Forms . Button btnNum;
     }
 }

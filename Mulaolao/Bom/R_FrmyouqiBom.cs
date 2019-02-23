@@ -17,7 +17,7 @@ namespace Mulaolao . Contract
         MulaolaoLibrary.YouQiBomHupLibrary _model = null;
         MulaolaoLibrary.PqjbEntity modelPqjb=null;
         MulaolaoLibrary.PqmdEntity modelPqmd=null;
-        DataTable pqa, pqb,pqc,pqd,pqe,pqkz,pqas,pqjb,pqmd;
+        DataTable pqa, pqb,pqc,pqd,pqe,pqkz,pqas,pqjb,pqmd,checkJ,checkM;
         R519batch btch = new R519batch( );
         int selectIdx=0,selectIdxMd;
 
@@ -40,6 +40,9 @@ namespace Mulaolao . Contract
             _model = new MulaolaoLibrary . YouQiBomHupLibrary ( );
             modelPqjb = new MulaolaoLibrary . PqjbEntity ( );
             modelPqmd = new MulaolaoLibrary . PqmdEntity ( );
+
+            checkJ = bll . getTableCheckJ ( );
+            checkM = bll . getTableCheckM ( );
         }
 
         private void R_FrmyouqiBom_Load( object sender, EventArgs e )
@@ -3855,6 +3858,16 @@ namespace Mulaolao . Contract
                 return;
             txtQJB008 . Text = ( Convert . ToDecimal ( str [ 0 ] ) * Convert . ToDecimal ( str [ 1 ] ) * Convert . ToDecimal ( str [ 2 ] ) * Convert . ToDecimal ( 0.000001 ) ) . ToString ( );
         }
+        private void gridView8_RowStyle ( object sender ,DevExpress . XtraGrid . Views . Grid . RowStyleEventArgs e )
+        {
+            if ( checkJ == null || checkJ . Rows . Count < 1 )
+                return;
+            DataRow row = gridView8 . GetDataRow ( e . RowHandle );
+            if ( row == null )
+                return;
+            if ( checkJ . Select ( "idx='" + row [ "idx" ] + "'" ) . Length > 0 )
+                e . Appearance . BackColor = System . Drawing . Color . Red;
+        }
         #endregion
 
         #region 密度板
@@ -4084,6 +4097,16 @@ namespace Mulaolao . Contract
             if ( str . Length < 3 )
                 return;
             txtQMD007 . Text = ( Convert . ToDecimal ( str [ 0 ] ) * Convert . ToDecimal ( str [ 1 ] ) * Convert . ToDecimal ( str [ 2 ] ) * Convert . ToDecimal ( 0.000001 ) ) . ToString ( );
+        }
+        private void gridView9_RowStyle ( object sender ,DevExpress . XtraGrid . Views . Grid . RowStyleEventArgs e )
+        {
+            if ( checkM == null || checkM . Rows . Count < 1 )
+                return;
+            DataRow row = gridView9 . GetDataRow ( e . RowHandle );
+            if ( row == null )
+                return;
+            if ( checkM . Select ( "idx='" + row [ "idx" ] + "'" ) . Length > 0 )
+                e . Appearance . BackColor = System . Drawing . Color . Red;
         }
         #endregion
 
