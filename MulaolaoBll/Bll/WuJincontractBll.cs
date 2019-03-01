@@ -118,7 +118,8 @@ namespace MulaolaoBll.Bll
         /// <returns></returns>
         public System.Data.DataTable GetDataTableWork ( )
         {
-            return dao.GetDataTableWork( );
+            //return dao.GetDataTableWork( );
+            return Drity . getTableForUser ( );
         }
 
         /// <summary>

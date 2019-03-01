@@ -1,9 +1,10 @@
-﻿using Mulaolao.Class;
+﻿using Mulaolao . Class;
 using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Windows.Forms;
+using System . Data;
+using System . Data . SqlClient;
+using System . Windows . Forms;
 using StudentMgr;
+using MulaolaoBll;
 
 namespace Mulaolao.Other
 {
@@ -30,11 +31,7 @@ namespace Mulaolao.Other
             DataTable dd = SqlHelper.ExecuteDataTable( "SELECT RES03,RES05,CX02,RES06 FROM R_REVIEWS A,R_MLLCXMC B WHERE A.RES01=B.CX01 AND CX02=@CX02 AND RES06=@RES06", new SqlParameter( "@CX02", CX02 ) ,new SqlParameter("@RES06",sta));
             DataTable de = SqlHelper.ExecuteDataTable( "SELECT * FROM R_DBB A,R_MLLCXMC B WHERE A.DBB002=B.CX01 AND DBB011='T' AND CX02=@CX02 AND DBB001=@DBB001", new SqlParameter( "@CX02", CX02 ), new SqlParameter( "@DBB001", Logins.number ) );
             DataTable dq = SqlHelper.ExecuteDataTable( "SELECT * FROM R_REVIEW A,R_MLLCXMC B WHERE A.RE02=B.CX01 AND RE01=@RE01 and CX02=@CX02", new SqlParameter( "@RE01", Logins.number ), new SqlParameter( "@CX02", CX02 ) );
-            //try
-            //{
-            //    DataTable dl = SqlHelper.ExecuteDataTable( "SELECT * FROM R_REVIEWS A,R_MLLCXMC B WHERE A.RES01=B.CX01 AND RES03=@RES03 AND RES06=@RESO6 AND CX02=@CX02" ,new SqlParameter( "@RES03" ,Logins.number ) ,new SqlParameter( "@RES06" ,sta ) ,new SqlParameter( "@CX02" ,CX02 ) );
-            //}
-            //catch (Exception ex) { }
+
             //有权送审 
             if (dq != null && dq.Rows.Count > 0)
             {
@@ -44,7 +41,7 @@ namespace Mulaolao.Other
                     for (int i = 0; i < dd.Rows.Count; i++)
                     {
                         //已执行
-                        if (dd.Rows[i]["RES05"].ToString( ) == "执行")
+                        if ( "执行".Equals( dd .Rows[i]["RES05"].ToString( ) ))
                         {
                             radioButton1.Enabled = false;
                             radioButton2.Enabled = false;
@@ -116,16 +113,16 @@ namespace Mulaolao.Other
             else if ( radioButton3.Checked )
                 cn1 = radioButton3.Text;
             cn2 = textBox1.Text;
-            if ( cn1 == "" )
+            if ( string.IsNullOrEmpty( cn1 ) )
             {
                 MessageBox.Show( "请选择送审状态" );
                 formState = false;
             }
             else
             {
-                if ( cn1 == radioButton3.Text )
+                if ( radioButton3.Text.Equals(cn1) )
                 {
-                    if ( tableNum == "R_341" )
+                    if ( DicStr.r341.Equals( tableNum) )
                     {
                         if ( result == true && over == true )
                         {
@@ -139,7 +136,7 @@ namespace Mulaolao.Other
                         else
                             MessageBox.Show( "成本员不可为空且需要廖总审核" );
                     }
-                    else if ( tableNum == "R_495" )
+                    else if (DicStr.r495.Equals( tableNum ) )
                     {
                         if ( result == true )
                         {
@@ -153,7 +150,7 @@ namespace Mulaolao.Other
                         else
                             MessageBox.Show( "此表需要廖总审核" );
                     }
-                    else if ( tableNum == "R_339" )
+                    else if (DicStr.r339.Equals( tableNum ) )
                     {
                         if ( result == true && over == true )
                         {
@@ -167,7 +164,7 @@ namespace Mulaolao.Other
                         else
                             MessageBox.Show( "成本员不可为空且必须廖总审核" );
                     }
-                    else if ( tableNum == "R_195" || tableNum == "R_196" )
+                    else if (DicStr.r195.Equals( tableNum ) || DicStr.r196.Equals( tableNum ) )
                     {
                         if ( over == true )
                         {
@@ -183,7 +180,7 @@ namespace Mulaolao.Other
                     }
                     else
                     {
-                        if ( string.IsNullOrEmpty( num ) && ( tableNum == "R_338" || tableNum == "R_341" || tableNum == "R_342" || tableNum == "R_343" || tableNum == "R_347" || tableNum == "R_349" ) )
+                        if ( string.IsNullOrEmpty( num ) && (DicStr.r338.Equals( tableNum ) || DicStr.r341.Equals( tableNum ) || DicStr.r342.Equals( tableNum ) || DicStr.r343.Equals( tableNum ) || DicStr.r347.Equals( tableNum ) || DicStr.r349.Equals( tableNum ) ) )
                         {
                             if ( result == true && over == true )
                             {
@@ -197,7 +194,7 @@ namespace Mulaolao.Other
                             else
                                 MessageBox.Show( "成本员不可为空且计划订单需要廖总审核" );
                         }
-                        else if ( !string.IsNullOrEmpty( num ) && ( tableNum == "R_338" || tableNum == "R_339" || tableNum == "R_341" || tableNum == "R_342" || tableNum == "R_343" || tableNum == "R_347" || tableNum == "R_349" || tableNum == "R_195" || tableNum == "R_196" ) )
+                        else if ( !string.IsNullOrEmpty( num ) && ( DicStr . r338 . Equals ( tableNum ) || DicStr . r339 . Equals ( tableNum ) || DicStr . r341 . Equals ( tableNum ) || DicStr . r342 . Equals ( tableNum ) || DicStr . r343 . Equals ( tableNum ) || DicStr . r347 . Equals ( tableNum ) || DicStr . r349 . Equals ( tableNum ) || DicStr . r195 . Equals ( tableNum ) || DicStr . r196 . Equals ( tableNum ) ) )
                         {
                             if ( over == true )
                             {
@@ -243,5 +240,6 @@ namespace Mulaolao.Other
             cn1 = cn2 = "";
             this.Close( );
         }
+
     }
 }

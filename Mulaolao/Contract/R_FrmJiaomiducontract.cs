@@ -2218,20 +2218,21 @@ namespace Mulaolao.Procedure
             if ( acd.Rows.Count > 0 )
             {
                 //每张套数 每张单价 原价/m³必须与计划合同一致
-                if ( acd.Select( "JM10='" + model.JM10 + "'" ).Length <= 0 )
-                    MessageBox.Show( "每张套数与计划订单不一致,应为:" + acd.Rows[0]["JM10"].ToString( ) + "" );
-                else
-                {
+
+                //if ( acd.Select( "JM10='" + model.JM10 + "'" ).Length <= 0 )
+                //    MessageBox.Show( "每张套数与计划订单不一致,应为:" + acd.Rows[0]["JM10"].ToString( ) + "" );
+                //else
+                //{
                     if ( acd.Select( "JM11='" + model.JM11 + "'" ).Length <= 0 )
                         MessageBox.Show( "每张单价与计划订单不一致,应为:" + acd.Rows[0]["JM11"].ToString( ) + "" );
                     else
                     {
-                        if ( acd.Select( "JM12='" + model.JM12 + "'" ).Length <= 0 )
-                            MessageBox.Show( "原价/m³与计划订单不一致,应为:" + acd.Rows[0]["JM12"].ToString( ) + "" );
-                        else
+                        //if ( acd.Select( "JM12='" + model.JM12 + "'" ).Length <= 0 )
+                        //    MessageBox.Show( "原价/m³与计划订单不一致,应为:" + acd.Rows[0]["JM12"].ToString( ) + "" );
+                        //else
                             build( );
                     }
-                }
+                //}
             }
             else
                 build( );

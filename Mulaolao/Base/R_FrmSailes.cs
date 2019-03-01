@@ -36,7 +36,7 @@ namespace Mulaolao . Contract
         GroupBox[] gb;
         string bj;
         List<string> zt = new List<string>( );
-
+        
         private DataSet XDataSet;
         Report report = new Report( );
         bool result = false;

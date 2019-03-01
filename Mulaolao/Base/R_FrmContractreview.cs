@@ -42,7 +42,7 @@ namespace Mulaolao .Forms
         string weihu="",sav="";
         bool result = false; SpecialPowers sp = new SpecialPowers( );
         DataTable tableView;long PQF6=0;
-
+        
         private void R_FrmContractreview_Load( object sender, EventArgs e )
         {           
             Power( this );

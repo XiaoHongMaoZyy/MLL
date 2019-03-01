@@ -444,10 +444,13 @@ namespace MulaolaoBll.Dao
         public DataTable GetDataTable ( string strWhere ,DateTime dt )
         {
             StringBuilder strSql = new StringBuilder ( );
-            if ( dt . Day == 31 )
-                strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/(day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))+1)) U4,CONVERT(DECIMAL(18,5),XZ005/(day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))+1)*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
-            else
-                strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            //if ( dt . Day == 31 )
+            //    strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/(day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))+1)) U4,CONVERT(DECIMAL(18,5),XZ005/(day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))+1)*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            //else
+            //    strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            strSql . Append ( "DECLARE @COUNT INT " );
+            strSql . Append ( "SELECT @COUNT=COUNT(1) FROM (select convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) day from (select substring(convert(varchar,@XZ13,120),1,7)+'-01' day) t1, (select number from MASTER..spt_values WHERE TYPE='P' AND number>=0 and number<=31) t2 where convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) like substring(convert(varchar,@XZ13,120),1,7)+'%') A  " );
+            strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/@COUNT) U4,CONVERT(DECIMAL(18,5),XZ005/@COUNT*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ " );
             strSql . Append ( " WHERE " + strWhere );
             SqlParameter [ ] parameter = {
                 new SqlParameter("@XZ13",SqlDbType.Date)
@@ -459,10 +462,13 @@ namespace MulaolaoBll.Dao
         public DataTable GetDataTableTwo ( string strWhere ,DateTime dt )
         {
             StringBuilder strSql = new StringBuilder( );
-            if ( dt . Day == 31 )
-                strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
-            else
-                strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            //if ( dt . Day == 31 )
+            //    strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            //else
+            //    strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            strSql . Append ( "DECLARE @COUNT INT " );
+            strSql . Append ( "SELECT @COUNT=COUNT(1) FROM (select convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) day from (select substring(convert(varchar,@XZ13,120),1,7)+'-01' day) t1, (select number from MASTER..spt_values WHERE TYPE='P' AND number>=0 and number<=31) t2 where convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) like substring(convert(varchar,@XZ13,120),1,7)+'%') A  " );
+            strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/@COUNT) U4,CONVERT(DECIMAL(18,5),XZ005/@COUNT*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ " );
             strSql .Append( " WHERE " + strWhere );
             strSql.Append( " AND XZ014='行政' AND XZ028='1'" );
             SqlParameter[] parameter = {
@@ -475,10 +481,13 @@ namespace MulaolaoBll.Dao
         public DataTable GetDataTableTre ( string strWhere ,DateTime dt )
         {
             StringBuilder strSql = new StringBuilder( );
-            if ( dt . Day == 31 )
-                strSql .Append( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
-            else
-                strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            //if ( dt . Day == 31 )
+            //    strSql .Append( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            //else
+            //    strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            strSql . Append ( "DECLARE @COUNT INT " );
+            strSql . Append ( "SELECT @COUNT=COUNT(1) FROM (select convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) day from (select substring(convert(varchar,@XZ13,120),1,7)+'-01' day) t1, (select number from MASTER..spt_values WHERE TYPE='P' AND number>=0 and number<=31) t2 where convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) like substring(convert(varchar,@XZ13,120),1,7)+'%') A  " );
+            strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/@COUNT) U4,CONVERT(DECIMAL(18,5),XZ005/@COUNT*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ " );
             strSql .Append( " WHERE " + strWhere );
             strSql.Append( " AND XZ014='生产部' AND XZ028='1'" );
             SqlParameter[] parameter = {
@@ -491,11 +500,14 @@ namespace MulaolaoBll.Dao
         public DataTable GetDataTableFor ( string strWhere ,DateTime dt )
         {
             StringBuilder strSql = new StringBuilder( );
-            if ( dt . Day == 31 )
-                strSql .Append( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
-            else
-                strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
-            strSql .Append( " WHERE " + strWhere );
+            //if ( dt . Day == 31 )
+            //    strSql .Append( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,0,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            //else
+            //    strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))) U4,CONVERT(DECIMAL(18,5),XZ005/day(dateadd(d,-day(@XZ13),dateadd(m,1,@XZ13)))*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ" );
+            strSql . Append ( "DECLARE @COUNT INT " );
+            strSql . Append ( "SELECT @COUNT=COUNT(1) FROM (select convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) day from (select substring(convert(varchar,@XZ13,120),1,7)+'-01' day) t1, (select number from MASTER..spt_values WHERE TYPE='P' AND number>=0 and number<=31) t2 where convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) like substring(convert(varchar,@XZ13,120),1,7)+'%') A  " );
+            strSql . Append ( "SELECT idx,XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ022,XZ023,XZ024,XZ027,XZ028,XZ029,CONVERT(DECIMAL(18,5),XZ005/@COUNT) U4,CONVERT(DECIMAL(18,5),XZ005/@COUNT*(XZ006+XZ007)) U6,XZ030,XZ031,XZ032 FROM R_PQXZ " );
+            strSql . Append( " WHERE " + strWhere );
             strSql.Append( " AND XZ028='2'" );
             SqlParameter[] parameter = {
                 new SqlParameter("@XZ13",SqlDbType.Date)
@@ -578,20 +590,24 @@ namespace MulaolaoBll.Dao
         /// </summary>
         /// <param name="oddNum"></param>
         /// <returns></returns>
-        public DataTable GetDataTablePrint ( string oddNum ,string strPrintWhere)
+        public DataTable GetDataTablePrint ( string oddNum ,string strPrintWhere,DateTime dt)
         {
             StringBuilder strSql = new StringBuilder( );
-            strSql.Append( "WITH CET AS (SELECT XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ023,XZ024,XZ027,XZ017,XZ018,XZ019,XZ030,XZ031,GETDATE() XZ020,XZ028,XZ029,XZ006+XZ007 U0,XZ010+XZ008+XZ011+XZ009+XZ024+XZ030+XZ031 U2,CASE WHEN XZ013 IS NOT NULL AND DAY(XZ013)=31 THEN CONVERT(DECIMAL(18,5),XZ005/DAY(DATEADD(d,-DAY(XZ013),DATEADD(m,0,XZ013)))) ELSE CONVERT(DECIMAL(18,5),XZ005/DAY(DATEADD(d,-DAY(XZ013),DATEADD(m,1,XZ013)))) END U4,CASE WHEN XZ013 IS NOT NULL AND DAY(XZ013)=31 THEN CONVERT(DECIMAL(18,5),XZ005/DAY(DATEADD(d,-DAY(XZ013),DATEADD(m,0,XZ013)))*(XZ006+XZ007)) ELSE CONVERT(DECIMAL(18,5),XZ005/DAY(DATEADD(d,-DAY(XZ013),DATEADD(m,1,XZ013)))*(XZ006+XZ007)) END U6 FROM R_PQXZ" );
+            strSql . Append ( "DECLARE @COUNT INT; " );
+            strSql . Append ( "SELECT @COUNT=COUNT(1) FROM (select convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) day from (select substring(convert(varchar,@dt,120),1,7)+'-01' day) t1, (select number from MASTER..spt_values WHERE TYPE='P' AND number>=0 and number<=31) t2 where convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) like substring(convert(varchar,@dt,120),1,7)+'%') A ;" );
+            strSql.Append( "WITH CET AS (SELECT XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ023,XZ024,XZ027,XZ017,XZ018,XZ019,XZ030,XZ031,GETDATE() XZ020,XZ028,XZ029,XZ006+XZ007 U0,XZ010+XZ008+XZ011+XZ009+XZ024+XZ030+XZ031 U2,CASE WHEN XZ013 IS NOT NULL AND DAY(XZ013)=31 THEN CONVERT(DECIMAL(18,5),XZ005/@COUNT) ELSE CONVERT(DECIMAL(18,5),XZ005/@COUNT) END U4,CASE WHEN XZ013 IS NOT NULL AND DAY(XZ013)=31 THEN CONVERT(DECIMAL(18,5),XZ005/@COUNT*(XZ006+XZ007)) ELSE CONVERT(DECIMAL(18,5),XZ005/@COUNT*(XZ006+XZ007)) END U6 FROM R_PQXZ" );
             strSql.Append( " WHERE XZ001=@XZ001");
             strSql.Append( " AND " + strPrintWhere );
             strSql.Append( " )" );
             strSql.Append( "SELECT XZ002,XZ003,XZ004,XZ005,XZ006,XZ007,XZ008,XZ009,XZ010,XZ011,XZ012,XZ013,XZ014,XZ021,XZ023,XZ024,XZ017,XZ018,XZ019,XZ020,XZ028,XZ029,U0,U2,U4,U6,CONVERT(DECIMAL(18,2),XZ023+XZ021+U0*U4+XZ029) U7,CONVERT(DECIMAL(18,2),XZ023+XZ021+U6+XZ029-(XZ010+XZ008+XZ011+XZ009+XZ024+XZ030+XZ031)) U3,CASE WHEN U0=0 THEN 0 ELSE CONVERT(DECIMAL(18,5),(XZ023+XZ021+U0*U4+XZ029)/U0) END U5,XZ027,XZ030,XZ031 FROM CET" );
             //CASE WHEN U0=0 THEN 0 ELSE CONVERT(DECIMAL(18,5),(XZ023+XZ021+U0*U4)/U0) END U5
             SqlParameter [ ] parameter = {
-                new SqlParameter("@XZ001",SqlDbType.NVarChar,20)
+                new SqlParameter("@XZ001",SqlDbType.NVarChar,20),
+                new SqlParameter("@dt",SqlDbType.Date)
             };
             parameter[0].Value = oddNum;
-            
+            parameter [ 1 ] . Value = dt;
+
             return SqlHelper.ExecuteDataTable( strSql.ToString( ) ,parameter );
         }
 
@@ -600,18 +616,22 @@ namespace MulaolaoBll.Dao
         /// </summary>
         /// <param name="oddNum"></param>
         /// <returns></returns>
-        public DataTable GetDataTableExport ( string oddNum,string strPrintWhere )
+        public DataTable GetDataTableExport ( string oddNum,string strPrintWhere ,DateTime dt)
         {
             StringBuilder strSql = new StringBuilder( );
-            strSql.Append( "WITH CET AS (SELECT XZ021,XZ023,XZ029,XZ006+XZ007 U0,XZ010+XZ008+XZ011+XZ009+XZ024+XZ030+XZ031 U2,CASE WHEN XZ013 IS NULL AND DAY(XZ013)=31 THEN CONVERT(DECIMAL(18,5),XZ005/DAY(DATEADD(d,-DAY(XZ013),DATEADD(m,0,XZ013)))) ELSE CONVERT(DECIMAL(18,5),XZ005/DAY(DATEADD(d,-DAY(XZ013),DATEADD(m,1,XZ013)))) END U4 FROM R_PQXZ" );
+            strSql . Append ( "DECLARE @COUNT INT; " );
+            strSql . Append ( "SELECT @COUNT=COUNT(1) FROM (select convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) day from (select substring(convert(varchar,@dt,120),1,7)+'-01' day) t1, (select number from MASTER..spt_values WHERE TYPE='P' AND number>=0 and number<=31) t2 where convert(varchar(10),dateadd(DAY,t2.number,t1.day),120) like substring(convert(varchar,@dt,120),1,7)+'%') A ;" );
+            strSql .Append( "WITH CET AS (SELECT XZ021,XZ023,XZ029,XZ006+XZ007 U0,XZ010+XZ008+XZ011+XZ009+XZ024+XZ030+XZ031 U2,CASE WHEN XZ013 IS NULL AND DAY(XZ013)=31 THEN CONVERT(DECIMAL(18,5),XZ005/@COUNT) ELSE CONVERT(DECIMAL(18,5),XZ005/@COUNT) END U4 FROM R_PQXZ" );
             strSql.Append( " WHERE XZ001=@XZ001" );
             strSql.Append( " AND " + strPrintWhere );
             strSql.Append( " )" );
             strSql.Append( "SELECT SUM(CONVERT(DECIMAL(18,2),XZ023+XZ021+XZ029+U0*U4-U2)) U3 FROM CET" );
             SqlParameter[] parameter = {
-                new SqlParameter("@XZ001",SqlDbType.NVarChar,20)
+                new SqlParameter("@XZ001",SqlDbType.NVarChar,20),
+                  new SqlParameter("@dt",SqlDbType.Date)
             };
-            parameter[0].Value = oddNum;
+            parameter [ 0 ] . Value = oddNum;
+            parameter [ 1 ] . Value = dt;
 
             return SqlHelper.ExecuteDataTable( strSql.ToString( ) ,parameter );
         }

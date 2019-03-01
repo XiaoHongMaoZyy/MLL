@@ -15,6 +15,7 @@ namespace Mulaolao.Class
             InitializeComponent( );
             //if (this.DesignMode == true)
             //{
+                    
             //}
             toolSelect.Enabled = toolAdd.Enabled = true;
             toolDelete.Enabled = toolUpdate.Enabled = toolReview.Enabled = toolPrint.Enabled = toolExport.Enabled = toolMaintain.Enabled = toolSave.Enabled = toolCancel.Enabled = toolcopy.Enabled =toolStorage.Enabled=toolLibrary.Enabled= false;

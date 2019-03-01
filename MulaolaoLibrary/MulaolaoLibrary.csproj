@@ -103,6 +103,7 @@
     <Compile Include="QUOLEntity.cs" />
     <Compile Include="QupEntity.cs" />
     <Compile Include="ReadyOfNumLibrary.cs" />
+    <Compile Include="ReviewsEntity.cs" />
     <Compile Include="R_FrmProductQualityLibrary.cs" />
     <Compile Include="SailesLibrary.cs" />
     <Compile Include="SailsPaymentTaxRefundAndElectricityBillLibrary.cs" />

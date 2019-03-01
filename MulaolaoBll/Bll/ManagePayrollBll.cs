@@ -171,9 +171,9 @@ namespace MulaolaoBll.Bll
         /// </summary>
         /// <param name="oddNum"></param>
         /// <returns></returns>
-        public DataTable GetDataTablePrint ( string oddNum ,string strPrintWhere)
+        public DataTable GetDataTablePrint ( string oddNum ,string strPrintWhere,DateTime dt)
         {
-            return _dao.GetDataTablePrint( oddNum ,strPrintWhere );
+            return _dao . GetDataTablePrint ( oddNum ,strPrintWhere ,dt );
         }
 
         /// <summary>
@@ -181,9 +181,9 @@ namespace MulaolaoBll.Bll
         /// </summary>
         /// <param name="oddNum"></param>
         /// <returns></returns>
-        public DataTable GetDataTableExport ( string oddNum,string strPrintWhere )
+        public DataTable GetDataTableExport ( string oddNum,string strPrintWhere,DateTime dt )
         {
-            return _dao.GetDataTableExport( oddNum ,strPrintWhere );
+            return _dao . GetDataTableExport ( oddNum ,strPrintWhere ,dt );
         }
 
         /// <summary>

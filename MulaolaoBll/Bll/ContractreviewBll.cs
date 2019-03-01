@@ -9,14 +9,17 @@ namespace MulaolaoBll . Bll
     public class ContractreviewBll
     {
         Dao. ContractreviewDao _dal=null;
+        Dao.SailesDao _dalSale =null;
         public ContractreviewBll ( )
         {
             _dal = new Dao . ContractreviewDao ( );
+            _dalSale = new Dao . SailesDao ( );
         }
 
         public DataTable GetDataTableOfWork ( )
         {
-            return _dal . GetDataTableOfWork ( );
+            //return _dal . GetDataTableOfWork ( );
+            return _dalSale . GetDataTableWork ( );
         }
 
         public bool delete ( string logins )

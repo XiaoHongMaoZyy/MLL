@@ -15,7 +15,7 @@ namespace MulaolaoBll . Dao
         {
             StringBuilder strSql = new StringBuilder ( );
             strSql . Append ( "SELECT DAA001,DAA002 FROM TPADAA WHERE DAA002 IN (SELECT DBA002 FROM TPADBA WHERE DBA005 IN (SELECT DAA001 FROM TPADAA WHERE DAA002 IN (SELECT DBA002 FROM TPADBA WHERE DBA005=(SELECT DAA001 FROM TPADAA WHERE DAA002='生产部'))  AND (DBA043='F' OR DBA043='' OR DBA043 IS NULL) )) UNION SELECT DAA001,DAA002 FROM TPADAA WHERE DAA001 LIKE '13%'" );
-
+            
             return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
         }
 

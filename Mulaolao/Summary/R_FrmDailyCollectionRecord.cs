@@ -1004,7 +1004,7 @@ namespace Mulaolao.Summary
                 {
                     MessageBox.Show( "录入数据成功" );
                     strWhere = "1=1";
-                    strWhere = strWhere + " AND AE02='" + textBox4 . Text + "'";
+                    strWhere = strWhere + " AND A.AE02='" + textBox4 . Text + "'";
                     resfrs( );
                 }
                 else
@@ -1028,7 +1028,7 @@ namespace Mulaolao.Summary
                     {
                         MessageBox.Show( "成功编辑数据" );
                         strWhere = "1=1";
-                        strWhere = strWhere + " AND AE02='" + textBox4.Text + "'";
+                        strWhere = strWhere + " AND A.AE02='" + textBox4.Text + "'";
                         resfrs( );
                     }
                     else
@@ -1041,7 +1041,7 @@ namespace Mulaolao.Summary
                     {
                         MessageBox.Show( "成功编辑数据" );
                         strWhere = "1=1";
-                        strWhere = strWhere + " AND AE02='" + textBox4 . Text + "'";
+                        strWhere = strWhere + " AND A.AE02='" + textBox4 . Text + "'";
                         resfrs( );
                     }
                     else
@@ -1061,7 +1061,7 @@ namespace Mulaolao.Summary
                 {
                     MessageBox.Show( "成功删除数据" );
                     strWhere = "1=1";
-                    strWhere = strWhere + " AND AE02='" + textBox4 . Text + "'";
+                    strWhere = strWhere + " AND A.AE02='" + textBox4 . Text + "'";
                     resfrs( );
                 }
                 else
@@ -1276,7 +1276,8 @@ namespace Mulaolao.Summary
                 AE19 . SummaryItem . SetSummary ( DevExpress . Data . SummaryItemType . Custom ,countAe019 . ToString ( ) );
                 U11 . SummaryItem . SetSummary ( DevExpress . Data . SummaryItemType . Custom ,Math . Round ( countAe019 - Convert . ToDecimal ( AE28 . SummaryItem . SummaryValue ) - Convert . ToDecimal ( AE30 . SummaryItem . SummaryValue ) - Convert . ToDecimal ( AE29 . SummaryItem . SummaryValue ) - Convert . ToDecimal ( AE27 . SummaryItem . SummaryValue ) - Convert . ToDecimal ( AE42 . SummaryItem . SummaryValue ) ,2 ) . ToString ( ) );
 
-                decimal ae29Count = string . IsNullOrEmpty ( AE29 . SummaryItem . SummaryValue . ToString ( ) ) == true ? 0 : Convert . ToDecimal ( AE29 . SummaryItem . SummaryValue );
+
+                decimal ae29Count = AE29 . SummaryItem . SummaryValue == null ? 0 : Convert . ToDecimal ( AE29 . SummaryItem . SummaryValue );
 
                 U23 . SummaryItem . SetSummary ( DevExpress . Data . SummaryItemType . Custom ,( countAe06 - ae29Count ) . ToString ( ) );
             }

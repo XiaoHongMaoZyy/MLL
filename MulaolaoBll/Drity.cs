@@ -62,5 +62,17 @@ namespace MulaolaoBll
                 return DateTime . Now;
         }
 
+        /// <summary>
+        /// 获取生产部的人员信息
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable getTableForUser ( )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . AppendFormat ( "SELECT DBA001,DBA002 FROM TPADBA WHERE DBA002 IN (SELECT DAA002 FROM TPADAA WHERE DAA001 LIKE '08%' AND DAA001!='08') AND (DBA043='F' OR DBA043='' OR DBA043 IS NULL) " );
+
+            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
+        } 
+
     }
 }

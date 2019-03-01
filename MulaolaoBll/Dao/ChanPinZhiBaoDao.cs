@@ -47,7 +47,8 @@ namespace MulaolaoBll.Dao
         /// <returns></returns>
         public System.Data.DataTable GetDataTableWork ( )
         {
-            return bll.GetDataTableWork( );
+            //return bll.GetDataTableWork( );
+            return Drity . getTableForUser ( );
         }
 
         /// <summary>

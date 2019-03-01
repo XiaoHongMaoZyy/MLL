@@ -287,7 +287,7 @@ namespace MulaolaoBll . Dao
             }
             else
                 table = tableOne;
-
+            
             //195
             strSql = new StringBuilder ( );
             strSql . Append ( "SELECT DISTINCT 'R_195' GS70,GS01,GS46,GS49,GS35 GS71,'' GS02,'' GS08,'' GS07,PQF13,PQF31  FROM R_PQP A INNER JOIN R_PQF C ON A.GS01=C.PQF01 WHERE  GS73='F' AND GS74='R_195' AND (SELECT COUNT(1) as num FROM R_PQQ B WHERE A.GS01=B.CP01 AND A.GS35=B.CP64)=0  and GS01 not in (SELECT CP01 FROM R_PQQ WHERE CP62='1') ORDER BY GS01" );//AND (GS35 LIKE '%雕刻%' OR GS35  LIKE '%砂皮%')

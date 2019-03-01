@@ -336,7 +336,7 @@ namespace MulaolaoBll.Dao
 
             return result;
         }
-
+        
         /// <summary>
         /// 获取收款等
         /// </summary>

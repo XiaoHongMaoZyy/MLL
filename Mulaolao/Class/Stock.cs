@@ -2391,8 +2391,8 @@ namespace Mulaolao.Class
             bool result = false;
             string resultP;
             StringBuilder strSql = new StringBuilder ( );
-            strSql . AppendFormat ( "SELECT GS08 FROM R_PQP WHERE GS70='R_347' AND GS01='{0}' AND GS07='{1}' " ,model . PJ01 ,model . PJ09 );
-
+            strSql . AppendFormat ( "SELECT GS08 FROM R_PQP WHERE GS70='R_347' AND GS01='{0}' AND GS07='{1}' AND GS71='{2}' " ,model . PJ01 ,model . PJ09 ,model . PJ105 );
+            
             DataTable table = SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
             if ( table == null || table . Rows . Count < 1 )
                 return false;

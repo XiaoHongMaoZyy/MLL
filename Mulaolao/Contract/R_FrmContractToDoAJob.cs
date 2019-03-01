@@ -47,8 +47,8 @@ namespace Mulaolao.Contract
             label45.Visible = label46.Visible = false;
 
             lookUpEdit2.Properties.DataSource = _bll.GetDataTableWork( );
-            lookUpEdit2.Properties.DisplayMember = "DAA002";
-            lookUpEdit2.Properties.ValueMember = "DAA001";
+            lookUpEdit2.Properties.DisplayMember = "DBA002";
+            lookUpEdit2.Properties.ValueMember = "DBA001";
 
             contract = _bll.GetDataTableSalesman( );
             lookUpEdit1.Properties.DataSource = contract;

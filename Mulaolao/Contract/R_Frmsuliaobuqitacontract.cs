@@ -40,7 +40,7 @@ namespace Mulaolao.Contract
         yesOrNoPlanActual pc = new yesOrNoPlanActual( ); //Dictionary<string ,string> dicStr = new Dictionary<string ,string>( );
         string copy = "", file = "", numQu = "", stateOfOdd = "", conOne = "";
         List<SplitContainer> spList = new List<SplitContainer>( );List<TabPage> pageList = new List<TabPage>( );
-         
+        
         private void R_Frmsuliaobuqitacontract_Load ( object sender ,EventArgs e )
         {
             Power( this );
@@ -1997,10 +1997,11 @@ namespace Mulaolao.Contract
             {
                 model . PJ09 = gridView1 . GetDataRow ( i ) [ "PJ09" ] . ToString ( );
                 model . PJ89 = gridView1 . GetDataRow ( i ) [ "PJ89" ] . ToString ( );
+                model . PJ105 = gridView1 . GetDataRow ( i ) [ "PJ105" ] . ToString ( );
                 result = fc . check347And509 ( model );
                 if ( result == false )
                 {
-                    MessageBox . Show ( "流水号:" + model . PJ01 + "\n\r物品名称:" + model . PJ09 + "\n\r规格:" + model . PJ89 + "\n\r与509不一致,请核实" );
+                    MessageBox . Show ( "流水号:" + model . PJ01 + "\n\r物品名称:" + model . PJ09 + "\n\r规格:" + model . PJ89 + "\n\r类别:" + model . PJ105 + "\n\r与509不一致,请核实" );
                     break;
                 }
             }
@@ -3024,3 +3025,14 @@ namespace Mulaolao.Contract
 
     }
 }
+
+
+/*
+ * 
+ * 519增加厚：毫米
+ * 
+ * 列表增加面积：长*宽
+ * 
+ * 
+ * 
+ */

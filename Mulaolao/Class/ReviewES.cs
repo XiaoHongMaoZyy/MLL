@@ -29,10 +29,10 @@ namespace Mulaolao . Class
             string RES01 = fm . Text . Substring ( fm . Text . LastIndexOf ( "(" ) + 1 ,fm . Text . LastIndexOf ( ")" ) - fm . Text . LastIndexOf ( "(" ) - 1 );
             string RES03 = num;
             int count = 0;
-            DataTable dwf = SqlHelper . ExecuteDataTable ( "SELECT * FROM R_REVIEWS A,R_MLLCXMC B WHERE A.RES01=B.CX01 AND CX02=@CX02 AND RES06=@RES06" ,new SqlParameter ( "@CX02" ,fm . Text ) ,new SqlParameter ( "@RES06" ,RES06 ) );
+            DataTable dwf = SqlHelper . ExecuteDataTable ( "SELECT RES05 FROM R_REVIEWS A,R_MLLCXMC B WHERE A.RES01=B.CX01 AND CX02=@CX02 AND RES06=@RES06" ,new SqlParameter ( "@CX02" ,fm . Text ) ,new SqlParameter ( "@RES06" ,RES06 ) );
             if ( dwf != null && dwf . Rows . Count > 0 )
             {
-                if ( dwf . Select ( "RES05='执行'" ) . Length < 1 || RES05 == "驳回" )
+                if ( dwf . Select ( "RES05='执行'" ) . Length < 1 || "驳回" . Equals ( RES05 ) )
                 {
                     //AND RES03=@RES03
                     SqlHelper . ExecuteNonQuery ( "DELETE FROM R_REVIEWS WHERE RES01 IN (SELECT RES01 FROM R_REVIEWS A,R_MLLCXMC B WHERE A.RES01=B.CX01 AND CX02=@CX02) AND RES06=@RES06" ,new SqlParameter ( "@CX02" ,fm . Text ) ,new SqlParameter ( "@RES06" ,RES06 )/*, new SqlParameter( "@RES03", RES03 )*/ );
@@ -40,9 +40,9 @@ namespace Mulaolao . Class
                     count = getSql ( strSql ,new object [ ] { RES01 ,RES02 ,RES03 ,RES05 ,RES06 ,RES07 ,dt } );
 
                     //count = SqlHelper . ExecuteNonQuery ( "INSERT INTO R_REVIEWS (RES01,RES02,RES03,RES05,RES06,RES07,RES08) VALUES (@RES01,@RES02,@RES03,@RES05,@RES06,@RES07,@RES08)" ,new SqlParameter ( "@RES01" ,RES01 ) ,new SqlParameter ( "@RES02" ,RES02
-                        //) ,new SqlParameter ( "@RES03" ,RES03 ) ,new SqlParameter ( "@RES05" ,RES05 ) ,new SqlParameter ( "@RES06" ,RES06 ) ,new SqlParameter ( "@RES07" ,RES07 ) ,new SqlParameter ( "@RES08" ,dt ) );
+                    //) ,new SqlParameter ( "@RES03" ,RES03 ) ,new SqlParameter ( "@RES05" ,RES05 ) ,new SqlParameter ( "@RES06" ,RES06 ) ,new SqlParameter ( "@RES07" ,RES07 ) ,new SqlParameter ( "@RES08" ,dt ) );
                 }
-                else if ( RES05 == "执行" )
+                else if ( "执行" . Equals ( RES05 ) )
                     MessageBox . Show ( "此单据的状态已经为执行,若要继续送审,请选择状态为驳回" );
 
             }

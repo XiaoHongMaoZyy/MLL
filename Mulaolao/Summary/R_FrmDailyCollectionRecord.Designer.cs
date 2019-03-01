@@ -248,6 +248,7 @@
             this.gridBand15 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.ae042 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.u011 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.u24 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.ae041 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.u012 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.ae040 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -2961,7 +2962,8 @@
             this.ae014,
             this.ae015,
             this.ae016,
-            this.ae017});
+            this.ae017,
+            this.u24});
             this.bandedGridView2.GridControl = this.gridControl2;
             this.bandedGridView2.Name = "bandedGridView2";
             this.bandedGridView2.OptionsBehavior.Editable = false;
@@ -3555,13 +3557,14 @@
             this.gridBand15.Caption = "未  收  款";
             this.gridBand15.Columns.Add(this.ae042);
             this.gridBand15.Columns.Add(this.u011);
+            this.gridBand15.Columns.Add(this.u24);
             this.gridBand15.Columns.Add(this.ae041);
             this.gridBand15.Columns.Add(this.u012);
             this.gridBand15.Columns.Add(this.ae040);
             this.gridBand15.Columns.Add(this.u013);
             this.gridBand15.Name = "gridBand15";
             this.gridBand15.VisibleIndex = 6;
-            this.gridBand15.Width = 619;
+            this.gridBand15.Width = 694;
             // 
             // ae042
             // 
@@ -3605,6 +3608,20 @@
             this.u011.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.u011.Visible = true;
             this.u011.Width = 100;
+            // 
+            // u24
+            // 
+            this.u24.Caption = "美金未收款";
+            this.u24.DisplayFormat.FormatString = "0.##";
+            this.u24.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.u24.FieldName = "U23";
+            this.u24.Name = "u24";
+            this.u24.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U23", "{0:0.##}")});
+            this.u24.ToolTip = "[合同数量] * [美元单价]  - [美金预收款]";
+            this.u24.UnboundExpression = "[AE06] * [AE10] - Iif(IsNullOrEmpty([AE29]), 0, [AE29])";
+            this.u24.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.u24.Visible = true;
             // 
             // ae041
             // 
@@ -4065,15 +4082,6 @@
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn ae021;
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn ae023;
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn ae022;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand11;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand16;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand12;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand10;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand13;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand14;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand15;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand17;
-        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand18;
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn ae014;
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn ae015;
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn ae016;
@@ -4097,5 +4105,15 @@
         private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn AE43;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand6;
         private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand7;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand11;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand16;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand12;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand10;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand13;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand14;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand15;
+        private DevExpress . XtraGrid . Views . BandedGrid . BandedGridColumn u24;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand17;
+        private DevExpress . XtraGrid . Views . BandedGrid . GridBand gridBand18;
     }
 }

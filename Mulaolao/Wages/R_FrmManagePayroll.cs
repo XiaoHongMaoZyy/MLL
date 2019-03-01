@@ -82,8 +82,8 @@ namespace Mulaolao . Wages
         #region Print
         void CreatePrint ( string strPrintWhere )
         {
-            DataTable print = _bll.GetDataTablePrint( _model.XZ001 ,strPrintWhere );
-            DataTable prints = _bll.GetDataTableExport( _model.XZ001 ,strPrintWhere );
+            DataTable print = _bll . GetDataTablePrint ( _model . XZ001 ,strPrintWhere ,dateTimePicker1 . Value );
+            DataTable prints = _bll . GetDataTableExport ( _model . XZ001 ,strPrintWhere ,dateTimePicker1 . Value );
             if ( prints != null && prints.Rows.Count > 0 )
             {
                 if ( !string.IsNullOrEmpty( prints.Rows[0]["U3"].ToString( ) ) )
