@@ -217,11 +217,13 @@
             this.U2.AppearanceHeader.Font = new System.Drawing.Font("宋体", 10.5F);
             this.U2.AppearanceHeader.Options.UseFont = true;
             this.U2.Caption = "结算款";
+            this.U2.DisplayFormat.FormatString = "0.######";
+            this.U2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.U2.FieldName = "U2";
             this.U2.Name = "U2";
             this.U2.OptionsColumn.AllowEdit = false;
             this.U2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "U2", "{0:0.######}")});
             this.U2.Visible = true;
             this.U2.VisibleIndex = 2;
             this.U2.Width = 125;

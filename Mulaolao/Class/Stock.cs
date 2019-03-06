@@ -2225,7 +2225,7 @@ namespace Mulaolao.Class
             {
                 for ( int i = 0 ; i < da . Rows . Count ; i++ )
                 {
-                    if ( !string . IsNullOrEmpty ( da . Rows [ i ] [ "ACD" ] . ToString ( ) ) && Convert . ToInt32 ( da . Rows [ i ] [ "ACD" ] . ToString ( ) ) < AD05 )
+                    if ( !string . IsNullOrEmpty ( da . Rows [ i ] [ "ACD" ] . ToString ( ) ) && Convert . ToDecimal ( da . Rows [ i ] [ "ACD" ] . ToString ( ) ) < AD05 )
                         result = false;
                     else
                     {

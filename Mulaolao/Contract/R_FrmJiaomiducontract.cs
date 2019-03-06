@@ -614,12 +614,12 @@ namespace Mulaolao.Procedure
             {
                 fc.yesOrNoOf( comboBox9.Text ,lookUpEdit3.Text ,textBox84.Text + "*" + textBox83.Text + "*" + textBox85.Text ,textBox12 ,textBox18 ,textBox71.Text );
                 
-                textBox11.Text = Math.Round( Convert.ToDecimal( Operation.MultiThrTbCb( textBox71 ,comboBox2 ,textBox12.Text ) ) ,0 ).ToString( );
+                textBox11.Text = Math.Round( Convert.ToDecimal( Operation.MultiThrTbCb( textBox71 ,comboBox2 ,textBox12.Text ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
 
                 //if ( !string.IsNullOrEmpty( textBox12.Text ) || textBox12.Text != "0" )
                 //    textBox1.Text = 0.ToString( );
                 //else
-                textBox1.Text = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                textBox1 . Text = Math . Round ( Convert . ToDecimal ( Operation . DivisionTc ( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ) . ToString ( );
             }
         }
         //使用外购
@@ -630,7 +630,7 @@ namespace Mulaolao.Procedure
             else
             {
                 fc.yesOrNoOf( comboBox9.Text ,lookUpEdit3.Text ,textBox84.Text + "*" + textBox83.Text + "*" + textBox85.Text ,textBox12 ,textBox18 ,textBox71.Text );
-                textBox11.Text = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                textBox11 . Text = Math . Round ( Convert . ToDecimal ( Operation . DivisionTc ( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ) . ToString ( );
             }
 
         }
@@ -662,7 +662,7 @@ namespace Mulaolao.Procedure
             else
                 str = del.Rows[0]["AC10"].ToString( );
             //怎么读取库存数量
-            textBox11.Text = Math.Round( Convert.ToDecimal( Operation.MultiThrTbCb( textBox71 ,comboBox2 ,str ) ) ,0 ).ToString( );
+            textBox11.Text = Math.Round( Convert.ToDecimal( Operation.MultiThrTbCb( textBox71 ,comboBox2 ,str ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
         }
         //产品数量
         private void textBox71_KeyPress ( object sender ,KeyPressEventArgs e )
@@ -2243,7 +2243,7 @@ namespace Mulaolao.Procedure
                 MessageBox.Show( "只能开外购合同" );
             else
             {
-                string sx = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                string sx = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
                 if ( !string.IsNullOrEmpty( sx ) && !string.IsNullOrEmpty( textBox11.Text ) )
                 {
                     if ( Convert.ToDecimal( sx ) != Convert.ToDecimal( textBox11.Text ) )
@@ -2259,7 +2259,7 @@ namespace Mulaolao.Procedure
                 MessageBox.Show( "只能开外购合同" );
             else
             {
-                string sx = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                string sx = Math . Round ( Convert . ToDecimal ( Operation . DivisionTc ( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ) . ToString ( );
                 if ( !string.IsNullOrEmpty( sx ) && !string.IsNullOrEmpty( textBox11.Text ) )
                 {
                     if ( Convert.ToDecimal( sx ) != Convert.ToDecimal( textBox11.Text ) )
@@ -2275,7 +2275,7 @@ namespace Mulaolao.Procedure
             {
                 if ( Logins.number == "MLL-0001" )
                 {
-                    string sx = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                    string sx = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
                     if ( !string.IsNullOrEmpty( sx ) && !string.IsNullOrEmpty( textBox11.Text ) )
                     {
                         if ( Convert.ToDecimal( sx ) != Convert.ToDecimal( textBox11.Text ) )
@@ -2297,7 +2297,7 @@ namespace Mulaolao.Procedure
                     //且出库数小于等于库存数量
                     else
                     {
-                        string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                        string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
                         if ( Convert.ToDecimal( str ) != Convert.ToDecimal( textBox1.Text ) )
                             MessageBox.Show( "出库数量有误,请核查" );
                         else
@@ -2556,7 +2556,7 @@ namespace Mulaolao.Procedure
                         MessageBox.Show( "出库数量大于库存数量,请更改出库数量" );
                     else
                     {
-                        string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                        string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
                         if ( !string.IsNullOrEmpty( str ) )
                         {
                             if ( Convert.ToDecimal( str ) != Convert.ToDecimal( textBox1.Text ) )
@@ -2569,7 +2569,7 @@ namespace Mulaolao.Procedure
             }
             else
             {
-                string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
                 if ( !string.IsNullOrEmpty( str ) && !string.IsNullOrEmpty( textBox11.Text ) )
                 {
                     if ( Convert.ToDecimal( str ) != Convert.ToDecimal( textBox11.Text ) )
@@ -2666,7 +2666,7 @@ namespace Mulaolao.Procedure
                             MessageBox.Show( "出库数量大于库存数量,请更改出库数量" );
                         else
                         {
-                            string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                            string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
 
                             if ( !string.IsNullOrEmpty( str ) )
                             {
@@ -2680,7 +2680,7 @@ namespace Mulaolao.Procedure
                 }
                 else
                 {
-                    string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) ,0 ).ToString( );
+                    string str = Math.Round( Convert.ToDecimal( Operation.DivisionTc( textBox71 ,comboBox2 ) ) + ( string . IsNullOrEmpty ( textBox58 . Text ) == true ? 0 : Convert . ToDecimal ( textBox58 . Text ) ) ,0 ).ToString( );
                     if ( !string.IsNullOrEmpty( str ) && !string.IsNullOrEmpty( textBox11.Text ) )
                     {
                         if ( Convert.ToDecimal( str ) != Convert.ToDecimal( textBox11.Text ) )

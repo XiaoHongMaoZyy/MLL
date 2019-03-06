@@ -17,7 +17,7 @@ namespace MulaolaoBll . Dao
         public DataTable getTable ( int year ,bool state ,string tableNum )
         {
             StringBuilder strSql = new StringBuilder ( );
-
+            
             if ( tableNum == string . Empty )
                 tableNum = "R_195,R_196,R_199,R_338,R_337,R_339,R_341,R_342,R_343,R_344,R_347,R_349,R_495,R_505";
 
@@ -55,7 +55,7 @@ namespace MulaolaoBll . Dao
             {
                 if ( strSql . ToString ( ) . Contains ( "SELECT" ) )
                     strSql . Append ( " UNION " );
-                strSql . Append ( "SELECT JM01 CP03,JM90 CP01,CONVERT(NVARCHAR,RES04,102) RES04,CASE WHEN AK014='' OR AK014 IS NULL THEN '未结' ELSE '已结' END AK,CONVERT(DECIMAL(11,2),SUM(CASE WHEN JM10=0 THEN 0 ELSE JM103/JM10*JM11 END)) U2 FROM R_PQO A LEFT JOIN R_REVIEWS B ON A.JM01=B.RES06 LEFT JOIN R_PQAK C ON A.JM01=C.AK003 WHERE RES05='执行' AND JM14='外购' " );
+                strSql . Append ( "SELECT JM01 CP03,JM90 CP01,CONVERT(NVARCHAR,RES04,102) RES04,CASE WHEN AK014='' OR AK014 IS NULL THEN '未结' ELSE '已结' END AK,CONVERT(DECIMAL(18,2),SUM(CASE WHEN JM10=0 THEN isnull(JM118,0)*JM11 ELSE CONVERT(decimal(11,0),JM103/JM10+isnull(JM118,0))*JM11 END)) U2 FROM R_PQO A LEFT JOIN R_REVIEWS B ON A.JM01=B.RES06 LEFT JOIN R_PQAK C ON A.JM01=C.AK003 WHERE RES05='执行' AND JM14='外购' " );
                 if ( year > 0 )
                     strSql . AppendFormat ( " AND YEAR(RES04)={0} " ,year );
                 //strSql . Append ( "UNION ALL " );
@@ -65,7 +65,7 @@ namespace MulaolaoBll . Dao
             {
                 if ( strSql . ToString ( ) . Contains ( "SELECT" ) )
                     strSql . Append ( " UNION " );
-                strSql . Append ( "SELECT YQ99 CP03,YQ03 CP01,CONVERT(NVARCHAR,RES04,102) RES04,CASE WHEN AK014='' OR AK014 IS NULL THEN '未结' ELSE '已结' END AK,CASE WHEN YQ99 LIKE 'R_337%' THEN CONVERT(DECIMAL(11,2),SUM(YQ109*YQ15)) ELSE CONVERT(DECIMAL(11,2),SUM(YQ16*YQ108*YQ112*YQ114*YQ115*YQ116*YQ113*YQ13*0.0001*0.01+YQ108*YQ112*YQ116*YQ113*YQ13*YQ14*0.01/YQ114/YQ115)) END U2 FROM R_PQI A LEFT JOIN R_REVIEWS B ON A.YQ99=B.RES06 LEFT JOIN R_PQAK C ON A.YQ99=C.AK003 WHERE RES05='执行'  " );
+                strSql . Append ( "SELECT YQ99 CP03,YQ03 CP01,CONVERT(NVARCHAR,RES04,102) RES04,CASE WHEN AK014='' OR AK014 IS NULL THEN '未结' ELSE '已结' END AK,CASE WHEN YQ99 LIKE 'R_337%' THEN CONVERT(DECIMAL(11,2),SUM(YQ109*YQ15)) ELSE CONVERT(DECIMAL(11,2),SUM(YQ16*YQ108*YQ112*YQ114*YQ115*YQ116*YQ113*YQ13*0.0001*0.01+YQ108*YQ112*YQ116*YQ113*YQ13*YQ14*0.01/YQ114/YQ115)) END U2 FROM R_PQI A LEFT JOIN R_REVIEWS B ON A.YQ99=B.RES06 LEFT JOIN R_PQAK C ON A.YQ99=C.AK003 WHERE RES05='执行' " );
                 if ( year > 0 )
                     strSql . AppendFormat ( " AND YEAR(RES04)={0} " ,year );
                 //strSql . Append ( "UNION ALL " );
@@ -105,11 +105,11 @@ namespace MulaolaoBll . Dao
             {
                 if ( strSql . ToString ( ) . Contains ( "SELECT" ) )
                     strSql . Append ( " UNION " );
-                strSql . Append ( "SELECT MZ001 CP03,MZ002 CP01,CONVERT(NVARCHAR,RES04,102) RES04,CASE WHEN AK014='' OR AK014 IS NULL THEN '未结' ELSE '已结' END AK,CONVERT(DECIMAL(11,2),SUM(MZ022*MZ006*MZ027+ISNULL(MZ118,0))) MZ2 FROM R_PQMZ A LEFT JOIN R_REVIEWS B ON A.MZ001=B.RES06 LEFT JOIN R_PQAK C ON A.MZ001=C.AK003 WHERE RES05='执行' " );
+                strSql . Append ( "SELECT MZ001 CP03,MZ002 CP01,CONVERT(NVARCHAR,RES04,102) RES04,CASE WHEN AK014='' OR AK014 IS NULL THEN '未结' ELSE '已结' END AK,CONVERT(DECIMAL(18,2),CASE WHEN MZ107='厂内' THEN SUM(MZ022*MZ006*MZ027+ISNULL(MZ118,0)) ELSE SUM(ISNULL(MZ120,0)+MZ022*MZ006*MZ028*MZ024) END) U2 FROM R_PQMZ A LEFT JOIN R_REVIEWS B ON A.MZ001=B.RES06 LEFT JOIN R_PQAK C ON A.MZ001=C.AK003 WHERE RES05='执行' " );
                 if ( year > 0 )
                     strSql . AppendFormat ( " AND YEAR(RES04)={0} " ,year );
                 //strSql . Append ( "UNION ALL " );
-                strSql . Append ( " GROUP BY MZ001,MZ002,RES04,AK014" );
+                strSql . Append ( " GROUP BY MZ001,MZ002,RES04,AK014,MZ107" );
             }
             if ( tableNum . Contains ( "R_347" ) )
             {
@@ -161,7 +161,6 @@ namespace MulaolaoBll . Dao
         }
         
 
-
         /// <summary>
         /// 保存数据
         /// </summary>
@@ -183,7 +182,10 @@ namespace MulaolaoBll . Dao
                     else
                         _model . EA003 = Convert . ToDateTime ( table . Rows [ i ] [ "RES04" ] . ToString ( ) );
                     _model . EA004 = string . IsNullOrEmpty ( table . Rows [ i ] [ "AK" ] . ToString ( ) ) == true ? false : ( table . Rows [ i ] [ "AK" ] . ToString ( ) . Equals ( "已结" ) ? true : false );
-                    _model . EA005 = string . IsNullOrEmpty ( table . Rows [ i ] [ "EA005" ] . ToString ( ) ) == true ? false : true;
+                    if ( string . IsNullOrEmpty ( table . Rows [ i ] [ "EA005" ] . ToString ( ) ) )
+                        _model . EA005 = false;
+                    else
+                        _model . EA005 = Convert . ToBoolean ( table . Rows [ i ] [ "EA005" ] . ToString ( ) );
                     if ( !Exists ( _model ) )
                         Add ( SQLString ,strSql ,_model );
                     else

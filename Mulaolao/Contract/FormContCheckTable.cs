@@ -28,12 +28,12 @@ namespace Mulaolao . Contract
         
         private void FormContCheckTable_Load ( object sender ,System . EventArgs e )
         {
-             toolcopy . Visible =   toolLibrary . Visible = toolMaintain . Visible = toolPrint . Visible = toolReview . Visible =  toolStorage . Visible = toolUpdate . Visible =  toolCancel . Visible = false;
+            toolcopy . Visible = toolLibrary . Visible = toolMaintain . Visible = toolPrint . Visible = toolReview . Visible = toolStorage . Visible = toolUpdate . Visible = toolCancel . Visible = toolDelete . Visible = false;
 
-            toolExport . Enabled = toolSave . Enabled = toolDelete . Enabled = toolAdd . Enabled = true;
+            toolExport . Enabled = toolSave . Enabled = toolAdd . Enabled = true;
 
             cmb . Properties . Items . Clear ( );
-            cmb . Properties . Items . AddRange ( new string [ ] { "R_195" ,"R_196" ,"R_199" ,"R_337" ,"R_338" ,"R_339" ,"R_341" ,"R_342" ,"R_343" ,"R_344" ,"R_347" ,"R_349" ,"R_495" ,"R_505" } );
+            cmb . Properties . Items . AddRange ( new string [ ] { "" ,"R_195" ,"R_196" ,"R_199" ,"R_337" ,"R_338" ,"R_339" ,"R_341" ,"R_342" ,"R_343" ,"R_344" ,"R_347" ,"R_349" ,"R_495" ,"R_505" } );
         }
 
         protected override void add ( )
@@ -43,11 +43,11 @@ namespace Mulaolao . Contract
                 MessageBox . Show ( "请选择年" );
                 return;
             }
-            if ( string . IsNullOrEmpty ( cmb . Text ) )
-            {
-                MessageBox . Show ( "请选择合同" );
-                return;
-            }
+            //if ( string . IsNullOrEmpty ( cmb . Text ) )
+            //{
+            //    MessageBox . Show ( "请选择合同" );
+            //    return;
+            //}
             int year = string . IsNullOrEmpty ( dateEdit1 . Text ) == true ? 0 : Convert . ToInt32 ( dateEdit1 . Text );
             string tableNum = cmb . Text;
             tableView = _bll . getTable ( year ,true,tableNum);
@@ -55,7 +55,7 @@ namespace Mulaolao . Contract
 
             base . add ( );
         }
-
+        
         protected override void select ( )
         {
             if ( string . IsNullOrEmpty ( dateEdit1 . Text ) )

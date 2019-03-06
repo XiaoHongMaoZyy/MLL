@@ -14,7 +14,7 @@ namespace Mulaolao
         {
             InitializeComponent();
         }
-
+        
         //获取Configuration对象
         Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration( /*ConfigurationUserLevel.None*/System.Windows.Forms.Application.ExecutablePath );
 
