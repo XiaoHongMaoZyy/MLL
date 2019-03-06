@@ -92,6 +92,7 @@
             this.tabPageOne = new System.Windows.Forms.TabPage();
             this.tabPageTwo = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EZ017 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -370,6 +371,7 @@
             // 
             this.gridView1.ColumnPanelRowHeight = 45;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.EZ017,
             this.idx,
             this.EZ003,
             this.EZ005,
@@ -394,12 +396,12 @@
             // 
             // idx
             // 
-            this.idx.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.idx.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.idx.AppearanceCell.Options.UseFont = true;
             this.idx.AppearanceCell.Options.UseTextOptions = true;
             this.idx.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.idx.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.idx.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.idx.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.idx.AppearanceHeader.Options.UseFont = true;
             this.idx.AppearanceHeader.Options.UseTextOptions = true;
             this.idx.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -424,8 +426,8 @@
             this.EZ003.FieldName = "EZ003";
             this.EZ003.Name = "EZ003";
             this.EZ003.Visible = true;
-            this.EZ003.VisibleIndex = 0;
-            this.EZ003.Width = 87;
+            this.EZ003.VisibleIndex = 1;
+            this.EZ003.Width = 80;
             // 
             // EZ005
             // 
@@ -445,8 +447,8 @@
             this.EZ005.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EZ005", "{0:N1}")});
             this.EZ005.Visible = true;
-            this.EZ005.VisibleIndex = 1;
-            this.EZ005.Width = 89;
+            this.EZ005.VisibleIndex = 2;
+            this.EZ005.Width = 81;
             // 
             // EZ006
             // 
@@ -466,8 +468,8 @@
             this.EZ006.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EZ006", "{0:N1}")});
             this.EZ006.Visible = true;
-            this.EZ006.VisibleIndex = 2;
-            this.EZ006.Width = 89;
+            this.EZ006.VisibleIndex = 3;
+            this.EZ006.Width = 81;
             // 
             // EZ007
             // 
@@ -489,8 +491,8 @@
             this.EZ007.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EZ007", "{0:N0}")});
             this.EZ007.Visible = true;
-            this.EZ007.VisibleIndex = 3;
-            this.EZ007.Width = 89;
+            this.EZ007.VisibleIndex = 4;
+            this.EZ007.Width = 81;
             // 
             // EZ008
             // 
@@ -512,8 +514,8 @@
             this.EZ008.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EZ008", "{0:N0}")});
             this.EZ008.Visible = true;
-            this.EZ008.VisibleIndex = 4;
-            this.EZ008.Width = 89;
+            this.EZ008.VisibleIndex = 5;
+            this.EZ008.Width = 81;
             // 
             // U2
             // 
@@ -538,8 +540,8 @@
             this.U2.UnboundExpression = "Iif([EZ005]<>0, [EZ007] / [EZ005] ,0 )";
             this.U2.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U2.Visible = true;
-            this.U2.VisibleIndex = 5;
-            this.U2.Width = 89;
+            this.U2.VisibleIndex = 6;
+            this.U2.Width = 81;
             // 
             // U3
             // 
@@ -564,8 +566,8 @@
             this.U3.UnboundExpression = "Iif( [EZ006]<>0,[EZ008] / [EZ006]  ,0)";
             this.U3.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U3.Visible = true;
-            this.U3.VisibleIndex = 6;
-            this.U3.Width = 89;
+            this.U3.VisibleIndex = 7;
+            this.U3.Width = 81;
             // 
             // EZ009
             // 
@@ -585,8 +587,8 @@
             this.EZ009.FieldName = "EZ009";
             this.EZ009.Name = "EZ009";
             this.EZ009.Visible = true;
-            this.EZ009.VisibleIndex = 7;
-            this.EZ009.Width = 89;
+            this.EZ009.VisibleIndex = 8;
+            this.EZ009.Width = 81;
             // 
             // EZ010
             // 
@@ -606,8 +608,8 @@
             this.EZ010.FieldName = "EZ010";
             this.EZ010.Name = "EZ010";
             this.EZ010.Visible = true;
-            this.EZ010.VisibleIndex = 8;
-            this.EZ010.Width = 89;
+            this.EZ010.VisibleIndex = 9;
+            this.EZ010.Width = 81;
             // 
             // U0
             // 
@@ -632,8 +634,8 @@
             this.U0.UnboundExpression = "[EZ007] + [EZ008] - [EZ009] - [EZ010]";
             this.U0.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U0.Visible = true;
-            this.U0.VisibleIndex = 9;
-            this.U0.Width = 89;
+            this.U0.VisibleIndex = 10;
+            this.U0.Width = 81;
             // 
             // EZ011
             // 
@@ -651,8 +653,8 @@
             this.EZ011.FieldName = "EZ011";
             this.EZ011.Name = "EZ011";
             this.EZ011.Visible = true;
-            this.EZ011.VisibleIndex = 10;
-            this.EZ011.Width = 89;
+            this.EZ011.VisibleIndex = 11;
+            this.EZ011.Width = 81;
             // 
             // U1
             // 
@@ -670,8 +672,8 @@
             this.U1.FieldName = "U1";
             this.U1.Name = "U1";
             this.U1.Visible = true;
-            this.U1.VisibleIndex = 11;
-            this.U1.Width = 101;
+            this.U1.VisibleIndex = 12;
+            this.U1.Width = 108;
             // 
             // splitContainer1
             // 
@@ -1052,6 +1054,25 @@
             this.textBox1.Size = new System.Drawing.Size(1228, 316);
             this.textBox1.TabIndex = 0;
             // 
+            // EZ017
+            // 
+            this.EZ017.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.EZ017.AppearanceCell.Options.UseFont = true;
+            this.EZ017.AppearanceCell.Options.UseTextOptions = true;
+            this.EZ017.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.EZ017.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.EZ017.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.EZ017.AppearanceHeader.Options.UseFont = true;
+            this.EZ017.AppearanceHeader.Options.UseTextOptions = true;
+            this.EZ017.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.EZ017.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.EZ017.Caption = "人员编号";
+            this.EZ017.FieldName = "EZ017";
+            this.EZ017.Name = "EZ017";
+            this.EZ017.Visible = true;
+            this.EZ017.VisibleIndex = 0;
+            this.EZ017.Width = 64;
+            // 
             // FrmGongZiCe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1149,5 +1170,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn GZ24;
         private DevExpress.XtraGrid.Columns.GridColumn GZ17;
         private System . Windows . Forms . Button button6;
+        private DevExpress . XtraGrid . Columns . GridColumn EZ017;
     }
 }

@@ -37,7 +37,7 @@ namespace Mulaolao.Raw_material_cost
         MulaolaoBll.Bll.ChanPinGaiShanBll bll = new MulaolaoBll.Bll.ChanPinGaiShanBll( );
         MulaolaoLibrary.ChanPinGaiShanEntity _model=new MulaolaoLibrary.ChanPinGaiShanEntity();
         bool result=false;
-
+        
         private void R_Frmchanpingaishan_Load ( object sender ,EventArgs e )
         {
             Power( this );
@@ -1041,22 +1041,32 @@ namespace Mulaolao.Raw_material_cost
                 comboBox5 . Text = DicStr . r342;
                 break;
                 case "铁件":
-       
+                
                 comboBox3 . Items . Add ( DicStr . lronParts );
                 comboBox3 . Text = DicStr . lronParts;
                 comboBox5 . Items . Add ( DicStr . r343 );
                 comboBox5 . Text = DicStr . r343;
                 break;
                 case "塑料件":
-             
+                
                 comboBox3 . Items . Add ( DicStr . plasticParts );
+                comboBox3 . Items . Add ( DicStr . POF );
+                comboBox3 . Items . Add ( DicStr . PE );
+                comboBox3 . Items . Add ( DicStr . PP );
+                comboBox3 . Items . Add ( DicStr . PPC );
+                comboBox3 . Items . Add ( DicStr . PET );
                 comboBox3 . Text = DicStr . plasticParts;
                 comboBox5 . Items . Add ( DicStr . r347 );
                 comboBox5 . Text = DicStr . r347;
                 break;
                 case "其它材料":
-          
+                
                 comboBox3 . Items . Add ( DicStr . otherMaterials );
+                comboBox3 . Items . Add ( DicStr . POF );
+                comboBox3 . Items . Add ( DicStr . PE );
+                comboBox3 . Items . Add ( DicStr . PP );
+                comboBox3 . Items . Add ( DicStr . PPC );
+                comboBox3 . Items . Add ( DicStr . PET );
                 comboBox3 . Text = DicStr . otherMaterials;
                 comboBox5 . Items . Add ( DicStr . r347 );
                 comboBox5 . Text = DicStr . r347;
@@ -1064,6 +1074,11 @@ namespace Mulaolao.Raw_material_cost
                 case "包装辅料":
             
                 comboBox3 . Items . Add ( DicStr . packAccess );
+                comboBox3 . Items . Add ( DicStr . POF );
+                comboBox3 . Items . Add ( DicStr . PE );
+                comboBox3 . Items . Add ( DicStr . PP );
+                comboBox3 . Items . Add ( DicStr . PPC );
+                comboBox3 . Items . Add ( DicStr . PET );
                 comboBox3 . Text = DicStr . packAccess;
                 comboBox5 . Items . Add ( DicStr . r347 );
                 comboBox5 . Text = DicStr . r347;
@@ -1191,18 +1206,33 @@ namespace Mulaolao.Raw_material_cost
                 if ( comboBox11 . Text . Equals ( DicStr . plasticParts ) )
                 {
                     comboBox3 . Items . Clear ( );
+                    comboBox3 . Items . Add ( DicStr . POF );
+                    comboBox3 . Items . Add ( DicStr . PE );
+                    comboBox3 . Items . Add ( DicStr . PP );
+                    comboBox3 . Items . Add ( DicStr . PPC );
+                    comboBox3 . Items . Add ( DicStr . PET );
                     comboBox3 . Items . Add ( DicStr . plasticParts );
                     comboBox3 . Text = DicStr . plasticParts;
                 }
                 else if ( comboBox11 . Text . Equals ( DicStr . otherMaterials ) )
                 {
                     comboBox3 . Items . Clear ( );
+                    comboBox3 . Items . Add ( DicStr . POF );
+                    comboBox3 . Items . Add ( DicStr . PE );
+                    comboBox3 . Items . Add ( DicStr . PP );
+                    comboBox3 . Items . Add ( DicStr . PPC );
+                    comboBox3 . Items . Add ( DicStr . PET );
                     comboBox3 . Items . Add ( DicStr . otherMaterials );
                     comboBox3 . Text = DicStr . otherMaterials;
                 }
                 else
                 {
                     comboBox3 . Items . Clear ( );
+                    comboBox3 . Items . Add ( DicStr . POF );
+                    comboBox3 . Items . Add ( DicStr . PE );
+                    comboBox3 . Items . Add ( DicStr . PP );
+                    comboBox3 . Items . Add ( DicStr . PPC );
+                    comboBox3 . Items . Add ( DicStr . PET );
                     comboBox3 . Items . Add ( DicStr . packAccess );
                     comboBox3 . Text = DicStr . packAccess;
                 }
@@ -1638,7 +1668,7 @@ namespace Mulaolao.Raw_material_cost
         {
             base.copys( );
 
-            int count = SqlHelper.ExecuteNonQuery( "INSERT INTO R_PQP (GS30,GS31,GS38,GS02,GS03,GS04,GS05,GS06,GS07,GS08,GS09,GS10,GS11,GS13,GS14,GS15,GS16,GS17,GS18,GS20,GS22,GS24,GS26,GS28,GS32,GS33,GS35,GS36,GS37,GS39,GS40,GS41,GS42,GS43,GS44,GS51,GS52,GS53,GS54,GS56,GS57,GS58,GS59,GS60,GS61,GS62,GS63,GS64,GS65,GS66,GS68,GS69,GS70,GS71) SELECT GS30,GS31,GS38,GS02,GS03,GS04,GS05,GS06,GS07,GS08,GS09,GS10,GS11,GS13,GS14,GS15,GS16,GS17,GS18,GS20,GS22,GS24,GS26,GS28,GS32,GS33,GS35,GS36,GS37,GS39,GS40,GS41,GS42,GS43,GS44,GS51,GS52,GS53,GS54,GS56,GS57,GS58,GS59,GS60,GS61,GS62,GS63,GS64,GS65,GS66,GS68,GS69,GS70,GS71 FROM R_PQP WHERE GS34=@GS34" ,new SqlParameter( "@GS34" ,_model . GS34 ) );
+            int count = SqlHelper.ExecuteNonQuery( "INSERT INTO R_PQP (GS02,GS03,GS04,GS05,GS06,GS07,GS08,GS09,GS10,GS11,GS13,GS14,GS15,GS16,GS17,GS18,GS20,GS22,GS24,GS26,GS28,GS30,GS31,GS32,GS33,GS35,GS36,GS37,GS38,GS39,GS40,GS41,GS42,GS43,GS44,GS51,GS70,GS71,GS72,GS74) SELECT GS02,GS03,GS04,GS05,GS06,GS07,GS08,GS09,GS10,GS11,GS13,GS14,GS15,GS16,GS17,GS18,GS20,GS22,GS24,GS26,GS28,GS30,GS31,GS32,GS33,GS35,GS36,GS37,GS38,GS39,GS40,GS41,GS42,GS43,GS44,GS51,GS70,GS71,GS72,GS74 FROM R_PQP WHERE GS34=@GS34" ,new SqlParameter( "@GS34" ,_model . GS34 ) );
             if ( count < 1 )
                 MessageBox.Show( "复制失败,请重试" );
             else

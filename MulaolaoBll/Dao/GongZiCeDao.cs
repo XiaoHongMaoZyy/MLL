@@ -218,10 +218,10 @@ namespace MulaolaoBll.Dao
         public DataTable GetDataTableGenerate (string year,int mouth,string name,string nameS,string nameT )
         {
             StringBuilder strSql = new StringBuilder( );
-            strSql.Append( "WITH CET AS(SELECT GZ02,SUM(U0) U0,SUM(U1) U1,SUM(U2) U2,SUM(U3) U3,GZ16,GZ28 FROM (SELECT GZ02,CONVERT(DECIMAL(18,2),SUM(GZ09+GZ10+GZ11)) U0,CONVERT(DECIMAL(18,2),SUM(GZ12+GZ13+GZ14)) U1,CONVERT(DECIMAL(18,6),SUM(GZ06*GZ25*GZ41)) U2,CONVERT(DECIMAL(18,6),SUM(GZ36*(GZ12+GZ13+GZ14))) U3 ,GZ16,GZ28 FROM R_PQW" );
+            strSql.Append( "WITH CET AS(SELECT GZ02,SUM(U0) U0,SUM(U1) U1,SUM(U2) U2,SUM(U3) U3,GZ16,GZ28,GZ33 FROM (SELECT GZ02,CONVERT(DECIMAL(18,2),SUM(GZ09+GZ10+GZ11)) U0,CONVERT(DECIMAL(18,2),SUM(GZ12+GZ13+GZ14)) U1,CONVERT(DECIMAL(18,6),SUM(GZ06*GZ25*GZ41)) U2,CONVERT(DECIMAL(18,6),SUM(GZ36*(GZ12+GZ13+GZ14))) U3 ,GZ16,GZ28,GZ33 FROM R_PQW" );
             strSql.Append( " WHERE GZ44=@GZ44 AND GZ28=@GZ28 AND GZ30=@GZ30 AND GZ16=@GZ16 AND GZ37=@GZ37 AND idx NOT IN (SELECT FZ002 FROM R_PQFZ)" );
-            strSql.Append( " GROUP BY GZ02,GZ16,GZ35,GZ28,GZ01) A GROUP BY GZ02,GZ16,GZ28)" );
-            strSql.Append( " SELECT GZ02,U0,U1,U2,U3,GZ16,GZ28 FROM CET" );
+            strSql.Append( " GROUP BY GZ02,GZ16,GZ35,GZ28,GZ01,GZ33) A GROUP BY GZ02,GZ16,GZ28,GZ33)" );
+            strSql.Append( " SELECT GZ02,U0,U1,U2,U3,GZ16,GZ28,GZ33 FROM CET" );
             SqlParameter[] parameter = {
                 new SqlParameter("@GZ44",SqlDbType.Int),
                 new SqlParameter("@GZ28",SqlDbType.Int),
@@ -683,7 +683,7 @@ namespace MulaolaoBll.Dao
             DataTable da = SqlHelper.ExecuteDataTable( strSql.ToString( ) ,parameter );
 
             StringBuilder strSqlUp = new StringBuilder( );
-            strSqlUp.AppendFormat( "UPDATE R_PQEZ SET EZ005='{0}',EZ006='{1}',EZ007='{2}',EZ008='{3}',EZ009='{4}',EZ010='{5}',EZ011='{6}' WHERE EZ002='{7}' AND EZ003='{8}' AND EZ004='{9}' AND EZ014='{10}'" ,model.EZ005 ,model.EZ006 ,model.EZ007 ,model.EZ008 ,model.EZ009 ,model.EZ010 ,model.EZ011 ,model.EZ002 ,model.EZ003 ,model.EZ004 ,model.EZ014 );
+            strSqlUp.AppendFormat( "UPDATE R_PQEZ SET EZ005='{0}',EZ006='{1}',EZ007='{2}',EZ008='{3}',EZ009='{4}',EZ010='{5}',EZ011='{6}',EZ017='{11}' WHERE EZ002='{7}' AND EZ003='{8}' AND EZ004='{9}' AND EZ014='{10}'" ,model.EZ005 ,model.EZ006 ,model.EZ007 ,model.EZ008 ,model.EZ009 ,model.EZ010 ,model.EZ011 ,model.EZ002 ,model.EZ003 ,model.EZ004 ,model. EZ014 ,model . EZ017 );
             SQLString.Add( strSqlUp.ToString( ) );
 
             for ( int i = 0 ; i < da.Rows.Count ; i++ )
@@ -737,7 +737,7 @@ namespace MulaolaoBll.Dao
             DataTable da = SqlHelper.ExecuteDataTable( strSql.ToString( ) ,parameter );
 
             StringBuilder strSqlUp = new StringBuilder( );
-            strSqlUp.AppendFormat( "INSERT INTO R_PQEZ(EZ001,EZ002,EZ003,EZ004,EZ005,EZ006,EZ007,EZ008,EZ009,EZ010,EZ011,EZ014) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}');SELECT SCOPE_IDENTITY();" ,model.EZ001 ,model.EZ002 ,model.EZ003 ,model.EZ004 ,model.EZ005 ,model.EZ006 ,model.EZ007 ,model.EZ008 ,model.EZ009 ,model.EZ010 ,model.EZ011 ,model.EZ014);
+            strSqlUp . AppendFormat ( "INSERT INTO R_PQEZ(EZ001,EZ002,EZ003,EZ004,EZ005,EZ006,EZ007,EZ008,EZ009,EZ010,EZ011,EZ014,EZ017) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}');SELECT SCOPE_IDENTITY();" ,model . EZ001 ,model . EZ002 ,model . EZ003 ,model . EZ004 ,model . EZ005 ,model . EZ006 ,model . EZ007 ,model . EZ008 ,model . EZ009 ,model . EZ010 ,model . EZ011 ,model . EZ014 ,model . EZ017 );
 
             model.IDX = SqlHelper.ExecuteSqlReturnId( strSqlUp.ToString( ) );
             if ( model.IDX > 0 )

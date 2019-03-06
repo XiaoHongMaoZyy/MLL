@@ -273,6 +273,7 @@
             this.tabPageOne = new System.Windows.Forms.TabPage();
             this.tabPageTwo = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.textBox38 = new System.Windows.Forms.TextBox();
             this.textBox37 = new System.Windows.Forms.TextBox();
             this.textBox26 = new System.Windows.Forms.TextBox();
             this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -280,6 +281,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPageTre = new System.Windows.Forms.TabPage();
             this.label81 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
@@ -299,8 +301,10 @@
             this.textBox52 = new System.Windows.Forms.TextBox();
             this.radioButton19 = new System.Windows.Forms.RadioButton();
             this.radioButton20 = new System.Windows.Forms.RadioButton();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.textBox38 = new System.Windows.Forms.TextBox();
+            this.txtPJ111 = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PJ111 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -570,7 +574,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1286, 447);
+            this.gridControl1.Size = new System.Drawing.Size(1286, 443);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -600,7 +604,8 @@
             this.idx,
             this.PJ102,
             this.PJ103,
-            this.PJ105});
+            this.PJ105,
+            this.PJ111});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -641,7 +646,7 @@
             this.PJ18.FieldName = "PJ18";
             this.PJ18.Name = "PJ18";
             this.PJ18.Visible = true;
-            this.PJ18.VisibleIndex = 15;
+            this.PJ18.VisibleIndex = 16;
             this.PJ18.Width = 62;
             // 
             // PJ89
@@ -679,17 +684,17 @@
             this.PJ96.FieldName = "PJ96";
             this.PJ96.Name = "PJ96";
             this.PJ96.Visible = true;
-            this.PJ96.VisibleIndex = 2;
+            this.PJ96.VisibleIndex = 3;
             this.PJ96.Width = 61;
             // 
             // PJ97
             // 
-            this.PJ97.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PJ97.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.PJ97.AppearanceCell.Options.UseFont = true;
             this.PJ97.AppearanceCell.Options.UseTextOptions = true;
             this.PJ97.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.PJ97.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.PJ97.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PJ97.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.PJ97.AppearanceHeader.Options.UseFont = true;
             this.PJ97.AppearanceHeader.Options.UseTextOptions = true;
             this.PJ97.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -700,7 +705,7 @@
             this.PJ97.FieldName = "PJ97";
             this.PJ97.Name = "PJ97";
             this.PJ97.Visible = true;
-            this.PJ97.VisibleIndex = 4;
+            this.PJ97.VisibleIndex = 5;
             this.PJ97.Width = 44;
             // 
             // PJ14
@@ -721,7 +726,7 @@
             this.PJ14.FieldName = "PJ14";
             this.PJ14.Name = "PJ14";
             this.PJ14.Visible = true;
-            this.PJ14.VisibleIndex = 5;
+            this.PJ14.VisibleIndex = 6;
             this.PJ14.Width = 42;
             // 
             // PJ15
@@ -740,7 +745,7 @@
             this.PJ15.FieldName = "PJ15";
             this.PJ15.Name = "PJ15";
             this.PJ15.Visible = true;
-            this.PJ15.VisibleIndex = 3;
+            this.PJ15.VisibleIndex = 4;
             this.PJ15.Width = 84;
             // 
             // U0
@@ -764,7 +769,7 @@
             this.U0.UnboundExpression = "[PJ11] * [PJ96]+ [PJ10]";
             this.U0.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.U0.Visible = true;
-            this.U0.VisibleIndex = 6;
+            this.U0.VisibleIndex = 7;
             this.U0.Width = 82;
             // 
             // PJ10
@@ -785,7 +790,7 @@
             this.PJ10.FieldName = "PJ10";
             this.PJ10.Name = "PJ10";
             this.PJ10.Visible = true;
-            this.PJ10.VisibleIndex = 7;
+            this.PJ10.VisibleIndex = 8;
             this.PJ10.Width = 53;
             // 
             // PJ11
@@ -806,7 +811,7 @@
             this.PJ11.FieldName = "PJ11";
             this.PJ11.Name = "PJ11";
             this.PJ11.Visible = true;
-            this.PJ11.VisibleIndex = 8;
+            this.PJ11.VisibleIndex = 9;
             this.PJ11.Width = 62;
             // 
             // U1
@@ -832,7 +837,7 @@
             this.U1.UnboundExpression = "[U2] / [PJ96]";
             this.U1.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U1.Visible = true;
-            this.U1.VisibleIndex = 9;
+            this.U1.VisibleIndex = 10;
             this.U1.Width = 59;
             // 
             // PJ17
@@ -851,7 +856,7 @@
             this.PJ17.FieldName = "PJ17";
             this.PJ17.Name = "PJ17";
             this.PJ17.Visible = true;
-            this.PJ17.VisibleIndex = 10;
+            this.PJ17.VisibleIndex = 11;
             this.PJ17.Width = 43;
             // 
             // PJ13
@@ -870,7 +875,7 @@
             this.PJ13.FieldName = "PJ13";
             this.PJ13.Name = "PJ13";
             this.PJ13.Visible = true;
-            this.PJ13.VisibleIndex = 11;
+            this.PJ13.VisibleIndex = 12;
             // 
             // PJ12
             // 
@@ -888,7 +893,7 @@
             this.PJ12.FieldName = "PJ12";
             this.PJ12.Name = "PJ12";
             this.PJ12.Visible = true;
-            this.PJ12.VisibleIndex = 12;
+            this.PJ12.VisibleIndex = 13;
             // 
             // PJ16
             // 
@@ -906,7 +911,7 @@
             this.PJ16.FieldName = "PJ16";
             this.PJ16.Name = "PJ16";
             this.PJ16.Visible = true;
-            this.PJ16.VisibleIndex = 13;
+            this.PJ16.VisibleIndex = 14;
             this.PJ16.Width = 57;
             // 
             // U2
@@ -930,7 +935,7 @@
             this.U2.UnboundExpression = "[PJ12] * ([PJ11] * [PJ96]+ [PJ10]) - [PJ16]";
             this.U2.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.U2.Visible = true;
-            this.U2.VisibleIndex = 14;
+            this.U2.VisibleIndex = 15;
             // 
             // PJ19
             // 
@@ -948,7 +953,7 @@
             this.PJ19.FieldName = "PJ19";
             this.PJ19.Name = "PJ19";
             this.PJ19.Visible = true;
-            this.PJ19.VisibleIndex = 16;
+            this.PJ19.VisibleIndex = 17;
             this.PJ19.Width = 111;
             // 
             // PJ20
@@ -967,7 +972,7 @@
             this.PJ20.FieldName = "PJ20";
             this.PJ20.Name = "PJ20";
             this.PJ20.Visible = true;
-            this.PJ20.VisibleIndex = 17;
+            this.PJ20.VisibleIndex = 18;
             this.PJ20.Width = 112;
             // 
             // idx
@@ -990,12 +995,12 @@
             // 
             // PJ105
             // 
-            this.PJ105.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PJ105.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.PJ105.AppearanceCell.Options.UseFont = true;
             this.PJ105.AppearanceCell.Options.UseTextOptions = true;
             this.PJ105.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.PJ105.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.PJ105.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PJ105.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.PJ105.AppearanceHeader.Options.UseFont = true;
             this.PJ105.AppearanceHeader.Options.UseTextOptions = true;
             this.PJ105.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1004,11 +1009,11 @@
             this.PJ105.FieldName = "PJ105";
             this.PJ105.Name = "PJ105";
             this.PJ105.Visible = true;
-            this.PJ105.VisibleIndex = 18;
+            this.PJ105.VisibleIndex = 19;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(91, 70);
+            this.textBox7.Location = new System.Drawing.Point(91, 99);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(159, 26);
@@ -1150,7 +1155,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(91, 40);
+            this.comboBox3.Location = new System.Drawing.Point(91, 69);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(159, 24);
             this.comboBox3.TabIndex = 3;
@@ -1206,7 +1211,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(43, 43);
+            this.label28.Location = new System.Drawing.Point(43, 72);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(42, 16);
             this.label28.TabIndex = 77;
@@ -1215,7 +1220,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(44, 73);
+            this.label27.Location = new System.Drawing.Point(44, 102);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(42, 16);
             this.label27.TabIndex = 76;
@@ -2918,6 +2923,8 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.txtPJ111);
+            this.splitContainer2.Panel1.Controls.Add(this.label82);
             this.splitContainer2.Panel1.Controls.Add(this.textBox38);
             this.splitContainer2.Panel1.Controls.Add(this.textBox37);
             this.splitContainer2.Panel1.Controls.Add(this.textBox26);
@@ -2959,8 +2966,16 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.gridControl1);
             this.splitContainer2.Size = new System.Drawing.Size(1286, 583);
-            this.splitContainer2.SplitterDistance = 132;
+            this.splitContainer2.SplitterDistance = 136;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // textBox38
+            // 
+            this.textBox38.Location = new System.Drawing.Point(845, 71);
+            this.textBox38.Name = "textBox38";
+            this.textBox38.ReadOnly = true;
+            this.textBox38.Size = new System.Drawing.Size(105, 26);
+            this.textBox38.TabIndex = 117;
             // 
             // textBox37
             // 
@@ -3002,7 +3017,8 @@
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn5});
             this.view.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.view.Name = "view";
             this.view.OptionsBehavior.Editable = false;
@@ -3023,7 +3039,7 @@
             this.gridColumn2.FieldName = "PJ89";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.VisibleIndex = 3;
             // 
             // gridColumn3
             // 
@@ -3031,7 +3047,15 @@
             this.gridColumn3.FieldName = "PJ11";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.VisibleIndex = 4;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "类别";
+            this.gridColumn4.FieldName = "PJ105";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
             // 
             // tabPageTre
             // 
@@ -3286,21 +3310,48 @@
             this.radioButton20.Text = "使用库存数量";
             this.radioButton20.UseVisualStyleBackColor = true;
             // 
-            // gridColumn4
+            // txtPJ111
             // 
-            this.gridColumn4.Caption = "类别";
-            this.gridColumn4.FieldName = "PJ105";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
+            this.txtPJ111.Location = new System.Drawing.Point(91, 37);
+            this.txtPJ111.Name = "txtPJ111";
+            this.txtPJ111.ReadOnly = true;
+            this.txtPJ111.Size = new System.Drawing.Size(159, 26);
+            this.txtPJ111.TabIndex = 119;
             // 
-            // textBox38
+            // label82
             // 
-            this.textBox38.Location = new System.Drawing.Point(845, 71);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.ReadOnly = true;
-            this.textBox38.Size = new System.Drawing.Size(105, 26);
-            this.textBox38.TabIndex = 117;
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(44, 40);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(42, 16);
+            this.label82.TabIndex = 118;
+            this.label82.Text = "材质";
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "材质";
+            this.gridColumn5.FieldName = "PJ111";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            // 
+            // PJ111
+            // 
+            this.PJ111.AppearanceCell.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.PJ111.AppearanceCell.Options.UseFont = true;
+            this.PJ111.AppearanceCell.Options.UseTextOptions = true;
+            this.PJ111.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.PJ111.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.PJ111.AppearanceHeader.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.PJ111.AppearanceHeader.Options.UseFont = true;
+            this.PJ111.AppearanceHeader.Options.UseTextOptions = true;
+            this.PJ111.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.PJ111.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.PJ111.Caption = "材质";
+            this.PJ111.FieldName = "PJ111";
+            this.PJ111.Name = "PJ111";
+            this.PJ111.Visible = true;
+            this.PJ111.VisibleIndex = 2;
             // 
             // R_Frmsuliaobuqitacontract
             // 
@@ -3648,5 +3699,9 @@
         private System . Windows . Forms . TextBox textBox37;
         private DevExpress . XtraGrid . Columns . GridColumn gridColumn4;
         private System . Windows . Forms . TextBox textBox38;
+        private System . Windows . Forms . TextBox txtPJ111;
+        private System . Windows . Forms . Label label82;
+        private DevExpress . XtraGrid . Columns . GridColumn gridColumn5;
+        private DevExpress . XtraGrid . Columns . GridColumn PJ111;
     }
 }

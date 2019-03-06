@@ -29,7 +29,7 @@ namespace MulaolaoLibrary
         private decimal? _pj97;
         private decimal? _pj14;
         private string _pj15;
-        private long? _pj16;
+        private decimal? _pj16;
         private string _pj17;
         private string _pj18;
         private DateTime? _pj19;
@@ -431,7 +431,7 @@ namespace MulaolaoLibrary
         /// <summary>
         /// 预付款
         /// </summary>
-        public long? PJ16
+        public decimal? PJ16
         {
             set
             {
@@ -1683,7 +1683,7 @@ namespace MulaolaoLibrary
             }
         }
         /// <summary>
-        /// 
+        /// 材质
         /// </summary>
         public string PJ111
         {

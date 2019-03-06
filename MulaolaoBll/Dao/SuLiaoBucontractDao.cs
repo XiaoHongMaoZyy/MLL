@@ -628,5 +628,199 @@ namespace MulaolaoBll.Dao
                 
             }
         }
+
+        /// <summary>
+        /// 是否存在同单号  物品名称  规格
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool Exists ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . Append ( "SELECT COUNT(1) FROM R_PQS WHERE " );
+            strSql . Append ( " PJ92=@PJ92 " );
+            strSql . Append ( "AND PJ09=@PJ09 " );
+            strSql . Append ( "AND PJ89=@PJ89 " );
+            SqlParameter [ ] parameter = {
+                new SqlParameter("@PJ92",SqlDbType.NVarChar),
+                new SqlParameter("@PJ09",SqlDbType.NVarChar),
+                new SqlParameter("@PJ89",SqlDbType.NVarChar)
+            };
+            parameter [ 0 ] . Value = model . PJ92;
+            parameter [ 1 ] . Value = model . PJ09;
+            parameter [ 2 ] . Value = model . PJ89;
+            return SqlHelper . Exists ( strSql . ToString ( ) ,parameter );
+        }
+
+        /// <summary>
+        /// 新建
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool SaveTable ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . Append ( "INSERT INTO R_PQS (PJ03,PJ09,PJ10,PJ11,PJ12,PJ13,PJ14,PJ15,PJ16,PJ17,PJ18,PJ19,PJ20,PJ89,PJ92,PJ93,PJ95,PJ96,PJ97,PJ105,PJ111) " );
+            strSql . Append ( "VALUES (@PJ03,@PJ09,@PJ10,@PJ11,@PJ12,@PJ13,@PJ14,@PJ15,@PJ16,@PJ17,@PJ18,@PJ19,@PJ20,@PJ89,@PJ92,@PJ93,@PJ95,@PJ96,@PJ97,@PJ105,@PJ111)" );
+            SqlParameter [ ] parameter = {
+                   new SqlParameter("@PJ03",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ09",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ10",SqlDbType.BigInt),
+                   new SqlParameter("@PJ11",SqlDbType.Decimal),
+                   new SqlParameter("@PJ12",SqlDbType.Decimal),
+                   new SqlParameter("@PJ13",SqlDbType.Decimal),
+                   new SqlParameter("@PJ14",SqlDbType.Decimal),
+                   new SqlParameter("@PJ15",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ16",SqlDbType.Decimal),
+                   new SqlParameter("@PJ17",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ18",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ19",SqlDbType.Date),
+                   new SqlParameter("@PJ20",SqlDbType.Date),
+                   new SqlParameter("@PJ89",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ92",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ93",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ95",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ96",SqlDbType.BigInt),
+                   new SqlParameter("@PJ97",SqlDbType.Decimal),
+                   new SqlParameter("@PJ105",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ111",SqlDbType.NVarChar)
+            };
+            parameter [ 0 ] . Value = model . PJ03;
+            parameter [ 1 ] . Value = model . PJ09;
+            parameter [ 2 ] . Value = model . PJ10;
+            parameter [ 3 ] . Value = model . PJ11;
+            parameter [ 4 ] . Value = model . PJ12;
+            parameter [ 5 ] . Value = model . PJ13;
+            parameter [ 6 ] . Value = model . PJ14;
+            parameter [ 7 ] . Value = model . PJ15;
+            parameter [ 8 ] . Value = model . PJ16;
+            parameter [ 9 ] . Value = model . PJ17;
+            parameter [ 10 ] . Value = model . PJ18;
+            parameter [ 11 ] . Value = model . PJ19;
+            parameter [ 12 ] . Value = model . PJ20;
+            parameter [ 13 ] . Value = model . PJ89;
+            parameter [ 14 ] . Value = model . PJ92;
+            parameter [ 15 ] . Value = model . PJ93;
+            parameter [ 16 ] . Value = model . PJ95;
+            parameter [ 17 ] . Value = model . PJ96;
+            parameter [ 18 ] . Value = model . PJ97;
+            parameter [ 19 ] . Value = model . PJ105;
+            parameter [ 20 ] . Value = model . PJ111;
+            int rows = SqlHelper . ExecuteNonQuery ( strSql . ToString ( ) ,parameter );
+            return rows > 0 ? true : false;
+        }
+
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool EditTable ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . Append ( "UPDATE R_PQS SET " );
+            strSql . Append ( "PJ03=@PJ03," );
+            strSql . Append ( "PJ09=@PJ09," );
+            strSql . Append ( "PJ10=@PJ10," );
+            strSql . Append ( "PJ11=@PJ11," );
+            strSql . Append ( "PJ12=@PJ12," );
+            strSql . Append ( "PJ13=@PJ13," );
+            strSql . Append ( "PJ14=@PJ14," );
+            strSql . Append ( "PJ15=@PJ15," );
+            strSql . Append ( "PJ16=@PJ16," );
+            strSql . Append ( "PJ17=@PJ17," );
+            strSql . Append ( "PJ18=@PJ18," );
+            strSql . Append ( "PJ19=@PJ19," );
+            strSql . Append ( "PJ20=@PJ20," );
+            strSql . Append ( "PJ89=@PJ89," );
+            strSql . Append ( "PJ93=@PJ93," );
+            strSql . Append ( "PJ96=@PJ96," );
+            strSql . Append ( "PJ97=@PJ97," );
+            strSql . Append ( "PJ105=@PJ105," );
+            strSql . Append ( "PJ111=@PJ111 " );
+            strSql . Append ( "WHERE PJ92=@PJ92 AND idx=@idx" );
+            SqlParameter [ ] parameter = {
+                   new SqlParameter("@PJ03",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ09",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ10",SqlDbType.BigInt),
+                   new SqlParameter("@PJ11",SqlDbType.Decimal),
+                   new SqlParameter("@PJ12",SqlDbType.Decimal),
+                   new SqlParameter("@PJ13",SqlDbType.Decimal),
+                   new SqlParameter("@PJ14",SqlDbType.Decimal),
+                   new SqlParameter("@PJ15",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ16",SqlDbType.Decimal),
+                   new SqlParameter("@PJ17",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ18",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ19",SqlDbType.Date),
+                   new SqlParameter("@PJ20",SqlDbType.Date),
+                   new SqlParameter("@PJ89",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ92",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ93",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ96",SqlDbType.BigInt),
+                   new SqlParameter("@PJ97",SqlDbType.Decimal),
+                   new SqlParameter("@PJ105",SqlDbType.NVarChar),
+                   new SqlParameter("@PJ111",SqlDbType.NVarChar),
+                   new SqlParameter("@idx",SqlDbType.Int)
+            };
+            parameter [ 0 ] . Value = model . PJ03;
+            parameter [ 1 ] . Value = model . PJ09;
+            parameter [ 2 ] . Value = model . PJ10;
+            parameter [ 3 ] . Value = model . PJ11;
+            parameter [ 4 ] . Value = model . PJ12;
+            parameter [ 5 ] . Value = model . PJ13;
+            parameter [ 6 ] . Value = model . PJ14;
+            parameter [ 7 ] . Value = model . PJ15;
+            parameter [ 8 ] . Value = model . PJ16;
+            parameter [ 9 ] . Value = model . PJ17;
+            parameter [ 10 ] . Value = model . PJ18;
+            parameter [ 11 ] . Value = model . PJ19;
+            parameter [ 12 ] . Value = model . PJ20;
+            parameter [ 13 ] . Value = model . PJ89;
+            parameter [ 14 ] . Value = model . PJ92;
+            parameter [ 15 ] . Value = model . PJ93;
+            parameter [ 16 ] . Value = model . PJ96;
+            parameter [ 17 ] . Value = model . PJ97;
+            parameter [ 18 ] . Value = model . PJ105;
+            parameter [ 19 ] . Value = model . PJ111;
+            parameter [ 20 ] . Value = model . IDX;
+            int rows = SqlHelper . ExecuteNonQuery ( strSql . ToString ( ) ,parameter );
+            return rows > 0 ? true : false;
+        }
+
+        /// <summary>
+        /// 是否和上次一致的数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public DataTable getTableForBuild ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . Append ( "SELECT PJ11,PJ12 FROM R_PQS WHERE PJ95=@PJ95 AND PJ09=@PJ09 AND PJ89=@PJ89 AND PJ01='' AND PJ92=(SELECT MAX(PJ92) FROM R_PQS WHERE PJ95=@PJ95 AND PJ09=@PJ09 AND PJ89=@PJ89 AND PJ01='')" );
+            SqlParameter [ ] parameter = {
+                new SqlParameter("@PJ95",SqlDbType.NVarChar),
+                new SqlParameter("@PJ09",SqlDbType.NVarChar),
+                new SqlParameter("@PJ89",SqlDbType.NVarChar)
+            };
+            parameter [ 0 ] . Value = model . PJ95;
+            parameter [ 1 ] . Value = model . PJ09;
+            parameter [ 2 ] . Value = model . PJ89;
+
+            return SqlHelper . ExecuteDataTable ( strSql . ToString ( ) );
+        }
+
+        /// <summary>
+        /// 删除一行数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool Delete ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            StringBuilder strSql = new StringBuilder ( );
+            strSql . AppendFormat ( "DELETE FROM R_PQS WHERE PJ92='{1}' AND idx='{0}'" ,model . PJ92 ,model . IDX );
+
+            int rows = SqlHelper . ExecuteNonQuery ( strSql . ToString ( ) );
+            return rows > 0 ? true : false;
+        }
+
     }
 }

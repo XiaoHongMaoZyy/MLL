@@ -243,5 +243,20 @@ namespace MulaolaoLibrary
                 _ez014 = value;
             }
         }
+        private string _ez017;
+        /// <summary>
+        /// 人员编号
+        /// </summary>
+        public string EZ017
+        {
+            get
+            {
+                return _ez017;
+            }
+            set
+            {
+                _ez017 = value;
+            }
+        }
     }
 }

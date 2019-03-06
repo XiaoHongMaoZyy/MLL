@@ -53,6 +53,31 @@ namespace MulaolaoBll
         public static string packAccess="包装辅料";
 
         /// <summary>
+        /// 347材质  POF
+        /// </summary>
+        public static string POF="POF";
+
+        /// <summary>
+        /// 347材质  PE
+        /// </summary>
+        public static string PE="PE";
+
+        /// <summary>
+        /// 347材质  PP
+        /// </summary>
+        public static string PP="PP";
+
+        /// <summary>
+        /// 347材质  PPC
+        /// </summary>
+        public static string PPC="PPC";
+
+        /// <summary>
+        /// 347材质  PET
+        /// </summary>
+        public static string PET="PET";
+
+        /// <summary>
         /// 外箱
         /// </summary>
         public static string outBox="外箱";

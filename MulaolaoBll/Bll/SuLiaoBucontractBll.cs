@@ -187,5 +187,57 @@ namespace MulaolaoBll.Bll
         {
             return dao.UpdateOfReveciable( modelAm ,oddNum );
         }
+
+
+        /// <summary>
+        /// 是否存在同单号  物品名称  规格
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool Exists ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            return dao . Exists ( model );
+        }
+
+        /// <summary>
+        /// 新建
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool SaveTable ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            return dao . SaveTable ( model );
+        }
+
+        /// <summary>
+        /// 是否和上次一致的数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public DataTable getTableForBuild ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            return dao . getTableForBuild ( model );
+        }
+
+        /// <summary>
+        /// 删除一行数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool Delete ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            return dao . Delete ( model );
+        }
+
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool EditTable ( MulaolaoLibrary . SuLiaoBuQiContractLibrary model )
+        {
+            return dao . EditTable ( model );
+        }
+
     }
 }

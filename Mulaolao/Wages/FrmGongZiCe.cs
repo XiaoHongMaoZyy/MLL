@@ -532,6 +532,7 @@ namespace Mulaolao.Wages
                     model . EZ009 = 0;
                     model . EZ010 = 0;
                     model . EZ011 = dt . Rows [ i ] [ "GZ16" ] . ToString ( );
+                    model . EZ017 = dt . Rows [ i ] [ "GZ33" ] . ToString ( );
 
                     model . IDX = bll . ExistsUpIn ( model );
                     if ( model . IDX > 0 )
